@@ -86,6 +86,30 @@ DEPENDENCIES:
   - SDAutoLayout
   - SDWebImage
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - ASIHTTPRequest
+    - BHBPopView
+    - DateTools
+    - DCPathButton
+    - DKNightVersion
+    - FMDB
+    - HappyDNS
+    - JSBadgeView
+    - LEETheme
+    - MBProgressHUD
+    - MJExtension
+    - MJRefresh
+    - MLEmojiLabel
+    - MLLabel
+    - Qiniu
+    - Reachability
+    - RongCloudIMKit
+    - SDAutoLayout
+    - SDWebImage
+    - TTTAttributedLabel
+
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   ASIHTTPRequest: ec013992946676b7978dcbde6396d57312d21db4
@@ -104,11 +128,11 @@ SPEC CHECKSUMS:
   MLLabel: 71315bd11dc45bebba159e07427496ea8bfc2b0a
   Qiniu: d57cb922b5c31f0d1cfe2c8fea3cf83997cdcf62
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  RongCloudIMKit: 0b93700b17d224c7c213815b8a23a9c356fe20e2
+  RongCloudIMKit: e0cddb316d359ccafefe7beaa4eb10c0700845e2
   SDAutoLayout: e9b36d04b8c0b504762a04d76fbbe5108944297a
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 
 PODFILE CHECKSUM: 51893e75958b790079d48c790567e74039952971
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.5.3
