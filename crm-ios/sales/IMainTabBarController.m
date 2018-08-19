@@ -50,8 +50,8 @@
     _preferUtil = [PreferUtil new];
     [_preferUtil initIN];
     NSArray *titles = @[@"消息", @"阅读", @"工作", @"客户", @"我"];
-    NSArray *images = @[@"tabbar_chat", @"tabbar_read", @"tabbar_work", @"tabbar_customer", @"tabbar_me"];
-    NSArray *imagesed = @[@"tabbar_chated",@"tabbar_readed",@"tabbar_worked",@"tabbar_customered",@"tabbar_med"];
+    NSArray *images = @[@"tab_message_nor", @"tab_read_nor", @"tab_work_nor", @"tab_customer_nor", @"tab_me_nor"];
+    NSArray *imagesed = @[@"tab_message_sel",@"tab_read_sel",@"tab_work_sel",@"tab_customer_sel",@"tab_me_sel"];
     conversationVC = [[IConversationListViewController alloc] init];
     conversationVC.title = titles[0];
     readVC = [[ReadViewController alloc] init];

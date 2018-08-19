@@ -43,24 +43,24 @@
     NSArray *childItemsArray = @[
                                  @{kClassKey  : @"OConversationListViewController",
                                    kTitleKey  : @"消息",
-                                   kImgKey    : @"tabbar_chat",
-                                   kSelImgKey : @"tabbar_chated"
+                                   kImgKey    : @"tab_message_nor",
+                                   kSelImgKey : @"tab_message_sel"
                                    },
                                  
                                  @{kClassKey  : @"CircleTableViewController",
                                    kTitleKey  : @"圈子",
-                                   kImgKey    : @"tabbar_circle",
-                                   kSelImgKey : @"tabbar_circled"
+                                   kImgKey    : @"tab_moments_nor",
+                                   kSelImgKey : @"tab_moments_sel"
                                    },
                                  @{kClassKey  : @"ContactTableViewController",
                                    kTitleKey  : @"联系人",
-                                   kImgKey    : @"tabbar_contact",
-                                   kSelImgKey : @"tabbar_contacted",
+                                   kImgKey    : @"tab_contacts_nor",
+                                   kSelImgKey : @"tab_contacts_sel",
                                    },
                                  @{kClassKey  : @"OMeViewController",
                                    kTitleKey  : @"我",
-                                   kImgKey    : @"tabbar_me",
-                                   kSelImgKey : @"tabbar_med",
+                                   kImgKey    : @"tab_me_nor",
+                                   kSelImgKey : @"tab_me_sel",
                                    }
                                  ];
     conversationVC = [[OConversationListViewController alloc] init];

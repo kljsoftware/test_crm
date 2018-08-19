@@ -51,15 +51,35 @@
 }
 - (void)setUpView{
     User *user = [Config getUser];
-    _avatarImage.layer.cornerRadius = 28;
+    _avatarImage.layer.cornerRadius = 24;
     _avatarImage.layer.masksToBounds = true;
     [_avatarImage loadPortrait:user.avatar];
     _nameLabel.text = user.name;
-    _mobileLabel.text = user.mobile;
+    _mobileLabel.text = [NSString stringWithFormat:@"手机号码：%@",user.mobile];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([indexPath section] == 2) {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([indexPath section] == 0) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
+        OMeInfoTableViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"OMeInfo"];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    
+    } else if ([indexPath section] == 1) {
+        if ([indexPath row] == 0) {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
+            SettingTableViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"Setting"];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        } else if ([indexPath row] == 1) {
+            OrganizationTableViewController *vc = [[OrganizationTableViewController alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    
+    } else if ([indexPath section] == 2) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"退出" message:@"确定要退出移动互联吗？" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -72,29 +92,6 @@
         [alert addAction:sure];
         [alert addAction:cancel];
         [self presentViewController:alert animated:YES completion:^{}];
-    }
-    if ([indexPath section] == 1) {
-        if ([indexPath row] == 0) {
-            OrganizationTableViewController *vc = [[OrganizationTableViewController alloc] init];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-    }
-    if ([indexPath section] == 0) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
-        OMeInfoTableViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"OMeInfo"];
-        vc.hidesBottomBarWhenPushed = YES;
-//        vc.view.backgroundColor = [UIColor whiteColor];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    
-    if ([indexPath section] == 1) {
-        if ([indexPath row] == 1) {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
-            SettingTableViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"Setting"];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
     }
 }
 

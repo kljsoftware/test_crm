@@ -6,8 +6,8 @@
 //  Copyright © 2016年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
-@interface OrganizationTableViewController : UITableViewController
+@interface OrganizationTableViewController : BaseTableViewController
 
 @end

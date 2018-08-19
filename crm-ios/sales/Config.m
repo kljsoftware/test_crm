@@ -135,11 +135,6 @@ NSString * const password = @"password";
     return [userDefaults integerForKey:orgUserID];
 }
 
-+ (NSString *)getPhoneNumber {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    return [userDefaults objectForKey:phoneNumber];
-}
-
 + (NSString *)getPassword {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     return [userDefaults objectForKey:password];

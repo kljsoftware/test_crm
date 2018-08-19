@@ -24,7 +24,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gss-Ia-GXr">
                                 <rect key="frame" x="30" y="74" width="315" height="153"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="KeX-Lh-xZL">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_contacts" translatesAutoresizingMaskIntoConstraints="NO" id="KeX-Lh-xZL">
                                         <rect key="frame" x="0.0" y="15" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="7Gj-en-JZJ"/>
@@ -47,7 +47,7 @@
                                             <constraint firstAttribute="height" constant="1" id="viE-Lx-uoe"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="aHz-7q-yK1">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_lock" translatesAutoresizingMaskIntoConstraints="NO" id="aHz-7q-yK1">
                                         <rect key="frame" x="0.0" y="66" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="BDD-iR-bq1"/>
@@ -79,7 +79,7 @@
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="write" translatesAutoresizingMaskIntoConstraints="NO" id="gXO-Uh-rUw">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_write" translatesAutoresizingMaskIntoConstraints="NO" id="gXO-Uh-rUw">
                                         <rect key="frame" x="0.0" y="117" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="igH-0A-KjR"/>
@@ -208,7 +208,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="Gi4-J6-8Rf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_contacts" translatesAutoresizingMaskIntoConstraints="NO" id="Gi4-J6-8Rf">
                                 <rect key="frame" x="30" y="89" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="e8U-tZ-LKc"/>
@@ -231,7 +231,7 @@
                                     <constraint firstAttribute="height" constant="1" id="jed-xE-JbJ"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="number" translatesAutoresizingMaskIntoConstraints="NO" id="DVS-R6-Upj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_number" translatesAutoresizingMaskIntoConstraints="NO" id="DVS-R6-Upj">
                                 <rect key="frame" x="30" y="140" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="epJ-1p-FGE"/>
@@ -333,7 +333,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="GZg-VP-Y1i">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_contacts" translatesAutoresizingMaskIntoConstraints="NO" id="GZg-VP-Y1i">
                                 <rect key="frame" x="30" y="89" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="P8i-9h-iAn"/>
@@ -356,7 +356,7 @@
                                     <constraint firstAttribute="height" constant="1" id="pyO-3t-rdK"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="P44-4B-8Rf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_lock" translatesAutoresizingMaskIntoConstraints="NO" id="P44-4B-8Rf">
                                 <rect key="frame" x="30" y="140" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Kpn-ag-MiB"/>
@@ -379,7 +379,7 @@
                                     <constraint firstAttribute="height" constant="1" id="6s8-IV-qkB"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="n3D-9a-p7o">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_lock" translatesAutoresizingMaskIntoConstraints="NO" id="n3D-9a-p7o">
                                 <rect key="frame" x="30" y="191" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="Jz2-bH-QiU"/>
@@ -475,7 +475,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="3z5-Mp-HMi">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_contacts" translatesAutoresizingMaskIntoConstraints="NO" id="3z5-Mp-HMi">
                                 <rect key="frame" x="30" y="89" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="KeH-Jv-vsa"/>
@@ -498,7 +498,7 @@
                                     <constraint firstAttribute="height" constant="1" id="ns6-SJ-zCO"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="number" translatesAutoresizingMaskIntoConstraints="NO" id="ox5-qm-FUS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_number" translatesAutoresizingMaskIntoConstraints="NO" id="ox5-qm-FUS">
                                 <rect key="frame" x="30" y="140" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="1Cg-1f-VcO"/>
@@ -533,7 +533,7 @@
                                     <constraint firstAttribute="height" constant="1" id="Jll-pk-B1O"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="DjN-dM-IDU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_lock" translatesAutoresizingMaskIntoConstraints="NO" id="DjN-dM-IDU">
                                 <rect key="frame" x="30" y="191" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="aUr-sw-yR1"/>
@@ -556,7 +556,7 @@
                                     <constraint firstAttribute="height" constant="1" id="wo2-Ff-s0Q"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="TDD-Cz-pWx">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_lock" translatesAutoresizingMaskIntoConstraints="NO" id="TDD-Cz-pWx">
                                 <rect key="frame" x="30" y="242" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="Xh3-FD-6hL"/>
@@ -690,9 +690,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="man" width="30" height="30"/>
-        <image name="number" width="30" height="30"/>
-        <image name="password" width="30" height="30"/>
-        <image name="write" width="30" height="30"/>
+        <image name="login_contacts" width="30" height="30"/>
+        <image name="login_lock" width="30" height="30"/>
+        <image name="login_number" width="30" height="30"/>
+        <image name="login_write" width="30" height="30"/>
     </resources>
 </document>

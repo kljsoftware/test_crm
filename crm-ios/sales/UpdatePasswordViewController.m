@@ -11,6 +11,7 @@
 #import "NSStringUtils.h"
 #import "Config.h"
 #import "Utils.h"
+#import "GlobalDefines.h"
 #import <AFNetworking.h>
 #import <MBProgressHUD.h>
 @interface UpdatePasswordViewController ()
@@ -27,12 +28,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"更改密码";
+    
+    self.view.backgroundColor = SDColor(242, 242, 242, 1.0);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonClicked)];
+
+    self.oldText.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 30)];
+    self.nowText.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 30)];
+    self.sureText.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 30)];
+    self.oldText.rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    self.nowText.rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    self.sureText.rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    self.oldText.leftViewMode = UITextFieldViewModeAlways;
+    self.nowText.leftViewMode = UITextFieldViewModeAlways;
+    self.sureText.leftViewMode = UITextFieldViewModeAlways;
+    self.oldText.rightViewMode = UITextFieldViewModeAlways;
+    self.nowText.rightViewMode = UITextFieldViewModeAlways;
+    self.sureText.rightViewMode = UITextFieldViewModeAlways;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)clearPwdClicked:(UIButton *)sender {
+    if (sender.tag == 100) {
+        self.oldText.text = @"";
+    } else if (sender.tag == 101) {
+        self.nowText.text = @"";
+    } else {
+        self.sureText.text = @"";
+    }
 }
 
 - (void)saveButtonClicked{

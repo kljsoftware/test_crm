@@ -48,7 +48,7 @@
 
 - (void) setUpSubview{
 
-    _accountField.text = [Config getPhoneNumber];
+    _accountField.text = [Config getUser].mobile;
     _passwordField.text = [Config getPassword];
     _accountField.delegate = self;
     _passwordField.delegate = self;

@@ -28,7 +28,7 @@
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     backBtn.frame = CGRectMake(0, 6, 87, 23);
     UIImageView *backImg = [[UIImageView alloc]
-                            initWithImage:[UIImage imageNamed:@"navigator_btn_back"]];
+                            initWithImage:[UIImage imageNamed:@"common_btn_back"]];
     backImg.frame = CGRectMake(-6, 4, 10, 17);
     [backBtn addSubview:backImg];
     UILabel *backText =
