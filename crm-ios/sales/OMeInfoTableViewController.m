@@ -9,13 +9,6 @@
 #import "OMeInfoTableViewController.h"
 #import "UIImageView+Util.h"
 #import "Config.h"
-#import "ONameUpdateViewController.h"
-#import "OAreaUpdateViewController.h"
-#import "ODescUpdateViewController.h"
-#import "OEmailUpdateViewController.h"
-#import "OWeChatUpdateViewController.h"
-#import "OWeiBoUpdateViewController.h"
-#import "OLinkedUpdateViewController.h"
 #import "User.h"
 #import "TZImagePickerController.h"
 #import "SalesApi.h"
@@ -24,19 +17,19 @@
 #import <MJExtension.h>
 #import <AFNetworking.h>
 #import <MBProgressHUD.h>
-@interface OMeInfoTableViewController ()<TZImagePickerControllerDelegate,ONameUpdateDelegate,OAreaUpdateDelegate,ODescUpdateDelegate,OEmailUpdateDelegate,OWeChatUpdateDelegate,OWeiBoUpdateDelegate,OLinkedUpdateDelegate>
+
+@interface OMeInfoTableViewController ()<TZImagePickerControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
+
 @property (nonatomic,weak) IBOutlet UIImageView     *avatarImage;
-@property (nonatomic,weak) IBOutlet UILabel         *nameLabel;
+@property (nonatomic,weak) IBOutlet UITextField         *nameTF;
 @property (nonatomic,weak) IBOutlet UILabel         *mobileLabel;
-
 @property (nonatomic,weak) IBOutlet UILabel         *sexLabel;
-@property (nonatomic,weak) IBOutlet UILabel         *areaLabel;
-@property (nonatomic,weak) IBOutlet UILabel         *descLabel;
-
-@property (nonatomic,weak) IBOutlet UILabel         *emailLabel;
-@property (nonatomic,weak) IBOutlet UILabel         *wechatLabel;
-@property (nonatomic,weak) IBOutlet UILabel         *weiboLabel;
-@property (nonatomic,weak) IBOutlet UILabel         *linkedLabel;
+@property (nonatomic,weak) IBOutlet UITextField         *areaTF;
+@property (nonatomic,weak) IBOutlet UITextField         *emailTF;
+@property (nonatomic,weak) IBOutlet UITextField         *wechatTF;
+@property (nonatomic,weak) IBOutlet UITextField         *weiboTF;
+@property (nonatomic,weak) IBOutlet UITextField         *linkedinTF;
+@property (nonatomic,weak) IBOutlet UITextView         *descTV;
 @property (nonatomic,assign) BOOL                   imageflag;
 @property (nonatomic,strong) UIImage                *image;
 @property (nonatomic,strong) NSString               *avatar;
@@ -55,156 +48,98 @@
 }
 - (void)setUpView{
     _user = [Config getUser];
+    _avatarImage.layer.cornerRadius = 22;
+    _avatarImage.layer.masksToBounds = true;
     [_avatarImage loadPortrait:_user.avatar];
-    _nameLabel.text = _user.name;
+    _nameTF.text = _user.name;
     _mobileLabel.text = _user.mobile;
-    _emailLabel.text = _user.email;
-    _areaLabel.text = _user.area;
-    _linkedLabel.text = _user.linkedin;
-    _descLabel.text = _user.Description;
-    _weiboLabel.text = _user.weibo;
-    _wechatLabel.text = _user.wechat;
-    if ([_user.sex isEqualToString:@"1"]) {
-        _sexLabel.text = @"男";
-    }else{
-        _sexLabel.text = @"女";
-    }
+    _emailTF.text = _user.email;
+    _areaTF.text = _user.area;
+    _linkedinTF.text = _user.linkedin;
+    _descTV.text = _user.Description;
+    _weiboTF.text = _user.weibo;
+    _wechatTF.text = _user.wechat;
+    _sexLabel.text = [_user.sex isEqualToString:@"1"] ? @"男" : @"女";
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    NSIndexPath *index = [[NSIndexPath alloc] initWithIndex:section];
-    if (index.section == 0) {
-        return 24;
-    }
-    return 5;
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.1;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([indexPath section] == 0) {
-        if ([indexPath row] == 0) {
-            TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
-            imagePickerVc.allowCrop = YES;
-            [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL flag) {
-                _avatarImage.image = photos[0];
-                _image = photos[0];
-                _imageflag = true;
-            }];
-            [self presentViewController:imagePickerVc animated:YES completion:nil];
-        }else if ([indexPath row] == 1){
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
-            ONameUpdateViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"OName"];
-            vc.hidesBottomBarWhenPushed = YES;
-            vc.view.backgroundColor = [UIColor whiteColor];
-            vc.delegate = self;
-            vc.model = _nameLabel.text;
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if([indexPath row] == 2){
-        }
-    }else if([indexPath section] == 1){
-        if ([indexPath row] == 0) {
-            [tableView deselectRowAtIndexPath:indexPath animated:NO];
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                
-            }];
-            UIAlertAction *nanAction = [UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                _sexLabel.text = @"男";
-            }];
-            UIAlertAction *nvAction = [UIAlertAction actionWithTitle:@"女" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                _sexLabel.text = @"女";
-            }];
-            
-            
-            [alertController addAction:cancelAction];
-            [alertController addAction:nanAction];
-            [alertController addAction:nvAction];
-            
-            [self presentViewController:alertController animated:YES completion:nil];
-        }
-        else if([indexPath row] == 1){
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
-            OAreaUpdateViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"OArea"];
-            vc.hidesBottomBarWhenPushed = YES;
-            vc.view.backgroundColor = [UIColor whiteColor];
-            vc.delegate = self;
-            vc.model = _areaLabel.text;
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if([indexPath row] == 2){
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
-            ODescUpdateViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ODesc"];
-            vc.hidesBottomBarWhenPushed = YES;
-            vc.view.backgroundColor = [UIColor whiteColor];
-            vc.delegate = self;
-            vc.model = _descLabel.text;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-    }else if([indexPath section] == 2){
-        if ([indexPath row] == 0) {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
-            OEmailUpdateViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"OEmail"];
-            vc.hidesBottomBarWhenPushed = YES;
-            vc.view.backgroundColor = [UIColor whiteColor];
-            vc.delegate = self;
-            vc.model = _emailLabel.text;
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if([indexPath row] == 1){
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
-            OWeChatUpdateViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"OWeChat"];
-            vc.hidesBottomBarWhenPushed = YES;
-            vc.view.backgroundColor = [UIColor whiteColor];
-            vc.delegate = self;
-            vc.model = _wechatLabel.text;
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if([indexPath row] == 2){
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
-            OWeiBoUpdateViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"OWeiBo"];
-            vc.hidesBottomBarWhenPushed = YES;
-            vc.view.backgroundColor = [UIColor whiteColor];
-            vc.delegate = self;
-            vc.model = _weiboLabel.text;
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if([indexPath row] == 3){
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
-            OLinkedUpdateViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"OLinked"];
-            vc.hidesBottomBarWhenPushed = YES;
-            vc.view.backgroundColor = [UIColor whiteColor];
-            vc.delegate = self;
-            vc.model = _linkedLabel.text;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([indexPath row] == 0) {
+        TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
+        imagePickerVc.allowCrop = YES;
+        [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL flag) {
+            _avatarImage.image = photos[0];
+            _image = photos[0];
+            _imageflag = true;
+        }];
+        [self presentViewController:imagePickerVc animated:YES completion:nil];
+        
+    } else if ([indexPath row] == 3) {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *nanAction = [UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            _sexLabel.text = @"男";
+        }];
+        UIAlertAction *nvAction = [UIAlertAction actionWithTitle:@"女" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            _sexLabel.text = @"女";
+        }];
+        [alertController addAction:cancelAction];
+        [alertController addAction:nanAction];
+        [alertController addAction:nvAction];
+        [self presentViewController:alertController animated:YES completion:nil];   
     }
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self textFieldDone];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return [textField resignFirstResponder];
+}
+
+- (void)textFieldDone {
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
 }
 
 - (void)nameUpdate:(NSString *)name{
-    _nameLabel.text = name;
+    _nameTF.text = name;
 }
 
 - (void)areaUpdate:(NSString *)area{
-    _areaLabel.text = area;
+    _areaTF.text = area;
 }
 
 - (void)descUpdate:(NSString *)desc{
-    _descLabel.text = desc;
+    _descTV.text = desc;
 }
 
 - (void)emailUpdate:(NSString *)email{
-    _emailLabel.text = email;
+    _emailTF.text = email;
 }
 
 - (void)wechatUpdate:(NSString *)wechat{
-    _wechatLabel.text = wechat;
+    _wechatTF.text = wechat;
 }
 
 - (void)weiboUpdate:(NSString *)weibo{
-    _weiboLabel.text = weibo;
+    _weiboTF.text = weibo;
 }
 
 - (void)linkedUpdate:(NSString *)linked{
-    _linkedLabel.text = linked;
+    _linkedinTF.text = linked;
 }
 - (void)saveButtonClicked{
     _hud = [Utils createHUD];
@@ -253,7 +188,6 @@
         
     }];
     [dataTask resume];
-    
 }
 
 - (void) upload:(NSString *)token{
@@ -316,14 +250,14 @@
 
 - (void)updateInfo{
     _user.id = _user.id;
-    _user.name = _nameLabel.text;
+    _user.name = _nameTF.text;
     _user.mobile = _mobileLabel.text;
-    _user.area = _areaLabel.text;
-    _user.Description = _descLabel.text;
-    _user.email = _emailLabel.text;
-    _user.wechat = _wechatLabel.text;
-    _user.weibo = _weiboLabel.text;
-    _user.linkedin = _linkedLabel.text;
+    _user.area = _areaTF.text;
+    _user.Description = _descTV.text;
+    _user.email = _emailTF.text;
+    _user.wechat = _wechatTF.text;
+    _user.weibo = _weiboTF.text;
+    _user.linkedin = _linkedinTF.text;
     if ([_sexLabel.text isEqualToString:@"男"]) {
         _user.sex = @"1";
     }else{
@@ -362,10 +296,7 @@
                     [[NSNotificationCenter defaultCenter]postNotification:notice];
                     
                     _hud.label.text = @"修改成功";
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        NSNotification *notice = [NSNotification notificationWithName:@"updateOrgUserInfo" object:nil];
-//                        [[NSNotificationCenter defaultCenter]postNotification:notice];
-//                    });
+
                     if (self.navigationController.viewControllers.count <= 1) {
                         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                     } else {
@@ -379,8 +310,8 @@
             }
             [_hud hideAnimated:YES afterDelay:1];
         }
-        
     }];
     [dataTask resume];
 }
+
 @end

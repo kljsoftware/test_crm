@@ -102,9 +102,8 @@
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    NSIndexPath *index = [[NSIndexPath alloc] initWithIndex:section];
-    if (index.section == 0) {
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
         return 0.1;
     }
     return 5;
