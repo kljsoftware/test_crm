@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2D3836BBFC1CA80BA446352E /* libPods-sales.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B737477090CDEC04E96A167E /* libPods-sales.a */; };
+		A3695BCC2129409200E3E0A6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCB2129409200E3E0A6 /* BaseViewController.m */; };
+		A3695BCF212942E700E3E0A6 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */; };
 		CE2E63A71DE525E200022F7A /* DetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E63A61DE525E200022F7A /* DetailsHeaderView.m */; };
 		CE4E1C061EAD94B80073CB45 /* ONameUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C051EAD94B80073CB45 /* ONameUpdateViewController.m */; };
 		CE4E1C091EADA1320073CB45 /* OAreaUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C081EADA1320073CB45 /* OAreaUpdateViewController.m */; };
@@ -69,7 +71,6 @@
 		CE93EC411E07BEF300D26948 /* UITabBar+badge.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC401E07BEF300D26948 /* UITabBar+badge.m */; };
 		CE93EC441E07BF9A00D26948 /* UIColor+RCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC431E07BF9A00D26948 /* UIColor+RCColor.m */; };
 		CE93EC471E07C0CB00D26948 /* RCDTabBarBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC461E07C0CB00D26948 /* RCDTabBarBtn.m */; };
-		CE93EC491E0920FA00D26948 /* unread.png in Resources */ = {isa = PBXBuildFile; fileRef = CE93EC481E0920FA00D26948 /* unread.png */; };
 		CE93EC4C1E0A692A00D26948 /* OSelectFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC4B1E0A692A00D26948 /* OSelectFriendsViewController.m */; };
 		CE93EC551E0A701D00D26948 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC541E0A701D00D26948 /* FriendTableViewCell.m */; };
 		CE93EC601E12088D00D26948 /* OConversationSettingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC5F1E12088D00D26948 /* OConversationSettingBaseViewController.m */; };
@@ -230,7 +231,6 @@
 		CEE8641A1DDAF0EC00695F0F /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE864191DDAEEC800695F0F /* FontAwesome.ttf */; };
 		CEE8641E1DDC298C00695F0F /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE8641D1DDC298B00695F0F /* Comment.m */; };
 		CEE864241DDD854F00695F0F /* OMeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE864231DDD854F00695F0F /* OMeViewController.storyboard */; };
-		CEE864261DDD972500695F0F /* Me.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE864251DDD972500695F0F /* Me.xcassets */; };
 		CEE8642A1DDD9D6C00695F0F /* CircleDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE864291DDD9D6C00695F0F /* CircleDetailsTableViewController.m */; };
 		CEE8642D1DDDA67700695F0F /* CircleDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE8642C1DDDA67700695F0F /* CircleDetailsTableViewCell.m */; };
 		CEE864301DDEA8F700695F0F /* BCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE8642F1DDEA8F700695F0F /* BCommentView.m */; };
@@ -258,6 +258,10 @@
 
 /* Begin PBXFileReference section */
 		740E17A0E5244D9EB2F89681 /* Pods-sales.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sales.release.xcconfig"; path = "Pods/Target Support Files/Pods-sales/Pods-sales.release.xcconfig"; sourceTree = "<group>"; };
+		A3695BCA2129409200E3E0A6 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		A3695BCB2129409200E3E0A6 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		A3695BCD212942E700E3E0A6 /* BaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		A6F1E260E0E33E263C971129 /* Pods-sales.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sales.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sales/Pods-sales.debug.xcconfig"; sourceTree = "<group>"; };
 		B737477090CDEC04E96A167E /* libPods-sales.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sales.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2E63A51DE525E200022F7A /* DetailsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsHeaderView.h; sourceTree = "<group>"; };
@@ -378,7 +382,6 @@
 		CE93EC431E07BF9A00D26948 /* UIColor+RCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RCColor.m"; sourceTree = "<group>"; };
 		CE93EC451E07C0CB00D26948 /* RCDTabBarBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDTabBarBtn.h; sourceTree = "<group>"; };
 		CE93EC461E07C0CB00D26948 /* RCDTabBarBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDTabBarBtn.m; sourceTree = "<group>"; };
-		CE93EC481E0920FA00D26948 /* unread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unread.png; sourceTree = "<group>"; };
 		CE93EC4A1E0A692A00D26948 /* OSelectFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSelectFriendsViewController.h; sourceTree = "<group>"; };
 		CE93EC4B1E0A692A00D26948 /* OSelectFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSelectFriendsViewController.m; sourceTree = "<group>"; };
 		CE93EC531E0A701D00D26948 /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
@@ -682,7 +685,6 @@
 		CEE8641C1DDC298B00695F0F /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		CEE8641D1DDC298B00695F0F /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		CEE864231DDD854F00695F0F /* OMeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OMeViewController.storyboard; sourceTree = "<group>"; };
-		CEE864251DDD972500695F0F /* Me.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Me.xcassets; sourceTree = "<group>"; };
 		CEE864281DDD9D6C00695F0F /* CircleDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleDetailsTableViewController.h; sourceTree = "<group>"; };
 		CEE864291DDD9D6C00695F0F /* CircleDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleDetailsTableViewController.m; sourceTree = "<group>"; };
 		CEE8642B1DDDA67700695F0F /* CircleDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleDetailsTableViewCell.h; sourceTree = "<group>"; };
@@ -903,6 +905,10 @@
 		CE93EC571E1109E100D26948 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A3695BCA2129409200E3E0A6 /* BaseViewController.h */,
+				A3695BCB2129409200E3E0A6 /* BaseViewController.m */,
+				A3695BCD212942E700E3E0A6 /* BaseTableViewController.h */,
+				A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -1566,10 +1572,8 @@
 		CEE863981DCB0FD800695F0F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CE93EC481E0920FA00D26948 /* unread.png */,
 				CEE864191DDAEEC800695F0F /* FontAwesome.ttf */,
 				CEE863991DCB100000695F0F /* Images.xcassets */,
-				CEE864251DDD972500695F0F /* Me.xcassets */,
 				CE61DC441E96160400421C7E /* image.bundle */,
 			);
 			name = Resources;
@@ -2095,12 +2099,10 @@
 				CEE864241DDD854F00695F0F /* OMeViewController.storyboard in Resources */,
 				CE93ECB31E1C9F1000D26948 /* IMain.storyboard in Resources */,
 				CE78A0501E601F5D008F321B /* Colleague.storyboard in Resources */,
-				CEE864261DDD972500695F0F /* Me.xcassets in Resources */,
 				CE78A0551E640B4F008F321B /* ReadView.storyboard in Resources */,
 				CEE8639A1DCB100000695F0F /* Images.xcassets in Resources */,
 				CE94DE761E31FCC10049BA71 /* ReadDetails.storyboard in Resources */,
 				CE93ECD61E2330D000D26948 /* RongCloud.bundle in Resources */,
-				CE93EC491E0920FA00D26948 /* unread.png in Resources */,
 				CED9D7541DE82643002FD5D7 /* CirclePublishViewController.storyboard in Resources */,
 				CE93ECD41E2330D000D26948 /* Emoji.plist in Resources */,
 				CEA456E91E5538A70011356B /* Customer.storyboard in Resources */,
@@ -2125,6 +2127,7 @@
 				"${PODS_ROOT}/DCPathButton/DCPathButton/Sounds/selected.caf",
 				"${PODS_ROOT}/DKNightVersion/DKNightVersion/ColorTable/DKColorTable.txt",
 				"${PODS_ROOT}/DateTools/DateTools/DateTools.bundle",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/JSBadgeView/JSBadgeView.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_Expression.plist",
@@ -2144,6 +2147,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/selected.caf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DKColorTable.txt",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DateTools.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JSBadgeView.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MLEmoji_Expression.plist",
@@ -2224,6 +2228,7 @@
 				CE78A0331E5C1AE2008F321B /* CustomerDeepViewController.m in Sources */,
 				CE9ECB551EA700BA0053BCA9 /* OrgEditViewController.m in Sources */,
 				CEE8639F1DCB17D200695F0F /* LoginViewController.m in Sources */,
+				A3695BCF212942E700E3E0A6 /* BaseTableViewController.m in Sources */,
 				CEA456D01E52FABF0011356B /* BlackBoardDetailsBottomBarViewController.m in Sources */,
 				CEC97EFF1DF160860040C356 /* EnteringContactViewController.m in Sources */,
 				CEA456E01E542E0C0011356B /* CustomerDbUtil.m in Sources */,
@@ -2296,6 +2301,7 @@
 				CEE8642D1DDDA67700695F0F /* CircleDetailsTableViewCell.m in Sources */,
 				CE546D1A1E768A7E00DCAC56 /* CircleUnreadTableViewController.m in Sources */,
 				CEF6CCFF1E80FE430076AA60 /* CreaterCustomerDetailsViewController.m in Sources */,
+				A3695BCC2129409200E3E0A6 /* BaseViewController.m in Sources */,
 				CE4E1C121EADE6EC0073CB45 /* OWeChatUpdateViewController.m in Sources */,
 				CE93ED241E2DC18800D26948 /* INoticeTableViewController.m in Sources */,
 				CE9ECB201E9DCBD50053BCA9 /* WorkStaffTableViewController.m in Sources */,

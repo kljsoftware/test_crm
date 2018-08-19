@@ -25,4 +25,7 @@
 + (NSInteger)getDbID;
 + (NSInteger)getOrgUserID;
 + (OrgUserInfo *)getOrgUser;
++ (NSString *)getPhoneNumber;
++ (NSString *)getPassword;
+
 @end

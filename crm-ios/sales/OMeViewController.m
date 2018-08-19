@@ -51,6 +51,8 @@
 }
 - (void)setUpView{
     User *user = [Config getUser];
+    _avatarImage.layer.cornerRadius = 28;
+    _avatarImage.layer.masksToBounds = true;
     [_avatarImage loadPortrait:user.avatar];
     _nameLabel.text = user.name;
     _mobileLabel.text = user.mobile;

@@ -35,6 +35,9 @@ NSString * const orgUserArea = @"orgarea";
 NSString * const orgUserWechat = @"orgwechat";
 NSString * const orgUserTitle = @"orgtitle";
 NSString * const dbID = @"dbid";
+NSString * const phoneNumber = @"phoneNumber";
+NSString * const password = @"password";
+
 @implementation Config
 
 + (int64_t)getOwnID
@@ -131,6 +134,17 @@ NSString * const dbID = @"dbid";
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     return [userDefaults integerForKey:orgUserID];
 }
+
++ (NSString *)getPhoneNumber {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults objectForKey:phoneNumber];
+}
+
++ (NSString *)getPassword {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults objectForKey:password];
+}
+
 + (OrgUserInfo *)getOrgUser{
     OrgUserInfo *user = [OrgUserInfo new];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

@@ -90,11 +90,7 @@
         item.selectedImage = [[UIImage imageNamed:childItemsArray[idx][kSelImgKey]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }];
     _item = [self.tabBar.items objectAtIndex:0];
-//    [self setSelectedIndex:1];
-//    item.badgeValue = @"12";
-    
-//    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-//    [center addObserver:self selector:@selector(updateUnreadCount:) name:@"updateUnreadCount" object:nil];
+
     NSString *alias = [NSString stringWithFormat:@"%lld",[Config getOwnID]];
     [UMessage addAlias:alias type:@"userId" response:^(id responseObject, NSError *error) {
         NSLog(@"---%@",error);

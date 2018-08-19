@@ -32,23 +32,10 @@
     [super viewDidLoad];
     
     self.title = @"忘记密码";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消"
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:@selector(cancelButtonClicked)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)cancelButtonClicked
-{
-    if (self.navigationController.viewControllers.count <= 1) {
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
 }
 
 - (IBAction)getVerity{

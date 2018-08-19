@@ -6,8 +6,8 @@
 //  Copyright © 2016年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface CirclePublishViewController : UIViewController
+@interface CirclePublishViewController :BaseViewController
 
 @end

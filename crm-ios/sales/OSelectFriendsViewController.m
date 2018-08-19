@@ -35,11 +35,7 @@
     _dbUtil = [[SalesDbUtil alloc] init];
     self.selectedObjects = @[].mutableCopy;
     self.filterObjects = @[].mutableCopy;
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消"
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:@selector(cancelButtonClicked)];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定(0)" style:UIBarButtonItemStylePlain target:self action:@selector(makeDiscussion)];
     self.tableView.rowHeight = [FriendTableViewCell fixedHeight];
     self.tableView.sectionIndexColor = [UIColor lightGrayColor];
@@ -67,15 +63,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)cancelButtonClicked
-{
-    if (self.navigationController.viewControllers.count <= 1) {
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
 }
 
 - (void)makeDiscussion{}

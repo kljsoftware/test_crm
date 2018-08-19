@@ -25,11 +25,11 @@
 @interface LoginViewController ()<UITextFieldDelegate,MLLinkLabelDelegate>
 
 @property (nonatomic,weak) IBOutlet UIButton *loginButton;
-@property (nonatomic,weak) IBOutlet UIView   *navBar;
 @property (nonatomic,weak) IBOutlet UITextField *accountField;
 @property (nonatomic,weak) IBOutlet UITextField *passwordField;
 @property (nonatomic,weak) IBOutlet MLLinkLabel *registerLabel;
 @property (nonatomic,weak) IBOutlet MLLinkLabel *forgetLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *remPwdSwitch;
 @property (nonatomic, strong) MBProgressHUD *hud;
 @end
 
@@ -48,7 +48,8 @@
 
 - (void) setUpSubview{
 
-    _navBar.backgroundColor = [UIColor colorWithHex:0x469DE5];
+    _accountField.text = [Config getPhoneNumber];
+    _passwordField.text = [Config getPassword];
     _accountField.delegate = self;
     _passwordField.delegate = self;
     
@@ -69,6 +70,8 @@
 }
 
 - (IBAction)login {
+    [self hidenKeyboard];
+    
     _hud = [Utils createHUD];
     _hud.label.text = @"正在登录";
     _hud.userInteractionEnabled = NO;
@@ -101,6 +104,8 @@
                 if (response.result == 1) {
                     User *user = response.data;
                     [_hud hideAnimated:YES afterDelay:1];
+                    [[NSUserDefaults standardUserDefaults] setObject:self.remPwdSwitch.on ? self.accountField.text : @"" forKey:@"phoneNumber"];
+                    [[NSUserDefaults standardUserDefaults] setObject:self.remPwdSwitch.on ? self.passwordField.text : @"" forKey:@"password"];
                     [Config saveProfile:user];
                     [(AppDelegate *)[UIApplication sharedApplication].delegate showWindow:@"omain"];
                 }else{
@@ -131,9 +136,6 @@
         [_passwordField becomeFirstResponder];
     } else if (sender == _passwordField) {
         [self hidenKeyboard];
-        if (_loginButton.enabled) {
-            [self login];
-        }
     }
 }
 
@@ -142,17 +144,12 @@
     if ([link.linkValue isEqualToString:@"register"]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         RegisterViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"Register"];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-        vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
-        [self presentViewController:nav animated:YES completion:nil];
+        [self.navigationController pushViewController:vc animated:true];
+        
     }else if([link.linkValue isEqualToString:@"forget"]){
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         ForgetViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"Forget"];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-        vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
-        [self presentViewController:nav animated:YES completion:nil];
+        [self.navigationController pushViewController:vc animated:true];
     }
 }
 

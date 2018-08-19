@@ -27,6 +27,7 @@
 #import <AFNetworking.h>
 #import <MJExtension.h>
 #import "UIImageView+Util.h"
+#import "IQKeyboardManager.h"
 
 @interface AppDelegate () <UNUserNotificationCenterDelegate>
 @property (nonatomic,strong) SalesDbUtil *dbUtil;
@@ -39,6 +40,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [IQKeyboardManager sharedManager].enableAutoToolbar = false;
     
     int64_t userID = [Config getOwnID];
     NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};

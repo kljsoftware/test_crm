@@ -6,9 +6,9 @@
 //  Copyright © 2016年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
-@interface OSelectFriendsViewController : UITableViewController
+@interface OSelectFriendsViewController : BaseTableViewController
 
 @property(nonatomic, strong) NSMutableArray *addDiscussionGroupMembers;
 @property(nonatomic, strong) NSString *discussionId;

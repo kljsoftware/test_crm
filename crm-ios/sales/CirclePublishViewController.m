@@ -39,11 +39,7 @@
     [super viewDidLoad];
     _count = 0;
     self.title = @"圈子发布";
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消"
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:@selector(cancelButtonClicked)];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(sendButtonClicked)];
     
     [self setUpView];
@@ -75,14 +71,6 @@
     
     //refresh superview height
     [pickerView refreshImagePickerViewWithPhotoArray:nil];
-}
-- (void)cancelButtonClicked
-{
-    if (self.navigationController.viewControllers.count <= 1) {
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
 }
 
 - (void)sendButtonClicked{
