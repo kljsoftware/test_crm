@@ -16,6 +16,7 @@
 #import "GlobalDefines.h"
 #import "OMainTabBarController.h"
 #import "RegisterViewController.h"
+#import "AppDelegate.h"
 #import <AFNetworking.h>
 #import <MJExtension.h>
 #import <MBProgressHUD.h>
@@ -36,20 +37,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     self.title = @"登录";
-//    self.view.backgroundColor = [UIColor themeColor];
     [self setUpSubview];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
 - (void) setUpSubview{
-//    UIView *bar = [[UIView alloc] initWithFrame:CGRectMake(0, -20, 640, 20)];
-//    bar.backgroundColor = [UIColor colorWithHex:0x469DE5];
-//    [self.nava addSubview:bar];
+
     _navBar.backgroundColor = [UIColor colorWithHex:0x469DE5];
     _accountField.delegate = self;
     _passwordField.delegate = self;
@@ -64,21 +62,19 @@
     _registerLabel.delegate = self;
     
     NSMutableAttributedString *forgetString = [[NSMutableAttributedString alloc] initWithString:@"忘记密码"];
-//    [forgetString setAttributes:@{NSLinkAttributeName : @"forget"} range:[@"忘记密码" rangeOfString:@"忘记密码"]];
     [forgetString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 3)];
     [forgetString addAttribute:NSLinkAttributeName value:@"forget" range:([@"忘记密码" rangeOfString:@"忘记密码"])];
     _forgetLabel.attributedText = forgetString;
-//    _forgetLabel.textColor = [UIColor lightGrayColor];
     _forgetLabel.delegate = self;
 }
-- (IBAction)login{
+
+- (IBAction)login {
     _hud = [Utils createHUD];
     _hud.label.text = @"正在登录";
     _hud.userInteractionEnabled = NO;
     NSString *deviceinfo = @"";
     NSString *uuid = [[UIDevice currentDevice].identifierForVendor UUIDString];
     NSString *deviceVersion = [[UIDevice currentDevice] systemVersion];
-//    int w = [[UIScreen]]
     int w = [UIScreen mainScreen].bounds.size.width;
     int h = [UIScreen mainScreen].bounds.size.height;
     deviceinfo = [NSString stringWithFormat:@"%@;ios;%@;%dx%d",uuid,deviceVersion,w,h];
@@ -106,7 +102,7 @@
                     User *user = response.data;
                     [_hud hideAnimated:YES afterDelay:1];
                     [Config saveProfile:user];
-                    [self performSegueWithIdentifier:@"loginSuccess" sender:self];
+                    [(AppDelegate *)[UIApplication sharedApplication].delegate showWindow:@"omain"];
                 }else{
                     _hud.mode = MBProgressHUDModeCustomView;
                     _hud.label.text = @"用户名或密码错误";

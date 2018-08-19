@@ -39,25 +39,25 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
     int64_t userID = [Config getOwnID];
     NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHex:0x469DE5]];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHex:0x469DE5]} forState:UIControlStateSelected];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-//    [[UITextView appearance]  setTintColor:[UIColor colorWithHex:0x087221]];
     if (userID > 0) {
         self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"OMainIdentifier"];
+    } else {
+        [self showWindowLogin:@"logout"];
     }
-//    [[RCIM sharedRCIM] initWithAppKey:@"e0x9wycfxqluq"];//ce shi
+    
     [[RCIM sharedRCIM] initWithAppKey:@"8luwapkv8rcpl"];
     [[RCIM sharedRCIM] setUserInfoDataSource:self];
     
     [RCIM sharedRCIM].showUnkownMessage = YES;
     [RCIM sharedRCIM].showUnkownMessageNotificaiton = YES;
     
-//    [UMessage startWithAppkey:@"58bf7857734be463ea001f83" launchOptions:launchOptions httpsenable:YES];//ce shi
     [UMessage startWithAppkey:@"58bf7857734be463ea001f83" launchOptions:launchOptions httpsEnable:YES];
     [UMessage registerForRemoteNotifications];
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
@@ -76,28 +76,24 @@
     return YES;
 }
 
-
 - (void)applicationWillResignActive:(UIApplication *)application {
     
 }
-
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     
 }
 
-
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-}
 
+}
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     
 }
 
-
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken{
@@ -184,12 +180,10 @@
         if (contact.fid != 0) {
             user.userId = [NSString stringWithFormat:@"out_%ld",contact.fid];
             user.name = contact.name;
-//            user.portraitUri = [QINIU stringByAppendingString:contact.avatar];
             user.portraitUri = [image rongPortrait:contact.avatar];
         }else if([userId isEqualToString:myId]){
             user.userId = [NSString stringWithFormat:@"out_%@",myId];
             user.name = [Config getUser].name;
-//            user.portraitUri = [QINIU stringByAppendingString:[Config getUser].avatar];
             user.portraitUri = [image rongPortrait:[Config getUser].avatar];
         }else{
             user = nil;
@@ -209,14 +203,12 @@
         if (orgUserInfo.id != 0) {
             user.userId = temp;
             user.name = orgUserInfo.name;
-//            user.portraitUri = [QINIU stringByAppendingString:orgUserInfo.avatar];
             user.portraitUri = [image rongPortrait:orgUserInfo.avatar];
         }else if([userId isEqualToString:myId]){
             NSString *dbid = [NSString stringWithFormat:@"%ld",[Config getDbID]];
             userId = [NSString stringWithFormat:@"in_%@_%@",dbid,myId];
             user.userId = userId;
             user.name = [Config getOrgUser].name;
-//            user.portraitUri = [QINIU stringByAppendingString:[Config getOrgUser].avatar];
             user.portraitUri = [image rongPortrait:[Config getOrgUser].avatar];
         }else{
             user = nil;
@@ -229,7 +221,9 @@
 
 - (void)showWindowLogin:(NSString *)windowType{
     if ([windowType isEqualToString:@"logout"]) {
-        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"RootNaviIdentifier"];
+        LoginViewController *loginVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"LoginIdentifier"];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        self.window.rootViewController = nav;
     }
 }
 - (void)showWindow:(NSString *)windowType{

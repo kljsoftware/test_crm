@@ -200,8 +200,6 @@
 		CEE863701DCB0EFD00695F0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE8636E1DCB0EFD00695F0F /* Main.storyboard */; };
 		CEE863721DCB0EFD00695F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE863711DCB0EFD00695F0F /* Assets.xcassets */; };
 		CEE863751DCB0EFD00695F0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE863731DCB0EFD00695F0F /* LaunchScreen.storyboard */; };
-		CEE863801DCB0EFE00695F0F /* salesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE8637F1DCB0EFE00695F0F /* salesTests.m */; };
-		CEE8638B1DCB0EFE00695F0F /* salesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE8638A1DCB0EFE00695F0F /* salesUITests.m */; };
 		CEE8639A1DCB100000695F0F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE863991DCB100000695F0F /* Images.xcassets */; };
 		CEE8639F1DCB17D200695F0F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE8639E1DCB17D200695F0F /* LoginViewController.m */; };
 		CEE863A31DCB187600695F0F /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE863A21DCB187600695F0F /* Config.m */; };
@@ -257,23 +255,6 @@
 		CEF6CD051E821CF80076AA60 /* CustomerDupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF6CD041E821CF80076AA60 /* CustomerDupTableViewCell.m */; };
 		CEF6CD081E8260470076AA60 /* CustomerTransferTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF6CD071E8260470076AA60 /* CustomerTransferTableViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CEE8637C1DCB0EFE00695F0F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CEE8635A1DCB0EFB00695F0F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CEE863611DCB0EFB00695F0F;
-			remoteInfo = sales;
-		};
-		CEE863871DCB0EFE00695F0F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CEE8635A1DCB0EFB00695F0F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CEE863611DCB0EFB00695F0F;
-			remoteInfo = sales;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		740E17A0E5244D9EB2F89681 /* Pods-sales.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sales.release.xcconfig"; path = "Pods/Target Support Files/Pods-sales/Pods-sales.release.xcconfig"; sourceTree = "<group>"; };
@@ -641,12 +622,6 @@
 		CEE863711DCB0EFD00695F0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEE863741DCB0EFD00695F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEE863761DCB0EFD00695F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEE8637B1DCB0EFE00695F0F /* salesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = salesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEE8637F1DCB0EFE00695F0F /* salesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = salesTests.m; sourceTree = "<group>"; };
-		CEE863811DCB0EFE00695F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEE863861DCB0EFE00695F0F /* salesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = salesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEE8638A1DCB0EFE00695F0F /* salesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = salesUITests.m; sourceTree = "<group>"; };
-		CEE8638C1DCB0EFE00695F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEE863991DCB100000695F0F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEE8639D1DCB17D200695F0F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CEE8639E1DCB17D200695F0F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -767,20 +742,6 @@
 				CE93ECD81E2330D000D26948 /* libopencore-amrnb.a in Frameworks */,
 				CE93ECDA1E2330D000D26948 /* RongIMLib.framework in Frameworks */,
 				CE93ECD71E2330D000D26948 /* RongIMKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CEE863781DCB0EFE00695F0F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CEE863831DCB0EFE00695F0F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1540,8 +1501,6 @@
 			isa = PBXGroup;
 			children = (
 				CEE863641DCB0EFC00695F0F /* sales */,
-				CEE8637E1DCB0EFE00695F0F /* salesTests */,
-				CEE863891DCB0EFE00695F0F /* salesUITests */,
 				CEE863631DCB0EFB00695F0F /* Products */,
 				EA81D0819D2CB032E4857D89 /* Pods */,
 				4767483733D7B7903DD9A13E /* Frameworks */,
@@ -1552,8 +1511,6 @@
 			isa = PBXGroup;
 			children = (
 				CEE863621DCB0EFB00695F0F /* sales.app */,
-				CEE8637B1DCB0EFE00695F0F /* salesTests.xctest */,
-				CEE863861DCB0EFE00695F0F /* salesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1604,24 +1561,6 @@
 				CEE863661DCB0EFC00695F0F /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CEE8637E1DCB0EFE00695F0F /* salesTests */ = {
-			isa = PBXGroup;
-			children = (
-				CEE8637F1DCB0EFE00695F0F /* salesTests.m */,
-				CEE863811DCB0EFE00695F0F /* Info.plist */,
-			);
-			path = salesTests;
-			sourceTree = "<group>";
-		};
-		CEE863891DCB0EFE00695F0F /* salesUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CEE8638A1DCB0EFE00695F0F /* salesUITests.m */,
-				CEE8638C1DCB0EFE00695F0F /* Info.plist */,
-			);
-			path = salesUITests;
 			sourceTree = "<group>";
 		};
 		CEE863981DCB0FD800695F0F /* Resources */ = {
@@ -2095,42 +2034,6 @@
 			productReference = CEE863621DCB0EFB00695F0F /* sales.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CEE8637A1DCB0EFE00695F0F /* salesTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CEE863921DCB0EFE00695F0F /* Build configuration list for PBXNativeTarget "salesTests" */;
-			buildPhases = (
-				CEE863771DCB0EFE00695F0F /* Sources */,
-				CEE863781DCB0EFE00695F0F /* Frameworks */,
-				CEE863791DCB0EFE00695F0F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CEE8637D1DCB0EFE00695F0F /* PBXTargetDependency */,
-			);
-			name = salesTests;
-			productName = salesTests;
-			productReference = CEE8637B1DCB0EFE00695F0F /* salesTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		CEE863851DCB0EFE00695F0F /* salesUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CEE863951DCB0EFE00695F0F /* Build configuration list for PBXNativeTarget "salesUITests" */;
-			buildPhases = (
-				CEE863821DCB0EFE00695F0F /* Sources */,
-				CEE863831DCB0EFE00695F0F /* Frameworks */,
-				CEE863841DCB0EFE00695F0F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CEE863881DCB0EFE00695F0F /* PBXTargetDependency */,
-			);
-			name = salesUITests;
-			productName = salesUITests;
-			productReference = CEE863861DCB0EFE00695F0F /* salesUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2153,18 +2056,6 @@
 							};
 						};
 					};
-					CEE8637A1DCB0EFE00695F0F = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = NAGPV52B3Z;
-						ProvisioningStyle = Automatic;
-						TestTargetID = CEE863611DCB0EFB00695F0F;
-					};
-					CEE863851DCB0EFE00695F0F = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = NAGPV52B3Z;
-						ProvisioningStyle = Automatic;
-						TestTargetID = CEE863611DCB0EFB00695F0F;
-					};
 				};
 			};
 			buildConfigurationList = CEE8635D1DCB0EFB00695F0F /* Build configuration list for PBXProject "sales" */;
@@ -2182,8 +2073,6 @@
 			projectRoot = "";
 			targets = (
 				CEE863611DCB0EFB00695F0F /* sales */,
-				CEE8637A1DCB0EFE00695F0F /* salesTests */,
-				CEE863851DCB0EFE00695F0F /* salesUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -2218,20 +2107,6 @@
 				CE93ECD51E2330D000D26948 /* RongCloudKit.strings in Resources */,
 				CEE863721DCB0EFD00695F0F /* Assets.xcassets in Resources */,
 				CEE863701DCB0EFD00695F0F /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CEE863791DCB0EFE00695F0F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CEE863841DCB0EFE00695F0F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2530,36 +2405,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CEE863771DCB0EFE00695F0F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CEE863801DCB0EFE00695F0F /* salesTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CEE863821DCB0EFE00695F0F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CEE8638B1DCB0EFE00695F0F /* salesUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CEE8637D1DCB0EFE00695F0F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CEE863611DCB0EFB00695F0F /* sales */;
-			targetProxy = CEE8637C1DCB0EFE00695F0F /* PBXContainerItemProxy */;
-		};
-		CEE863881DCB0EFE00695F0F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CEE863611DCB0EFB00695F0F /* sales */;
-			targetProxy = CEE863871DCB0EFE00695F0F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CE93ECCB1E2330D000D26948 /* RongCloudKit.strings */ = {
@@ -2749,52 +2595,6 @@
 			};
 			name = Release;
 		};
-		CEE863931DCB0EFE00695F0F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = salesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rayootech.salesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sales.app/sales";
-			};
-			name = Debug;
-		};
-		CEE863941DCB0EFE00695F0F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = salesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rayootech.salesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sales.app/sales";
-			};
-			name = Release;
-		};
-		CEE863961DCB0EFE00695F0F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = salesUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rayootech.salesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = sales;
-			};
-			name = Debug;
-		};
-		CEE863971DCB0EFE00695F0F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = salesUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rayootech.salesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = sales;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2812,24 +2612,6 @@
 			buildConfigurations = (
 				CEE863901DCB0EFE00695F0F /* Debug */,
 				CEE863911DCB0EFE00695F0F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CEE863921DCB0EFE00695F0F /* Build configuration list for PBXNativeTarget "salesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CEE863931DCB0EFE00695F0F /* Debug */,
-				CEE863941DCB0EFE00695F0F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CEE863951DCB0EFE00695F0F /* Build configuration list for PBXNativeTarget "salesUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CEE863961DCB0EFE00695F0F /* Debug */,
-				CEE863971DCB0EFE00695F0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
