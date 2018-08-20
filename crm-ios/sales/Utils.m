@@ -9,8 +9,6 @@
 #import "Utils.h"
 #import "UIFont+FontAwesome.h"
 #import "NSString+FontAwesome.h"
-#import <MBProgressHUD.h>
-#import <NSDate+DateTools.h>
 
 @implementation Utils
 

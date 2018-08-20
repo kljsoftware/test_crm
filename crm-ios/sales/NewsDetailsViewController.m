@@ -7,9 +7,7 @@
 //
 
 #import "NewsDetailsViewController.h"
-#import "Utils.h"
-#import <MBProgressHUD.h>
-#import <DKNightVersion.h>
+
 @interface NewsDetailsViewController ()<UIWebViewDelegate>
 @property (nonatomic, weak) UIWebView *webView;
 @property (nonatomic, weak) UIBarButtonItem *backItem;

@@ -9,12 +9,7 @@
 #import "SetLeaderTableViewController.h"
 #import "OrgUserInfoDbUtil.h"
 #import "SelectColleauesTableViewCell.h"
-#import "Utils.h"
-#import "Config.h"
-#import "SalesApi.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
-#import <MBProgressHUD.h>
+
 @interface SetLeaderTableViewController ()
 
 @property (nonatomic,strong) OrgUserInfoDbUtil *dbUtil;

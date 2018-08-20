@@ -8,14 +8,7 @@
 
 #import "BlackBoardDetailsHeaderView.h"
 #import "PhotoContainerView.h"
-#import "GlobalDefines.h"
-#import "UIImageView+Util.h"
-#import "UIColor+Util.h"
-#import "Utils.h"
-#import "Config.h"
-#import "SalesApi.h"
-#import <AFNetworking.h>
-#import <SDAutoLayout.h>
+
 const CGFloat contentLabelFontSize2 = 14;
 CGFloat maxContentLabelHeight2 = 0; // 根据具体font而定
 @implementation BlackBoardDetailsHeaderView

@@ -8,15 +8,8 @@
 
 #import "WorkDetailsHeaderView.h"
 #import "PhotoContainerView.h"
-#import "GlobalDefines.h"
-#import "UIImageView+Util.h"
-#import "UIColor+Util.h"
-#import "Utils.h"
-#import "Config.h"
 #import "WorkDbUtil.h"
-#import "SalesApi.h"
-#import <AFNetworking.h>
-#import <SDAutoLayout.h>
+
 const CGFloat contentLabelFontSize4 = 14;
 CGFloat maxContentLabelHeight4 = 0; // 根据具体font而定
 @interface WorkDetailsHeaderView ()

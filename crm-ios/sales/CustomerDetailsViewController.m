@@ -9,15 +9,7 @@
 #import "CustomerDetailsViewController.h"
 #import "CustomerEditViewController.h"
 #import "CustomerDeepViewController.h"
-#import "NSStringUtils.h"
-#import "UIColor+Util.h"
-#import "Config.h"
-#import "Utils.h"
-#import "SalesApi.h"
-#import "CustomerDbUtil.h"
-#import <AFNetworking.h>
-#import <SDAutoLayout.h>
-#import <MBProgressHUD.h>
+
 @interface CustomerDetailsViewController () <CustomerEditDelegate>
 
 @property (weak,nonatomic) IBOutlet UILabel *nameLabel;

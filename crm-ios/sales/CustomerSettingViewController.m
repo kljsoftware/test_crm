@@ -7,14 +7,8 @@
 //
 
 #import "CustomerSettingViewController.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import "Utils.h"
 #import "CustomerSetting.h"
 #import "History.h"
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
-#import <MJExtension.h>
 
 @interface CustomerSettingViewController ()
 

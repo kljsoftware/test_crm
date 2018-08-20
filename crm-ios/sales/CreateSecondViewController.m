@@ -7,12 +7,7 @@
 //
 
 #import "CreateSecondViewController.h"
-#import "NSStringUtils.h"
-#import "Utils.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import <MBProgressHUD.h>
-#import <AFNetworking.h>
+
 @interface CreateSecondViewController ()
 
 @property (nonatomic,weak) IBOutlet UITextField                  *nameText;

@@ -11,14 +11,7 @@
 #import "CustomerDupTableViewController.h"
 #import "CustomerTransferTableViewController.h"
 #import "CustomerDistTableViewController.h"
-#import "NSStringUtils.h"
-#import <SDAutoLayout.h>
-#import <AFNetworking.h>
-#import "Config.h"
-#import "SalesApi.h"
-#import "Utils.h"
-#import "UIColor+Util.h"
-#import <MBProgressHUD.h>
+
 @interface CreaterCustomerDetailsViewController ()
 
 @property (weak,nonatomic) IBOutlet UILabel *nameLabel;

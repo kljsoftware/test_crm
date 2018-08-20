@@ -9,11 +9,7 @@
 #import "CustomerTransferTableViewController.h"
 #import "OrgUserInfoDbUtil.h"
 #import "SelectColleauesTableViewCell.h"
-#import "Config.h"
-#import "SalesApi.h"
-#import "Utils.h"
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
+
 @interface CustomerTransferTableViewController ()
 @property (nonatomic,strong) OrgUserInfoDbUtil *dbUtil;
 @property (nonatomic,strong) NSMutableArray *dataModels;

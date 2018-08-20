@@ -7,16 +7,9 @@
 //
 
 #import "WorkTableViewCell.h"
-#import "GlobalDefines.h"
-#import "UIImageView+Util.h"
 #import "PhotoContainerView.h"
-#import "NSStringUtils.h"
 #import "CircleCellCommentView.h"
-#import "Utils.h"
-#import "Comment.h"
-#import <SDAutoLayout.h>
-#import <MLLinkLabel.h>
-#import <MJExtension.h>
+
 const CGFloat contentLabelFontSize3 = 15;
 CGFloat maxContentLabelHeight3 = 0; // 根据具体font而定
 

@@ -23,11 +23,7 @@
 #import "OMainTabBarController.h"
 #import "OrgUserInfoDbUtil.h"
 #import "OrgInvite.h"
-#import <RongIMKit/RongIMKit.h>
-#import <AFNetworking.h>
-#import <MJExtension.h>
-#import "UIImageView+Util.h"
-#import "IQKeyboardManager.h"
+
 
 @interface AppDelegate () <UNUserNotificationCenterDelegate>
 @property (nonatomic,strong) SalesDbUtil *dbUtil;

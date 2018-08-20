@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2D3836BBFC1CA80BA446352E /* libPods-sales.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B737477090CDEC04E96A167E /* libPods-sales.a */; };
+		A31E531D212B0C7E005331AB /* BIUPNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A31E531B212B0C7D005331AB /* BIUPNetworkManager.m */; };
 		A3695BCC2129409200E3E0A6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCB2129409200E3E0A6 /* BaseViewController.m */; };
 		A3695BCF212942E700E3E0A6 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */; };
+		A3F6EBD0212B138E009BFD43 /* OrganizationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F6EBCE212B138E009BFD43 /* OrganizationTableViewCell.m */; };
+		A3F6EBD1212B138E009BFD43 /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F6EBCF212B138E009BFD43 /* OrganizationTableViewCell.xib */; };
+		A3F6EBD6212B1927009BFD43 /* OrganizationInviteDefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F6EBD4212B1927009BFD43 /* OrganizationInviteDefaultCell.m */; };
+		A3F6EBD7212B1927009BFD43 /* OrganizationInviteDefaultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F6EBD5212B1927009BFD43 /* OrganizationInviteDefaultCell.xib */; };
 		CE2E63A71DE525E200022F7A /* DetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E63A61DE525E200022F7A /* DetailsHeaderView.m */; };
 		CE4E1C061EAD94B80073CB45 /* ONameUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C051EAD94B80073CB45 /* ONameUpdateViewController.m */; };
 		CE4E1C091EADA1320073CB45 /* OAreaUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C081EADA1320073CB45 /* OAreaUpdateViewController.m */; };
@@ -84,7 +89,6 @@
 		CE93EC7B1E1389A900D26948 /* OConversationSettingClearMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC7A1E1389A900D26948 /* OConversationSettingClearMessageCell.m */; };
 		CE93EC7E1E164BCE00D26948 /* OrganizationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC7D1E164BCE00D26948 /* OrganizationTableViewController.m */; };
 		CE93EC831E16516D00D26948 /* Organizations.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC821E16516D00D26948 /* Organizations.m */; };
-		CE93EC861E1652E900D26948 /* OrganizationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC851E1652E900D26948 /* OrganizationTableViewCell.m */; };
 		CE93EC891E1B40B300D26948 /* OrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC881E1B40B300D26948 /* OrganizationViewController.m */; };
 		CE93EC8E1E1B7ABC00D26948 /* IMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC8D1E1B7ABC00D26948 /* IMainTabBarController.m */; };
 		CE93EC931E1B7D0500D26948 /* IConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC921E1B7D0500D26948 /* IConversationListViewController.m */; };
@@ -258,10 +262,19 @@
 
 /* Begin PBXFileReference section */
 		740E17A0E5244D9EB2F89681 /* Pods-sales.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sales.release.xcconfig"; path = "Pods/Target Support Files/Pods-sales/Pods-sales.release.xcconfig"; sourceTree = "<group>"; };
+		A31E531B212B0C7D005331AB /* BIUPNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIUPNetworkManager.m; sourceTree = "<group>"; };
+		A31E531C212B0C7E005331AB /* BIUPNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIUPNetworkManager.h; sourceTree = "<group>"; };
 		A3695BCA2129409200E3E0A6 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		A3695BCB2129409200E3E0A6 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		A3695BCD212942E700E3E0A6 /* BaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		A3F6EBCD212B138E009BFD43 /* OrganizationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizationTableViewCell.h; sourceTree = "<group>"; };
+		A3F6EBCE212B138E009BFD43 /* OrganizationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizationTableViewCell.m; sourceTree = "<group>"; };
+		A3F6EBCF212B138E009BFD43 /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
+		A3F6EBD2212B14D1009BFD43 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A3F6EBD3212B1927009BFD43 /* OrganizationInviteDefaultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizationInviteDefaultCell.h; sourceTree = "<group>"; };
+		A3F6EBD4212B1927009BFD43 /* OrganizationInviteDefaultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizationInviteDefaultCell.m; sourceTree = "<group>"; };
+		A3F6EBD5212B1927009BFD43 /* OrganizationInviteDefaultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationInviteDefaultCell.xib; sourceTree = "<group>"; };
 		A6F1E260E0E33E263C971129 /* Pods-sales.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sales.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sales/Pods-sales.debug.xcconfig"; sourceTree = "<group>"; };
 		B737477090CDEC04E96A167E /* libPods-sales.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sales.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2E63A51DE525E200022F7A /* DetailsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsHeaderView.h; sourceTree = "<group>"; };
@@ -408,8 +421,6 @@
 		CE93EC7D1E164BCE00D26948 /* OrganizationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationTableViewController.m; sourceTree = "<group>"; };
 		CE93EC811E16516D00D26948 /* Organizations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organizations.h; sourceTree = "<group>"; };
 		CE93EC821E16516D00D26948 /* Organizations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organizations.m; sourceTree = "<group>"; };
-		CE93EC841E1652E900D26948 /* OrganizationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationTableViewCell.h; sourceTree = "<group>"; };
-		CE93EC851E1652E900D26948 /* OrganizationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationTableViewCell.m; sourceTree = "<group>"; };
 		CE93EC871E1B40B300D26948 /* OrganizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationViewController.h; sourceTree = "<group>"; };
 		CE93EC881E1B40B300D26948 /* OrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationViewController.m; sourceTree = "<group>"; };
 		CE93EC8C1E1B7ABC00D26948 /* IMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMainTabBarController.h; sourceTree = "<group>"; };
@@ -759,6 +770,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A31E531A212B0C75005331AB /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				A31E531C212B0C7E005331AB /* BIUPNetworkManager.h */,
+				A31E531B212B0C7D005331AB /* BIUPNetworkManager.m */,
+			);
+			name = NetWork;
+			sourceTree = "<group>";
+		};
 		CE2E63A11DE5250200022F7A /* DetailsHeader */ = {
 			isa = PBXGroup;
 			children = (
@@ -927,10 +947,14 @@
 		CE93EC801E16512A00D26948 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CE93EC841E1652E900D26948 /* OrganizationTableViewCell.h */,
-				CE93EC851E1652E900D26948 /* OrganizationTableViewCell.m */,
 				CEF6CCF01E7B719B0076AA60 /* OrganizationInviteTableViewCell.h */,
 				CEF6CCF11E7B719B0076AA60 /* OrganizationInviteTableViewCell.m */,
+				A3F6EBD3212B1927009BFD43 /* OrganizationInviteDefaultCell.h */,
+				A3F6EBD4212B1927009BFD43 /* OrganizationInviteDefaultCell.m */,
+				A3F6EBD5212B1927009BFD43 /* OrganizationInviteDefaultCell.xib */,
+				A3F6EBCD212B138E009BFD43 /* OrganizationTableViewCell.h */,
+				A3F6EBCE212B138E009BFD43 /* OrganizationTableViewCell.m */,
+				A3F6EBCF212B138E009BFD43 /* OrganizationTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1524,6 +1548,7 @@
 		CEE863641DCB0EFC00695F0F /* sales */ = {
 			isa = PBXGroup;
 			children = (
+				A31E531A212B0C75005331AB /* NetWork */,
 				CE728F151E6D4E2100437FB2 /* sales.entitlements */,
 				CE93ECC21E232DC700D26948 /* lib */,
 				CE93ECA31E1B7F0900D26948 /* IMe */,
@@ -1565,6 +1590,7 @@
 			isa = PBXGroup;
 			children = (
 				CEE863661DCB0EFC00695F0F /* main.m */,
+				A3F6EBD2212B14D1009BFD43 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2092,9 +2118,11 @@
 				CE94DE6A1E2F5B640049BA71 /* PaperTableViewCell.xib in Resources */,
 				CEC97EF91DF1470B0040C356 /* Contact.storyboard in Resources */,
 				CE9ECB4F1EA4B0E00053BCA9 /* IMe.storyboard in Resources */,
+				A3F6EBD1212B138E009BFD43 /* OrganizationTableViewCell.xib in Resources */,
 				CEA456AF1E4AACAE0011356B /* NewsTableViewCell.xib in Resources */,
 				CE9ECB781EA7463E0053BCA9 /* TZImagePickerController.bundle in Resources */,
 				CE61DC451E96160400421C7E /* image.bundle in Resources */,
+				A3F6EBD7212B1927009BFD43 /* OrganizationInviteDefaultCell.xib in Resources */,
 				CEE863751DCB0EFD00695F0F /* LaunchScreen.storyboard in Resources */,
 				CEE864241DDD854F00695F0F /* OMeViewController.storyboard in Resources */,
 				CE93ECB31E1C9F1000D26948 /* IMain.storyboard in Resources */,
@@ -2221,6 +2249,7 @@
 				CE9ECB2D1EA075B40053BCA9 /* WorkUnreadTableViewController.m in Sources */,
 				CEF6CD051E821CF80076AA60 /* CustomerDupTableViewCell.m in Sources */,
 				CE546D171E70F70200DCAC56 /* ReqFriendTableViewCell.m in Sources */,
+				A3F6EBD6212B1927009BFD43 /* OrganizationInviteDefaultCell.m in Sources */,
 				CEE863BA1DCB296C00695F0F /* ContactTableViewController.m in Sources */,
 				CE61DC3D1E8C9CA800421C7E /* RegisterViewController.m in Sources */,
 				CE9ECB371EA0ACB10053BCA9 /* SettingTableViewController.m in Sources */,
@@ -2274,6 +2303,7 @@
 				CE94DE711E30A1630049BA71 /* PaperDetailsViewController.m in Sources */,
 				CEA456C41E52AA6D0011356B /* Active.m in Sources */,
 				CEF6CCE91E7A61F60076AA60 /* OrganizationInviteDealTableViewController.m in Sources */,
+				A3F6EBD0212B138E009BFD43 /* OrganizationTableViewCell.m in Sources */,
 				CE9ECB7B1EA7463E0053BCA9 /* TZPhotoPreviewCell.m in Sources */,
 				CE9ECB3E1EA4684E0053BCA9 /* FirstDeptTableViewController.m in Sources */,
 				CEA456F21E5AD5B90011356B /* EnteringCustomerViewController.m in Sources */,
@@ -2325,7 +2355,6 @@
 				CE93EC721E125EAE00D26948 /* ODiscussSettingCell.m in Sources */,
 				CE9ECB521EA5AAB00053BCA9 /* CreateSecondViewController.m in Sources */,
 				CEE8636D1DCB0EFC00695F0F /* ViewController.m in Sources */,
-				CE93EC861E1652E900D26948 /* OrganizationTableViewCell.m in Sources */,
 				CE4E1C091EADA1320073CB45 /* OAreaUpdateViewController.m in Sources */,
 				CE728E901E680FAC00437FB2 /* IConversationSettingTableViewHeader.m in Sources */,
 				CEA456AE1E4AACAE0011356B /* NewsTableViewCell.m in Sources */,
@@ -2358,6 +2387,7 @@
 				CE94DE651E2F4F790049BA71 /* Paper.m in Sources */,
 				CED9D7571DEC1854002FD5D7 /* Url.m in Sources */,
 				CE93EC631E12091700D26948 /* OConversationSettingTableViewHeader.m in Sources */,
+				A31E531D212B0C7E005331AB /* BIUPNetworkManager.m in Sources */,
 				CE61DC431E8CFC5A00421C7E /* ForgetViewController.m in Sources */,
 				CE4E1C0F1EADA7450073CB45 /* OEmailUpdateViewController.m in Sources */,
 				CE93ED171E25DA4100D26948 /* OrgInviteViewController.m in Sources */,
@@ -2550,6 +2580,7 @@
 					"$(PROJECT_DIR)/sales/lib/IMKit",
 					"$(PROJECT_DIR)/sales/lib/IMLib",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/sales/PrefixHeader.pch";
 				INFOPLIST_FILE = sales/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2583,6 +2614,7 @@
 					"$(PROJECT_DIR)/sales/lib/IMKit",
 					"$(PROJECT_DIR)/sales/lib/IMLib",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/sales/PrefixHeader.pch";
 				INFOPLIST_FILE = sales/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

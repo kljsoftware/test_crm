@@ -7,7 +7,6 @@
 //
 
 #import "SDBrowserImageView.h"
-#import "UIImageView+WebCache.h"
 #import "SDPhotoBrowserConfig.h"
 
 @implementation SDBrowserImageView
@@ -102,10 +101,10 @@
     
     __weak SDBrowserImageView *imageViewWeak = self;
 
-    [self sd_setImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    [self sd_setImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         imageViewWeak.progress = (CGFloat)receivedSize / expectedSize;
-        
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+
+    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         [imageViewWeak removeWaitingView];
         
         
@@ -125,7 +124,6 @@
             _scrollImageView.image = image;
             [_scrollImageView setNeedsDisplay];
         }
-   
     }];
 }
 

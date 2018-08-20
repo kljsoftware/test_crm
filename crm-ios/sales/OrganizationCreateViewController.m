@@ -7,12 +7,7 @@
 //
 
 #import "OrganizationCreateViewController.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import "NSStringUtils.h"
-#import "Utils.h"
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
+
 @interface OrganizationCreateViewController ()
 
 @property (nonatomic,weak) IBOutlet UITextField          *nameText;

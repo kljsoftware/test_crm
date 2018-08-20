@@ -9,17 +9,10 @@
 #import "OrganizationViewController.h"
 #import "IMainTabBarController.h"
 #import "OMainTabBarController.h"
-#import "AppDelegate.h"
 #import "OrgEditViewController.h"
-#import "Config.h"
-#import "Utils.h"
-#import "UIImageView+Util.h"
 #import "OrgInviteViewController.h"
-#import "SalesApi.h"
 #import "OrgUserInfo.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
-#import <RongIMKit/RongIMKit.h>
+
 @interface OrganizationViewController ()<EditOrgDelegate>
 
 @property (nonatomic,weak) IBOutlet UIButton *loginButton;

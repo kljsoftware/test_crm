@@ -8,12 +8,8 @@
 
 #import "BlackBoardDetailsBottomBarViewController.h"
 #import "BlackBoardDetailsTableViewController.h"
-#import "Utils.h"
-#import "Config.h"
-#import "SalesApi.h"
 #import "Circle.h"
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
+
 @interface BlackBoardDetailsBottomBarViewController ()
 @property (nonatomic, strong) BlackBoardDetailsTableViewController *blackBoardDetailsVC;
 @property (nonatomic, strong) BlackBoard *blackBoard;

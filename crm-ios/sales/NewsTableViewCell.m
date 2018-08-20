@@ -7,8 +7,7 @@
 //
 
 #import "NewsTableViewCell.h"
-#import "UIImageView+Util.h"
-#import "Utils.h"
+
 @interface NewsTableViewCell()
 
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;

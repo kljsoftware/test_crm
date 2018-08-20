@@ -7,8 +7,7 @@
 //
 
 #import "NoticeTableViewCell.h"
-#import "Utils.h"
-#import <SDAutoLayout.h>
+
 @implementation NoticeTableViewCell
 {
     UILabel                  *_nameLable;

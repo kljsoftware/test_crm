@@ -1,0 +1,39 @@
+//
+//  PrefixHeader.pch
+//  sales
+//
+//  Created by Sunny on 2018/8/20.
+//  Copyright © 2018年 rayootech. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "AppDelegate.h"
+#import "FMDB.h"
+#import "UIImageView+WebCache.h"
+#import "IQKeyboardManager.h"
+#import "MJExtension.h"
+#import "MJRefresh.h"
+#import "Config.h"
+#import "BIUPNetworkManager.h"
+#import "GlobalDefines.h"
+#import "UIColor+Util.h"
+#import <SDAutoLayout.h>
+#import "UIImageView+Util.h"
+#import "SalesApi.h"
+#import "PreferUtil.h"
+#import "FileUtils.h"
+#import <RongIMKit/RongIMKit.h>
+#import <QiniuSDK.h>
+#import "NSStringUtils.h"
+#import "Utils.h"
+#import "PreferUtil.h"
+#import "CustomerDbUtil.h"
+#import <NSDate+DateTools.h>
+#import "Comment.h"
+#import <MLLinkLabel.h>
+#import <MessageUI/MessageUI.h>
+#import <DKNightVersion.h>
+
+#endif /* PrefixHeader_pch */

@@ -7,15 +7,8 @@
 //
 
 #import "OrgEditViewController.h"
-#import "UIImageView+Util.h"
 #import "TZImagePickerController.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import "NSStringUtils.h"
-#import "Utils.h"
-#import <QiniuSDK.h>
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
+
 @interface OrgEditViewController () <TZImagePickerControllerDelegate>
 
 @property (nonatomic,weak) IBOutlet UIImageView         *logoImage;

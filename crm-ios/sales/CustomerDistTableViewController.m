@@ -9,11 +9,7 @@
 #import "CustomerDistTableViewController.h"
 #import "OrgUserInfoDbUtil.h"
 #import "SelectColleauesTableViewCell.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import "Utils.h"
-#import <MBProgressHUD.h>
-#import <AFNetworking.h>
+
 @interface CustomerDistTableViewController ()
 @property (nonatomic,strong) OrgUserInfoDbUtil  *dbUtil;
 @property (nonatomic,strong) NSMutableArray     *dataModels;

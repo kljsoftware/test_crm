@@ -7,12 +7,7 @@
 //
 
 #import "CreateFirstViewController.h"
-#import "NSStringUtils.h"
-#import "Utils.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import <MBProgressHUD.h>
-#import <AFNetworking.h>
+
 @interface CreateFirstViewController ()
 
 @property (nonatomic,weak) IBOutlet UITextField             *nameText;

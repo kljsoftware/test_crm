@@ -14,12 +14,7 @@
 #import "Url.h"
 #import "PlaceholderTextView.h"
 #import "UIColor+Util.h"
-#import "Utils.h"
-#import <SDAutoLayout.h>
-#import <QiniuSDK.h>
-#import <AFNetworking.h>
-#import <MJExtension.h>
-#import <MBProgressHUD.h>
+
 #define kScreenWidth        [[UIScreen mainScreen] bounds].size.width
 #define kScreenHeight       [[UIScreen mainScreen] bounds].size.height
 @interface PublishBlackBoardViewController ()

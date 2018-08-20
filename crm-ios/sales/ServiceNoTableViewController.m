@@ -7,20 +7,12 @@
 //
 
 #import "ServiceNoTableViewController.h"
-#import "Config.h"
-#import "SalesApi.h"
 #import "ServiceNo.h"
 #import "ServiceNoTableViewCell.h"
 #import "NoticeDetailsViewController.h"
 #import "PaperDetailsViewController.h"
-#import "Utils.h"
 #import "BillTableViewController.h"
-#import <AFNetworking.h>
-#import <MJRefresh.h>
-#import <MJExtension.h>
-#import <SDAutoLayout.h>
-#import <DKNightVersion.h>
-#import <MBProgressHUD.h>
+
 #define kServiceNoTableCellId @"ServiceNoTableViewCell"
 @interface ServiceNoTableViewController () <ServiceNoCellDelegate>
 @property (nonatomic,strong) NSMutableArray *dataModels;

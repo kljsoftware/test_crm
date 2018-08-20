@@ -7,16 +7,9 @@
 //
 
 #import "OrgInviteViewController.h"
-#import "Config.h"
-#import "Utils.h"
-#import "UIImageView+Util.h"
-#import "SalesApi.h"
 #import "Contact.h"
-#import "NSStringUtils.h"
 #import "OrgUserInfo.h"
-#import <MBProgressHUD.h>
-#import <AFNetworking.h>
-#import <MJExtension.h>
+
 @interface OrgInviteViewController () <UITextFieldDelegate>
 @property (nonatomic,weak) IBOutlet UITextField     *searchText;
 @property (nonatomic,weak) IBOutlet UIView          *resultView;

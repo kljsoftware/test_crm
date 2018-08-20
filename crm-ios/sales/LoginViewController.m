@@ -7,20 +7,10 @@
 //
 
 #import "LoginViewController.h"
-#import "UIColor+Util.h"
-#import "SalesApi.h"
 #import "User.h"
-#import "Utils.h"
 #import "ForgetViewController.h"
-#import "Config.h"
-#import "GlobalDefines.h"
 #import "OMainTabBarController.h"
 #import "RegisterViewController.h"
-#import "AppDelegate.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
-#import <MBProgressHUD.h>
-#import <MLLinkLabel.h>
 
 @interface LoginViewController ()<UITextFieldDelegate,MLLinkLabelDelegate>
 

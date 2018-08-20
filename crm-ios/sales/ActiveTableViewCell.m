@@ -7,8 +7,7 @@
 //
 
 #import "ActiveTableViewCell.h"
-#import "Utils.h"
-#import <SDAutoLayout.h>
+
 @implementation ActiveTableViewCell
 {
     UILabel                  *_titleLabel;

@@ -7,14 +7,8 @@
 //
 
 #import "ContactDetailsViewController.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import "Utils.h"
 #import "SalesDbUtil.h"
-#import <MJExtension.h>
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
-#import <RongIMKit/RongIMKit.h>
+
 @interface ContactDetailsViewController ()
 
 @property (nonatomic,strong) SalesDbUtil *dbUtil;

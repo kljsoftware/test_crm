@@ -7,13 +7,7 @@
 //
 
 #import "UpdatePasswordViewController.h"
-#import "SalesApi.h"
-#import "NSStringUtils.h"
-#import "Config.h"
-#import "Utils.h"
-#import "GlobalDefines.h"
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
+
 @interface UpdatePasswordViewController ()
 
 @property (nonatomic,weak) IBOutlet UITextField         *oldText;

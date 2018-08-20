@@ -19,13 +19,8 @@
 #import "OWeChatUpdateViewController.h"
 #import "BindEmailViewController.h"
 #import "MeTitleUpdateViewController.h"
-#import "NSStringUtils.h"
-#import "SalesApi.h"
-#import "Utils.h"
-#import <QiniuSDK.h>
-#import <MJExtension.h>
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
+
+
 @interface IMeInfoTableViewController ()<TZImagePickerControllerDelegate,ONameUpdateDelegate,OWeChatUpdateDelegate,OAreaUpdateDelegate,TitleUpdateDelegate,EmailUpdateDelegate>
 
 @property (nonatomic,weak) IBOutlet UIImageView     *avatarImage;

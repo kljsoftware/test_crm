@@ -8,20 +8,12 @@
 
 #import "IBlackboardTableViewController.h"
 #import "BlackBoardDetailsBottomBarViewController.h"
-#import "Config.h"
 #import "BlackBoardTableViewCell.h"
 #import "BlackBoard.h"
-#import "SalesApi.h"
-#import "Comment.h"
 #import "FileUtils.h"
 #import "PreferUtil.h"
 #import "BlackBoardUnreadTableViewController.h"
-#import "Utils.h"
-#import <MJExtension.h>
-#import <AFNetworking.h>
-#import <MJRefresh.h>
-#import <SDAutoLayout.h>
-#import <MBProgressHUD.h>
+
 #define kBlackBoardTableCellId @"BlackBoardTableCell"
 #define kMainWidth [UIScreen mainScreen].bounds.size.width
 @interface IBlackboardTableViewController ()<BlackBoardCellDelegate,UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>

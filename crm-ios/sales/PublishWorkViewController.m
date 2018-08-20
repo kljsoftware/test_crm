@@ -11,18 +11,9 @@
 #import "PlaceholderTextView.h"
 #import "WorkChooseCustomerTableViewController.h"
 #import "WorkChooseColleagueTableViewController.h"
-#import <SDAutoLayout.h>
-#import <QiniuSDK.h>
-#import <AFNetworking.h>
-#import <MJExtension.h>
-#import <MBProgressHUD.h>
-#import "Config.h"
-#import "SalesApi.h"
 #import "Url.h"
-#import "UIColor+Util.h"
-#import "Utils.h"
-#import "NSStringUtils.h"
 #import <CoreLocation/CoreLocation.h>
+
 #define kScreenWidth        [[UIScreen mainScreen] bounds].size.width
 #define kScreenHeight       [[UIScreen mainScreen] bounds].size.height
 @interface PublishWorkViewController () <UITextViewDelegate,WorkChooseCustomerCellDelegate,WorkChooseColleaguesCellDelegate,CLLocationManagerDelegate>

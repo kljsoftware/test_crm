@@ -7,16 +7,8 @@
 //
 
 #import "OMeInfoTableViewController.h"
-#import "UIImageView+Util.h"
-#import "Config.h"
 #import "User.h"
 #import "TZImagePickerController.h"
-#import "SalesApi.h"
-#import "Utils.h"
-#import <QiniuSDK.h>
-#import <MJExtension.h>
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
 
 @interface OMeInfoTableViewController ()<TZImagePickerControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
 

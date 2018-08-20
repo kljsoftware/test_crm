@@ -7,13 +7,8 @@
 //
 
 #import "WorkDetailsBottomBarViewController.h"
-#import "Comment.h"
 #import "WorkDetailsTableViewController.h"
-#import "Utils.h"
-#import "Config.h"
-#import "SalesApi.h"
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
+
 @interface WorkDetailsBottomBarViewController ()
 @property (nonatomic, strong) WorkDetailsTableViewController *workDetailsVC;
 @property (nonatomic, strong) Work *work;

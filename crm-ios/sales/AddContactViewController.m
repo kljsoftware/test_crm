@@ -10,9 +10,7 @@
 #import "EnteringContactViewController.h"
 #import "PackageAPI.h"
 #import "XMLUtil.h"
-#import "Utils.h"
-#import <MessageUI/MessageUI.h>
-#import <MBProgressHUD.h>
+
 #define ERROR_OK @"1"
 #define ERROR_SERVER @"服务器请求超时，请重试"
 #define ERROR_NULL @"识别结果为空，请重新拍照或者导入"

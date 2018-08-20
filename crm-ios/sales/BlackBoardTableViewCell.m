@@ -7,14 +7,9 @@
 //
 
 #import "BlackBoardTableViewCell.h"
-#import "GlobalDefines.h"
 #import "Circle.h"
-#import "UIImageView+Util.h"
 #import "PhotoContainerView.h"
 #import "CircleCellCommentView.h"
-#import "Utils.h"
-#import "Config.h"
-#import <SDAutoLayout.h>
 
 const CGFloat contentLabelFontSize1 = 15;
 CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定

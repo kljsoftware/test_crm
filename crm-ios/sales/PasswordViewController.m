@@ -7,13 +7,7 @@
 //
 
 #import "PasswordViewController.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import "Utils.h"
-#import "AppDelegate.h"
-#import "NSStringUtils.h"
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
+
 @interface PasswordViewController ()
 
 @property (nonatomic,weak) IBOutlet UITextField         *nameField;

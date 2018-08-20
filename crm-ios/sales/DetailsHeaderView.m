@@ -8,14 +8,7 @@
 
 #import "DetailsHeaderView.h"
 #import "PhotoContainerView.h"
-#import "GlobalDefines.h"
-#import "UIImageView+Util.h"
-#import "UIColor+Util.h"
-#import "Utils.h"
-#import "Config.h"
-#import "SalesApi.h"
-#import <AFNetworking.h>
-#import <SDAutoLayout.h>
+
 const CGFloat contentLabelFontSizes = 14;
 CGFloat maxContentLabelHeights = 0; // 根据具体font而定
 @implementation DetailsHeaderView

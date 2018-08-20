@@ -7,13 +7,8 @@
 //
 
 #import "CustomerSocialViewController.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import "Utils.h"
 #import "Social.h"
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
-#import <MJExtension.h>
+
 @interface CustomerSocialViewController ()
 
 @property (nonatomic,weak) IBOutlet UITextField *wechatField;

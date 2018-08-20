@@ -6,9 +6,9 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "Organizations.h"
-@interface OrganizationViewController : UIViewController
+@interface OrganizationViewController : BaseViewController
 
 @property (nonatomic,strong) Organizations *organizations;
 

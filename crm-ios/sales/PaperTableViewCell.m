@@ -7,8 +7,7 @@
 //
 
 #import "PaperTableViewCell.h"
-#import "UIImageView+Util.h"
-#import "Utils.h"
+
 @interface PaperTableViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

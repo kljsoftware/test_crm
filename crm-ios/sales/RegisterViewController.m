@@ -7,13 +7,8 @@
 //
 
 #import "RegisterViewController.h"
-#import "NSStringUtils.h"
-#import "Config.h"
-#import "SalesApi.h"
-#import "Utils.h"
 #import "PasswordViewController.h"
-#import <MBProgressHUD.h>
-#import <AFNetworking.h>
+
 @interface RegisterViewController ()
 
 @property (nonatomic,weak) IBOutlet UITextField     *telField;

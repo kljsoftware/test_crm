@@ -7,14 +7,7 @@
 //
 
 #import "CustomerEditViewController.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import "Utils.h"
-#import "NSStringUtils.h"
-#import "CustomerDbUtil.h"
-#import <MBProgressHUD.h>
-#import <MJExtension.h>
-#import <AFNetworking.h>
+
 @interface CustomerEditViewController ()
 
 @property (nonatomic,weak) IBOutlet UITextField *nameField;

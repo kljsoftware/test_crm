@@ -7,12 +7,7 @@
 //
 
 #import "ForgetViewController.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import "Utils.h"
-#import "NSStringUtils.h"
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
+
 @interface ForgetViewController ()
 
 @property (nonatomic,weak) IBOutlet UITextField          *mobileField;

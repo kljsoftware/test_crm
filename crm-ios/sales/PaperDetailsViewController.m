@@ -7,9 +7,7 @@
 //
 
 #import "PaperDetailsViewController.h"
-#import "Utils.h"
-#import <MBProgressHUD.h>
-#import <DKNightVersion.h>
+
 @interface PaperDetailsViewController ()<UIWebViewDelegate>
 @property (nonatomic, weak) UIWebView *webView;
 @property (nonatomic, weak) UIBarButtonItem *backItem;

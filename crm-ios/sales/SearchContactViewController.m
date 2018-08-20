@@ -7,17 +7,8 @@
 //
 
 #import "SearchContactViewController.h"
-#import "NSStringUtils.h"
-#import "Config.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import "Utils.h"
 #import "Contact.h"
-#import "UIImageView+Util.h"
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
-#import <MJExtension.h>
-#import <RongIMKit/RongIMKit.h>
+
 @interface SearchContactViewController () <UITextFieldDelegate>
 @property (nonatomic,weak) IBOutlet UITextField     *searchText;
 @property (nonatomic,weak) IBOutlet UIView          *resultView;

@@ -7,15 +7,8 @@
 //
 
 #import "CircleDetailsTableViewCell.h"
-#import "Comment.h"
-#import "Utils.h"
-#import "UIImageView+Util.h"
 #import "BCommentView.h"
-#import "Config.h"
-#import "SalesApi.h"
-#import "NSStringUtils.h"
-#import <AFNetworking.h>
-#import <SDAutoLayout.h>
+
 @implementation CircleDetailsTableViewCell
 {
     UIImageView              *_iconView;

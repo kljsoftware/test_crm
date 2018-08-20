@@ -2,17 +2,15 @@
 //  OrganizationTableViewCell.h
 //  sales
 //
-//  Created by user on 2016/12/30.
-//  Copyright © 2016年 rayootech. All rights reserved.
+//  Created by Sunny on 2018/8/20.
+//  Copyright © 2018年 rayootech. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "Organizations.h"
 
 @interface OrganizationTableViewCell : UITableViewCell
 
-@property (nonatomic,strong) Organizations *model;
-
-+ (CGFloat)fixedHeight;
+@property (weak, nonatomic) IBOutlet UIImageView *headerImgView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end

@@ -7,11 +7,7 @@
 //
 
 #import "EnteringContactViewController.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import "Utils.h"
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
+
 @interface EnteringContactViewController ()
 @property (weak,nonatomic) IBOutlet UIButton *sureBtn;
 @property (weak,nonatomic) IBOutlet UITextField *nameField;

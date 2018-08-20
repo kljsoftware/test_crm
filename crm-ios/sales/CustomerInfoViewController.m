@@ -7,14 +7,7 @@
 //
 
 #import "CustomerInfoViewController.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import "PreferUtil.h"
-#import "CustomerDbUtil.h"
-#import "Utils.h"
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
-#import <MJExtension.h>
+
 @interface CustomerInfoViewController ()
 
 @property (nonatomic,weak) IBOutlet UIButton    *sexBtn;

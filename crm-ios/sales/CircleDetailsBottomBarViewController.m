@@ -8,12 +8,8 @@
 
 #import "CircleDetailsBottomBarViewController.h"
 #import "CircleDetailsTableViewController.h"
-#import "Utils.h"
-#import "Config.h"
-#import "SalesApi.h"
 #import "Circle.h"
-#import <AFNetworking.h>
-#import <MBProgressHUD.h>
+
 @interface CircleDetailsBottomBarViewController ()
 @property (nonatomic, strong) CircleDetailsTableViewController *circleDetailsVC;
 @property (nonatomic, strong) Circle *circle;
