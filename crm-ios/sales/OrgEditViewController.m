@@ -28,29 +28,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = @"编辑组织";
+    
     _imageflag = false;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonClicked)];
+    
+    _logo = self.organizations.logo;
+    if (_logo == nil) {
+        _logo = @"";
+    }
     _logoImage.userInteractionEnabled = YES;
+    [_logoImage loadPortrait:_logo];
+    _logoImage.layer.cornerRadius = 18;
+    _logoImage.layer.masksToBounds = true;
+    _nameText.text = self.organizations.name;
+    _desText.text = self.organizations.Description;
+    
     UILongPressGestureRecognizer *gesturRecognizer=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(choosePicture:)];
     gesturRecognizer.minimumPressDuration = 0;
     [_logoImage addGestureRecognizer:gesturRecognizer];
 }
 
-- (void)setOrganizations:(Organizations *)organization{
-    _organizations = organization;
-    _logo = organization.logo;
-    if (_logo == nil) {
-        _logo = @"";
-    }
-    [_logoImage loadPortrait:_logo];
-    _nameText.text = organization.name;
-    _desText.text = organization.Description;
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
 - (void)choosePicture:(UITapGestureRecognizer *)rec{
     if (rec.state == UIGestureRecognizerStateBegan) {
     }else if(rec.state == UIGestureRecognizerStateEnded){

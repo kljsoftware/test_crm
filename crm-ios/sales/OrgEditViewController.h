@@ -6,7 +6,7 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "Organizations.h"
 
 @protocol EditOrgDelegate <NSObject>
@@ -14,7 +14,7 @@
 -(void) editOrganization:(Organizations *)org;
 
 @end
-@interface OrgEditViewController : UIViewController
+@interface OrgEditViewController : BaseViewController
 
 @property (nonatomic,strong) Organizations *organizations;
 

@@ -25,19 +25,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"组织邀请";
-    _searchText.delegate = self;
     _resultView.hidden = YES;
+    
+    _avatarImage.layer.cornerRadius = 18;
+    _avatarImage.layer.masksToBounds = true;
+    _searchText.leftViewMode = UITextFieldViewModeAlways;
+    _searchText.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 57, 40)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void)setOrganizations:(Organizations *)organizations{
-    _organizations = organizations;
-}
-
-- (void) searchContact{
+- (void) searchContact {
     _hud = [Utils createHUD];
     NSString *number = _searchText.text;
     if ([NSStringUtils isEmpty:number]) {
@@ -143,15 +143,11 @@
                             [_addButton setTitle:@"等待验证" forState:UIControlStateNormal];
                         });
                     });
-                }else{
-                    
                 }
-            }else{
-                
             }
         }
     }];
     [dataTask resume];
-
 }
+
 @end

@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "Organizations.h"
+
 @interface OrganizationViewController : BaseViewController
 
 @property (nonatomic,strong) Organizations *organizations;

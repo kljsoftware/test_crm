@@ -23,7 +23,6 @@
     [super viewDidLoad];
     self.title = @"更改密码";
     
-    self.view.backgroundColor = SDColor(242, 242, 242, 1.0);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonClicked)];
 
     self.oldText.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 30)];

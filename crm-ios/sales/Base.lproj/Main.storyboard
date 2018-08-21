@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--登录-->
         <scene sceneID="BJ5-rc-QVc">
             <objects>
-                <viewController storyboardIdentifier="LoginIdentifier" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ll5-2l-vLl" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginIdentifier" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ll5-2l-vLl" userLabel="登录" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7oT-tc-BHq"/>
                         <viewControllerLayoutGuide type="bottom" id="yce-33-Wku"/>
@@ -196,10 +196,10 @@
             </objects>
             <point key="canvasLocation" x="1620" y="-116.00985221674877"/>
         </scene>
-        <!--Register View Controller-->
+        <!--注册-->
         <scene sceneID="BVh-5h-WZL">
             <objects>
-                <viewController storyboardIdentifier="Register" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h85-Cr-m5O" customClass="RegisterViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h85-Cr-m5O" userLabel="注册" customClass="RegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JbO-pD-cE9"/>
                         <viewControllerLayoutGuide type="bottom" id="mUL-SH-IJz"/>
@@ -321,10 +321,10 @@
             </objects>
             <point key="canvasLocation" x="2361" y="-116"/>
         </scene>
-        <!--Password View Controller-->
+        <!--修改密码-->
         <scene sceneID="Sls-jZ-N9X">
             <objects>
-                <viewController storyboardIdentifier="Password" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pVb-Xc-MMi" customClass="PasswordViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Password" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pVb-Xc-MMi" userLabel="修改密码" customClass="PasswordViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kxd-1j-dTH"/>
                         <viewControllerLayoutGuide type="bottom" id="VFo-Bl-GHe"/>
@@ -463,10 +463,10 @@
             </objects>
             <point key="canvasLocation" x="3100" y="-116"/>
         </scene>
-        <!--Forget View Controller-->
+        <!--忘记密码-->
         <scene sceneID="eLF-ri-9Zz">
             <objects>
-                <viewController storyboardIdentifier="Forget" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4qo-0b-3dh" customClass="ForgetViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Forget" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4qo-0b-3dh" userLabel="忘记密码" customClass="ForgetViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z7F-kO-RSJ"/>
                         <viewControllerLayoutGuide type="bottom" id="Rnu-XA-whn"/>

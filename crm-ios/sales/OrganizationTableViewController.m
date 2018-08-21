@@ -10,6 +10,7 @@
 #import "OrganizationTableViewCell.h"
 #import "OrganizationInviteDefaultCell.h"
 #import "OrganizationViewController.h"
+#import "OrgInviteViewController.h"
 
 #import "OrganizationInviteDealTableViewController.h"
 #import "OrganizationCreateViewController.h"
@@ -27,8 +28,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的组织";
-    
-    self.view.backgroundColor = SDColor(242, 242, 242, 1);
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:@selector(createButtonClicked)];
     
@@ -89,23 +88,8 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:true];
-    if (indexPath.section == 0) {
-        
-        
-    } else {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
-        OrganizationViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"OrganizationDetails"];
-        vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
-        vc.organizations = self.dataArray[indexPath.row];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-}
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (section == 1) {
+    if (section == 1 && self.dataArray.count > 0) {
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
         headerView.backgroundColor = SDColor(242, 242, 242, 1);
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, [UIScreen mainScreen].bounds.size.width-40, 40)];
@@ -129,11 +113,24 @@
     return 0.1;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+    if (indexPath.section == 0) {
+        
+        
+    } else {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
+        OrganizationViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"OrganizationDetails"];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.organizations = self.dataArray[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
 - (void)createButtonClicked {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
     OrganizationCreateViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"OrganizationCreate"];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
