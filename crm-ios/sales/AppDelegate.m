@@ -42,8 +42,9 @@
     int64_t userID = [Config getOwnID];
     NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHex:0x469DE5]];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHex:0x469DE5]} forState:UIControlStateSelected];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHex:0x1F5AF8]];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHex:0x1F5AF8]} forState:UIControlStateSelected];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     if (userID > 0) {
         self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"OMainIdentifier"];
