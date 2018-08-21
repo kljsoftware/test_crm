@@ -31,7 +31,8 @@
     return 0.1;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
     if ([indexPath row] == 0) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
         UpdatePasswordViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"UpdatePassword"];

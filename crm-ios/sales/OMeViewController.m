@@ -59,7 +59,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
     if ([indexPath section] == 0) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OMeViewController" bundle:nil];
         OMeInfoTableViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"OMeInfo"];
