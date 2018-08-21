@@ -12,9 +12,7 @@
 #import "ContactTableViewController.h"
 #import "OMeViewController.h"
 #import "CirclePublishViewController.h"
-#import "SearchContactViewController.h"
 #import "OConversationListViewController.h"
-#import "AddContactViewController.h"
 #import "OSelectFriendsViewController.h"
 #import "UMessage.h"
 
@@ -71,17 +69,16 @@
     circleVC.title = childItemsArray[1][kTitleKey];
     contactVC = [[ContactTableViewController alloc] init];
     contactVC.title = childItemsArray[2][kTitleKey];
+    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:contactVC];
     meVC = [[OMeViewController alloc] init];
     meVC.title = childItemsArray[3][kTitleKey];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:meVC];
+    UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:meVC];
     
     
-    self.viewControllers = @[
-                             [self addNavigationItemForViewController:conversationVC vcId:0],
+    self.viewControllers = @[[self addNavigationItemForViewController:conversationVC vcId:0],
                              [self addNavigationItemForViewController:circleVC vcId:1],
-                             [self addNavigationItemForViewController:contactVC vcId:2],
-                             nav
-                             ];
+                             nav3,
+                             nav4];
     [self.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem *item, NSUInteger idx, BOOL *stop) {
         [item setTitle:childItemsArray[idx][kTitleKey]];
         item.image = [[UIImage imageNamed:childItemsArray[idx][kImgKey]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -107,9 +104,6 @@
     viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                                      target:self
                                                                                                      action:@selector(pushPublishViewController:)];
-    if(id == 2){
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchUser)];
-    }
     [viewController.navigationItem.rightBarButtonItem setTag:id];
     return navigationController;
 }
@@ -120,25 +114,14 @@
         CirclePublishViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CirclePublish"];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
         [self.selectedViewController presentViewController:nav animated:YES completion:nil];
-    }else if (i == 2){
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Contact" bundle:nil];
-        AddContactViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AddContacts"];
-        vc.hidesBottomBarWhenPushed = YES;
-        [(UINavigationController *)self.selectedViewController pushViewController:vc animated:YES];
+
     }else if(i == 0){
         OSelectFriendsViewController *vc = [[OSelectFriendsViewController alloc] init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
         [self.selectedViewController presentViewController:nav animated:YES completion:nil];
     }
-    
-    
 }
-- (void)searchUser{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Contact" bundle:nil];
-    SearchContactViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"SearchFriend"];
-    vc.hidesBottomBarWhenPushed = YES;
-    [(UINavigationController *)self.selectedViewController pushViewController:vc animated:YES];
-}
+
 - (void)connoectRC{
     NSString *rotoken = [Config getRoToken];
     [[RCIM sharedRCIM] connectWithToken:rotoken success:^(NSString *userId){

@@ -8,8 +8,8 @@
 
 #import "EnteringContactViewController.h"
 
-@interface EnteringContactViewController ()
-@property (weak,nonatomic) IBOutlet UIButton *sureBtn;
+@interface EnteringContactViewController () <UITextFieldDelegate>
+
 @property (weak,nonatomic) IBOutlet UITextField *nameField;
 @property (weak,nonatomic) IBOutlet UITextField *organizationField;
 @property (weak,nonatomic) IBOutlet UITextField *titleField;
@@ -27,7 +27,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.title = @"录入联系人";
+    self.view.backgroundColor = UIColor.whiteColor;
     _nameField.text = @"";
     _organizationField.text = @"";
     _titleField.text = @"";
@@ -38,6 +40,8 @@
     _addressField.text = @"";
     _websiteField.text = @"";
     _remarkField.text = @"";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonClicked)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +49,23 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)sure{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.1;
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self textFieldDone];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return [textField resignFirstResponder];
+}
+
+- (void)textFieldDone {
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+}
+
+-(void)saveButtonClicked {
     _hud = [Utils createHUD];
     NSString *name = _nameField.text;
     NSString *organization = _organizationField.text;
@@ -94,11 +114,8 @@
                     [_hud hideAnimated:YES afterDelay:1];
                     NSNotification *notice = [NSNotification notificationWithName:@"updateContact" object:nil];
                     [[NSNotificationCenter defaultCenter]postNotification:notice];
-                    if (self.navigationController.viewControllers.count <= 1) {
-                        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-                    } else {
-                        [self.navigationController popViewControllerAnimated:YES];
-                    }
+                    [self.navigationController popViewControllerAnimated:YES];
+
                 }else{
                     _hud.label.text = @"录入失败";
                     [_hud hideAnimated:YES afterDelay:1];
@@ -110,21 +127,6 @@
         }
     }];
     [dataTask resume];
-
-}
-
-- (void)setMap:(NSMutableDictionary *)map{
-    _map = map;
-    _nameField.text = [map valueForKey:@"name"];
-    _organizationField.text = [map valueForKey:@"company"];
-    _titleField.text = [map valueForKey:@"jobtitle"];
-    _deptField.text = [map valueForKey:@"department"];
-    _mobileField.text = [map valueForKey:@"tel_mobile"];
-    _telField.text = [map valueForKey:@"tel_main"];
-    _mailField.text = [map valueForKey:@"email"];
-    _addressField.text = [map valueForKey:@"address"];
-    _websiteField.text = [map valueForKey:@"web"];
-    _remarkField.text = @"";
 }
 
 @end

@@ -2078,8 +2078,7 @@
 				TargetAttributes = {
 					CEE863611DCB0EFB00695F0F = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = NAGPV52B3Z;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -2573,8 +2572,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: jiang cheng wei (4M67UH93KS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiang cheng wei (4M67UH93KS)";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = NAGPV52B3Z;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sales/lib/IMKit",
@@ -2582,7 +2581,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/sales/PrefixHeader.pch";
 				INFOPLIST_FILE = sales/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2594,8 +2593,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.guall.salesconn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "998d50ef-06f6-457a-881a-a6f43cc2c81a";
-				PROVISIONING_PROFILE_SPECIFIER = wwf;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -2607,8 +2606,8 @@
 				CODE_SIGN_ENTITLEMENTS = sales/sales.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiang cheng wei (4M67UH93KS)";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = NAGPV52B3Z;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sales/lib/IMKit",
@@ -2616,7 +2615,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/sales/PrefixHeader.pch";
 				INFOPLIST_FILE = sales/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2628,8 +2627,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.guall.salesconn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "998d50ef-06f6-457a-881a-a6f43cc2c81a";
-				PROVISIONING_PROFILE_SPECIFIER = wwf;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

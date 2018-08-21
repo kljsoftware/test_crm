@@ -15,6 +15,8 @@
 #import "UIViewLinkTouch.h"
 #import "ContactDetailsViewController.h"
 #import "OConversationViewController.h"
+#import "AddContactViewController.h"
+#import "SearchContactViewController.h"
 #import "ReqFriendDbUtil.h"
 
 @interface ContactTableViewController () <ContactCellDelegate>
@@ -34,16 +36,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchItemClicked)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonClicked)];
+    
     _dbUtil = [[SalesDbUtil alloc] init];
     _preferUtil = [PreferUtil new];
     [_preferUtil initOUT];
-    _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 640, 50)];
-
+    
+    _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 640, 60)];
+    _headerView.backgroundColor = UIColor.whiteColor;
     _label = [[UILabel alloc] init];
     _label.text = @"新朋友";
     _label.font = [UIFont systemFontOfSize:14];
-    
-    
+    _label.textColor = [UIColor colorWithHex:0x333333];
     _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(75, 0, 20, 20)];
     _countLabel.backgroundColor = [UIColor redColor];
     _countLabel.layer.cornerRadius = _countLabel.bounds.size.width/2;
@@ -52,16 +60,13 @@
     _countLabel.font = [UIFont systemFontOfSize:12];
     _countLabel.textAlignment = NSTextAlignmentCenter;
     _countLabel.text = @"1";
-    
     [_headerView addSubview:_label];
     [_headerView addSubview:_countLabel];
-    
     _label.sd_layout
-    .leftSpaceToView(self.headerView, 8)
+    .leftSpaceToView(self.headerView, 20)
     .widthIs(70)
     .heightEqualToWidth()
     .centerYEqualToView(self.headerView);
-    
     _countLabel.sd_layout.leftSpaceToView(_label, 5).centerYEqualToView(self.headerView).widthIs(20).heightIs(20);
     NSInteger num = [_preferUtil getInt:NewFriendReq];
     if (num > 0) {
@@ -74,7 +79,7 @@
     [_headerView addGestureRecognizer:gesturRecognizer];
     
     self.tableView.tableHeaderView = _headerView;
-    self.tableView.rowHeight = [ContactTableViewCell fixedHeight];
+    self.tableView.rowHeight = 60;
     self.tableView.sectionIndexColor = [UIColor lightGrayColor];
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -114,6 +119,20 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)searchItemClicked {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Contact" bundle:nil];
+    SearchContactViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"SearchFriend"];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)addButtonClicked {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Contact" bundle:nil];
+    AddContactViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AddContacts"];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)getLocalData{
@@ -245,17 +264,27 @@
     cell.model = model;
     cell.delegate = self;
     return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, [UIScreen mainScreen].bounds.size.width-40, 25)];
+    label.textColor = SDColor(128, 128, 128, 1);
+    label.text = [self.sectionTitlesArray objectAtIndex:section];
+    label.font = [UIFont systemFontOfSize:14];
+    [headerView addSubview:label];
+    return headerView;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return [self.sectionTitlesArray objectAtIndex:section];
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 25;
 }
 
-
-- (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
+- (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     return self.sectionTitlesArray;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Contact" bundle:nil];

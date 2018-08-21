@@ -827,7 +827,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="JHa-8a-KPU" firstAttribute="leading" secondItem="rtU-Dv-W0H" secondAttribute="leading" constant="20" id="20j-Cv-cxU"/>
                                             <constraint firstItem="6SL-OX-DkX" firstAttribute="top" secondItem="rtU-Dv-W0H" secondAttribute="top" constant="7.5" id="AY8-OU-z0G"/>
@@ -843,7 +843,7 @@
                                         <rect key="frame" x="20" y="56.666666666666671" width="17" height="17"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="rtU-Dv-W0H" firstAttribute="leading" secondItem="fi0-vo-xM9" secondAttribute="leading" id="95v-6h-FuH"/>
                                     <constraint firstItem="YyU-vO-V1B" firstAttribute="centerY" secondItem="kjy-zD-UiH" secondAttribute="centerY" id="9ek-iH-kxg"/>

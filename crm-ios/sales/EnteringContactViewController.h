@@ -6,10 +6,8 @@
 //  Copyright © 2016年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
-@interface EnteringContactViewController : UIViewController
-
-@property (nonatomic,strong) NSMutableDictionary *map;
+@interface EnteringContactViewController : BaseTableViewController
 
 @end

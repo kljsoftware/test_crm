@@ -10,6 +10,7 @@
 #import "Contact.h"
 
 @interface SearchContactViewController () <UITextFieldDelegate>
+
 @property (nonatomic,weak) IBOutlet UITextField     *searchText;
 @property (nonatomic,weak) IBOutlet UIView          *resultView;
 @property (nonatomic,weak) IBOutlet UILabel         *nameLabel;
@@ -23,10 +24,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     self.title = @"添加联系人";
     _searchText.delegate = self;
     _resultView.hidden = YES;
+    
+    _avatarImage.layer.cornerRadius = 18;
+    _avatarImage.layer.masksToBounds = true;
+    _searchText.leftViewMode = UITextFieldViewModeAlways;
+    _searchText.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 57, 40)];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -25,7 +25,7 @@
         
         // 这行代是为了解决tableview开启了字母序列索引之后cell会向左缩进一段距离的问题
         self.contentView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
-        
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [self setupView];
     }
     return self;
@@ -33,11 +33,13 @@
 
 - (void)setupView{
     _iconImageView = [UIImageView new];
+    _iconImageView.layer.cornerRadius = 18;
+    _iconImageView.layer.masksToBounds = true;
     [self.contentView addSubview:_iconImageView];
     
     _nameLabel = [UILabel new];
-//    _nameLabel.textColor = [UIColor darkGrayColor];
     _nameLabel.font = [UIFont systemFontOfSize:14];
+    _nameLabel.textColor = [UIColor colorWithHex:0x333333];
     [self.contentView addSubview:_nameLabel];
     
     _chatButton = [UIButton new];
@@ -49,11 +51,11 @@
     
     [self.contentView addSubview:_chatButton];
     
-    CGFloat margin = 8;
+    CGFloat margin = 15;
     
     _iconImageView.sd_layout
     .leftSpaceToView(self.contentView, margin)
-    .widthIs(35)
+    .widthIs(36)
     .heightEqualToWidth()
     .centerYEqualToView(self.contentView);
     
