@@ -7,17 +7,12 @@
 //
 
 #import "IMeTableViewController.h"
-#import "AppDelegate.h"
-#import "Config.h"
 #import "FirstDeptTableViewController.h"
 #import "OrgUserInfo.h"
 #import "ColleagueTableViewController.h"
 #import "SetLeaderTableViewController.h"
 #import "IMeInfoTableViewController.h"
-#import "UIImageView+Util.h"
-#import "SalesApi.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
+
 @interface IMeTableViewController () <SetLeaderDelegate>
 @property (nonatomic,weak) IBOutlet UIImageView          *avatarImage;
 @property (nonatomic,weak) IBOutlet UILabel              *nameLabel;

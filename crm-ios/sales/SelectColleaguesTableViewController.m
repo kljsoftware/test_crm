@@ -8,11 +8,7 @@
 
 #import "SelectColleaguesTableViewController.h"
 #import "OrgUserInfoDbUtil.h"
-#import "UIImageView+Util.h"
-#import "UIColor+Util.h"
 #import "SelectColleauesTableViewCell.h"
-#import "Config.h"
-#import <RongIMKit/RongIMKit.h>
 @interface SelectColleaguesTableViewController ()<UISearchBarDelegate,UISearchResultsUpdating,UISearchControllerDelegate>
 
 @property (nonatomic,strong) OrgUserInfoDbUtil *dbUtil;

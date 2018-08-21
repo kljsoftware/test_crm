@@ -7,14 +7,11 @@
 //
 
 #import "SecondDeptTableViewController.h"
-#import "Config.h"
 #import "Dept.h"
 #import "DeptTableViewCell.h"
-#import "SalesApi.h"
 #import "OrgUserInfo.h"
 #import "CreateSecondViewController.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
+
 #define kDeptTableCellId @"DeptTableViewCell"
 @interface SecondDeptTableViewController ()
 

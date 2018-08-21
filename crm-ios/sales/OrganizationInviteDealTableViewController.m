@@ -7,13 +7,7 @@
 //
 
 #import "OrganizationInviteDealTableViewController.h"
-#import "FileUtils.h"
-#import "PreferUtil.h"
 #import "OrganizationInviteTableViewCell.h"
-#import "Config.h"
-#import "PreferUtil.h"
-#import "SalesApi.h"
-#import <AFNetworking.h>
 #define kOrganizationInviteTableViewCellId @"OrganizationInviteTableViewCell"
 @interface OrganizationInviteDealTableViewController () <OrgInviteCellDelegate>
 

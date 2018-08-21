@@ -7,8 +7,6 @@
 //
 
 #import "OrganizationInviteTableViewCell.h"
-#import "GlobalDefines.h"
-#import <SDAutoLayout.h>
 @implementation OrganizationInviteTableViewCell
 {
     UILabel         *_orgnameLabel;

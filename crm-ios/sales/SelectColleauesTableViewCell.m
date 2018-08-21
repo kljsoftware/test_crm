@@ -7,8 +7,6 @@
 //
 
 #import "SelectColleauesTableViewCell.h"
-#import "UIImageView+Util.h"
-#import <SDAutoLayout.h>
 @implementation SelectColleauesTableViewCell
 {
     UIImageView     *_iconImageView;

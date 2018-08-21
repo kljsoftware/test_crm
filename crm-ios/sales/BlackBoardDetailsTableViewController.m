@@ -7,15 +7,9 @@
 //
 
 #import "BlackBoardDetailsTableViewController.h"
-#import "Config.h"
-#import "SalesApi.h"
-#import "Comment.h"
 #import "CircleDetailsTableViewCell.h"
 #import "BlackBoardDetailsHeaderView.h"
 #import <MJRefresh.h>
-#import <MJExtension.h>
-#import <AFNetworking.h>
-#import <SDAutoLayout.h>
 #import <MBProgressHUD.h>
 
 #define kCircleDetailsTableCellId @"CircleDetailsTableViewCell"

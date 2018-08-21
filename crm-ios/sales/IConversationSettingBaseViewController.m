@@ -11,7 +11,6 @@
 #import "IConversationSettingTableViewHeader.h"
 #import "OConversationSettingTableViewCell.h"
 #import "OConversationSettingClearMessageCell.h"
-#import "GlobalDefines.h"
 @interface IConversationSettingBaseViewController () <
 IConversationSettingTableViewHeaderDelegate>
 

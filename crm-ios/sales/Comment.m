@@ -6,7 +6,6 @@
 //  Copyright © 2016年 rayootech. All rights reserved.
 //
 
-#import "Comment.h"
 
 @implementation Comment
 

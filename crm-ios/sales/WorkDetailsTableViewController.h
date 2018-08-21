@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Work.h"
-#import "Comment.h"
 @interface WorkDetailsTableViewController : UITableViewController
 
 @property (nonatomic, strong) Work *work;

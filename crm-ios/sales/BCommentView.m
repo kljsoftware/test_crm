@@ -7,12 +7,7 @@
 //
 
 #import "BCommentView.h"
-#import "GlobalDefines.h"
-#import "Comment.h"
-#import "UIColor+Util.h"
 #import <LEETheme.h>
-#import <MLLinkLabel.h>
-#import <SDAutoLayout.h>
 @implementation BCommentView
 
 - (instancetype)initWithFrame:(CGRect)frame

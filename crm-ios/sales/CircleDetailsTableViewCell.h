@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Comment.h"
 
 @interface CircleDetailsTableViewCell : UITableViewCell
 

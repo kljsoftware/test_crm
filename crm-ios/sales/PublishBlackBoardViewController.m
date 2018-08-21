@@ -9,11 +9,8 @@
 #import "PublishBlackBoardViewController.h"
 #import "ImagePickerView.h"
 #import "OMeViewController.h"
-#import "Config.h"
-#import "SalesApi.h"
 #import "Url.h"
 #import "PlaceholderTextView.h"
-#import "UIColor+Util.h"
 
 #define kScreenWidth        [[UIScreen mainScreen] bounds].size.width
 #define kScreenHeight       [[UIScreen mainScreen] bounds].size.height

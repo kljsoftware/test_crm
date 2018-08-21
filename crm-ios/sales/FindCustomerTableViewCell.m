@@ -7,7 +7,6 @@
 //
 
 #import "FindCustomerTableViewCell.h"
-#import <SDAutoLayout.h>
 @implementation FindCustomerTableViewCell
 {
     UIImageView     *_iconImageView;

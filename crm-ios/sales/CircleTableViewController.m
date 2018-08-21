@@ -7,20 +7,12 @@
 //
 
 #import "CircleTableViewController.h"
-#import "Config.h"
 #import "Circle.h"
-#import "SalesApi.h"
-#import "Comment.h"
 #import "CircleTableCell.h"
 #import "CircleDetailsTableViewController.h"
 #import "CircleDetailsBottomBarViewController.h"
 #import "CircleUnreadTableViewController.h"
-#import "PreferUtil.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
-#import <SDAutoLayout.h>
 #import <MJRefresh.h>
-#import <SDAutoLayout.h>
 #define kMainWidth [UIScreen mainScreen].bounds.size.width
 #define kCircleTableCellId @"CircleTableCell"
 

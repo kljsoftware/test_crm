@@ -7,8 +7,6 @@
 //
 
 #import "ReadTopChannelContianerView.h"
-#import "UIColor+Util.h"
-#import <DKNightVersion.h>
 @interface ReadTopChannelContianerView()
 
 @property (nonatomic, weak) UIButton *lastSelectedButton;

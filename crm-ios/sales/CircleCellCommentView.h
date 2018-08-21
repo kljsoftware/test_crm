@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MLLinkLabel.h>
 
 @interface CircleCellCommentView : UIView
 

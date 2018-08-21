@@ -8,11 +8,7 @@
 
 #import "OSelectFriendsViewController.h"
 #import "SalesDbUtil.h"
-#import "UIImageView+Util.h"
-#import "UIColor+Util.h"
 #import "FriendTableViewCell.h"
-#import "Config.h"
-#import <RongIMKit/RongIMKit.h>
 @interface OSelectFriendsViewController () <UISearchBarDelegate,UISearchResultsUpdating,UISearchControllerDelegate>
 @property (nonatomic,strong) SalesDbUtil *dbUtil;
 @property (nonatomic,strong) NSMutableArray *dataModels;

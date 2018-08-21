@@ -7,9 +7,8 @@
 //
 
 #import "DeptTableViewCell.h"
-#import "Config.h"
 #import "OrgUserInfo.h"
-#import <SDAutoLayout.h>
+
 @implementation DeptTableViewCell
 {
     UILabel         *_nameLabel;

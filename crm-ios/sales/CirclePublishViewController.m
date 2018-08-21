@@ -10,8 +10,6 @@
 #import "CirclePublishViewController.h"
 #import "ImagePickerView.h"
 #import "OMeViewController.h"
-#import "Config.h"
-#import "SalesApi.h"
 #import "Url.h"
 #import "PlaceholderTextView.h"
 

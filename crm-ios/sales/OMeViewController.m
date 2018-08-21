@@ -7,13 +7,10 @@
 //
 
 #import "OMeViewController.h"
-#import "Config.h"
-#import "UIImageView+Util.h"
 #import "User.h"
 #import "OMeInfoTableViewController.h"
 #import "SettingTableViewController.h"
 #import "OrganizationTableViewController.h"
-#import "AppDelegate.h"
 @interface OMeViewController ()
 @property (nonatomic,weak) IBOutlet UIImageView          *avatarImage;
 @property (nonatomic,weak) IBOutlet UILabel              *nameLabel;

@@ -7,9 +7,6 @@
 //
 
 #import "FriendTableViewCell.h"
-#import "UIImageView+Util.h"
-#import "GlobalDefines.h"
-#import <SDAutoLayout.h>
 @implementation FriendTableViewCell
 {
     UIImageView     *_iconImageView;

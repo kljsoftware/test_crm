@@ -6,8 +6,6 @@
 //  Copyright © 2016年 rayootech. All rights reserved.
 //
 
-#import "PreferUtil.h"
-#import "Config.h"
 
 @interface PreferUtil ()
 

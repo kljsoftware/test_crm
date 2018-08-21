@@ -15,17 +15,11 @@
 #import "CustomerTableViewController.h"
 #import "IMeTableViewController.h"
 #import "OMeViewController.h"
-#import "Config.h"
 #import "AddCustomerViewController.h"
 #import "FindCustomerTableViewController.h"
 #import "OrgUserInfoDbUtil.h"
-#import "SalesApi.h"
 #import "OrgUserInfo.h"
-#import "PreferUtil.h"
 #import "PublishNoticeViewController.h"
-#import <RongIMKit/RongIMKit.h>
-#import <AFNetworking.h>
-#import <MJExtension.h>
 #import <BHBPopView.h>
 #import "PublishWorkViewController.h"
 @interface IMainTabBarController () <ReadItemDelegate>

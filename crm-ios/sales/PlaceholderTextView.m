@@ -7,7 +7,6 @@
 //
 
 #import "PlaceholderTextView.h"
-#import "UIColor+Util.h"
 static NSString * const kTextKey = @"text";
 
 

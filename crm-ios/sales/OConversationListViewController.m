@@ -8,9 +8,7 @@
 
 #import "OConversationListViewController.h"
 #import "OConversationViewController.h"
-#import <RongIMKit/RongIMKit.h>
 #import "UITabBar+badge.h"
-#import "NSStringUtils.h"
 @interface OConversationListViewController ()
 @property (nonatomic,strong) UIImageView *unreadImage;
 @end

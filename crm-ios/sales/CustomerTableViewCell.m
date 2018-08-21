@@ -7,10 +7,6 @@
 //
 
 #import "CustomerTableViewCell.h"
-#import "UIImageView+Util.h"
-#import "SalesApi.h"
-#import "GlobalDefines.h"
-#import <SDAutoLayout.h>
 @implementation CustomerTableViewCell
 
 {

@@ -8,7 +8,6 @@
 
 #import "IConversationSettingBaseViewController.h"
 #import "IConversationSettingTableViewHeader.h"
-#import <RongIMKit/RongIMKit.h>
 #import <UIKit/UIKit.h>
 /**
  *  定义block

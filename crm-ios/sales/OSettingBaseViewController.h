@@ -8,7 +8,6 @@
 
 #import "OConversationSettingBaseViewController.h"
 #import "OConversationSettingTableViewHeader.h"
-#import <RongIMKit/RongIMKit.h>
 #import <UIKit/UIKit.h>
 
 /**

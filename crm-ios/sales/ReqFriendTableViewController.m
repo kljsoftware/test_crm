@@ -7,12 +7,8 @@
 //
 
 #import "ReqFriendTableViewController.h"
-#import "Config.h"
 #import "ReqFriendDbUtil.h"
 #import "ReqFriendTableViewCell.h"
-#import "SalesApi.h"
-#import <AFNetworking.h>
-#import <RongIMKit/RongIMKit.h>
 #define kReqFriendTableCellId @"ReqFriendTableViewCell"
 @interface ReqFriendTableViewController () <ReqFriendCellDelegate>
 

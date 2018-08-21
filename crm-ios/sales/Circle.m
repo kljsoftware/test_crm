@@ -7,7 +7,6 @@
 //
 
 #import "Circle.h"
-#import "Comment.h"
 #import <UIKit/UIKit.h>
 
 extern const CGFloat contentLabelFontSize;

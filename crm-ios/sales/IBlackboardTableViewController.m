@@ -10,8 +10,6 @@
 #import "BlackBoardDetailsBottomBarViewController.h"
 #import "BlackBoardTableViewCell.h"
 #import "BlackBoard.h"
-#import "FileUtils.h"
-#import "PreferUtil.h"
 #import "BlackBoardUnreadTableViewController.h"
 
 #define kBlackBoardTableCellId @"BlackBoardTableCell"

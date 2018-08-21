@@ -7,8 +7,6 @@
 //
 
 #import "OConversationSettingTableViewHeaderItem.h"
-#import "UIImageView+Util.h"
-#import "UIColor+Util.h"
 
 @implementation OConversationSettingTableViewHeaderItem
 - (instancetype)initWithFrame:(CGRect)frame {

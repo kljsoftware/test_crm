@@ -12,13 +12,11 @@
 #import "ContactTableViewController.h"
 #import "OMeViewController.h"
 #import "CirclePublishViewController.h"
-#import "Config.h"
 #import "SearchContactViewController.h"
 #import "OConversationListViewController.h"
 #import "AddContactViewController.h"
 #import "OSelectFriendsViewController.h"
 #import "UMessage.h"
-#import <RongIMKit/RongIMKit.h>
 
 #define kClassKey   @"rootVCClassString"
 #define kTitleKey   @"title"

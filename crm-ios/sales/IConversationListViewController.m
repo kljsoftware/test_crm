@@ -9,7 +9,6 @@
 #import "IConversationListViewController.h"
 #import "IConversationViewController.h"
 #import "ServiceNoTableViewController.h"
-#import <SDAutoLayout.h>
 @interface IConversationListViewController ()
 
 @property (nonatomic,strong) UIView *headerView;

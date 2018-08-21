@@ -10,7 +10,6 @@
 #import "OConversationSettingTableViewHeader.h"
 #import "OConversationSettingTableViewCell.h"
 #import "OConversationSettingClearMessageCell.h"
-#import "GlobalDefines.h"
 @interface OConversationSettingBaseViewController () <
 OConversationSettingTableViewHeaderDelegate>
 

@@ -7,15 +7,10 @@
 //
 
 #import "IPaperTableViewController.h"
-#import "Config.h"
-#import "SalesApi.h"
 #import "Paper.h"
 #import "PaperTableViewCell.h"
 #import "PaperDetailsViewController.h"
 #import <MJRefresh.h>
-#import <AFNetworking.h>
-#import <DKNightVersion.h>
-#import <MJExtension.h>
 @interface IPaperTableViewController ()
 
 @property (nonatomic,strong) NSMutableArray *dataModels;

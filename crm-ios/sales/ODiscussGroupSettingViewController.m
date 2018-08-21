@@ -11,10 +11,6 @@
 #import "ODiscussSettingSwitchCell.h"
 #import "OSelectFriendsViewController.h"
 #import "SalesDbUtil.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
 @interface ODiscussGroupSettingViewController () <UIActionSheetDelegate>
 
 @property(nonatomic, copy) NSString *discussTitle;

@@ -6,7 +6,6 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <RongIMKit/RongIMKit.h>
 
 @interface IConversationListViewController : RCConversationListViewController
 

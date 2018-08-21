@@ -7,11 +7,7 @@
 //
 
 #import "CircleCellCommentView.h"
-#import "GlobalDefines.h"
-#import "Comment.h"
-#import "UIColor+Util.h"
 #import <LEETheme.h>
-#import <SDAutoLayout.h>
 
 @interface CircleCellCommentView () <MLLinkLabelDelegate>
 @end

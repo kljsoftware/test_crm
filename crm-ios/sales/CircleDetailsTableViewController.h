@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Circle.h"
-#import "Comment.h"
 @interface CircleDetailsTableViewController : UITableViewController
 
 @property (nonatomic, strong) Circle *circle;

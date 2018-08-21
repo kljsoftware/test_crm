@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "BlackBoard.h"
-#import "Comment.h"
 @interface BlackBoardDetailsTableViewController : UITableViewController
 
 @property (nonatomic, strong) BlackBoard *blackBoard;

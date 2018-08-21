@@ -7,9 +7,6 @@
 //
 
 #import "ServiceNoTableViewCell.h"
-#import "UIColor+Util.h"
-#import "GlobalDefines.h"
-#import <SDAutoLayout.h>
 @interface ServiceNoTableViewCell ()
 
 @property (nonatomic, strong) UIView *container;

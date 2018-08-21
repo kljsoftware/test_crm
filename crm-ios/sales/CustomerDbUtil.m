@@ -6,9 +6,6 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import "CustomerDbUtil.h"
-#import "Config.h"
-#import "NSStringUtils.h"
 #define PATH_OF_DOCUMENT    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 
 @implementation CustomerDbUtil

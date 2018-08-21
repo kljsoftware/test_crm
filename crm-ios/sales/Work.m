@@ -7,7 +7,6 @@
 //
 
 #import "Work.h"
-#import "Comment.h"
 #import "OrgUserInfo.h"
 #import <UIKit/UIKit.h>
 extern const CGFloat contentLabelFontSize3;

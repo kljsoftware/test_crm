@@ -11,7 +11,6 @@
 
 #import "RCDTabBarBtn.h"
 #import "UIColor+RCColor.h"
-#import <RongIMKit/RongIMKit.h>
 #import "OConversationListViewController.h"
 
 @interface RCDTabBarBtn()

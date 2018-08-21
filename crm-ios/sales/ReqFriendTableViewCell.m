@@ -7,11 +7,7 @@
 //
 
 #import "ReqFriendTableViewCell.h"
-#import "UIImageView+Util.h"
-#import "SalesApi.h"
-#import "GlobalDefines.h"
 #import "Contact.h"
-#import <SDAutoLayout.h>
 @implementation ReqFriendTableViewCell
 {
     UIImageView     *_iconImageView;

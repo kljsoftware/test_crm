@@ -7,15 +7,7 @@
 //
 
 #import "WorkUnreadDetailsTableViewController.h"
-#import "PreferUtil.h"
-#import "Config.h"
 #import "CircleDetailsTableViewCell.h"
-#import <SDAutoLayout.h>
-#import "Comment.h"
-#import "FileUtils.h"
-#import "SalesApi.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
 #define kCircleDetailsTableCellId @"CircleDetailsTableViewCell"
 @interface WorkUnreadDetailsTableViewController ()
 

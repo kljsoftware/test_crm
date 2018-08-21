@@ -7,7 +7,6 @@
 //
 
 #import "WorkCommentDbUtil.h"
-#import "Config.h"
 #define PATH_OF_DOCUMENT    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 @implementation WorkCommentDbUtil
 

@@ -8,21 +8,15 @@
 
 #import "ContactTableViewController.h"
 #import "ContactTableViewCell.h"
-#import "Config.h"
-#import "Contact.h"
 #import "ReqFriendTableViewCell.h"
 #import "ReqFriendTableViewController.h"
 #import "EnteringContactViewController.h"
-#import "SalesApi.h"
 #import "SalesDbUtil.h"
 #import "UIViewLinkTouch.h"
-#import "PreferUtil.h"
 #import "ContactDetailsViewController.h"
 #import "OConversationViewController.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
-#import <SDAutoLayout.h>
 #import "ReqFriendDbUtil.h"
+
 @interface ContactTableViewController () <ContactCellDelegate>
 
 @property (nonatomic,strong) SalesDbUtil *dbUtil;

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <RongIMKit/RongIMKit.h>
 @interface AppDelegate : UIResponder <UIApplicationDelegate,RCIMUserInfoDataSource>
 
 @property (strong, nonatomic) UIWindow *window;

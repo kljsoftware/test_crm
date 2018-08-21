@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Comment.h"
 @interface CircleUnreadTableViewCell : UITableViewCell
 
 @property (nonatomic,strong) Comment *model;

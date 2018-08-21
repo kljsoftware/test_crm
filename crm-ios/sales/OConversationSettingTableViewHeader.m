@@ -10,9 +10,6 @@
 #import "OConversationSettingTableViewHeaderItem.h"
 #import "Contact.h"
 #import "OSelectFriendsViewController.h"
-#import "GlobalDefines.h"
-#import "UIImageView+Util.h"
-#import <RongIMKit/RongIMKit.h>
 @interface OConversationSettingTableViewHeader () <
 OConversationSettingTableViewHeaderItemDelegate>
 

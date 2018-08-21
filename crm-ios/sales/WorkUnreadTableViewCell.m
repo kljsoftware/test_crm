@@ -7,8 +7,6 @@
 //
 
 #import "WorkUnreadTableViewCell.h"
-#import "UIImageView+Util.h"
-#import <SDAutoLayout.h>
 @implementation WorkUnreadTableViewCell
 
 {

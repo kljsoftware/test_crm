@@ -7,7 +7,6 @@
 //
 
 #import "OSettingBaseViewController.h"
-#import <RongIMKit/RongIMKit.h>
 
 typedef void (^setDiscussTitle)(NSString *discussTitle);
 

@@ -8,10 +8,7 @@
 
 #import "IMeInfoTableViewController.h"
 #import "OrgUserInfo.h"
-#import "Config.h"
-#import "UIImageView+Util.h"
 #import "TZImagePickerController.h"
-
 #import "ONameUpdateViewController.h"
 #import "OAreaUpdateViewController.h"
 #import "ODescUpdateViewController.h"
@@ -19,7 +16,6 @@
 #import "OWeChatUpdateViewController.h"
 #import "BindEmailViewController.h"
 #import "MeTitleUpdateViewController.h"
-
 
 @interface IMeInfoTableViewController ()<TZImagePickerControllerDelegate,ONameUpdateDelegate,OWeChatUpdateDelegate,OAreaUpdateDelegate,TitleUpdateDelegate,EmailUpdateDelegate>
 

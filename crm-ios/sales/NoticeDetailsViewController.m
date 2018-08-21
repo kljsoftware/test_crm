@@ -7,7 +7,6 @@
 //
 
 #import "NoticeDetailsViewController.h"
-#import <SDAutoLayout.h>
 @interface NoticeDetailsViewController ()
 //@property (nonatomic,weak) IBOutlet UIScrollView *scrollView;
 //@property (nonatomic,weak) IBOutlet UIView  *contentView;

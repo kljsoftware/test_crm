@@ -7,7 +7,6 @@
 //
 
 #import "WorkChooseCustomerTableViewController.h"
-#import "CustomerDbUtil.h"
 #import "CustomerTableViewCell.h"
 @interface WorkChooseCustomerTableViewController ()
 

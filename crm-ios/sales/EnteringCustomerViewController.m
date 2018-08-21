@@ -7,7 +7,6 @@
 //
 
 #import "EnteringCustomerViewController.h"
-#import "CustomerDbUtil.h"
 
 @interface EnteringCustomerViewController ()
 

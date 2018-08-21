@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MLLinkLabel.h>
-#import "Comment.h"
 @interface BCommentView : UIView
 @property (nonatomic, strong) UIImageView *bgImageView;
 @property (nonatomic, strong) MLLinkLabel *label;

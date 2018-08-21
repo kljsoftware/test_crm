@@ -7,24 +7,16 @@
 //
 
 #import "WorkTableViewController.h"
-#import "Config.h"
 #import "OrgUserInfo.h"
 #import "Work.h"
 #import "WorkTableViewCell.h"
-#import "SalesApi.h"
 #import "WorkCommentDbUtil.h"
 #import "WorkDetailsBottomBarViewController.h"
-#import "Comment.h"
 #import "WorkStaffTableViewController.h"
-#import "FileUtils.h"
 #import "WorkDbUtil.h"
-#import "PreferUtil.h"
 #import "WorkStaffDbUtil.h"
 #import "WorkUnreadTableViewController.h"
-#import <MJExtension.h>
-#import <AFNetworking.h>
 #import <MJRefresh.h>
-#import <SDAutoLayout.h>
 #import <DCPathButton.h>
 #define kWorkTableCellId @"WorkTableViewCell"
 #define kMainWidth [UIScreen mainScreen].bounds.size.width

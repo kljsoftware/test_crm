@@ -7,9 +7,8 @@
 //
 
 #import "ColleagueDetailsViewController.h"
-#import "NSStringUtils.h"
 #import "OConversationViewController.h"
-#import "Config.h"
+
 @interface ColleagueDetailsViewController ()
 
 @property (nonatomic,weak) IBOutlet UILabel *nameLabel;

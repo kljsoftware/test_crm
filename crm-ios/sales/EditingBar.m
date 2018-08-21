@@ -7,7 +7,6 @@
 //
 
 #import "EditingBar.h"
-#import "UIColor+Util.h"
 #import "UIView+Util.h"
 #import "GrowingTextView.h"
 

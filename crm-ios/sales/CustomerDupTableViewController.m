@@ -8,12 +8,6 @@
 // 客户查重
 #import "CustomerDupTableViewController.h"
 #import "CustomerDupTableViewCell.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import <AFNetworking.h>
-#import <SDAutoLayout.h>
-#import <MJExtension.h>
-#import <DKNightVersion.h>
 #define kCustomerDupTableCellId @"CustomerDupTableViewCell"
 @interface CustomerDupTableViewController ()
 

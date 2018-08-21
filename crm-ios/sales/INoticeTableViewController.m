@@ -7,17 +7,11 @@
 //
 
 #import "INoticeTableViewController.h"
-#import "Config.h"
-#import "SalesApi.h"
 #import "Notice.h"
 #import "NoticeTableViewCell.h"
 #import "NoticeDetailsViewController.h"
 #import "PaperDetailsViewController.h"
-#import <AFNetworking.h>
 #import <MJRefresh.h>
-#import <MJExtension.h>
-#import <SDAutoLayout.h>
-#import <DKNightVersion.h>
 #define kNoticeTableCellId @"NoticeTableViewCell"
 @interface INoticeTableViewController ()
 

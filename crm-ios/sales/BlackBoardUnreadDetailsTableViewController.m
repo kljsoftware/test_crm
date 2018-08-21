@@ -8,13 +8,6 @@
 
 #import "BlackBoardUnreadDetailsTableViewController.h"
 #import "CircleDetailsTableViewCell.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import "PreferUtil.h"
-#import "FileUtils.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
-#import <SDAutoLayout.h>
 #define kCircleDetailsTableCellId @"CircleDetailsTableViewCell"
 @interface BlackBoardUnreadDetailsTableViewController ()
 

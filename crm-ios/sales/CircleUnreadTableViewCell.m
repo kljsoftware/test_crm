@@ -7,8 +7,6 @@
 //
 
 #import "CircleUnreadTableViewCell.h"
-#import "UIImageView+Util.h"
-#import <SDAutoLayout.h>
 @implementation CircleUnreadTableViewCell
 {
     UIImageView              *_iconView;

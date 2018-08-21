@@ -9,7 +9,6 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#import "AppDelegate.h"
 #import "FMDB.h"
 #import "UIImageView+WebCache.h"
 #import "IQKeyboardManager.h"
@@ -23,17 +22,18 @@
 #import "UIImageView+Util.h"
 #import "SalesApi.h"
 #import "PreferUtil.h"
+#import <QiniuSDK.h>
 #import "FileUtils.h"
 #import <RongIMKit/RongIMKit.h>
-#import <QiniuSDK.h>
 #import "NSStringUtils.h"
 #import "Utils.h"
-#import "PreferUtil.h"
 #import "CustomerDbUtil.h"
 #import <NSDate+DateTools.h>
-#import "Comment.h"
 #import <MLLinkLabel.h>
+#import "Comment.h"
 #import <MessageUI/MessageUI.h>
 #import <DKNightVersion.h>
+#import <AFNetworking.h>
+#import "AppDelegate.h"
 
 #endif /* PrefixHeader_pch */

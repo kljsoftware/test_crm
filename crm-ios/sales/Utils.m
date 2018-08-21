@@ -6,7 +6,6 @@
 //  Copyright © 2016年 rayootech. All rights reserved.
 //
 
-#import "Utils.h"
 #import "UIFont+FontAwesome.h"
 #import "NSString+FontAwesome.h"
 

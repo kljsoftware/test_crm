@@ -7,9 +7,7 @@
 //
 
 #import "PhotoContainerView.h"
-#import <SDAutoLayout.h>
 #import "SDPhotoBrowser.h"
-#import "UIImageView+Util.h"
 
 @interface PhotoContainerView() <SDPhotoBrowserDelegate>
 

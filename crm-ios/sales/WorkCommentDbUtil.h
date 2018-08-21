@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <FMDatabase.h>
 #import "Work.h"
-#import "Comment.h"
 @interface WorkCommentDbUtil : NSObject
 
 @property (nonatomic,strong) FMDatabase *db;

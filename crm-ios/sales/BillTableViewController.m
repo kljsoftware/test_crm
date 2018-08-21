@@ -8,9 +8,6 @@
 
 #import "BillTableViewController.h"
 #import "BillTableViewCell.h"
-#import <MJExtension.h>
-#import <SDAutoLayout.h>
-#import <DKNightVersion.h>
 #define kBillTableCellId   @"BillTableViewCell"
 @interface BillTableViewController ()
 

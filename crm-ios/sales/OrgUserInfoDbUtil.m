@@ -7,8 +7,6 @@
 //
 
 #import "OrgUserInfoDbUtil.h"
-#import "Config.h"
-#import "NSStringUtils.h"
 #define PATH_OF_DOCUMENT    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 
 @implementation OrgUserInfoDbUtil

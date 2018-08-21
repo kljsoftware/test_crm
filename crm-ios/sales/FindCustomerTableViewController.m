@@ -7,14 +7,9 @@
 //
 
 #import "FindCustomerTableViewController.h"
-#import "SalesApi.h"
-#import "Config.h"
 #import "Customer.h"
 #import "CreaterCustomerDetailsViewController.h"
 #import "FindCustomerTableViewCell.h"
-#import <SDAutoLayout.h>
-#import <AFNetworking.h>
-#import <MJExtension.h>
 #define kMainWidth [UIScreen mainScreen].bounds.size.width
 #define kFindCustomerTableCellId @"FindCustomerTableViewCell"
 @interface FindCustomerTableViewController () <UITextFieldDelegate>

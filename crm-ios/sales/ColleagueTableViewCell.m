@@ -7,9 +7,6 @@
 //
 
 #import "ColleagueTableViewCell.h"
-#import "GlobalDefines.h"
-#import "UIImageView+Util.h"
-#import <SDAutoLayout.h>
 @implementation ColleagueTableViewCell
 {
     UIImageView     *_iconImageView;

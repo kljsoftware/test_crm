@@ -7,10 +7,8 @@
 //
 
 #import "CircleUnreadTableViewController.h"
-#import "PreferUtil.h"
 #import "CircleUnreadTableViewCell.h"
 #import "CircleUnreadDetailsTableViewController.h"
-#import "Config.h"
 #define kCircleUnreadTableCellId @"CircleUnreadTableViewCell"
 
 @interface CircleUnreadTableViewController ()

@@ -10,10 +10,6 @@
 #import "IConversationSettingTableViewHeaderItem.h"
 #import "OrgUserInfo.h"
 #import "SelectColleaguesTableViewController.h"
-#import "GlobalDefines.h"
-#import "UIImageView+Util.h"
-#import <RongIMKit/RongIMKit.h>
-#import "Config.h"
 @interface IConversationSettingTableViewHeader () <
 IConversationSettingTableViewHeaderItemDelegate>
 

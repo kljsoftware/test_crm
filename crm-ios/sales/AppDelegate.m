@@ -6,17 +6,10 @@
 //  Copyright © 2016年 rayootech. All rights reserved.
 //
 
-#import "AppDelegate.h"
-#import "UIColor+Util.h"
-#import "Config.h"
 #import "SalesDbUtil.h"
-#import "SalesApi.h"
 #import "UMessage.h"
 #import "Contact.h"
 #import "ReqFriendDbUtil.h"
-#import "FileUtils.h"
-#import "PreferUtil.h"
-#import <MJExtension.h>
 #import <UserNotifications/UserNotifications.h>
 #import "LoginViewController.h"
 #import "IMainTabBarController.h"

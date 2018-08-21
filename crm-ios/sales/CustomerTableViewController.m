@@ -9,15 +9,9 @@
 #import "CustomerTableViewController.h"
 #import "CustomerTableViewCell.h"
 #import "CustomerDetailsViewController.h"
-#import "Config.h"
 #import "Customer.h"
-#import "SalesApi.h"
-#import "CustomerDbUtil.h"
 #import "UIViewLinkTouch.h"
-#import "PreferUtil.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
-#import <SDAutoLayout.h>
+
 #define kMainWidth [UIScreen mainScreen].bounds.size.width
 @interface CustomerTableViewController ()<UISearchBarDelegate,UISearchResultsUpdating,UISearchControllerDelegate>
 

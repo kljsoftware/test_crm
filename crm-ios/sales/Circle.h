@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Comment.h"
 #import "BaseModel.h"
-#import <MJExtension.h>
 
 @interface Circle : BaseModel
 

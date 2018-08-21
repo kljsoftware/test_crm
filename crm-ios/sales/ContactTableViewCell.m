@@ -7,12 +7,8 @@
 //
 
 #import "ContactTableViewCell.h"
-#import "UIImageView+Util.h"
 #import "OConversationViewController.h"
-#import "SalesApi.h"
-#import "GlobalDefines.h"
 #import "Contact.h"
-#import <SDAutoLayout.h>
 @implementation ContactTableViewCell
 {
     UIImageView     *_iconImageView;

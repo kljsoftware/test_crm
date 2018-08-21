@@ -6,8 +6,6 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import "FileUtils.h"
-#import "Config.h"
 #define PATH_OF_DOCUMENT    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 @implementation FileUtils
 

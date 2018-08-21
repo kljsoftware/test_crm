@@ -11,10 +11,6 @@
 #import "ODiscussSettingSwitchCell.h"
 #import "SelectColleaguesTableViewController.h"
 #import "OrgUserInfoDbUtil.h"
-#import "SalesApi.h"
-#import "Config.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
 
 @interface IDiscussGroupSettingViewController ()
 

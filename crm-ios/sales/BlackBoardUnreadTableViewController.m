@@ -7,8 +7,6 @@
 //
 
 #import "BlackBoardUnreadTableViewController.h"
-#import "FileUtils.h"
-#import "PreferUtil.h"
 #import "BlackBoardUnreadTableViewCell.h"
 #import "BlackBoardUnreadDetailsTableViewController.h"
 #define kBlackBoardUnreadTableCellId @"BlackBoardUnreadTableViewCell"

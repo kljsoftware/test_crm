@@ -6,10 +6,6 @@
 //  Copyright © 2016年 rayootech. All rights reserved.
 //
 
-#import "UIImageView+Util.h"
-#import "SalesApi.h"
-#import "NSStringUtils.h"
-#import <QiniuSDK.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <CommonCrypto/CommonHMAC.h>
 #import <CommonCrypto/CommonDigest.h>

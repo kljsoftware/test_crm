@@ -7,10 +7,6 @@
 //
 
 #import "CustomerDupTableViewCell.h"
-#import "UIColor+Util.h"
-#import "GlobalDefines.h"
-#import "NSStringUtils.h"
-#import <SDAutoLayout.h>
 @interface CustomerDupTableViewCell ()
 
 @property (nonatomic, strong) UIView *container;

@@ -6,7 +6,6 @@
 //  Copyright © 2016年 rayootech. All rights reserved.
 //
 
-#import "Config.h"
 
 NSString * const userID = @"id";
 NSString * const userName = @"name";

@@ -11,8 +11,6 @@
 #import "CustomerSocialViewController.h"
 #import "CustomerEvaluationViewController.h"
 #import "CustomerSettingViewController.h"
-#import "NSStringUtils.h"
-#import <SDAutoLayout.h>
 #define kMainWidth [UIScreen mainScreen].bounds.size.width
 @interface CustomerDeepViewController ()
 

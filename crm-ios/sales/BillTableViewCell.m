@@ -7,7 +7,6 @@
 //
 
 #import "BillTableViewCell.h"
-#import <SDAutoLayout.h>
 
 @interface BillTableViewCell ()
 

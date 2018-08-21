@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking.h>
 @class BIUPError;
 
 #define GET_METHOD      @"GET"

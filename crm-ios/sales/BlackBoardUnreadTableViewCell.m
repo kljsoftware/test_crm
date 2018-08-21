@@ -7,8 +7,6 @@
 //
 
 #import "BlackBoardUnreadTableViewCell.h"
-#import "UIImageView+Util.h"
-#import <SDAutoLayout.h>
 @implementation BlackBoardUnreadTableViewCell
 {
     UIImageView              *_iconView;

@@ -8,14 +8,9 @@
 
 #import "INewsTableViewController.h"
 #import "NewsDetailsViewController.h"
-#import "Config.h"
-#import "SalesApi.h"
 #import "News.h"
 #import "NewsTableViewCell.h"
 #import <MJRefresh.h>
-#import <AFNetworking.h>
-#import <DKNightVersion.h>
-#import <MJExtension.h>
 @interface INewsTableViewController ()
 
 @property (nonatomic,strong) NSMutableArray *dataModels;

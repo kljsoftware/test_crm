@@ -9,11 +9,7 @@
 #import "IActiveTableViewController.h"
 #import "ActiveTableViewCell.h"
 #import "NewsDetailsViewController.h"
-#import "Config.h"
-#import "SalesApi.h"
 #import "Active.h"
-#import <AFNetworking.h>
-#import <MJExtension.h>
 #import <MJRefresh.h>
 #define kActiveTableCellId @"ActiveTableViewCell"
 @interface IActiveTableViewController ()
