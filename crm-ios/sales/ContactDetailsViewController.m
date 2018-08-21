@@ -9,7 +9,7 @@
 #import "ContactDetailsViewController.h"
 #import "SalesDbUtil.h"
 
-@interface ContactDetailsViewController ()
+@interface ContactDetailsViewController () <UITextFieldDelegate>
 
 @property (nonatomic,strong) SalesDbUtil *dbUtil;
 @property (weak,nonatomic) IBOutlet UITextField *nameField;
@@ -22,7 +22,9 @@
 @property (weak,nonatomic) IBOutlet UITextField *addressField;
 @property (weak,nonatomic) IBOutlet UITextField *websiteField;
 @property (weak,nonatomic) IBOutlet UITextField *remarkField;
+@property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 @property (nonatomic, strong) MBProgressHUD *hud;
+
 @end
 
 @implementation ContactDetailsViewController
@@ -35,13 +37,19 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _dbUtil = [[SalesDbUtil alloc] init];
     
-    // Do any additional setup after loading the view.
     self.title = @"联系人详情";
+    self.view.backgroundColor = UIColor.whiteColor;
+    self.deleteBtn.layer.cornerRadius = 5;
+    self.deleteBtn.layer.masksToBounds = true;
+    
+    _dbUtil = [[SalesDbUtil alloc] init];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonClicked)];
+    
+    [self setUpData];
 }
-- (void)saveButtonClicked{
+
+- (void)saveButtonClicked {
     Contact *contact = [Contact new];
     _contact.id = _contact.id;
     _contact.fid = _contact.fid;
@@ -120,12 +128,28 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)setContact:(Contact *)contact
-{
-    _contact = contact;
-    [self setUpData];
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.1;
 }
-- (IBAction)deleteAlert{
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self textFieldDone];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return [textField resignFirstResponder];
+}
+
+- (void)textFieldDone {
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+}
+
+- (IBAction)deleteAlert {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"删除" message:@"确定要删除该联系人吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self deleteContact];
@@ -137,7 +161,8 @@
     [alert addAction:cancel];
     [self presentViewController:alert animated:YES completion:^{}];
 }
-- (void)deleteContact{
+
+- (void)deleteContact {
     _hud = [Utils createHUD];
     _hud.label.text = @"删除中";
     NSString *userId = [NSString stringWithFormat:@"%lld",[Config getOwnID]];;

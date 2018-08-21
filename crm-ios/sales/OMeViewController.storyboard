@@ -881,7 +881,7 @@
         <!--个人信息-->
         <scene sceneID="ZEh-Ch-hid">
             <objects>
-                <tableViewController storyboardIdentifier="OMeInfo" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e7k-NX-FHJ" userLabel="个人信息" customClass="OMeInfoTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="OMeInfo" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e7k-NX-FHJ" userLabel="个人信息" customClass="OMeInfoTableViewController" customModule="sales" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="rd5-Jw-T6J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

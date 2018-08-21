@@ -1737,9 +1737,9 @@
 		CEE863B71DCB293800695F0F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CEC97EF81DF1470B0040C356 /* Contact.storyboard */,
 				CEE863B81DCB296C00695F0F /* ContactTableViewController.h */,
 				CEE863B91DCB296C00695F0F /* ContactTableViewController.m */,
-				CEC97EF81DF1470B0040C356 /* Contact.storyboard */,
 				CEC97EFA1DF147590040C356 /* AddContactViewController.h */,
 				CEC97EFB1DF147590040C356 /* AddContactViewController.m */,
 				CEC97EFD1DF160860040C356 /* EnteringContactViewController.h */,
@@ -1769,9 +1769,9 @@
 			children = (
 				CE4E1C031EAD94940073CB45 /* Update */,
 				CE9ECB341EA0AC820053BCA9 /* Setting */,
+				CEE864231DDD854F00695F0F /* OMeViewController.storyboard */,
 				CEE863BD1DCB29C000695F0F /* OMeViewController.h */,
 				CEE863BE1DCB29C000695F0F /* OMeViewController.m */,
-				CEE864231DDD854F00695F0F /* OMeViewController.storyboard */,
 				CE93EC7C1E164BCE00D26948 /* OrganizationTableViewController.h */,
 				CE93EC7D1E164BCE00D26948 /* OrganizationTableViewController.m */,
 				CE93EC871E1B40B300D26948 /* OrganizationViewController.h */,

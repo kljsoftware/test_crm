@@ -256,31 +256,13 @@
 - (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
     return self.sectionTitlesArray;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //    UIViewController *vc = [CircleDetailsTableViewController new];
-//    ContactDetailsViewController *vc = [[ContactDetailsViewController alloc]init];
-//    vc.hidesBottomBarWhenPushed = YES;
-//    vc.view.backgroundColor = [UIColor whiteColor];
-//    vc.contact = self.dataModels[indexPath.row];
-//    [self.navigationController pushViewController:vc animated:YES];
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+   
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Contact" bundle:nil];
     ContactDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ContactDetails"];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     vc.contact = self.sectionArray[indexPath.section][indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
-}
-- (void)setExtraCellLineHidden: (UITableView *)tableView
-{
-//    UIView *view =[ [UIView alloc]init];
-//    view.backgroundColor = [UIColor clearColor];
-//    [tableView setTableFooterView:view];
-//    [view release];
-}
-- (void)userPortraitDidClick{
-    
 }
 
 - (void)userChatDidClick:(Contact *)model{
