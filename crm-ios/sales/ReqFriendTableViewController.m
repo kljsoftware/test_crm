@@ -25,18 +25,6 @@
     self.tableView.rowHeight = 45;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _reqDb = [[ReqFriendDbUtil alloc] init];
-//    Contact *contact = [Contact new];
-//    contact.id = 15;
-//    contact.name = @"test2";
-//    contact.avatar = @"4";
-//    contact.recevied = 0;
-//    [_reqDb insertContact:contact];
-//    Contact *contact2 = [Contact new];
-//    contact2.id = 13;
-//    contact2.name = @"test4";
-//    contact2.avatar = @"7";
-//    contact2.recevied = 0;
-//    [_reqDb insertContact:contact2];
     [self getLocalData];
 }
 

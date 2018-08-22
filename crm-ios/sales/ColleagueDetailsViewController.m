@@ -18,6 +18,7 @@
 @property (nonatomic,weak) IBOutlet UILabel *emailLabel;
 @property (nonatomic,weak) IBOutlet UILabel *wechatLabel;
 @property (nonatomic,weak) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *sessionBtn;
 
 @end
 
@@ -26,6 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"同事详情";
+    
+    _sessionBtn.layer.cornerRadius = 5;
+    _sessionBtn.layer.masksToBounds = true;
+    
+    [self setupData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,9 +39,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setOrgUserInfo:(OrgUserInfo *)orgUserInfo{
-    _orgUserInfo = orgUserInfo;
-    [self setupData];
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.1;
 }
 
 - (void)setupData{
@@ -89,4 +94,9 @@
     conversationVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:conversationVC animated:YES];
 }
+
+- (IBAction)sessionClicked:(UIButton *)sender {
+    
+}
+
 @end

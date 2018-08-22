@@ -6,10 +6,10 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 #import "OrgUserInfo.h"
 
-@interface ColleagueDetailsViewController : UIViewController
+@interface ColleagueDetailsViewController : BaseTableViewController
 
 @property (nonatomic,strong) OrgUserInfo *orgUserInfo;
 

@@ -16,16 +16,7 @@
 		A3F6EBD6212B1927009BFD43 /* OrganizationInviteDefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F6EBD4212B1927009BFD43 /* OrganizationInviteDefaultCell.m */; };
 		A3F6EBD7212B1927009BFD43 /* OrganizationInviteDefaultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F6EBD5212B1927009BFD43 /* OrganizationInviteDefaultCell.xib */; };
 		CE2E63A71DE525E200022F7A /* DetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E63A61DE525E200022F7A /* DetailsHeaderView.m */; };
-		CE4E1C061EAD94B80073CB45 /* ONameUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C051EAD94B80073CB45 /* ONameUpdateViewController.m */; };
-		CE4E1C091EADA1320073CB45 /* OAreaUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C081EADA1320073CB45 /* OAreaUpdateViewController.m */; };
-		CE4E1C0C1EADA4760073CB45 /* ODescUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C0B1EADA4760073CB45 /* ODescUpdateViewController.m */; };
-		CE4E1C0F1EADA7450073CB45 /* OEmailUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C0E1EADA7450073CB45 /* OEmailUpdateViewController.m */; };
-		CE4E1C121EADE6EC0073CB45 /* OWeChatUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C111EADE6EC0073CB45 /* OWeChatUpdateViewController.m */; };
-		CE4E1C151EADEB2A0073CB45 /* OWeiBoUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C141EADEB2A0073CB45 /* OWeiBoUpdateViewController.m */; };
-		CE4E1C181EADED420073CB45 /* OLinkedUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C171EADED420073CB45 /* OLinkedUpdateViewController.m */; };
 		CE4E1C1C1EAF2BF80073CB45 /* IMeInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C1B1EAF2BF80073CB45 /* IMeInfoTableViewController.m */; };
-		CE4E1C201EB026800073CB45 /* MeTitleUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C1F1EB026800073CB45 /* MeTitleUpdateViewController.m */; };
-		CE4E1C231EB02E2F0073CB45 /* BindEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C221EB02E2F0073CB45 /* BindEmailViewController.m */; };
 		CE4EBA261DFE861100C7C9AB /* SearchContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4EBA251DFE861100C7C9AB /* SearchContactViewController.m */; };
 		CE4EBA291DFFCF8D00C7C9AB /* NSStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4EBA281DFFCF8D00C7C9AB /* NSStringUtils.m */; };
 		CE546D111E70EF2F00DCAC56 /* ReqFriendDbUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CE546D101E70EF2F00DCAC56 /* ReqFriendDbUtil.m */; };
@@ -279,26 +270,8 @@
 		B737477090CDEC04E96A167E /* libPods-sales.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sales.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2E63A51DE525E200022F7A /* DetailsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsHeaderView.h; sourceTree = "<group>"; };
 		CE2E63A61DE525E200022F7A /* DetailsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsHeaderView.m; sourceTree = "<group>"; };
-		CE4E1C041EAD94B80073CB45 /* ONameUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONameUpdateViewController.h; sourceTree = "<group>"; };
-		CE4E1C051EAD94B80073CB45 /* ONameUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONameUpdateViewController.m; sourceTree = "<group>"; };
-		CE4E1C071EADA1320073CB45 /* OAreaUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAreaUpdateViewController.h; sourceTree = "<group>"; };
-		CE4E1C081EADA1320073CB45 /* OAreaUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAreaUpdateViewController.m; sourceTree = "<group>"; };
-		CE4E1C0A1EADA4760073CB45 /* ODescUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODescUpdateViewController.h; sourceTree = "<group>"; };
-		CE4E1C0B1EADA4760073CB45 /* ODescUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODescUpdateViewController.m; sourceTree = "<group>"; };
-		CE4E1C0D1EADA7450073CB45 /* OEmailUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEmailUpdateViewController.h; sourceTree = "<group>"; };
-		CE4E1C0E1EADA7450073CB45 /* OEmailUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEmailUpdateViewController.m; sourceTree = "<group>"; };
-		CE4E1C101EADE6EC0073CB45 /* OWeChatUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWeChatUpdateViewController.h; sourceTree = "<group>"; };
-		CE4E1C111EADE6EC0073CB45 /* OWeChatUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWeChatUpdateViewController.m; sourceTree = "<group>"; };
-		CE4E1C131EADEB2A0073CB45 /* OWeiBoUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWeiBoUpdateViewController.h; sourceTree = "<group>"; };
-		CE4E1C141EADEB2A0073CB45 /* OWeiBoUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWeiBoUpdateViewController.m; sourceTree = "<group>"; };
-		CE4E1C161EADED420073CB45 /* OLinkedUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLinkedUpdateViewController.h; sourceTree = "<group>"; };
-		CE4E1C171EADED420073CB45 /* OLinkedUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OLinkedUpdateViewController.m; sourceTree = "<group>"; };
 		CE4E1C1A1EAF2BF80073CB45 /* IMeInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMeInfoTableViewController.h; sourceTree = "<group>"; };
 		CE4E1C1B1EAF2BF80073CB45 /* IMeInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMeInfoTableViewController.m; sourceTree = "<group>"; };
-		CE4E1C1E1EB026800073CB45 /* MeTitleUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeTitleUpdateViewController.h; sourceTree = "<group>"; };
-		CE4E1C1F1EB026800073CB45 /* MeTitleUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeTitleUpdateViewController.m; sourceTree = "<group>"; };
-		CE4E1C211EB02E2F0073CB45 /* BindEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindEmailViewController.h; sourceTree = "<group>"; };
-		CE4E1C221EB02E2F0073CB45 /* BindEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindEmailViewController.m; sourceTree = "<group>"; };
 		CE4EBA241DFE861000C7C9AB /* SearchContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchContactViewController.h; sourceTree = "<group>"; };
 		CE4EBA251DFE861100C7C9AB /* SearchContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchContactViewController.m; sourceTree = "<group>"; };
 		CE4EBA271DFFCF8D00C7C9AB /* NSStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringUtils.h; sourceTree = "<group>"; };
@@ -791,20 +764,6 @@
 		CE4E1C031EAD94940073CB45 /* Update */ = {
 			isa = PBXGroup;
 			children = (
-				CE4E1C041EAD94B80073CB45 /* ONameUpdateViewController.h */,
-				CE4E1C051EAD94B80073CB45 /* ONameUpdateViewController.m */,
-				CE4E1C071EADA1320073CB45 /* OAreaUpdateViewController.h */,
-				CE4E1C081EADA1320073CB45 /* OAreaUpdateViewController.m */,
-				CE4E1C0A1EADA4760073CB45 /* ODescUpdateViewController.h */,
-				CE4E1C0B1EADA4760073CB45 /* ODescUpdateViewController.m */,
-				CE4E1C0D1EADA7450073CB45 /* OEmailUpdateViewController.h */,
-				CE4E1C0E1EADA7450073CB45 /* OEmailUpdateViewController.m */,
-				CE4E1C101EADE6EC0073CB45 /* OWeChatUpdateViewController.h */,
-				CE4E1C111EADE6EC0073CB45 /* OWeChatUpdateViewController.m */,
-				CE4E1C131EADEB2A0073CB45 /* OWeiBoUpdateViewController.h */,
-				CE4E1C141EADEB2A0073CB45 /* OWeiBoUpdateViewController.m */,
-				CE4E1C161EADED420073CB45 /* OLinkedUpdateViewController.h */,
-				CE4E1C171EADED420073CB45 /* OLinkedUpdateViewController.m */,
 			);
 			name = Update;
 			sourceTree = "<group>";
@@ -815,8 +774,6 @@
 				CE4E1C1D1EB0265A0073CB45 /* Update */,
 				CE4E1C1A1EAF2BF80073CB45 /* IMeInfoTableViewController.h */,
 				CE4E1C1B1EAF2BF80073CB45 /* IMeInfoTableViewController.m */,
-				CE4E1C211EB02E2F0073CB45 /* BindEmailViewController.h */,
-				CE4E1C221EB02E2F0073CB45 /* BindEmailViewController.m */,
 			);
 			name = IMeInfo;
 			sourceTree = "<group>";
@@ -824,8 +781,6 @@
 		CE4E1C1D1EB0265A0073CB45 /* Update */ = {
 			isa = PBXGroup;
 			children = (
-				CE4E1C1E1EB026800073CB45 /* MeTitleUpdateViewController.h */,
-				CE4E1C1F1EB026800073CB45 /* MeTitleUpdateViewController.m */,
 			);
 			name = Update;
 			sourceTree = "<group>";
@@ -1109,8 +1064,8 @@
 		CE93ECB81E1CE09500D26948 /* Host */ = {
 			isa = PBXGroup;
 			children = (
-				CE93ECA41E1B7F1000D26948 /* Controller */,
 				CE9ECB4E1EA4B0E00053BCA9 /* IMe.storyboard */,
+				CE93ECA41E1B7F1000D26948 /* Controller */,
 			);
 			name = Host;
 			sourceTree = "<group>";
@@ -1128,9 +1083,9 @@
 		CE93ECBA1E1CE0BD00D26948 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CE78A04F1E601F5C008F321B /* Colleague.storyboard */,
 				CE93ECBF1E1F6F8400D26948 /* ColleagueTableViewController.h */,
 				CE93ECC01E1F6F8400D26948 /* ColleagueTableViewController.m */,
-				CE78A04F1E601F5C008F321B /* Colleague.storyboard */,
 				CE78A0511E602282008F321B /* ColleagueDetailsViewController.h */,
 				CE78A0521E602282008F321B /* ColleagueDetailsViewController.m */,
 			);
@@ -2223,7 +2178,6 @@
 				CE9ECB841EA85FC80053BCA9 /* SetLeaderTableViewController.m in Sources */,
 				CE7D479D1E83AF35009958A7 /* CustomerDistTableViewController.m in Sources */,
 				CE728E8D1E680F8100437FB2 /* IConversationSettingBaseViewController.m in Sources */,
-				CE4E1C0C1EADA4760073CB45 /* ODescUpdateViewController.m in Sources */,
 				CE9ECB331EA07CF20053BCA9 /* WorkUnreadDetailsTableViewController.m in Sources */,
 				CE93EC471E07C0CB00D26948 /* RCDTabBarBtn.m in Sources */,
 				CE728E931E68108D00437FB2 /* IConversationSettingTableViewHeaderItem.m in Sources */,
@@ -2291,10 +2245,8 @@
 				CE93ECB71E1CDFA800D26948 /* OrgUserInfoDbUtil.m in Sources */,
 				CE93EC9D1E1B7E9900D26948 /* WorkTableViewController.m in Sources */,
 				CEE864181DDAE4F800695F0F /* NSString+FontAwesome.m in Sources */,
-				CE4E1C231EB02E2F0073CB45 /* BindEmailViewController.m in Sources */,
 				CEE863DA1DD06F5400695F0F /* Utils.m in Sources */,
 				CE94DE5C1E2F38AE0049BA71 /* INewsTableViewController.m in Sources */,
-				CE4E1C151EADEB2A0073CB45 /* OWeiBoUpdateViewController.m in Sources */,
 				CE61DC511E9780F800421C7E /* WorkChooseColleagueTableViewController.m in Sources */,
 				CE93EC751E125F3A00D26948 /* ODiscussSettingSwitchCell.m in Sources */,
 				CE9ECB1A1E9CB2750053BCA9 /* WorkDetailsHeaderView.m in Sources */,
@@ -2331,7 +2283,6 @@
 				CE546D1A1E768A7E00DCAC56 /* CircleUnreadTableViewController.m in Sources */,
 				CEF6CCFF1E80FE430076AA60 /* CreaterCustomerDetailsViewController.m in Sources */,
 				A3695BCC2129409200E3E0A6 /* BaseViewController.m in Sources */,
-				CE4E1C121EADE6EC0073CB45 /* OWeChatUpdateViewController.m in Sources */,
 				CE93ED241E2DC18800D26948 /* INoticeTableViewController.m in Sources */,
 				CE9ECB201E9DCBD50053BCA9 /* WorkStaffTableViewController.m in Sources */,
 				CE78A0531E602282008F321B /* ColleagueDetailsViewController.m in Sources */,
@@ -2341,12 +2292,10 @@
 				CEE863D71DD06A2400695F0F /* BaseModel.m in Sources */,
 				CE728E961E69117500437FB2 /* FindCustomerTableViewController.m in Sources */,
 				CE9ECB7A1EA7463E0053BCA9 /* TZPhotoPickerController.m in Sources */,
-				CE4E1C061EAD94B80073CB45 /* ONameUpdateViewController.m in Sources */,
 				CE93ED281E2DF11900D26948 /* Notice.m in Sources */,
 				CE61DC401E8CDE8200421C7E /* PasswordViewController.m in Sources */,
 				CEF6CCEF1E7A6F720076AA60 /* FileUtils.m in Sources */,
 				CE93EC891E1B40B300D26948 /* OrganizationViewController.m in Sources */,
-				CE4E1C201EB026800073CB45 /* MeTitleUpdateViewController.m in Sources */,
 				CE546D111E70EF2F00DCAC56 /* ReqFriendDbUtil.m in Sources */,
 				CEA456C11E529CBA0011356B /* NewsDetailsViewController.m in Sources */,
 				CED9D74E1DE81742002FD5D7 /* JFImageManager.m in Sources */,
@@ -2354,7 +2303,6 @@
 				CE93EC721E125EAE00D26948 /* ODiscussSettingCell.m in Sources */,
 				CE9ECB521EA5AAB00053BCA9 /* CreateSecondViewController.m in Sources */,
 				CEE8636D1DCB0EFC00695F0F /* ViewController.m in Sources */,
-				CE4E1C091EADA1320073CB45 /* OAreaUpdateViewController.m in Sources */,
 				CE728E901E680FAC00437FB2 /* IConversationSettingTableViewHeader.m in Sources */,
 				CEA456AE1E4AACAE0011356B /* NewsTableViewCell.m in Sources */,
 				CE9ECB791EA7463E0053BCA9 /* TZImagePickerController.m in Sources */,
@@ -2388,7 +2336,6 @@
 				CE93EC631E12091700D26948 /* OConversationSettingTableViewHeader.m in Sources */,
 				A31E531D212B0C7E005331AB /* BIUPNetworkManager.m in Sources */,
 				CE61DC431E8CFC5A00421C7E /* ForgetViewController.m in Sources */,
-				CE4E1C0F1EADA7450073CB45 /* OEmailUpdateViewController.m in Sources */,
 				CE93ED171E25DA4100D26948 /* OrgInviteViewController.m in Sources */,
 				CEF6CCF21E7B719B0076AA60 /* OrganizationInviteTableViewCell.m in Sources */,
 				CEF6CD021E82169D0076AA60 /* CustomerDupTableViewController.m in Sources */,
@@ -2401,7 +2348,6 @@
 				CED9D74D1DE81742002FD5D7 /* JFImageGroupTableViewController.m in Sources */,
 				CEF6CCE61E7A2AA90076AA60 /* BillTableViewCell.m in Sources */,
 				CEF6CCF51E7F7E050076AA60 /* BlackBoardUnreadTableViewController.m in Sources */,
-				CE4E1C181EADED420073CB45 /* OLinkedUpdateViewController.m in Sources */,
 				CEA456DD1E542A310011356B /* Customer.m in Sources */,
 				CE4EBA291DFFCF8D00C7C9AB /* NSStringUtils.m in Sources */,
 				CE9ECB2A1E9F5F880053BCA9 /* XMLUtil.m in Sources */,

@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"部门";
-    self.tableView.rowHeight = [DeptTableViewCell fixedHeight];
+    self.tableView.rowHeight = 60;
     self.tableView.sectionIndexColor = [UIColor lightGrayColor];
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -115,11 +115,10 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)addFirstDept{
+- (void)addFirstDept {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"IMe" bundle:nil];
     CreateFirstViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CreateFirst"];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

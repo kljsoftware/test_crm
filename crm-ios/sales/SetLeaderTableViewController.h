@@ -6,7 +6,7 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
 @protocol SetLeaderDelegate <NSObject>
 
@@ -14,7 +14,7 @@
 
 @end
 
-@interface SetLeaderTableViewController : UITableViewController
+@interface SetLeaderTableViewController : BaseTableViewController
 
 @property (nonatomic,assign) id <SetLeaderDelegate> delegate;
 

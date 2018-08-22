@@ -26,9 +26,8 @@
     [super viewDidLoad];
     self.title = @"同事列表";
     _dbUtil = [[OrgUserInfoDbUtil alloc] init];
-    self.tableView.rowHeight = [ColleagueTableViewCell fixedHeight];
+    self.tableView.rowHeight = 60;
     self.tableView.sectionIndexColor = [UIColor lightGrayColor];
-    //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self getLocalData];
@@ -117,8 +116,19 @@
     
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return [self.sectionTitlesArray objectAtIndex:section];
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, [UIScreen mainScreen].bounds.size.width-40, 25)];
+    label.textColor = SDColor(128, 128, 128, 1);
+    label.text = [self.sectionTitlesArray objectAtIndex:section];
+    label.font = [UIFont systemFontOfSize:14];
+    [headerView addSubview:label];
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 25;
 }
 
 
@@ -131,7 +141,6 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Colleague" bundle:nil];
     ColleagueDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ColleagueDetails"];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     vc.orgUserInfo = self.sectionArray[indexPath.section][indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }

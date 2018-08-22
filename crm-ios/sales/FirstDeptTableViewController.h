@@ -6,8 +6,8 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
-@interface FirstDeptTableViewController : UITableViewController
+@interface FirstDeptTableViewController : BaseTableViewController
 
 @end

@@ -6,9 +6,9 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "Dept.h"
-@interface CreateSecondViewController : UIViewController
+@interface CreateSecondViewController : BaseViewController
 
 @property (nonatomic,strong) Dept *dept;
 

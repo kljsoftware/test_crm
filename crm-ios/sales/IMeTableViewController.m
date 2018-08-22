@@ -14,10 +14,11 @@
 #import "IMeInfoTableViewController.h"
 
 @interface IMeTableViewController () <SetLeaderDelegate>
+
 @property (nonatomic,weak) IBOutlet UIImageView          *avatarImage;
 @property (nonatomic,weak) IBOutlet UILabel              *nameLabel;
 @property (nonatomic,weak) IBOutlet UILabel              *mobileLabel;
-@property (nonatomic,weak) IBOutlet UILabel              *leaderLabel;
+@property (weak, nonatomic) IBOutlet UIButton *quitTeamBtn;
 @property (nonatomic,strong) OrgUserInfo                 *myinfo;
 @end
 
@@ -42,58 +43,43 @@
     [self setUpView];
 }
 - (void)setUpView{
+    _quitTeamBtn.layer.cornerRadius = 5;
+    _quitTeamBtn.layer.masksToBounds = YES;
     _myinfo = [Config getOrgUser];
     [_avatarImage loadPortrait:_myinfo.avatar];
+    _avatarImage.layer.cornerRadius = 24;
+    _avatarImage.layer.masksToBounds = true;
     _nameLabel.text = _myinfo.name;
-    _mobileLabel.text = _myinfo.mobile;
+    _mobileLabel.text = [NSString stringWithFormat:@"手机号码：%@",_myinfo.mobile];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([indexPath section] == 0) {
-        if ([indexPath row] == 0) {
+    if (indexPath.section == 0) {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"IMe" bundle:nil];
             IMeInfoTableViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"IMeInfo"];
             vc.hidesBottomBarWhenPushed = YES;
-            //        vc.view.backgroundColor = [UIColor whiteColor];
             [self.navigationController pushViewController:vc animated:YES];
-        }
-    }
-    if ([indexPath section] == 1){
-        if ([indexPath row] == 0) {
+        
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
             ColleagueTableViewController *vc = [[ColleagueTableViewController alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
-        }
-        if ([indexPath row] == 1) {
+            
+        } else if ([indexPath row] == 1) {
             FirstDeptTableViewController *vc = [[FirstDeptTableViewController alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
-        }
-        if ([indexPath row] == 2) {
+            
+        } else if ([indexPath row] == 2) {
             SetLeaderTableViewController *vc = [[SetLeaderTableViewController alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             vc.delegate = self;
             [self.navigationController pushViewController:vc animated:YES];
         }
-    }
-    if ([indexPath section] == 2) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"退出" message:@"确定要退出该组织吗？" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [tableView deselectRowAtIndexPath:indexPath animated:NO];
-            [[RCIMClient sharedRCIMClient] logout];
-            [NSThread sleepForTimeInterval:0.5];
-            [(AppDelegate *)[UIApplication sharedApplication].delegate showWindow:@"omain"];
-        }];
-         
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            [tableView deselectRowAtIndexPath:indexPath animated:NO];
-        }];
-        [alert addAction:sure];
-        [alert addAction:cancel];
-        [self presentViewController:alert animated:YES completion:^{}];
     }
 }
 
@@ -130,7 +116,7 @@
                 NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
                 if ([dictionary[@"result"] intValue] == 1) {
                     OrgUserInfo *orguser = [OrgUserInfo mj_objectWithKeyValues:dictionary[@"data"]];
-                    _leaderLabel.text = orguser.name;
+//                    _leaderLabel.text = orguser.name;
                 }else{
                     
                 }
@@ -143,6 +129,21 @@
 }
 
 - (void)setLeader:(NSString *)name{
-    _leaderLabel.text = name;
+//    _leaderLabel.text = name;
 }
+
+- (IBAction)quitTeamClicked:(UIButton *)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"退出" message:@"确定要退出该组织吗？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[RCIMClient sharedRCIMClient] logout];
+        [NSThread sleepForTimeInterval:0.5];
+        [(AppDelegate *)[UIApplication sharedApplication].delegate showWindow:@"omain"];
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:sure];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:^{}];
+}
+
 @end

@@ -24,12 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"二级部门";
+    
     OrgUserInfo *info = [Config getOrgUser];
     if(info.id == 1){
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd                                            target:self action:@selector(addSecondDept)];
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self selector:@selector(getDeptList) name:@"refreshSecondDept" object:nil];
     }
+    self.tableView.rowHeight = 60;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
@@ -168,7 +170,6 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"IMe" bundle:nil];
     CreateSecondViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CreateSecond"];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     vc.dept = _dept;
     [self.navigationController pushViewController:vc animated:YES];
 }

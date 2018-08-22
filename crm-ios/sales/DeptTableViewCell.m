@@ -30,7 +30,6 @@
         
         // 这行代是为了解决tableview开启了字母序列索引之后cell会向左缩进一段距离的问题
         self.contentView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
-        
         [self setupView];
     }
     return self;
@@ -38,7 +37,8 @@
 - (void)setupView{
     
     _nameLabel = [UILabel new];
-    _nameLabel.font = [UIFont systemFontOfSize:15];
+    _nameLabel.font = [UIFont systemFontOfSize:14];
+    _nameLabel.textColor = [UIColor colorWithHex:0x333333];
     [self.contentView addSubview:_nameLabel];
     
     _nameLabel.sd_layout
@@ -48,6 +48,7 @@
     
     _flagLabel = [UILabel new];
     _flagLabel.font = [UIFont systemFontOfSize:13];
+    _flagLabel.textColor = [UIColor colorWithHex:0x333333];
     [self.contentView addSubview:_flagLabel];
     _flagLabel.text = @"所在";
     
@@ -82,6 +83,6 @@
 }
 + (CGFloat)fixedHeight
 {
-    return 70;
+    return 60;
 }
 @end
