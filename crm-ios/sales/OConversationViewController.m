@@ -16,16 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"common_btn_back"] style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonClicked)];
+
     if (self.conversationType == ConversationType_DISCUSSION) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(discussionSetting)];
     }
     [self.chatSessionInputBarControl.pluginBoardView removeItemWithTag:1003];
-//    [self.chatSessionInputBarControl.pluginBoardView removeAllItems];
-//    UIImage *imageFile = [RCKitUtility imageNamed:@"actionbar_file_icon"
-//                                         ofBundle:@"RongCloud.bundle"];
-//    [self.chatSessionInputBarControl.pluginBoardView insertItemWithImage:imageFile title:@"位置" tag:1010];
 }
+
 - (void)viewWillDisappear:(BOOL)animated {
     [[RCIMClient sharedRCIMClient] clearMessagesUnreadStatus:self.conversationType targetId:self.targetId];
     NSNotification *notice = [NSNotification notificationWithName:@"updateUnreadCount" object:nil userInfo:nil];
@@ -80,4 +79,9 @@
             break;
     }
 }
+
+- (void)cancelButtonClicked {
+    [self.navigationController popViewControllerAnimated:true];
+}
+
 @end

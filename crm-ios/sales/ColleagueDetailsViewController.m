@@ -80,7 +80,7 @@
         _titleLabel.text = _orgUserInfo.title;
 }
 
-- (IBAction)chatTo{
+- (IBAction)sessionClicked:(UIButton *)sender {
     OConversationViewController *conversationVC = [[OConversationViewController alloc] init];
     conversationVC.conversationType = ConversationType_PRIVATE;
     NSString *id = [NSString stringWithFormat:@"%ld",_orgUserInfo.id];
@@ -93,10 +93,6 @@
     conversationVC.title = _orgUserInfo.name;
     conversationVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:conversationVC animated:YES];
-}
-
-- (IBAction)sessionClicked:(UIButton *)sender {
-    
 }
 
 @end

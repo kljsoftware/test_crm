@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D3836BBFC1CA80BA446352E /* libPods-sales.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B737477090CDEC04E96A167E /* libPods-sales.a */; };
 		A31E531D212B0C7E005331AB /* BIUPNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A31E531B212B0C7D005331AB /* BIUPNetworkManager.m */; };
+		A33F40F5212D83A500BC83F2 /* UIColor+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A33F40F3212D83A400BC83F2 /* UIColor+Util.m */; };
 		A3695BCC2129409200E3E0A6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCB2129409200E3E0A6 /* BaseViewController.m */; };
 		A3695BCF212942E700E3E0A6 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */; };
 		A3F6EBD0212B138E009BFD43 /* OrganizationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F6EBCE212B138E009BFD43 /* OrganizationTableViewCell.m */; };
@@ -91,13 +92,6 @@
 		CE93ECB71E1CDFA800D26948 /* OrgUserInfoDbUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93ECB61E1CDFA800D26948 /* OrgUserInfoDbUtil.m */; };
 		CE93ECBE1E1CE0F700D26948 /* OrgUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93ECBD1E1CE0F700D26948 /* OrgUserInfo.m */; };
 		CE93ECC11E1F6F8400D26948 /* ColleagueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93ECC01E1F6F8400D26948 /* ColleagueTableViewController.m */; };
-		CE93ECD41E2330D000D26948 /* Emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE93ECCA1E2330D000D26948 /* Emoji.plist */; };
-		CE93ECD51E2330D000D26948 /* RongCloudKit.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE93ECCB1E2330D000D26948 /* RongCloudKit.strings */; };
-		CE93ECD61E2330D000D26948 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE93ECCD1E2330D000D26948 /* RongCloud.bundle */; };
-		CE93ECD71E2330D000D26948 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE93ECCE1E2330D000D26948 /* RongIMKit.framework */; };
-		CE93ECD81E2330D000D26948 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE93ECD11E2330D000D26948 /* libopencore-amrnb.a */; };
-		CE93ECD91E2330D000D26948 /* RCConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE93ECD21E2330D000D26948 /* RCConfig.plist */; };
-		CE93ECDA1E2330D000D26948 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE93ECD31E2330D000D26948 /* RongIMLib.framework */; };
 		CE93ED141E24CE6100D26948 /* ColleagueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93ED131E24CE6100D26948 /* ColleagueTableViewCell.m */; };
 		CE93ED171E25DA4100D26948 /* OrgInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93ED161E25DA4100D26948 /* OrgInviteViewController.m */; };
 		CE93ED1A1E272CAC00D26948 /* OMeInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93ED191E272CAB00D26948 /* OMeInfoTableViewController.m */; };
@@ -204,7 +198,6 @@
 		CEE863B51DCB292300695F0F /* CircleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE863B41DCB292300695F0F /* CircleTableViewController.m */; };
 		CEE863BA1DCB296C00695F0F /* ContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE863B91DCB296C00695F0F /* ContactTableViewController.m */; };
 		CEE863BF1DCB29C000695F0F /* OMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE863BE1DCB29C000695F0F /* OMeViewController.m */; };
-		CEE863CD1DCC14EB00695F0F /* UIColor+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE863CC1DCC14EB00695F0F /* UIColor+Util.m */; };
 		CEE863D31DD062F800695F0F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE863D21DD062F800695F0F /* User.m */; };
 		CEE863D71DD06A2400695F0F /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE863D61DD06A2400695F0F /* BaseModel.m */; };
 		CEE863DA1DD06F5400695F0F /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE863D91DD06F5400695F0F /* Utils.m */; };
@@ -255,6 +248,8 @@
 		740E17A0E5244D9EB2F89681 /* Pods-sales.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sales.release.xcconfig"; path = "Pods/Target Support Files/Pods-sales/Pods-sales.release.xcconfig"; sourceTree = "<group>"; };
 		A31E531B212B0C7D005331AB /* BIUPNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIUPNetworkManager.m; sourceTree = "<group>"; };
 		A31E531C212B0C7E005331AB /* BIUPNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIUPNetworkManager.h; sourceTree = "<group>"; };
+		A33F40F3212D83A400BC83F2 /* UIColor+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Util.m"; sourceTree = "<group>"; };
+		A33F40F4212D83A400BC83F2 /* UIColor+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Util.h"; sourceTree = "<group>"; };
 		A3695BCA2129409200E3E0A6 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		A3695BCB2129409200E3E0A6 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		A3695BCD212942E700E3E0A6 /* BaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
@@ -415,14 +410,6 @@
 		CE93ECBD1E1CE0F700D26948 /* OrgUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrgUserInfo.m; sourceTree = "<group>"; };
 		CE93ECBF1E1F6F8400D26948 /* ColleagueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColleagueTableViewController.h; sourceTree = "<group>"; };
 		CE93ECC01E1F6F8400D26948 /* ColleagueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColleagueTableViewController.m; sourceTree = "<group>"; };
-		CE93ECCA1E2330D000D26948 /* Emoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Emoji.plist; sourceTree = "<group>"; };
-		CE93ECCC1E2330D000D26948 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RongCloudKit.strings; sourceTree = "<group>"; };
-		CE93ECCD1E2330D000D26948 /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
-		CE93ECCE1E2330D000D26948 /* RongIMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMKit.framework; sourceTree = "<group>"; };
-		CE93ECCF1E2330D000D26948 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RongCloudKit.strings"; sourceTree = "<group>"; };
-		CE93ECD11E2330D000D26948 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
-		CE93ECD21E2330D000D26948 /* RCConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RCConfig.plist; sourceTree = "<group>"; };
-		CE93ECD31E2330D000D26948 /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMLib.framework; sourceTree = "<group>"; };
 		CE93ED121E24CE6100D26948 /* ColleagueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColleagueTableViewCell.h; sourceTree = "<group>"; };
 		CE93ED131E24CE6100D26948 /* ColleagueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColleagueTableViewCell.m; sourceTree = "<group>"; };
 		CE93ED151E25DA4100D26948 /* OrgInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrgInviteViewController.h; sourceTree = "<group>"; };
@@ -624,8 +611,6 @@
 		CEE863B91DCB296C00695F0F /* ContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewController.m; sourceTree = "<group>"; };
 		CEE863BD1DCB29C000695F0F /* OMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMeViewController.h; sourceTree = "<group>"; };
 		CEE863BE1DCB29C000695F0F /* OMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMeViewController.m; sourceTree = "<group>"; };
-		CEE863CB1DCC14EB00695F0F /* UIColor+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Util.h"; sourceTree = "<group>"; };
-		CEE863CC1DCC14EB00695F0F /* UIColor+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Util.m"; sourceTree = "<group>"; };
 		CEE863CF1DD05A6100695F0F /* SalesApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalesApi.h; sourceTree = "<group>"; };
 		CEE863D11DD062F800695F0F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		CEE863D21DD062F800695F0F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -725,9 +710,6 @@
 				CE728F171E6D515400437FB2 /* UserNotifications.framework in Frameworks */,
 				CE9478AD1F4143FA0059BFCE /* libUMessage_Sdk_1.5.0a.a in Frameworks */,
 				2D3836BBFC1CA80BA446352E /* libPods-sales.a in Frameworks */,
-				CE93ECD81E2330D000D26948 /* libopencore-amrnb.a in Frameworks */,
-				CE93ECDA1E2330D000D26948 /* RongIMLib.framework in Frameworks */,
-				CE93ECD71E2330D000D26948 /* RongIMKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1106,33 +1088,8 @@
 			children = (
 				CE9478AA1F4143FA0059BFCE /* UMessage_Sdk_1.5.0a */,
 				CE9ECB561EA7463E0053BCA9 /* TZImagePickerController */,
-				CE93ECC91E2330D000D26948 /* IMKit */,
-				CE93ECD01E2330D000D26948 /* IMLib */,
 			);
 			name = lib;
-			sourceTree = "<group>";
-		};
-		CE93ECC91E2330D000D26948 /* IMKit */ = {
-			isa = PBXGroup;
-			children = (
-				CE93ECCA1E2330D000D26948 /* Emoji.plist */,
-				CE93ECCB1E2330D000D26948 /* RongCloudKit.strings */,
-				CE93ECCD1E2330D000D26948 /* RongCloud.bundle */,
-				CE93ECCE1E2330D000D26948 /* RongIMKit.framework */,
-			);
-			name = IMKit;
-			path = lib/IMKit;
-			sourceTree = "<group>";
-		};
-		CE93ECD01E2330D000D26948 /* IMLib */ = {
-			isa = PBXGroup;
-			children = (
-				CE93ECD11E2330D000D26948 /* libopencore-amrnb.a */,
-				CE93ECD21E2330D000D26948 /* RCConfig.plist */,
-				CE93ECD31E2330D000D26948 /* RongIMLib.framework */,
-			);
-			name = IMLib;
-			path = lib/IMLib;
 			sourceTree = "<group>";
 		};
 		CE93ED111E24CDE300D26948 /* View */ = {
@@ -1750,8 +1707,6 @@
 			children = (
 				CED9D7351DE81049002FD5D7 /* JFImagePicker */,
 				CEE864151DDAE49E00695F0F /* FontAwesome */,
-				CEE863CB1DCC14EB00695F0F /* UIColor+Util.h */,
-				CEE863CC1DCC14EB00695F0F /* UIColor+Util.m */,
 				CEE863E61DD2CB7D00695F0F /* UIImageView+Util.h */,
 				CEE863E71DD2CB7E00695F0F /* UIImageView+Util.m */,
 				CEE863E91DD3107500695F0F /* UIViewLinkTouch.h */,
@@ -1760,6 +1715,8 @@
 				CEE864431DE3EA2800695F0F /* UIView+Util.m */,
 				CE93EC3F1E07BEF200D26948 /* UITabBar+badge.h */,
 				CE93EC401E07BEF300D26948 /* UITabBar+badge.m */,
+				A33F40F4212D83A400BC83F2 /* UIColor+Util.h */,
+				A33F40F3212D83A400BC83F2 /* UIColor+Util.m */,
 				CE93EC421E07BF9A00D26948 /* UIColor+RCColor.h */,
 				CE93EC431E07BF9A00D26948 /* UIColor+RCColor.m */,
 			);
@@ -2066,7 +2023,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE93ECD91E2330D000D26948 /* RCConfig.plist in Resources */,
 				CE61DC4B1E962ABC00421C7E /* Work.storyboard in Resources */,
 				CEE8641A1DDAF0EC00695F0F /* FontAwesome.ttf in Resources */,
 				CE94DE6A1E2F5B640049BA71 /* PaperTableViewCell.xib in Resources */,
@@ -2084,11 +2040,8 @@
 				CE78A0551E640B4F008F321B /* ReadView.storyboard in Resources */,
 				CEE8639A1DCB100000695F0F /* Images.xcassets in Resources */,
 				CE94DE761E31FCC10049BA71 /* ReadDetails.storyboard in Resources */,
-				CE93ECD61E2330D000D26948 /* RongCloud.bundle in Resources */,
 				CED9D7541DE82643002FD5D7 /* CirclePublishViewController.storyboard in Resources */,
-				CE93ECD41E2330D000D26948 /* Emoji.plist in Resources */,
 				CEA456E91E5538A70011356B /* Customer.storyboard in Resources */,
-				CE93ECD51E2330D000D26948 /* RongCloudKit.strings in Resources */,
 				CEE863721DCB0EFD00695F0F /* Assets.xcassets in Resources */,
 				CEE863701DCB0EFD00695F0F /* Main.storyboard in Resources */,
 			);
@@ -2116,11 +2069,18 @@
 				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_ExpressionImage.plist",
 				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_Expression.bundle",
 				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_Expression.bundle/gifexpression.bundle",
-				"${PODS_ROOT}/RongCloudIMKit/Rong_Cloud_iOS_IMKit_SDK_v2_7_3_stable/RongCloud.bundle",
-				"${PODS_ROOT}/RongCloudIMKit/Rong_Cloud_iOS_IMKit_SDK_v2_7_3_stable/en.lproj",
-				"${PODS_ROOT}/RongCloudIMKit/Rong_Cloud_iOS_IMKit_SDK_v2_7_3_stable/zh-Hans.lproj",
-				"${PODS_ROOT}/RongCloudIMKit/Rong_Cloud_iOS_IMKit_SDK_v2_7_3_stable/Emoji.plist",
-				"${PODS_ROOT}/RongCloudIMKit/Rong_Cloud_iOS_IMKit_SDK_v2_7_3_stable/RCConfig.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCColor.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/JResource.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/en.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/zh-Hans.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/jrmf.cer",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/AlipaySDK/AlipaySDK.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/WalletResource.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -2140,7 +2100,12 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Emoji.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCColor.plist",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCConfig.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JResource.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/jrmf.cer",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WalletResource.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2269,7 +2234,6 @@
 				CEA456D91E53E8A60011356B /* BlackBoardDetailsTableViewController.m in Sources */,
 				CEE8641E1DDC298C00695F0F /* Comment.m in Sources */,
 				CE4E1C1C1EAF2BF80073CB45 /* IMeInfoTableViewController.m in Sources */,
-				CEE863CD1DCC14EB00695F0F /* UIColor+Util.m in Sources */,
 				CE78A05C1E6547FB008F321B /* PublishBlackBoardViewController.m in Sources */,
 				CEF6CCE31E7A27B20076AA60 /* BillTableViewController.m in Sources */,
 				CEA456CD1E52EE870011356B /* BlackBoardTableViewCell.m in Sources */,
@@ -2334,6 +2298,7 @@
 				CE94DE651E2F4F790049BA71 /* Paper.m in Sources */,
 				CED9D7571DEC1854002FD5D7 /* Url.m in Sources */,
 				CE93EC631E12091700D26948 /* OConversationSettingTableViewHeader.m in Sources */,
+				A33F40F5212D83A500BC83F2 /* UIColor+Util.m in Sources */,
 				A31E531D212B0C7E005331AB /* BIUPNetworkManager.m in Sources */,
 				CE61DC431E8CFC5A00421C7E /* ForgetViewController.m in Sources */,
 				CE93ED171E25DA4100D26948 /* OrgInviteViewController.m in Sources */,
@@ -2389,15 +2354,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE93ECCB1E2330D000D26948 /* RongCloudKit.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE93ECCC1E2330D000D26948 /* en */,
-				CE93ECCF1E2330D000D26948 /* zh-Hans */,
-			);
-			name = RongCloudKit.strings;
-			sourceTree = "<group>";
-		};
 		CEE8636E1DCB0EFD00695F0F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

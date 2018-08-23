@@ -9,6 +9,7 @@
 #import "IConversationListViewController.h"
 #import "IConversationViewController.h"
 #import "ServiceNoTableViewController.h"
+
 @interface IConversationListViewController ()
 
 @property (nonatomic,strong) UIView *headerView;
@@ -21,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),
                                         @(ConversationType_DISCUSSION)]];
     [self updateBadgeValueForTabBarItem];
@@ -30,30 +31,42 @@
     [center addObserver:self selector:@selector(updateUnreadCount) name:@"updateUnreadCount" object:nil];
     UIView *blackView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height -64)];
     self.emptyConversationView = blackView;
-    self.conversationListTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 60, 640, 63)];
+    self.conversationListTableView.tableFooterView = [[UIView alloc] init];
+    _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 60)];
+    _headerView.backgroundColor = [UIColor whiteColor];
+    self.conversationListTableView.tableHeaderView = _headerView;
+
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"serverno"]];
+    [_headerView addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(12);
+        make.centerY.equalTo(_headerView);
+        make.width.height.mas_equalTo(44);
+    }];
     
     _serverLabel = [[UILabel alloc] init];
     _serverLabel.text = @"服务号";
-    _serverLabel.font = [UIFont systemFontOfSize:15];
+    _serverLabel.textColor = [UIColor colorWithHex:0x333333];
+    _serverLabel.font = [UIFont systemFontOfSize:14];
+    [_headerView addSubview:_serverLabel];
+    [_serverLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(imageView.mas_right).offset(12);
+        make.width.height.mas_equalTo(48);
+        make.centerY.equalTo(_headerView);
+    }];
     
     _unreadLabel = [[UILabel alloc] init];
     _unreadLabel.text = @"(3条未读消息)";
     _unreadLabel.textColor = [UIColor darkGrayColor];
     _unreadLabel.font = [UIFont systemFontOfSize:13];
-    
-    [_headerView addSubview:_serverLabel];
     [_headerView addSubview:_unreadLabel];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"serverno"]];
-    [_headerView addSubview:imageView];
-    imageView.sd_layout.leftSpaceToView(_headerView,8).centerYEqualToView(_headerView).widthIs(46).heightIs(46);
-    _serverLabel.sd_layout
-    .leftSpaceToView(imageView, 8)
-    .widthIs(53)
-    .heightEqualToWidth()
-    .centerYEqualToView(self.headerView);
-    _unreadLabel.sd_layout.leftSpaceToView(_serverLabel, 2).widthIs(120).heightEqualToWidth().centerYEqualToView(_headerView);
-    UIView *spliteline = [[UIView alloc] initWithFrame:CGRectMake(10, 62.5, 640, 0.5)];
+    [_unreadLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_serverLabel.mas_right).offset(2);
+        make.width.mas_equalTo(120);
+        make.centerY.equalTo(_headerView);
+    }];
+
+    UIView *spliteline = [[UIView alloc] initWithFrame:CGRectMake(10, 62.5, 640, 1.0f/[UIScreen mainScreen].scale)];
     spliteline.backgroundColor = [UIColor lightGrayColor];
     [_headerView addSubview:spliteline];
     
@@ -72,10 +85,12 @@
     gesturRecognizer.minimumPressDuration = 0;
     [_headerView addGestureRecognizer:gesturRecognizer];
     
-    self.conversationListTableView.tableHeaderView = _headerView;
+    self.conversationListTableView.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
     [self.view bringSubviewToFront:self.conversationListTableView];
     [self updateBadgeValueForTabBarItem];
+    
     self.conversationListTableView.sd_layout.topSpaceToView(self.view, 60);
+    [[RCIM sharedRCIM] setGlobalConversationAvatarStyle:RC_USER_AVATAR_CYCLE];
 }
 
 - (NSMutableArray *)willReloadTableData:(NSMutableArray *)dataSource{
@@ -94,7 +109,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)onSelectedTableRow:(RCConversationModelType)conversationModelType conversationModel:(RCConversationModel *)model atIndexPath:(NSIndexPath *)indexPath{
+- (void)willDisplayConversationTableCell:(RCConversationBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    RCConversationCell *customCell = (RCConversationCell *)cell;
+    customCell.conversationTitle.textColor = [UIColor colorWithHex:0x333333];
+    customCell.conversationTitle.font = [UIFont systemFontOfSize:14];
+    customCell.messageContentLabel.textColor = [UIColor lightGrayColor];
+    customCell.messageContentLabel.font = [UIFont systemFontOfSize:12];
+    customCell.messageCreatedTimeLabel.textColor = [UIColor lightGrayColor];
+    customCell.messageCreatedTimeLabel.font = [UIFont systemFontOfSize:12];
+}
+
+- (void)onSelectedTableRow:(RCConversationModelType)conversationModelType conversationModel:(RCConversationModel *)model atIndexPath:(NSIndexPath *)indexPath {
     IConversationViewController *conversationVC = [[IConversationViewController alloc] init];
     conversationVC.conversationType = model.conversationType;
     conversationVC.targetId = model.targetId;
@@ -125,7 +150,7 @@
 }
 - (void)serviceCell:(UITapGestureRecognizer *)rec{
     if (rec.state == UIGestureRecognizerStateBegan) {
-        _headerView.backgroundColor = [UIColor lightGrayColor];
+        _headerView.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
     }else if(rec.state == UIGestureRecognizerStateEnded){
         _headerView.backgroundColor = [UIColor whiteColor];
         ServiceNoTableViewController *conversationVC = [[ServiceNoTableViewController alloc] init];
@@ -187,9 +212,7 @@
             self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",count];
             NSLog(@"0000---%d",count);
         });
-        
     }
-    
 }
 
 - (void)updateUnreadCount{

@@ -91,7 +91,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 1 && self.dataArray.count > 0) {
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
-        headerView.backgroundColor = SDColor(242, 242, 242, 1);
+        headerView.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, [UIScreen mainScreen].bounds.size.width-40, 40)];
         label.textColor = SDColor(128, 128, 128, 1);
         label.text = @"我加入的组织";
@@ -103,7 +103,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 1) {
+    if (section == 1 && self.dataArray.count > 0) {
         return 40;
     }
     return 0.1;

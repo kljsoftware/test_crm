@@ -16,11 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"common_btn_back"] style:UIBarButtonItemStylePlain target:self action:@selector(backButtonClicked)];    
     if (self.conversationType == ConversationType_DISCUSSION) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(discussionSetting)];
     }
     [self.chatSessionInputBarControl.pluginBoardView removeItemWithTag:1003];
+    [[RCIM sharedRCIM] setGlobalConversationAvatarStyle:RC_USER_AVATAR_CYCLE];
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [[RCIMClient sharedRCIMClient] clearMessagesUnreadStatus:self.conversationType targetId:self.targetId];
@@ -74,6 +76,10 @@
             [super pluginBoardView:pluginBoardView clickedItemWithTag:tag];
             break;
     }
+}
+
+- (void)backButtonClicked {
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 @end

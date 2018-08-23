@@ -25,6 +25,7 @@
 #import <QiniuSDK.h>
 #import "FileUtils.h"
 #import <RongIMKit/RongIMKit.h>
+#import <RongIMLib/RongIMLib.h>
 #import "NSStringUtils.h"
 #import "Utils.h"
 #import "CustomerDbUtil.h"
@@ -34,6 +35,7 @@
 #import <MessageUI/MessageUI.h>
 #import <DKNightVersion.h>
 #import <AFNetworking.h>
+#import "Masonry.h"
 #import "AppDelegate.h"
 
 #endif /* PrefixHeader_pch */

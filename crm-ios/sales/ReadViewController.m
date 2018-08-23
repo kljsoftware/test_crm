@@ -30,7 +30,7 @@ static NSString * const collectionViewSectionHeaderID = @"ChannelCollectionHeade
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
     [self setupTopContianerView];
     [self setupChildController];
     [self setupContentScrollView];
@@ -47,14 +47,6 @@ static NSString * const collectionViewSectionHeaderID = @"ChannelCollectionHeade
 
 #pragma mark --private Method--初始化子控制器
 -(void)setupChildController {
-//    for (NSInteger i = 0; i<self.currentChannelsArray.count; i++) {
-//        
-//        INoticeTableViewController *viewController = [[INoticeTableViewController alloc] init];
-//        
-////        viewController.title = self.arrayLists[i][@"title"];
-////        viewController.urlString = self.arrayLists[i][@"urlString"];
-//        [self addChildViewController:viewController];
-//    }
     INoticeTableViewController *noticeVC = [[INoticeTableViewController alloc] init];
     [self addChildViewController:noticeVC];
     
