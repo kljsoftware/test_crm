@@ -6,8 +6,8 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
-@interface AddCustomerViewController : UITableViewController
+@interface AddCustomerViewController : BaseTableViewController
 
 @end

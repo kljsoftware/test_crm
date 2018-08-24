@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D3836BBFC1CA80BA446352E /* libPods-sales.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B737477090CDEC04E96A167E /* libPods-sales.a */; };
 		A31E531D212B0C7E005331AB /* BIUPNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A31E531B212B0C7D005331AB /* BIUPNetworkManager.m */; };
+		A325C9B2212EF8F10086176B /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A325C9B1212EF8F10086176B /* MenuView.m */; };
 		A33F40F5212D83A500BC83F2 /* UIColor+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A33F40F3212D83A400BC83F2 /* UIColor+Util.m */; };
 		A3695BCC2129409200E3E0A6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCB2129409200E3E0A6 /* BaseViewController.m */; };
 		A3695BCF212942E700E3E0A6 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */; };
@@ -248,6 +249,9 @@
 		740E17A0E5244D9EB2F89681 /* Pods-sales.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sales.release.xcconfig"; path = "Pods/Target Support Files/Pods-sales/Pods-sales.release.xcconfig"; sourceTree = "<group>"; };
 		A31E531B212B0C7D005331AB /* BIUPNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIUPNetworkManager.m; sourceTree = "<group>"; };
 		A31E531C212B0C7E005331AB /* BIUPNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIUPNetworkManager.h; sourceTree = "<group>"; };
+		A325C9B0212EF8F10086176B /* MenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
+		A325C9B1212EF8F10086176B /* MenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
+		A325CB92212FF79B00BA13F7 /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
 		A33F40F3212D83A400BC83F2 /* UIColor+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Util.m"; sourceTree = "<group>"; };
 		A33F40F4212D83A400BC83F2 /* UIColor+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Util.h"; sourceTree = "<group>"; };
 		A3695BCA2129409200E3E0A6 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -805,6 +809,7 @@
 		CE78A0301E5C1A44008F321B /* Deep */ = {
 			isa = PBXGroup;
 			children = (
+				CEA456E81E5538A70011356B /* Customer.storyboard */,
 				CE78A0311E5C1AE2008F321B /* CustomerDeepViewController.h */,
 				CE78A0321E5C1AE2008F321B /* CustomerDeepViewController.m */,
 				CE78A0341E5D6FC8008F321B /* CustomerInfoViewController.h */,
@@ -1009,7 +1014,6 @@
 				CE93ECA11E1B7F0300D26948 /* CustomerTableViewController.m */,
 				CEA456E51E5537990011356B /* CustomerDetailsViewController.h */,
 				CEA456E61E5537990011356B /* CustomerDetailsViewController.m */,
-				CEA456E81E5538A70011356B /* Customer.storyboard */,
 				CEA456EA1E5594BF0011356B /* CustomerEditViewController.h */,
 				CEA456EB1E5594BF0011356B /* CustomerEditViewController.m */,
 				CEA456ED1E5ACA460011356B /* AddCustomerViewController.h */,
@@ -1403,6 +1407,8 @@
 				CE728E981E6D37F600437FB2 /* FindCustomerTableViewCell.m */,
 				CEF6CD031E821CF80076AA60 /* CustomerDupTableViewCell.h */,
 				CEF6CD041E821CF80076AA60 /* CustomerDupTableViewCell.m */,
+				A325C9B0212EF8F10086176B /* MenuView.h */,
+				A325C9B1212EF8F10086176B /* MenuView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1831,6 +1837,7 @@
 			children = (
 				CEE864331DE2E35B00695F0F /* DetailsController */,
 				CEE863FD1DD56E6300695F0F /* GlobalDefines.h */,
+				A325CB92212FF79B00BA13F7 /* AppMacro.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -2321,6 +2328,7 @@
 				CE93EC551E0A701D00D26948 /* FriendTableViewCell.m in Sources */,
 				CED9D7511DE81742002FD5D7 /* JFPhotoBrowserViewController.m in Sources */,
 				CEA456EF1E5ACA460011356B /* AddCustomerViewController.m in Sources */,
+				A325C9B2212EF8F10086176B /* MenuView.m in Sources */,
 				CE7D47A01E84C5B5009958A7 /* OrganizationCreateViewController.m in Sources */,
 				CEE863F21DD41C6F00695F0F /* PreferUtil.m in Sources */,
 				CE61DC551E9B17C400421C7E /* Work.m in Sources */,

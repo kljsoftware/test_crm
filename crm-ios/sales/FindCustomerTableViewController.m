@@ -25,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor colorWithHex:0x333333];
     _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainWidth, 50)];
     _searchField = [[UITextField alloc] initWithFrame:CGRectMake(5, 5, kMainWidth - 60, 30)];
     _searchField.borderStyle = UITextBorderStyleRoundedRect;

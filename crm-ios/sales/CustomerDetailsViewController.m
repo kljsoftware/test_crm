@@ -45,6 +45,7 @@
     self.title = @"客户详情";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editButtonClicked)];
     [self initView];
+    [self setUpData];
 }
 
 - (void)initView{
@@ -86,10 +87,6 @@
     .heightIs(40);
 }
 
-- (void)setCustomer:(Customer *)customer{
-    _customer = customer;
-    [self setUpData];
-}
 - (void)setUpData{
 //    _addressLabel.sd_layout.maxHeightIs(MAXFLOAT);
     if ([NSStringUtils isEmpty:_customer.name])

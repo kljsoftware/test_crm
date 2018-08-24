@@ -211,6 +211,7 @@
         return nil;
     }
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
+    headerView.backgroundColor = SDColor(239, 239, 239, 1);
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, [UIScreen mainScreen].bounds.size.width-40, 25)];
     label.textColor = SDColor(128, 128, 128, 1);
     label.text = [self.sectionTitlesArray objectAtIndex:section];

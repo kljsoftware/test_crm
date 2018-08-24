@@ -9,6 +9,7 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#import "AppMacro.h"
 #import "FMDB.h"
 #import "UIImageView+WebCache.h"
 #import "IQKeyboardManager.h"

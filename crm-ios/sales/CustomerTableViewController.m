@@ -11,8 +11,8 @@
 #import "CustomerDetailsViewController.h"
 #import "Customer.h"
 #import "UIViewLinkTouch.h"
+#import "MenuView.h"
 
-#define kMainWidth [UIScreen mainScreen].bounds.size.width
 @interface CustomerTableViewController ()<UISearchBarDelegate,UISearchResultsUpdating,UISearchControllerDelegate>
 
 @property (nonatomic,strong) CustomerDbUtil *dbUtil;
@@ -20,11 +20,17 @@
 @property (nonatomic,strong) NSMutableArray *sectionArray;
 @property (nonatomic,strong) NSMutableArray *filterObjects;
 @property (nonatomic,strong) NSMutableArray *sectionTitlesArray;
-@property (nonatomic,strong) UIView *headerView;
 @property (nonatomic,strong) PreferUtil *preferUtil;
 @property (nonatomic,strong) NSString *type;
 @property (nonatomic,strong) UISearchController *searchController;
 @property (nonatomic,assign) NSInteger      sorttype;
+
+@property (nonatomic, strong) UIView *headerView;
+@property (nonatomic, strong) MenuView *menuView;
+@property (nonatomic, strong) UIView *lineView;
+@property (nonatomic, strong) UIButton *selectBtn;
+@property (nonatomic, assign) NSInteger sortIndex;
+@property (nonatomic, assign) NSInteger siftIndex;
 
 @end
 
@@ -32,12 +38,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
     _sorttype = 0;
     _dbUtil = [[CustomerDbUtil alloc] init];
     _preferUtil = [PreferUtil new];
     [_preferUtil initIN];
-    [self setupHeadView];
-    self.tableView.rowHeight = [CustomerTableViewCell fixedHeight];
+    [self setHeaderView];
+    self.tableView.rowHeight = 60;
     self.tableView.sectionIndexColor = [UIColor lightGrayColor];
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -57,51 +65,7 @@
 - (void)updateCustomer{
     [self getLocalData:_type];
 }
-- (void)setupHeadView{
-    _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainWidth, 50)];
-    
-    UIView *searchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainWidth / 3, 50)];
-    UILabel *searchLabel = [[UILabel alloc] init];
-    searchLabel.text = @"搜索";
-    [searchView addSubview:searchLabel];
-    searchLabel.font = [UIFont systemFontOfSize:14];
-    searchLabel.sd_layout
-    .centerXEqualToView(searchView)
-    .centerYEqualToView(searchView).widthIs(42).heightIs(21);
-    
-    UIView *sortView = [[UIView alloc] initWithFrame:CGRectMake(kMainWidth / 3, 0, kMainWidth / 3, 50)];
-    UILabel *sortLabel = [[UILabel alloc] init];
-    sortLabel.text = @"排序";
-    sortLabel.font = [UIFont systemFontOfSize:14];
-    [sortView addSubview:sortLabel];
-    sortLabel.sd_layout
-    .centerXEqualToView(sortView).centerYEqualToView(sortView).heightIs(21).widthIs(42);
-    UILongPressGestureRecognizer *sortGesturRecognizer=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(sortButtonClick:)];
-    sortGesturRecognizer.minimumPressDuration = 0;
-    [sortView addGestureRecognizer:sortGesturRecognizer];
-    
-    UIView *filterView = [[UIView alloc] initWithFrame:CGRectMake(kMainWidth / 3 * 2, 0, kMainWidth / 3, 50)];
-    UILabel *filterLabel = [[UILabel alloc] init];
-    filterLabel.text = @"筛选";
-    filterLabel.font = [UIFont systemFontOfSize:14];
-    [filterView addSubview:filterLabel];
-    filterLabel.sd_layout
-    .centerYEqualToView(filterView).centerXEqualToView(filterView).heightIs(21).widthIs(42);
-    
-    UILongPressGestureRecognizer *gesturRecognizer=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(filterButtonClick:)];
-    gesturRecognizer.minimumPressDuration = 0;
-    [filterView addGestureRecognizer:gesturRecognizer];
-    
-    UILongPressGestureRecognizer *searchGesturRecognizer=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(searchButtonClick:)];
-    gesturRecognizer.minimumPressDuration = 0;
-    [searchView addGestureRecognizer:searchGesturRecognizer];
-    
-    [_headerView addSubview:sortView];
-    [_headerView addSubview:searchView];
-    [_headerView addSubview:filterView];
-    
-    self.tableView.tableHeaderView = _headerView;
-}
+
 - (void)getLocalData:(NSString *) type{
     if (_sorttype == 0) {
         NSMutableArray *temp = [_dbUtil selectAll:type];
@@ -169,6 +133,149 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setHeaderView {
+    
+    UIView *topBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, 50)];
+    topBgView.backgroundColor = [UIColor whiteColor];
+    self.headerView = topBgView;
+    self.tableView.tableHeaderView = self.headerView;
+    
+    NSArray *titles = @[@"排序",@"筛选"];
+    NSArray *leftIcons = @[@"customer_sort",@"customer_sift"];
+    
+    for (int i = 0; i < 2; i++) {
+        
+        // 按钮
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.tag = i+100;
+        [btn addTarget:self action:@selector(itemClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [topBgView addSubview:btn];
+        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(topBgView);
+            make.width.mas_equalTo(KSCREEN_WIDTH/2);
+            make.height.mas_equalTo(50);
+            make.left.mas_equalTo(KSCREEN_WIDTH/2*i);
+        }];
+        
+        // 标题
+        UILabel *titleLabel = [[UILabel alloc] init];
+        titleLabel.text = titles[i];
+        titleLabel.tag = i + 200;
+        titleLabel.textColor = [UIColor lightGrayColor];
+        titleLabel.font = [UIFont systemFontOfSize:14];
+        [btn addSubview:titleLabel];
+        [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(btn);
+        }];
+        
+        // 左侧图标
+        UIImageView *leftIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:leftIcons[i]]];
+        [btn addSubview:leftIcon];
+        [leftIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(titleLabel.mas_left).offset(-5);
+            make.centerY.equalTo(btn);
+        }];
+        
+        // 右侧箭头
+        UIImageView *rightIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"common_right_arrow"]];
+        rightIcon.tag = i + 300;
+        [btn addSubview:rightIcon];
+        [rightIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(titleLabel.mas_right).offset(20);
+            make.centerY.equalTo(btn);
+        }];
+    }
+    
+    UIView *lineView = [[UIView alloc] init];
+    lineView.backgroundColor = SDColor(31, 90, 248, 1);
+    lineView.hidden = true;
+    [topBgView addSubview:lineView];
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(topBgView);
+        make.width.mas_equalTo(30);
+        make.height.mas_equalTo(2);
+        make.centerX.mas_equalTo(-KSCREEN_WIDTH/4);
+    }];
+    self.lineView = lineView;
+}
+
+- (void)itemClicked:(UIButton *)sender {
+    
+    sender.selected = !sender.selected;
+    self.selectBtn = sender;
+    
+    UIButton *sortBtn = (UIButton *)[self.headerView viewWithTag:100];
+    UIButton *siftBtn = (UIButton *)[self.headerView viewWithTag:101];
+    UILabel *sortLabel = (UILabel *)[sortBtn viewWithTag:200];
+    UILabel *siftLabel = (UILabel *)[siftBtn viewWithTag:201];
+
+    if (sender.selected) {
+        if (sender == sortBtn) {
+            sortLabel.textColor = [UIColor colorWithHex:0x333333];
+            siftLabel.textColor = [UIColor lightGrayColor];
+            siftBtn.selected = false;
+        } else {
+            siftLabel.textColor = [UIColor colorWithHex:0x333333];
+            sortLabel.textColor = [UIColor lightGrayColor];
+            sortBtn.selected = false;
+        }
+        self.lineView.hidden = false;
+        [self showMenuView];
+        
+        [self.headerView layoutIfNeeded];
+        [self.lineView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.centerX.mas_equalTo(self.selectBtn.tag == 100 ? -KSCREEN_WIDTH/4 : KSCREEN_WIDTH/4);
+        }];
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.headerView layoutIfNeeded];
+        }];
+    
+    } else {
+        if (sender == sortBtn) {
+            sortLabel.textColor = [UIColor lightGrayColor];
+        } else {
+            siftLabel.textColor = [UIColor lightGrayColor];
+        }
+        [self.menuView hide];
+    }
+}
+
+- (void)showMenuView {
+    
+    [_menuView removeFromSuperview];
+    _menuView = nil;
+    
+    NSArray *menuItems = self.selectBtn.tag == 100 ? @[@"按名称排序",@"按时间排序"] : @[@"全部客户",@"我的客户",@"我参与的客户",@"我的下级客户"];
+    _menuView = [[MenuView alloc] initWithMenuItems:menuItems currentSelectIndex:self.selectBtn.tag == 100 ? self.sortIndex : self.siftIndex selectIndexs:^(NSInteger selectIndex) {
+        
+        self.selectBtn.selected = false;
+        UIButton *sortBtn = (UIButton *)[self.headerView viewWithTag:100];
+        UIButton *siftBtn = (UIButton *)[self.headerView viewWithTag:101];
+        UILabel *sortLabel = (UILabel *)[sortBtn viewWithTag:200];
+        UILabel *siftLabel = (UILabel *)[siftBtn viewWithTag:201];
+        if (self.selectBtn == sortBtn) {
+            sortLabel.textColor = [UIColor lightGrayColor];
+        } else {
+            siftLabel.textColor = [UIColor lightGrayColor];
+        }
+        self.lineView.hidden = true;
+        if (self.selectBtn.tag == 100) {
+            self.sortIndex = selectIndex;
+            self.sorttype = selectIndex;
+        } else {
+            self.siftIndex = selectIndex;
+            self.type = [NSString stringWithFormat:@"%ld",selectIndex];
+        }
+        [self getLocalData:_type];
+    }];
+    [KeyWindow addSubview:_menuView];
+    [_menuView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(50+KNAV_HEIGHT);
+        make.left.right.bottom.equalTo(KeyWindow);
+    }];
+    [_menuView show];
 }
 
 - (void) setUpTableSection:(NSInteger)type {
@@ -332,6 +439,7 @@
         return nil;
     }
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
+    headerView.backgroundColor = SDColor(239, 239, 239, 1);
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, [UIScreen mainScreen].bounds.size.width-40, 25)];
     label.textColor = SDColor(128, 128, 128, 1);
     label.text = [self.sectionTitlesArray objectAtIndex:section];
@@ -363,6 +471,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
     Customer *customer = nil;
     if (_sorttype == 1) {
         switch (tableView.tag) {
@@ -395,76 +504,9 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Customer" bundle:nil];
     CustomerDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CustomerDetails"];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     vc.customer = customer;
     self.searchController.active = NO;
     [self.navigationController pushViewController:vc animated:YES];
-}
-- (void)setExtraCellLineHidden: (UITableView *)tableView
-{
-    
-}
-- (void)userPortraitDidClick{
-    
-}
-- (void)sortButtonClick:(UITapGestureRecognizer *)rec{
-    if (rec.state == UIGestureRecognizerStateBegan) {
-    }else if(rec.state == UIGestureRecognizerStateEnded){
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        UIAlertAction *nameAction = [UIAlertAction actionWithTitle:@"按名称排序" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            _sorttype = 0;
-            [self getLocalData:_type];
-        }];
-        UIAlertAction *timeAction = [UIAlertAction actionWithTitle:@"按时间排序" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            _sorttype = 1;
-            [self getLocalData:_type];
-        }];
-        
-        
-        [alertController addAction:cancelAction];
-        [alertController addAction:nameAction];
-        [alertController addAction:timeAction];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
-}
-- (void)filterButtonClick:(UITapGestureRecognizer *)rec{
-    if (rec.state == UIGestureRecognizerStateBegan) {
-    }else if(rec.state == UIGestureRecognizerStateEnded){
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        UIAlertAction *allAction = [UIAlertAction actionWithTitle:@"全部" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            _type = @"0";
-            [self getLocalData:_type];
-        }];
-        UIAlertAction *myAction = [UIAlertAction actionWithTitle:@"我的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            _type = @"1";
-            [self getLocalData:_type];
-        }];
-        
-        UIAlertAction *joinAction = [UIAlertAction actionWithTitle:@"参与" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            _type = @"2";
-            [self getLocalData:_type];
-        }];
-        
-        UIAlertAction *subAction = [UIAlertAction actionWithTitle:@"下级" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            _type = @"3";
-            [self getLocalData:_type];
-        }];
-        
-        [alertController addAction:cancelAction];
-        [alertController addAction:allAction];
-        [alertController addAction:myAction];
-        [alertController addAction:joinAction];
-        [alertController addAction:subAction];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
 }
 
 - (void)searchButtonClick:(UITapGestureRecognizer *)rec{
