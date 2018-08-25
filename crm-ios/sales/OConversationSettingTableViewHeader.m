@@ -89,7 +89,7 @@ OConversationSettingTableViewHeaderItemDelegate>
         cell.titleLabel.text = @"";
 //        [cell.ivAva setImage:[RCDUtilities imageNamed:@"add_members"
 //                                             ofBundle:@"RongCloud.bundle"]];
-        [cell.ivAva setImage:[UIImage imageNamed:@"add_member"]];
+        [cell.ivAva setImage:[UIImage imageNamed:@"moments_add"]];
         
     } else {
         cell.btnImg.hidden = YES;

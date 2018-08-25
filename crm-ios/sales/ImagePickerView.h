@@ -8,14 +8,16 @@
 
 #import <UIKit/UIKit.h>
 @class ImagePickerConfig;
+
 @interface ImagePickerView : UIView
 
-@property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) UIViewController *currentController;
 @property (nonatomic, copy) void(^viewHeightChanged)(CGFloat height);
 
 - (instancetype)initWithFrame:(CGRect)frame config:(ImagePickerConfig *)config;
 - (void)refreshImagePickerViewWithPhotoArray:(NSArray<UIImage *> *)array;
 - (NSArray<UIImage *> *)getPhotos;
+- (void)endEdit;
 @end
 
 @interface ImagePickerConfig : NSObject

@@ -30,6 +30,8 @@
 - (void)setup{
     
     _iconView = [UIImageView new];
+    _iconView.layer.cornerRadius = 20;
+    _iconView.layer.masksToBounds = true;
     
     _nameLable = [UILabel new];
     _nameLable.font = [UIFont systemFontOfSize:14];
@@ -47,7 +49,7 @@
     [self.contentView sd_addSubviews:views];
     
     UIView *contentView = self.contentView;
-    CGFloat margin = 10;
+    CGFloat margin = 12;
     
     _iconView.sd_layout
     .leftSpaceToView(contentView, margin)
@@ -62,7 +64,7 @@
     [_nameLable setSingleLineAutoResizeWithMaxWidth:200];
     
     _countLabel.sd_layout
-    .topSpaceToView(_nameLable,margin)
+    .topSpaceToView(_nameLable,8)
     .leftEqualToView(_nameLable).heightIs(20).widthIs(100);
     
     _contentLabel.sd_layout

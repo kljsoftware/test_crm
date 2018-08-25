@@ -9,6 +9,7 @@
 #import "ImagePickerView.h"
 #import "OMeViewController.h"
 #import "JFImagePickerController.h"
+#import "ImagePickerCell.h"
 static NSString *imagePickerCellIdentifier = @"imagePickerCellIdentifier";
 
 @interface ImagePickerView()<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
@@ -18,12 +19,14 @@ static NSString *imagePickerCellIdentifier = @"imagePickerCellIdentifier";
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) ImagePickerConfig *config;
 @property (nonatomic, strong) UIButton *button;
+@property (nonatomic, assign) BOOL showDeleteIcon;
+@property (nonatomic, strong) NSString *rightItemTitle;
 
 @end
 
 @implementation ImagePickerView
 
-- (instancetype)initWithFrame:(CGRect)frame config:(ImagePickerConfig *)config{
+- (instancetype)initWithFrame:(CGRect)frame config:(ImagePickerConfig *)config {
     if(self = [super initWithFrame:frame]) {
         _config = (config != nil)?config:([ImagePickerConfig new]);
         [self setupView];
@@ -35,6 +38,11 @@ static NSString *imagePickerCellIdentifier = @"imagePickerCellIdentifier";
 
 - (instancetype)initWithFrame:(CGRect)frame {
     return [self initWithFrame:frame config:nil];
+}
+
+- (void)setCurrentController:(UIViewController *)currentController {
+    _rightItemTitle = currentController.navigationItem.rightBarButtonItem.title;
+    _currentController = currentController;
 }
 
 - (void)setupView {
@@ -55,10 +63,11 @@ static NSString *imagePickerCellIdentifier = @"imagePickerCellIdentifier";
     _collectionView.showsHorizontalScrollIndicator = NO;
     _collectionView.bounces = NO;
     _collectionView.backgroundColor = [UIColor clearColor];
+    [_collectionView registerClass:[ImagePickerCell class] forCellWithReuseIdentifier:imagePickerCellIdentifier];
     [self addSubview:_collectionView];
-    [_collectionView reloadData];
     
-    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:imagePickerCellIdentifier];
+    UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longGes:)];
+    [_collectionView addGestureRecognizer:longGes];
 }
 
 - (void)initializeData {
@@ -104,61 +113,49 @@ static NSString *imagePickerCellIdentifier = @"imagePickerCellIdentifier";
     return _photosArray.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:imagePickerCellIdentifier forIndexPath:indexPath];
-    UIImageView *imgView = (UIImageView *)[cell.contentView viewWithTag:1];
-    if (!imgView) {
-        imgView = [[UIImageView alloc] initWithFrame:cell.bounds];
-        imgView.contentMode = UIViewContentModeScaleAspectFill;
-        imgView.clipsToBounds = YES;
-        imgView.tag = 1;
-        [cell addSubview:imgView];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ImagePickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:imagePickerCellIdentifier forIndexPath:indexPath];
+    cell.indexPath = indexPath;
+    if (indexPath.row < _photosArray.count) {
+        cell.imgView.image = _photosArray[indexPath.row];
+        cell.deleteBtn.hidden = !self.showDeleteIcon;
+    } else {
+        cell.imgView.image = [UIImage imageNamed:@"moments_add"];
+        cell.deleteBtn.hidden = true;
     }
-    if(indexPath.row < _photosArray.count) {
-        UIImage *image = _photosArray[indexPath.row];
-        imgView.image = image;
-    }
-    else {
-        imgView.image = nil;
-        imgView.image = [UIImage imageNamed:@"bg_photo_add"];
-    }
+    cell.deleteBlock = ^(NSIndexPath *indexPath) {
+        [_photosArray removeObjectAtIndex:indexPath.row];
+        [_collectionView reloadData];
+    };
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSMutableArray *tmpArray = [NSMutableArray new];
-    if(indexPath.row < _photosArray.count) {
-        for (UIImage *image in _photosArray) {
-//            WSImageModel *model = [WSImageModel new];
-//            model.image = image;
-//            [tmpArray addObject:model];
-        }
-        
-//        WSPhotosBroseVC *vc = [WSPhotosBroseVC new];
-//        vc.imageArray = tmpArray;
-//        vc.showIndex = indexPath.row;
-//        vc.completion = ^ (NSArray *array){
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [_photosArray removeAllObjects];
-//                [_photosArray addObjectsFromArray:array];
-//                [self refreshCollectionView];
-//            });
-//        };
-//        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else {
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row >= _photosArray.count) {
+        self.showDeleteIcon = false;
+        self.currentController.navigationItem.rightBarButtonItem.title = self.rightItemTitle;
+        [_collectionView reloadData];
         [self pickPhotos];
     }
 }
 
+- (void)longGes:(UILongPressGestureRecognizer *)longGes {
+    if (longGes.state == UIGestureRecognizerStateBegan) {
+        self.showDeleteIcon = true;
+        self.currentController.navigationItem.rightBarButtonItem.title = @"完成";
+        [_collectionView reloadData];
+    }
+}
+
+- (void)endEdit {
+    self.showDeleteIcon = false;
+    [_collectionView reloadData];
+    self.currentController.navigationItem.rightBarButtonItem.title = self.rightItemTitle;
+}
+
 - (void)pickPhotos{
     UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从照片库选取",nil];
-    [action showInView:self.navigationController.view];
-    
-    
-    if (self.navigationController == nil) {
-    }
+    [action showInView:self.currentController.view];
 }
 
 
@@ -170,7 +167,7 @@ static NSString *imagePickerCellIdentifier = @"imagePickerCellIdentifier";
             UIImagePickerController *vc = [UIImagePickerController new];
             vc.sourceType = UIImagePickerControllerSourceTypeCamera;//sourcetype有三种分别是camera，photoLibrary和photoAlbum
             vc.delegate = self;
-            [self.navigationController presentViewController:vc animated:YES completion:nil];
+            [self.currentController presentViewController:vc animated:YES completion:nil];
         }
             break;
         case 1:
@@ -181,7 +178,7 @@ static NSString *imagePickerCellIdentifier = @"imagePickerCellIdentifier";
 
             picker.pickerDelegate = self;
             
-            [self.navigationController presentViewController:picker animated:YES completion:nil];
+            [self.currentController presentViewController:picker animated:YES completion:nil];
         }
             break;
             
@@ -230,7 +227,6 @@ static NSString *imagePickerCellIdentifier = @"imagePickerCellIdentifier";
     [self refreshCollectionView];
     [picker dismissViewControllerAnimated:YES completion:^{}];
 }
-
 
 @end
 

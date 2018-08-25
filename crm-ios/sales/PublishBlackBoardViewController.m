@@ -37,7 +37,7 @@
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
                                                                             action:@selector(cancelButtonClicked)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(sendButtonClicked)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(sendItemClicked:)];
     
     [self setUpView];
 }
@@ -49,8 +49,10 @@
     //imagePickerView parameter settings
     _contentView.placeholder = @"黑板内容";
     ImagePickerConfig *config = [ImagePickerConfig new];
-    config.itemSize = CGSizeMake(80, 80);
-    config.photosMaxCount = 9;
+    config.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
+    config.minimumLineSpacing = 5;
+    config.minimumInteritemSpacing = 5;
+    config.itemSize = CGSizeMake((kScreenWidth-40-15)/4, (kScreenWidth-40-15)/4);
     
     ImagePickerView *pickerView = [[ImagePickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0) config:config];
     //Height changed with photo selection
@@ -60,7 +62,7 @@
         [weakSelf.view setNeedsLayout];
         [weakSelf.view layoutIfNeeded];
     };
-    pickerView.navigationController = self.navigationController;
+    pickerView.currentController = self;
     [self.photoView addSubview:pickerView];
     self.pickerView = pickerView;
     
@@ -76,26 +78,31 @@
     }
 }
 
-- (void)sendButtonClicked{
-    //    [self getQiniuNoKeyToken];
-    _HUD = [Utils createHUD];
+- (void)sendItemClicked:(UIBarButtonItem *)item {
     
-    NSString *comStr = self.contentView.text;
-    comStr = [comStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if (comStr.length <= 0) {
-        NSLog(@"----");
-        _HUD.label.text = @"黑板内容不能为空";
-        [_HUD hideAnimated:YES afterDelay:1];
-        return;
+    if ([item.title isEqualToString:@"发送"]) {
+        
+        _HUD = [Utils createHUD];
+        
+        NSString *comStr = self.contentView.text;
+        comStr = [comStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if (comStr.length <= 0) {
+            NSLog(@"----");
+            _HUD.label.text = @"黑板内容不能为空";
+            [_HUD hideAnimated:YES afterDelay:1];
+            return;
+        }
+        _HUD.label.text = @"黑板发送中";
+        NSArray<UIImage *> *datas = [_pickerView getPhotos];
+        if (datas != nil && datas.count > 0) {
+            [self getQiniuNoKeyToken];
+        }else{
+            [self publishCircle:@""];
+        }
+        
+    } else {
+        [_pickerView endEdit];
     }
-    _HUD.label.text = @"黑板发送中";
-    NSArray<UIImage *> *datas = [_pickerView getPhotos];
-    if (datas != nil && datas.count > 0) {
-        [self getQiniuNoKeyToken];
-    }else{
-        [self publishCircle:@""];
-    }
-    
 }
 
 - (void)getQiniuNoKeyToken{

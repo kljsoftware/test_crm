@@ -44,7 +44,6 @@
     self.navigationItem.titleView = label;
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
 	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
-    
 	self.navigationItem.rightBarButtonItem = cancel;
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNormalPhotoBrowser:) name:@"showNormalPhotoBrowser" object:nil];
 }
@@ -65,16 +64,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	self.view.backgroundColor = [UIColor whiteColor];
 	UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.minimumInteritemSpacing = 0;
-    flowLayout.minimumLineSpacing = 3;
-    NSInteger size = [UIScreen mainScreen].bounds.size.width/4-1;
-    if (size%2!=0) {
-        size-=1;
-    }
+    flowLayout.minimumInteritemSpacing = 2;
+    flowLayout.minimumLineSpacing = 2;
+    NSInteger size = (KSCREEN_WIDTH-10)/4;
     flowLayout.itemSize = CGSizeMake(size, size);
-    flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    flowLayout.sectionInset = UIEdgeInsetsMake(2, 2, 2, 2);
 
 	photosList = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
     photosList.contentInset = UIEdgeInsetsMake(0, 0, 44, 0);

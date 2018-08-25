@@ -94,10 +94,6 @@
     .centerYEqualToView(_unameLable).heightIs(15);
     [_favnumLabel setSingleLineAutoResizeWithMaxWidth:25];
     
-//    _supportButton.sd_layout
-//    .rightSpaceToView(_favnumLabel,margin)
-//    .topEqualToView(_timeLabel).heightIs(15).widthIs(15);
-    
     _supportButton.sd_layout
     .rightSpaceToView(_favnumLabel,margin)
     .centerYEqualToView(_unameLable).heightIs(20).widthIs(16);

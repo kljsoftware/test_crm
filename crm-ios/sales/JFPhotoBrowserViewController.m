@@ -65,7 +65,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [(JFImagePickerController *)self.navigationController setLeftTitle:@"取消"];
+    [(JFImagePickerController *)self.navigationController setPreviewTitle:@"取消" enable:true];
     placeholder = [UIButton buttonWithType:UIButtonTypeCustom];
     placeholder.frame = CGRectMake(0, 0, 26, 26);
     placeholder.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.1];
@@ -105,11 +105,8 @@
 - (void)viewWillDisappear:(BOOL)animated{
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
 	if (!isBrowser) {
-		if (ASSETHELPER.selectdPhotos.count>0) {
-			[(JFImagePickerController *)self.navigationController setLeftTitle:@"预览"];
-		} else {
-			[(JFImagePickerController *)self.navigationController setLeftTitle:@""];
-		}
+        [(JFImagePickerController *)self.navigationController setPreviewTitle:@"预览" enable:ASSETHELPER.selectdPhotos.count>0];
+    
 		if (isPreview) {
 			NSMutableArray *needDelete = [NSMutableArray array];
 			for (NSNumber *num in disabledIndexs) {

@@ -43,11 +43,6 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-	if (ASSETHELPER.selectdPhotos.count>0) {
-		preview.title = @"预览";
-	} else {
-		preview.title = @"";
-	}
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -57,6 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         tempBarStyle = [UIApplication sharedApplication].statusBarStyle;
         if (tempBarStyle!=UIStatusBarStyleLightContent) {
@@ -64,13 +60,14 @@
         }
     });
 
-	toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-44, [UIScreen mainScreen].bounds.size.width, 44)];
+	toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-44-KINDICATOR_HEIGHT, [UIScreen mainScreen].bounds.size.width, 44)];
 	toolbar.tintColor = [UIColor whiteColor];
 	toolbar.barStyle = UIBarStyleBlack;
 	[self.view addSubview:toolbar];
     UIBarButtonItem *leftFix = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
 	UIBarButtonItem *rightFix = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-	preview = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(preview)];
+	preview = [[UIBarButtonItem alloc] initWithTitle:@"预览" style:UIBarButtonItemStylePlain target:self action:@selector(preview)];
+    preview.enabled = false;
 	UIBarButtonItem *fix = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 	selectNum = [[UIBarButtonItem alloc] initWithTitle:@"0/9" style:UIBarButtonItemStylePlain target:nil action:nil];
 	UIBarButtonItem *fix2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -80,8 +77,9 @@
 	selectNum.title = [NSString stringWithFormat:@"%ld/%@", (unsigned long)ASSETHELPER.selectdPhotos.count,@(ASSETHELPER.maxCount)];
 }
 
-- (void)setLeftTitle:(NSString *)title{
-	preview.title = title;
+- (void)setPreviewTitle:(NSString *)title enable:(BOOL)enable {
+    preview.title = title;
+	preview.enabled = enable;
 }
 
 - (UIToolbar *)customToolbar{
@@ -96,9 +94,9 @@
 	selectNum.title = [NSString stringWithFormat:@"%ld/%@", (unsigned long)ASSETHELPER.selectdPhotos.count,@(ASSETHELPER.maxCount)];
 	if (![preview.title isEqualToString:@"取消"]) {
 		if (ASSETHELPER.selectdPhotos.count>0) {
-			preview.title = @"预览";
+			preview.enabled = true;
 		} else {
-			preview.title = @"";
+			preview.enabled = false;
 		}
 	}
 }
@@ -113,14 +111,8 @@
 }
 
 - (void)preview{
-	if (preview.title.length<=0) {
-		return;
-	}
-	if ([preview.title isEqualToString:@"取消"]) {
-		[self cancel];
-		return;
-	}
 	if ([preview.title isEqualToString:@"预览"]) {
+        preview.enabled = true;
 		preview.title = @"取消";
         ASSETHELPER.previewIndex = 0;
 		collectionViewController = (JFImageCollectionViewController *)self.visibleViewController;

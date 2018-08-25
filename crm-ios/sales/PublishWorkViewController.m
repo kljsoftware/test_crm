@@ -22,10 +22,10 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *photoViewHieghtConstraint;
 @property (nonatomic,weak)  IBOutlet PlaceholderTextView *contentView;
 @property (nonatomic,weak)  IBOutlet UIView     *photoLine;
-@property (nonatomic,strong) ImagePickerView *pickerView;
-@property (nonatomic,strong) UIButton *button;
-@property (nonatomic,assign) NSInteger count;
-@property (nonatomic,strong) MBProgressHUD *HUD;
+@property (nonatomic,strong) ImagePickerView    *pickerView;
+@property (nonatomic,strong) UIButton           *button;
+@property (nonatomic,assign) NSInteger          count;
+@property (nonatomic,strong) MBProgressHUD      *HUD;
 
 @property (nonatomic,strong) UIView             *signView;
 @property (nonatomic,strong) UILabel            *signLabel;
@@ -70,7 +70,7 @@
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
                                                                             action:@selector(cancelButtonClicked)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(sendButtonClicked)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(sendItemClicked:)];
     _contentView.delegate = self;
     [self setUpView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -86,8 +86,10 @@
     //imagePickerView parameter settings
     _contentView.placeholder = @"工作内容";
     ImagePickerConfig *config = [ImagePickerConfig new];
-    config.itemSize = CGSizeMake(80, 80);
-    config.photosMaxCount = 9;
+    config.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
+    config.minimumLineSpacing = 5;
+    config.minimumInteritemSpacing = 5;
+    config.itemSize = CGSizeMake((kScreenWidth-40-15)/4, (kScreenWidth-40-15)/4);
     
     ImagePickerView *pickerView = [[ImagePickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0) config:config];
     //Height changed with photo selection
@@ -97,7 +99,7 @@
         [weakSelf.view setNeedsLayout];
         [weakSelf.view layoutIfNeeded];
     };
-    pickerView.navigationController = self.navigationController;
+    pickerView.currentController = self;
     [self.photoView addSubview:pickerView];
     self.pickerView = pickerView;
     
@@ -354,29 +356,31 @@
         }
     }];
 }
-- (void)sendButtonClicked{
-    _HUD = [Utils createHUD];
-    
-    NSString *comStr = self.contentView.text;
-    comStr = [comStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if (comStr.length <= 0) {
-        _HUD.label.text = @"工作内容不能为空";
-        [_HUD hideAnimated:YES afterDelay:1];
-        return;
+- (void)sendItemClicked:(UIBarButtonItem *)item {
+    if ([item.title isEqualToString:@"发送"]) {
+        _HUD = [Utils createHUD];
+        NSString *comStr = self.contentView.text;
+        comStr = [comStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if (comStr.length <= 0) {
+            _HUD.label.text = @"工作内容不能为空";
+            [_HUD hideAnimated:YES afterDelay:1];
+            return;
+        }
+        if ([NSStringUtils isEmpty:_customerid]) {
+            _HUD.label.text = @"请选择一个客户";
+            [_HUD hideAnimated:YES afterDelay:1];
+            return;
+        }
+        _HUD.label.text = @"工作发送中";
+        NSArray<UIImage *> *datas = [_pickerView getPhotos];
+        if (datas != nil && datas.count > 0) {
+            [self getQiniuNoKeyToken];
+        }else{
+            [self publishWork:@""];
+        }
+    } else {
+        [_pickerView endEdit];
     }
-    if ([NSStringUtils isEmpty:_customerid]) {
-        _HUD.label.text = @"请选择一个客户";
-        [_HUD hideAnimated:YES afterDelay:1];
-        return;
-    }
-    _HUD.label.text = @"工作发送中";
-    NSArray<UIImage *> *datas = [_pickerView getPhotos];
-    if (datas != nil && datas.count > 0) {
-        [self getQiniuNoKeyToken];
-    }else{
-        [self publishWork:@""];
-    }
-    
 }
 
 - (void)getQiniuNoKeyToken{

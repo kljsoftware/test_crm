@@ -31,8 +31,10 @@
     [super viewDidLoad];
     _count = 0;
     self.title = @"圈子发布";
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(sendButtonClicked)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancelClicked)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(sendItemClicked:)];
     
     [self setUpView];
 }
@@ -43,48 +45,54 @@
 }
 
 - (void)setUpView{
-    //imagePickerView parameter settings
-    _contentView.placeholder = @"圈子内容";
+    _contentView.placeholder = @"发布到圈子";
     ImagePickerConfig *config = [ImagePickerConfig new];
-    config.itemSize = CGSizeMake(80, 80);
-    config.photosMaxCount = 9;
+    config.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
+    config.minimumLineSpacing = 5;
+    config.minimumInteritemSpacing = 5;
+    config.itemSize = CGSizeMake((kScreenWidth-40-15)/4, (kScreenWidth-40-15)/4);
     
     ImagePickerView *pickerView = [[ImagePickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0) config:config];
-    //Height changed with photo selection
     __weak typeof(self) weakSelf = self;
     pickerView.viewHeightChanged = ^(CGFloat height) {
         weakSelf.photoViewHieghtConstraint.constant = height;
         [weakSelf.view setNeedsLayout];
         [weakSelf.view layoutIfNeeded];
     };
-    pickerView.navigationController = self.navigationController;
+    pickerView.currentController = self;
     [self.photoView addSubview:pickerView];
     self.pickerView = pickerView;
     
-    //refresh superview height
     [pickerView refreshImagePickerViewWithPhotoArray:nil];
 }
 
-- (void)sendButtonClicked{
-//    [self getQiniuNoKeyToken];
-    _HUD = [Utils createHUD];
+- (void)cancelClicked {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (void)sendItemClicked:(UIBarButtonItem *)item {
+    if ([item.title isEqualToString:@"发送"]) {
     
-    NSString *comStr = self.contentView.text;
-    comStr = [comStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if (comStr.length <= 0) {
-        NSLog(@"----");
-        _HUD.label.text = @"圈子内容不能为空";
-        [_HUD hideAnimated:YES afterDelay:1];
-        return;
+        _HUD = [Utils createHUD];
+        
+        NSString *comStr = self.contentView.text;
+        comStr = [comStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if (comStr.length <= 0) {
+            NSLog(@"----");
+            _HUD.label.text = @"圈子内容不能为空";
+            [_HUD hideAnimated:YES afterDelay:1];
+            return;
+        }
+        _HUD.label.text = @"圈子发送中";
+        NSArray<UIImage *> *datas = [_pickerView getPhotos];
+        if (datas != nil && datas.count > 0) {
+            [self getQiniuNoKeyToken];
+        }else{
+            [self publishCircle:@""];
+        }
+    } else {
+        [_pickerView endEdit];
     }
-    _HUD.label.text = @"圈子发送中";
-    NSArray<UIImage *> *datas = [_pickerView getPhotos];
-    if (datas != nil && datas.count > 0) {
-        [self getQiniuNoKeyToken];
-    }else{
-        [self publishCircle:@""];
-    }
-    
 }
 
 - (void)getQiniuNoKeyToken{
@@ -224,4 +232,9 @@
     filePath = [[NSString alloc] initWithFormat:@"%@%@", DocumentsPath, ImagePath];
     return filePath;
 }
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+}
+
 @end

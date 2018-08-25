@@ -64,6 +64,7 @@
 }
 
 - (void)cancelClick {
+    _editView.text = @"";
     [_editView resignFirstResponder];
 }
 

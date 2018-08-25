@@ -6,9 +6,9 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
-@interface CircleUnreadTableViewController : UITableViewController
+@interface CircleUnreadTableViewController : BaseTableViewController
 
 @property (nonatomic,copy) NSString  *type;
 

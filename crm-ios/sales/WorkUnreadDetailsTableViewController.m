@@ -22,7 +22,7 @@
     self.title = @"消息详情";
     _preferUtil = [PreferUtil new];
     [_preferUtil initIN];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -139,6 +139,12 @@
     }
     return width;
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setSeparatorInset:UIEdgeInsetsZero];
+    [cell setLayoutMargins:UIEdgeInsetsZero];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(self.dataModels.count == 0){
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

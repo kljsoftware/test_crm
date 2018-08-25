@@ -6,9 +6,9 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 #import "Work.h"
-@interface WorkUnreadDetailsTableViewController : UITableViewController
+@interface WorkUnreadDetailsTableViewController : BaseTableViewController
 
 @property (nonatomic,strong) Work *work;
 

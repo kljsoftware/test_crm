@@ -21,7 +21,7 @@
 + (void)clear;
 + (void)setMaxCount:(NSInteger)maxCount;
 - (UIToolbar *)customToolbar;
-- (void)setLeftTitle:(NSString *)title;
+- (void)setPreviewTitle:(NSString *)title enable:(BOOL)enable;
 - (void)cancel;
 
 - (NSArray *)imagesWithType:(NSInteger)type;

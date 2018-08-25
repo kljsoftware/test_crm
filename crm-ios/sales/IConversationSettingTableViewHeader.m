@@ -88,7 +88,7 @@ IConversationSettingTableViewHeaderItemDelegate>
         cell.btnImg.hidden = YES;
         cell.gestureRecognizers = nil;
         cell.titleLabel.text = @"";
-        [cell.ivAva setImage:[UIImage imageNamed:@"add_member"]];
+        [cell.ivAva setImage:[UIImage imageNamed:@"moments_add"]];
         
     } else {
         cell.btnImg.hidden = YES;

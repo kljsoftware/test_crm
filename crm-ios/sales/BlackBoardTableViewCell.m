@@ -91,7 +91,7 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
     [_commentButton addTarget:self action:@selector(commentClick:) forControlEvents:UIControlEventTouchUpInside];
     
     _deleteButton = [UIButton new];
-    [_deleteButton setImage:[UIImage imageNamed:@"delete_button"] forState:UIControlStateNormal];
+    [_deleteButton setImage:[UIImage imageNamed:@"moments_delete"] forState:UIControlStateNormal];
     [_deleteButton addTarget:self action:@selector(deleteClick:) forControlEvents:UIControlEventTouchUpInside];
     NSArray *views = @[_iconView, _nameLable, _contentLabel, _moreButton, _picContainerView, _timeLabel,_supportButton,_commentButton, _commentView,_deleteButton, _commentNumLabel, _supportNumLabel];
     
@@ -158,7 +158,7 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
     .topSpaceToView(_timeLabel, margin); // 已经在内部实现高度自适应所以不需要再设置高度
     
     _deleteButton.sd_layout
-    .rightSpaceToView(_supportButton, margin).topEqualToView(_supportButton).heightIs(14).widthIs(14);
+    .rightSpaceToView(_supportButton, margin).centerYEqualToView(_supportButton).heightIs(24).widthIs(18);
     
 }
 

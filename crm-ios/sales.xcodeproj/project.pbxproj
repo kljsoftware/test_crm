@@ -12,6 +12,7 @@
 		A325C9B2212EF8F10086176B /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A325C9B1212EF8F10086176B /* MenuView.m */; };
 		A335DD7F2130E3CE00044615 /* WorkChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A335DD7E2130E3CE00044615 /* WorkChooseView.m */; };
 		A33F40F5212D83A500BC83F2 /* UIColor+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A33F40F3212D83A400BC83F2 /* UIColor+Util.m */; };
+		A360A200213197CB00CCA194 /* ImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A1FF213197CB00CCA194 /* ImagePickerCell.m */; };
 		A3695BCC2129409200E3E0A6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCB2129409200E3E0A6 /* BaseViewController.m */; };
 		A3695BCF212942E700E3E0A6 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */; };
 		A3F6EBD0212B138E009BFD43 /* OrganizationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F6EBCE212B138E009BFD43 /* OrganizationTableViewCell.m */; };
@@ -257,6 +258,8 @@
 		A335DD7E2130E3CE00044615 /* WorkChooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkChooseView.m; sourceTree = "<group>"; };
 		A33F40F3212D83A400BC83F2 /* UIColor+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Util.m"; sourceTree = "<group>"; };
 		A33F40F4212D83A400BC83F2 /* UIColor+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Util.h"; sourceTree = "<group>"; };
+		A360A1FE213197CB00CCA194 /* ImagePickerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickerCell.h; sourceTree = "<group>"; };
+		A360A1FF213197CB00CCA194 /* ImagePickerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickerCell.m; sourceTree = "<group>"; };
 		A3695BCA2129409200E3E0A6 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		A3695BCB2129409200E3E0A6 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		A3695BCD212942E700E3E0A6 /* BaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
@@ -1423,6 +1426,8 @@
 			children = (
 				CED9D72F1DE6C5F5002FD5D7 /* ImagePickerView.h */,
 				CED9D7301DE6C5F5002FD5D7 /* ImagePickerView.m */,
+				A360A1FE213197CB00CCA194 /* ImagePickerCell.h */,
+				A360A1FF213197CB00CCA194 /* ImagePickerCell.m */,
 			);
 			name = ImagePicker;
 			sourceTree = "<group>";
@@ -1430,20 +1435,20 @@
 		CED9D7351DE81049002FD5D7 /* JFImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				CED9D73B1DE81742002FD5D7 /* JFAssetHelper.h */,
-				CED9D73C1DE81742002FD5D7 /* JFAssetHelper.m */,
-				CED9D73D1DE81742002FD5D7 /* JFImageCollectionViewController.h */,
-				CED9D73E1DE81742002FD5D7 /* JFImageCollectionViewController.m */,
-				CED9D73F1DE81742002FD5D7 /* JFImageGroupTableViewController.h */,
-				CED9D7401DE81742002FD5D7 /* JFImageGroupTableViewController.m */,
-				CED9D7411DE81742002FD5D7 /* JFImageManager.h */,
-				CED9D7421DE81742002FD5D7 /* JFImageManager.m */,
 				CED9D7431DE81742002FD5D7 /* JFImagePickerController.h */,
 				CED9D7441DE81742002FD5D7 /* JFImagePickerController.m */,
-				CED9D7451DE81742002FD5D7 /* JFImagePickerViewCell.h */,
-				CED9D7461DE81742002FD5D7 /* JFImagePickerViewCell.m */,
+				CED9D73D1DE81742002FD5D7 /* JFImageCollectionViewController.h */,
+				CED9D73E1DE81742002FD5D7 /* JFImageCollectionViewController.m */,
 				CED9D7471DE81742002FD5D7 /* JFPhotoBrowserViewController.h */,
 				CED9D7481DE81742002FD5D7 /* JFPhotoBrowserViewController.m */,
+				CED9D73F1DE81742002FD5D7 /* JFImageGroupTableViewController.h */,
+				CED9D7401DE81742002FD5D7 /* JFImageGroupTableViewController.m */,
+				CED9D73B1DE81742002FD5D7 /* JFAssetHelper.h */,
+				CED9D73C1DE81742002FD5D7 /* JFAssetHelper.m */,
+				CED9D7411DE81742002FD5D7 /* JFImageManager.h */,
+				CED9D7421DE81742002FD5D7 /* JFImageManager.m */,
+				CED9D7451DE81742002FD5D7 /* JFImagePickerViewCell.h */,
+				CED9D7461DE81742002FD5D7 /* JFImagePickerViewCell.m */,
 				CED9D7491DE81742002FD5D7 /* JFPhotoView.h */,
 				CED9D74A1DE81742002FD5D7 /* JFPhotoView.m */,
 			);
@@ -2276,6 +2281,7 @@
 				CEA456C11E529CBA0011356B /* NewsDetailsViewController.m in Sources */,
 				CED9D74E1DE81742002FD5D7 /* JFImageManager.m in Sources */,
 				CEA456D61E53E48E0011356B /* BlackBoardDetailsHeaderView.m in Sources */,
+				A360A200213197CB00CCA194 /* ImagePickerCell.m in Sources */,
 				CE93EC721E125EAE00D26948 /* ODiscussSettingCell.m in Sources */,
 				CE9ECB521EA5AAB00053BCA9 /* CreateSecondViewController.m in Sources */,
 				CEE8636D1DCB0EFC00695F0F /* ViewController.m in Sources */,
