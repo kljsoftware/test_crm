@@ -33,7 +33,7 @@ CGFloat maxContentLabelHeight4 = 0; // 根据具体font而定
 }
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor colorWithHex:0xEEEEEE];
+        self.backgroundColor = UIColor.whiteColor;
         [self setup];
     }
     return self;
@@ -41,6 +41,8 @@ CGFloat maxContentLabelHeight4 = 0; // 根据具体font而定
 - (void)setup{
     _workDb = [[WorkDbUtil alloc] init];
     _iconView = [UIImageView new];
+    _iconView.layer.cornerRadius = 20;
+    _iconView.layer.masksToBounds = true;
     
     _nameLable = [UILabel new];
     _nameLable.font = [UIFont systemFontOfSize:14];
@@ -62,21 +64,25 @@ CGFloat maxContentLabelHeight4 = 0; // 根据具体font而定
     _timeLabel.font = [UIFont systemFontOfSize:13];
     
     _favnumLabel = [UILabel new];
+    _favnumLabel.textColor = [UIColor colorWithHex:0x333333];
     _favnumLabel.font = [UIFont systemFontOfSize:13];
     
     _supportButton = [UIButton new];
-    [_supportButton setImage:[UIImage imageNamed:@"support_nor"] forState:UIControlStateNormal];
+    [_supportButton setImage:[UIImage imageNamed:@"moments_support_nor"] forState:UIControlStateNormal];
+    [_supportButton setImage:[UIImage imageNamed:@"moments_support_sel"] forState:UIControlStateSelected];
     [_supportButton addTarget:self action:@selector(supportClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [_supportButton setImage:[UIImage imageNamed:@"support_cover"] forState:UIControlStateSelected];
     
     _commentButton = [UIButton new];
-    [_commentButton setImage:[UIImage imageNamed:@"comment_nor"] forState:UIControlStateNormal];
+    [_commentButton setImage:[UIImage imageNamed:@"moments_comment_nor"] forState:UIControlStateNormal];
     
-    NSArray *views = @[_iconView, _nameLable, _contentLabel, _picContainerView, _timeLabel,_supportButton,_favnumLabel];
+    UIView *lineView = [[UIView alloc] init];
+    lineView.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
+    
+    NSArray *views = @[_iconView, _nameLable, _contentLabel, _picContainerView, _timeLabel,_supportButton,_favnumLabel, lineView];
     
     [self sd_addSubviews:views];
     
-    CGFloat margin = 10;
+    CGFloat margin = 12;
     
     _iconView.sd_layout
     .leftSpaceToView(self, margin)
@@ -107,13 +113,18 @@ CGFloat maxContentLabelHeight4 = 0; // 根据具体font而定
     [_timeLabel setSingleLineAutoResizeWithMaxWidth:200];
     
     _favnumLabel.sd_layout
-    .rightSpaceToView(self,margin).topEqualToView(_timeLabel).heightIs(15);
+    .rightSpaceToView(self,margin+8).topEqualToView(_timeLabel).heightIs(15);
     [_favnumLabel setSingleLineAutoResizeWithMaxWidth:25];
     
     _supportButton.sd_layout
     .rightSpaceToView(_favnumLabel,margin)
-    .topEqualToView(_timeLabel).heightIs(15).widthIs(15);
+    .centerYEqualToView(_favnumLabel).heightIs(20).widthIs(16);
     
+    lineView.sd_layout
+    .leftEqualToView(self)
+    .rightEqualToView(self)
+    .topSpaceToView(_timeLabel, 15)
+    .heightIs(2);
 }
 
 - (void)awakeFromNib {
@@ -161,7 +172,7 @@ CGFloat maxContentLabelHeight4 = 0; // 根据具体font而定
 }
 
 - (void)supportClicked:(id)sender{
-    NSString *userId = [NSString stringWithFormat:@"%ld",[Config getOrgUserID]];;
+    NSString *userId = [NSString stringWithFormat:@"%ld",[Config getOrgUserID]];
     NSString *token = [Config getToken];
     NSString *dbid = [NSString stringWithFormat:@"%ld",[Config getDbID]];
     

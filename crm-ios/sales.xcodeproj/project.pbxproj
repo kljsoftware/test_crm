@@ -10,6 +10,7 @@
 		2D3836BBFC1CA80BA446352E /* libPods-sales.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B737477090CDEC04E96A167E /* libPods-sales.a */; };
 		A31E531D212B0C7E005331AB /* BIUPNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A31E531B212B0C7D005331AB /* BIUPNetworkManager.m */; };
 		A325C9B2212EF8F10086176B /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A325C9B1212EF8F10086176B /* MenuView.m */; };
+		A335DD7F2130E3CE00044615 /* WorkChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A335DD7E2130E3CE00044615 /* WorkChooseView.m */; };
 		A33F40F5212D83A500BC83F2 /* UIColor+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A33F40F3212D83A400BC83F2 /* UIColor+Util.m */; };
 		A3695BCC2129409200E3E0A6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCB2129409200E3E0A6 /* BaseViewController.m */; };
 		A3695BCF212942E700E3E0A6 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */; };
@@ -252,6 +253,8 @@
 		A325C9B0212EF8F10086176B /* MenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		A325C9B1212EF8F10086176B /* MenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		A325CB92212FF79B00BA13F7 /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
+		A335DD7D2130E3CE00044615 /* WorkChooseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkChooseView.h; sourceTree = "<group>"; };
+		A335DD7E2130E3CE00044615 /* WorkChooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkChooseView.m; sourceTree = "<group>"; };
 		A33F40F3212D83A400BC83F2 /* UIColor+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Util.m"; sourceTree = "<group>"; };
 		A33F40F4212D83A400BC83F2 /* UIColor+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Util.h"; sourceTree = "<group>"; };
 		A3695BCA2129409200E3E0A6 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -802,6 +805,8 @@
 				CE9ECB191E9CB2750053BCA9 /* WorkDetailsHeaderView.m */,
 				CE9ECB2E1EA0765A0053BCA9 /* WorkUnreadTableViewCell.h */,
 				CE9ECB2F1EA0765A0053BCA9 /* WorkUnreadTableViewCell.m */,
+				A335DD7D2130E3CE00044615 /* WorkChooseView.h */,
+				A335DD7E2130E3CE00044615 /* WorkChooseView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -986,9 +991,9 @@
 			children = (
 				CE9ECB111E9CAE330053BCA9 /* Details */,
 				CE61DC461E96284900421C7E /* Publish */,
+				CE61DC4A1E962ABC00421C7E /* Work.storyboard */,
 				CE93EC9B1E1B7E9900D26948 /* WorkTableViewController.h */,
 				CE93EC9C1E1B7E9900D26948 /* WorkTableViewController.m */,
-				CE61DC4A1E962ABC00421C7E /* Work.storyboard */,
 				CE9ECB1E1E9DCBD50053BCA9 /* WorkStaffTableViewController.h */,
 				CE9ECB1F1E9DCBD50053BCA9 /* WorkStaffTableViewController.m */,
 			);
@@ -1873,13 +1878,13 @@
 		CEE864071DDA986700695F0F /* SDPhotoBrower */ = {
 			isa = PBXGroup;
 			children = (
-				CEE864101DDA99B200695F0F /* SDWaitingView.m */,
-				CEE8640F1DDA99AA00695F0F /* SDWaitingView.h */,
-				CEE8640C1DDA997D00695F0F /* SDPhotoBrowser.m */,
 				CEE8640E1DDA998500695F0F /* SDPhotoBrowserConfig.h */,
+				CEE8640F1DDA99AA00695F0F /* SDWaitingView.h */,
+				CEE864101DDA99B200695F0F /* SDWaitingView.m */,
 				CEE8640B1DDA997500695F0F /* SDPhotoBrowser.h */,
-				CEE864091DDA996300695F0F /* SDBrowserImageView.m */,
+				CEE8640C1DDA997D00695F0F /* SDPhotoBrowser.m */,
 				CEE864081DDA995700695F0F /* SDBrowserImageView.h */,
+				CEE864091DDA996300695F0F /* SDBrowserImageView.m */,
 			);
 			name = SDPhotoBrower;
 			sourceTree = "<group>";
@@ -2290,6 +2295,7 @@
 				CE94DE621E2F38FA0049BA71 /* IActiveTableViewController.m in Sources */,
 				CED9D7521DE81742002FD5D7 /* JFPhotoView.m in Sources */,
 				CEE864441DE3EA2800695F0F /* UIView+Util.m in Sources */,
+				A335DD7F2130E3CE00044615 /* WorkChooseView.m in Sources */,
 				CE78A0481E600893008F321B /* CustomerSetting.m in Sources */,
 				CEF6CCE01E77D0090076AA60 /* CircleUnreadDetailsTableViewController.m in Sources */,
 				CEE863D31DD062F800695F0F /* User.m in Sources */,

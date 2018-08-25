@@ -6,11 +6,11 @@
 //  Copyright © 2016年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "EditingBar.h"
 
 
-@interface BottomBarViewController : UIViewController
+@interface BottomBarViewController : BaseViewController
 
 @property (nonatomic, strong) EditingBar *editingBar;
 //@property (nonatomic, strong) OperationBar *operationBar;

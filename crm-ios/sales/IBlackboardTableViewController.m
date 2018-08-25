@@ -36,7 +36,7 @@
     [self.view addSubview:_tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _editingBar = [[EditingBar alloc] initWithModeSwitchButton:false];
+    _editingBar = [[EditingBar alloc] initWithShowSwitch:false showPhoto:false];
     
     _preferUtil = [PreferUtil new];
     [_preferUtil initIN];
@@ -82,10 +82,7 @@
     NSDictionary *views = @{@"tableView": self.tableView, @"editingBar": self.editingBar};
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[editingBar]|" options:0 metrics:nil views:views]];
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[tableView][editingBar]|"
-//                                                                      options:NSLayoutFormatAlignAllLeft | NSLayoutFormatAlignAllRight
-//                                                                      metrics:nil views:views]];
-////
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidUpdate:)    name:UITextViewTextDidChangeNotification object:nil];
@@ -414,8 +411,6 @@
 {
     CGRect keyboardBounds = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     _editingBarYConstraint.constant = keyboardBounds.size.height;
-    [_editingBar.inputViewButton setImage:[UIImage imageNamed:@"btn_emoji_normal"] forState:UIControlStateNormal];
-    [_editingBar.inputViewButton setImage:[UIImage imageNamed:@"btn_emoji_pressed"] forState:UIControlStateHighlighted];
     [self setBottomBarHeight];
 }
 

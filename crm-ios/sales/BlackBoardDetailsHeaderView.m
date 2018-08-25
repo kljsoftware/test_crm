@@ -61,12 +61,12 @@ CGFloat maxContentLabelHeight2 = 0; // 根据具体font而定
     _favnumLabel.font = [UIFont systemFontOfSize:13];
     
     _supportButton = [UIButton new];
-    [_supportButton setImage:[UIImage imageNamed:@"support_nor"] forState:UIControlStateNormal];
+    [_supportButton setImage:[UIImage imageNamed:@"moments_support_nor"] forState:UIControlStateNormal];
     [_supportButton addTarget:self action:@selector(supportClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [_supportButton setImage:[UIImage imageNamed:@"support_cover"] forState:UIControlStateSelected];
+    [_supportButton setImage:[UIImage imageNamed:@"moments_support_sel"] forState:UIControlStateSelected];
     
     _commentButton = [UIButton new];
-    [_commentButton setImage:[UIImage imageNamed:@"comment_nor"] forState:UIControlStateNormal];
+    [_commentButton setImage:[UIImage imageNamed:@"moments_comment_nor"] forState:UIControlStateNormal];
     
     NSArray *views = @[_iconView, _nameLable, _contentLabel, _picContainerView, _timeLabel,_supportButton,_favnumLabel];
     
@@ -114,7 +114,7 @@ CGFloat maxContentLabelHeight2 = 0; // 根据具体font而定
     
     _supportButton.sd_layout
     .rightSpaceToView(_favnumLabel,margin)
-    .topEqualToView(_timeLabel).heightIs(15).widthIs(15);
+    .topEqualToView(_timeLabel).heightIs(20).widthIs(16);
     
 }
 

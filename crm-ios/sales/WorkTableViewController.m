@@ -16,11 +16,11 @@
 #import "WorkDbUtil.h"
 #import "WorkStaffDbUtil.h"
 #import "WorkUnreadTableViewController.h"
-#import <MJRefresh.h>
-#import <DCPathButton.h>
+#import "WorkChooseView.h"
 #define kWorkTableCellId @"WorkTableViewCell"
+
 #define kMainWidth [UIScreen mainScreen].bounds.size.width
-@interface WorkTableViewController () <WorkCellDelegate,DCPathButtonDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface WorkTableViewController () <WorkCellDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSMutableArray         *dataModels;
 @property (nonatomic,strong) NSMutableArray         *unreadDatas;
@@ -47,7 +47,6 @@
     [self.view addSubview:_tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    [self createPathButton];
     _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainWidth, 50)];
     _unreadLabel = [[UILabel alloc] init];
     _unreadLabel.text = @"1条未读消息";
@@ -73,6 +72,15 @@
     [self.tableView.mj_header beginRefreshing];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(getUnreadWork) name:@"updateUnreadWork" object:nil];
+    
+    UIButton *chooseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [chooseBtn setImage:[UIImage imageNamed:@"work_choose"] forState:UIControlStateNormal];
+    [chooseBtn addTarget:self action:@selector(chooseClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:chooseBtn];
+    [chooseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-20);
+        make.bottom.mas_equalTo(-20-KMAINTAB_HEIGHT);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -241,6 +249,11 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setSeparatorInset:UIEdgeInsetsZero];
+    [cell setLayoutMargins:UIEdgeInsetsZero];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     WorkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kWorkTableCellId];
@@ -265,7 +278,6 @@
 {
     WorkDetailsBottomBarViewController *vc = [[WorkDetailsBottomBarViewController alloc] initWithWorkID:self.dataModels[indexPath.row]];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (CGFloat)cellContentViewWith
@@ -383,55 +395,20 @@
     }
 }
 
-- (void)createPathButton{
-//    UIImage *image = [UIImage imageNamed:@"work_all"];
-    CGSize size = CGSizeMake(40, 40);
-    UIImage *pathimage = [self orginImage:[UIImage imageNamed:@"work_path"] scaleToSize:size];
-    UIImage *allimage = [self orginImage:[UIImage imageNamed:@"work_all"] scaleToSize:size];
-    UIImage *myimage = [self orginImage:[UIImage imageNamed:@"work_my"] scaleToSize:size];
-    UIImage *joinimage = [self orginImage:[UIImage imageNamed:@"work_join"] scaleToSize:size];
-    UIImage *underlingimage = [self orginImage:[UIImage imageNamed:@"work_underling"] scaleToSize:size];
-    DCPathButton *dcPathButton = [[DCPathButton alloc] initWithCenterImage:pathimage highlightedImage:pathimage];
-    DCPathItemButton *itemButton_1 = [[DCPathItemButton alloc] initWithImage:allimage highlightedImage:allimage backgroundImage:allimage backgroundHighlightedImage:allimage];
-    DCPathItemButton *itemButton_2 = [[DCPathItemButton alloc] initWithImage:myimage highlightedImage:myimage backgroundImage:myimage backgroundHighlightedImage:myimage];
-    DCPathItemButton *itemButton_3 = [[DCPathItemButton alloc] initWithImage:joinimage highlightedImage:joinimage backgroundImage:joinimage backgroundHighlightedImage:joinimage];
-    DCPathItemButton *itemButton_4 = [[DCPathItemButton alloc] initWithImage:underlingimage highlightedImage:underlingimage backgroundImage:underlingimage backgroundHighlightedImage:underlingimage];
-    
-    
-    [dcPathButton addPathItems:@[itemButton_1,
-                                 itemButton_2,
-                                 itemButton_3,
-                                 itemButton_4
-                                 ]];
-    dcPathButton.delegate = self;
-    dcPathButton.bloomRadius = 150.0f;
-    //
-    dcPathButton.dcButtonCenter = CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height - 25.5f);
-    
-    //
-    dcPathButton.allowSounds = YES;
-    dcPathButton.allowCenterButtonRotation = YES;
-    
-    
-    dcPathButton.bloomDirection = kDCPathButtonBloomDirectionTopLeft;
-    
-    dcPathButton.dcButtonCenter = CGPointMake(self.view.frame.size.width  - (10 + dcPathButton.frame.size.width/2), [UIScreen mainScreen].bounds.size.height  - dcPathButton.frame.size.height/2 - 10 - 60);
-    [self.view addSubview:dcPathButton];
-//    [UIApplication.sharedApplication.windows.firstObject addSubview:dcPathButton];
-//    [self.view bringSubviewToFront:dcPathButton];
-
+- (void)chooseClicked {
+    ChooseItem *item1 = [[ChooseItem alloc] initWithTitle:@"我下属的工作" icon:@"work_underling"];
+    ChooseItem *item2 = [[ChooseItem alloc] initWithTitle:@"我参与的工作" icon:@"work_involvement"];
+    ChooseItem *item3 = [[ChooseItem alloc] initWithTitle:@"我的工作" icon:@"work_my"];
+    ChooseItem *item4 = [[ChooseItem alloc] initWithTitle:@"全部工作" icon:@"work_all"];
+    NSArray *items = @[item1,item2,item3,item4];
+    WorkChooseView *chooseView = [[WorkChooseView alloc] initWithItem:items selectIndex:^(NSInteger selectIndex) {
+        [self getLocalData:selectIndex pageNum:0 isRefresh:YES];
+    }];
+    [KeyWindow addSubview:chooseView];
+    [chooseView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(KeyWindow);
+    }];
+    [chooseView show];
 }
 
-- (UIImage *)orginImage:(UIImage *)image scaleToSize:(CGSize)size{
-    UIGraphicsBeginImageContext(size);
-    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return scaledImage;
-}
-
-- (void)pathButton:(DCPathButton *)dcPathButton clickItemButtonAtIndex:(NSUInteger)itemButtonIndex {
-    NSLog(@"You tap %@ at index : %lu", dcPathButton, (unsigned long)itemButtonIndex);
-    [self getLocalData:itemButtonIndex pageNum:0 isRefresh:YES];
-}
 @end

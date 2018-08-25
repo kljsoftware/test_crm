@@ -34,13 +34,7 @@
 // Code from apple developer forum - @Steve Krulewitz, @Mark Marszal, @Eric Silverberg
 - (CGFloat)measureHeight
 {
-    //[self layoutIfNeeded];
-    //NSLog(@"frameHeight: %f", self.frame.size.height);
-    //NSLog(@"lineHeight: %f", self.font.lineHeight);
-    //NSLog(@"contentSize:(height): %f, (width):%f", self.contentSize.height, self.contentSize.width);
-    //NSLog(@"Height: %f", [self sizeThatFits:self.frame.size].height + 15);
-    
-    return ceilf([self sizeThatFits:self.frame.size].height + 10);
+    return ceilf([self sizeThatFits:self.frame.size].height + 16);
 }
 
 

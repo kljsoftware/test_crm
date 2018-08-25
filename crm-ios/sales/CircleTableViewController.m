@@ -59,6 +59,11 @@
     [center addObserver:self selector:@selector(getUnreadCircle) name:@"updateUnreadCircle" object:nil];
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setSeparatorInset:UIEdgeInsetsZero];
+    [cell setLayoutMargins:UIEdgeInsetsZero];
+}
+
 - (void)getCircleList:(BOOL)isRefresh{
     NSString *userId = [NSString stringWithFormat:@"%lld",[Config getOwnID]];
     NSString *token = [Config getToken];

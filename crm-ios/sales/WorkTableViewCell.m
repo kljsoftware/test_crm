@@ -9,6 +9,7 @@
 #import "WorkTableViewCell.h"
 #import "PhotoContainerView.h"
 #import "CircleCellCommentView.h"
+#import "WorkDbUtil.h"
 
 const CGFloat contentLabelFontSize3 = 15;
 CGFloat maxContentLabelHeight3 = 0; // 根据具体font而定
@@ -21,15 +22,18 @@ CGFloat maxContentLabelHeight3 = 0; // 根据具体font而定
     UILabel                  *_timeLabel;
     UILabel                  *_addressLabel;
     UILabel                  *_worktypeLabel;
-    UILabel                  *_typeLabel;   //2下属 3参与 1我的
+    UILabel                  *_typeLabel;       // 2下属 3参与 1我的
     UIButton                 *_colleagueButton;
     MLLinkLabel              *_customerLabel;
     UIButton                 *_moreButton;
     UIButton                 *_operationButton;
-    UIButton                 *_supportButton;     //点赞图片
-    UIButton                 *_commentButton;         //评论图片
+    UIButton                 *_supportButton;   // 点赞图片
+    UIButton                 *_commentButton;   // 评论图片
+    UILabel                  *_supportNumLabel;
+    UILabel                  *_commentNumLabel;
     PhotoContainerView       *_picContainerView;
     CircleCellCommentView    *_commentView;
+    WorkDbUtil               *workDb;
 }
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -43,7 +47,10 @@ CGFloat maxContentLabelHeight3 = 0; // 根据具体font而定
 }
 
 - (void)setup{
+    workDb = [[WorkDbUtil alloc] init];
     _iconView = [UIImageView new];
+    _iconView.layer.cornerRadius = 20;
+    _iconView.layer.masksToBounds = true;
     
     _nameLable = [UILabel new];
     _nameLable.font = [UIFont systemFontOfSize:14];
@@ -81,6 +88,14 @@ CGFloat maxContentLabelHeight3 = 0; // 根据具体font而定
     _timeLabel = [UILabel new];
     _timeLabel.font = [UIFont systemFontOfSize:12];
     
+    _supportNumLabel = [UILabel new];
+    _supportNumLabel.font = SYSTEM_FONT(9);
+    _supportNumLabel.textColor = [UIColor colorWithHex:0x333333];
+
+    _commentNumLabel = [UILabel new];
+    _commentNumLabel.font = SYSTEM_FONT(9);
+    _commentNumLabel.textColor = [UIColor colorWithHex:0x333333];
+    
     _colleagueButton = [UIButton new];
     [_colleagueButton setImage:[UIImage imageNamed:@"eye"] forState:UIControlStateNormal];
     [_colleagueButton addTarget:self action:@selector(colleagueButtonClicked) forControlEvents:UIControlEventTouchUpInside];
@@ -89,19 +104,19 @@ CGFloat maxContentLabelHeight3 = 0; // 根据具体font而定
     _customerLabel.font = [UIFont systemFontOfSize:12];
     
     _supportButton = [UIButton new];
-    [_supportButton setImage:[UIImage imageNamed:@"support_nor"] forState:UIControlStateNormal];
+    [_supportButton setImage:[UIImage imageNamed:@"moments_support_nor"] forState:UIControlStateNormal];
+    [_supportButton setImage:[UIImage imageNamed:@"moments_support_sel"] forState:UIControlStateSelected];
     [_supportButton addTarget:self action:@selector(supportClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [_supportButton setImage:[UIImage imageNamed:@"support_cover"] forState:UIControlStateSelected];
     
     _commentButton = [UIButton new];
-    [_commentButton setImage:[UIImage imageNamed:@"comment_nor"] forState:UIControlStateNormal];
+    [_commentButton setImage:[UIImage imageNamed:@"moments_comment_nor"] forState:UIControlStateNormal];
     
-    NSArray *views = @[_iconView, _nameLable, _contentLabel, _moreButton, _picContainerView, _timeLabel,_supportButton,_commentButton, _commentView,_addressLabel,_typeLabel,_worktypeLabel,_colleagueButton,_customerLabel];
+    NSArray *views = @[_iconView, _nameLable, _contentLabel, _moreButton, _picContainerView, _timeLabel,_supportButton,_commentButton, _commentView,_addressLabel,_typeLabel,_worktypeLabel,_colleagueButton,_customerLabel, _commentNumLabel, _supportNumLabel];
     
     [self.contentView sd_addSubviews:views];
     
     UIView *contentView = self.contentView;
-    CGFloat margin = 10;
+    CGFloat margin = 12;
     
     _iconView.sd_layout
     .leftSpaceToView(contentView, margin)
@@ -160,14 +175,24 @@ CGFloat maxContentLabelHeight3 = 0; // 根据具体font而定
     .centerYEqualToView(_timeLabel).heightIs(15).widthIs(15);
     [_customerLabel setSingleLineAutoResizeWithMaxWidth:100];
     
+    _commentNumLabel.sd_layout
+    .rightSpaceToView(contentView,margin+10)
+    .topSpaceToView(_worktypeLabel,margin).heightIs(15);
+    [_commentNumLabel setSingleLineAutoResizeWithMaxWidth:100];
+    
     _commentButton.sd_layout
-    .rightSpaceToView(contentView,margin+5)
-    .topSpaceToView(_worktypeLabel,margin).heightIs(15).widthIs(15);
+    .rightSpaceToView(_commentNumLabel,5)
+    .centerYEqualToView(_commentNumLabel).widthIs(20).heightIs(16);
     
+    _supportNumLabel.sd_layout
+    .rightSpaceToView(_commentButton,margin+8)
+    .centerYEqualToView(_commentNumLabel);
+    [_supportNumLabel setSingleLineAutoResizeWithMaxWidth:100];
+
     _supportButton.sd_layout
-    .rightSpaceToView(_commentButton,margin)
-    .topEqualToView(_commentButton).heightIs(15).widthIs(15);
-    
+    .rightSpaceToView(_supportNumLabel,5)
+    .centerYEqualToView(_commentNumLabel).widthIs(20).heightIs(16);
+
     _commentView.sd_layout
     .leftEqualToView(_contentLabel)
     .rightSpaceToView(self.contentView, margin)
@@ -215,7 +240,7 @@ CGFloat maxContentLabelHeight3 = 0; // 根据具体font而定
     _picContainerView.sd_layout.topSpaceToView(_moreButton, picContainerTopMargin);
     
     UIView *bottomView;
-    if (!model.workCommentsList.count ) {
+    if (!model.workCommentsList.count) {
         bottomView = _commentButton;
     } else {
         bottomView = _commentView;
@@ -231,6 +256,8 @@ CGFloat maxContentLabelHeight3 = 0; // 根据具体font而定
     NSString *time = [model.worktime substringToIndex:10];
     _timeLabel.text = time;
     
+    _supportNumLabel.text = [NSString stringWithFormat:@"%ld",model.favnum];
+    _commentNumLabel.text = [NSString stringWithFormat:@"%ld",model.workCommentsList.count];
     if (model.favstatus == 0) {
         _supportButton.selected = NO;
     }else{
@@ -284,9 +311,53 @@ CGFloat maxContentLabelHeight3 = 0; // 根据具体font而定
     
 }
 
-- (void)supportClicked:(id)sender{
-    UIButton *button = (UIButton *)sender;
-    button.selected = !button.selected;
+- (void)supportClicked:(UIButton *)sender{
+    NSString *userId = [NSString stringWithFormat:@"%ld",[Config getOrgUserID]];
+    NSString *token = [Config getToken];
+    NSString *dbid = [NSString stringWithFormat:@"%ld",[Config getDbID]];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    
+    NSString* urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL,API_WORK_FAV];
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:@{@"commentid":@"-1",@"workid":[NSString stringWithFormat:@"%ld",_model.id]}                                                                                    error:nil];
+    [request addValue:userId forHTTPHeaderField:@"userId"];
+    [request addValue:token forHTTPHeaderField:@"token"];
+    [request addValue:dbid forHTTPHeaderField:@"dbid"];
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id _Nonnull responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error:-->%@", error);
+        } else {
+            NSString *responseString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+            NSLog(@"DATA UNREAD-->%@", responseString);
+            if (responseObject) {
+                NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+                if ([dictionary[@"result"] intValue] == 1) {
+                    if (_model.favstatus == 0) {
+                        _model.favstatus = 1;
+                        _model.favnum++;
+                        _supportButton.selected = YES;
+                        _supportNumLabel.text = [NSString stringWithFormat:@"%ld",_model.favnum];
+                    }else{
+                        _model.favstatus = 0;
+                        _model.favnum--;
+                        _supportButton.selected = NO;
+                        _supportNumLabel.text = [NSString stringWithFormat:@"%ld",_model.favnum];
+                    }
+                    [workDb updateWork:_model];
+                }else{
+                    
+                }
+                
+            }else{
+                
+            }
+        }
+    }];
+    [dataTask resume];
 }
 
 - (void)colleagueButtonClicked{

@@ -38,6 +38,8 @@
 
 - (void)setup{
     _iconView = [UIImageView new];
+    _iconView.layer.cornerRadius = 18;
+    _iconView.layer.masksToBounds = true;
     
     _unameLable = [UILabel new];
     _unameLable.font = [UIFont systemFontOfSize:14];
@@ -57,9 +59,9 @@
     _bcommentView = [BCommentView new];
     
     _supportButton = [UIButton new];
-    [_supportButton setImage:[UIImage imageNamed:@"support_nor"] forState:UIControlStateNormal];
+    [_supportButton setImage:[UIImage imageNamed:@"moments_support_nor"] forState:UIControlStateNormal];
     [_supportButton addTarget:self action:@selector(supportClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [_supportButton setImage:[UIImage imageNamed:@"support_cover"] forState:UIControlStateSelected];
+    [_supportButton setImage:[UIImage imageNamed:@"moments_support_sel"] forState:UIControlStateSelected];
     
     
     NSArray *views = @[_iconView, _unameLable, _commentLabel, _timeLabel,_supportButton,_bcommentView,_favnumLabel];
@@ -67,13 +69,13 @@
     [self.contentView sd_addSubviews:views];
     
     UIView *contentView = self.contentView;
-    CGFloat margin = 10;
+    CGFloat margin = 12;
     
     _iconView.sd_layout
     .leftSpaceToView(contentView, margin)
     .topSpaceToView(contentView, margin + 5)
-    .widthIs(35)
-    .heightIs(35);
+    .widthIs(36)
+    .heightIs(36);
     
     _unameLable.sd_layout
     .leftSpaceToView(_iconView, margin)
@@ -88,7 +90,7 @@
     [_timeLabel setSingleLineAutoResizeWithMaxWidth:200];
     
     _favnumLabel.sd_layout
-    .rightSpaceToView(contentView,margin+5)
+    .rightSpaceToView(contentView,margin+8)
     .centerYEqualToView(_unameLable).heightIs(15);
     [_favnumLabel setSingleLineAutoResizeWithMaxWidth:25];
     
@@ -97,8 +99,8 @@
 //    .topEqualToView(_timeLabel).heightIs(15).widthIs(15);
     
     _supportButton.sd_layout
-    .rightSpaceToView(_favnumLabel,margin+5)
-    .centerYEqualToView(_unameLable).heightIs(15).widthIs(15);
+    .rightSpaceToView(_favnumLabel,margin)
+    .centerYEqualToView(_unameLable).heightIs(20).widthIs(16);
     
     _commentLabel.sd_layout
     .leftEqualToView(_unameLable)

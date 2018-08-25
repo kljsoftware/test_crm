@@ -81,7 +81,7 @@
 
 
 #pragma mark - 字体
-#define FONTSIZE(size)      (iPhone5 ? size * 0.8 : size)
+#define FONTSIZE(size)      (size)
 // 系统普通字体
 #define SYSTEM_FONT(size)   [UIFont systemFontOfSize:FONTSIZE(size)]
 // 系统加粗字体

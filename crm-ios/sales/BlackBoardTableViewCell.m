@@ -25,6 +25,8 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
     UIButton                 *_operationButton;
     UIButton                 *_supportButton;     //点赞图片
     UIButton                 *_commentButton;         //评论图片
+    UILabel                  *_supportNumLabel;
+    UILabel                  *_commentNumLabel;
     UIButton                 *_deleteButton;
     PhotoContainerView       *_picContainerView;
     CircleCellCommentView    *_commentView;
@@ -54,6 +56,14 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
         maxContentLabelHeight1 = _contentLabel.font.lineHeight * 3;
     }
     
+    _supportNumLabel = [UILabel new];
+    _supportNumLabel.font = SYSTEM_FONT(9);
+    _supportNumLabel.textColor = [UIColor colorWithHex:0x333333];
+    
+    _commentNumLabel = [UILabel new];
+    _commentNumLabel.font = SYSTEM_FONT(9);
+    _commentNumLabel.textColor = [UIColor colorWithHex:0x333333];
+    
     _moreButton = [UIButton new];
     [_moreButton setTitle:@"全文" forState:UIControlStateNormal];
     [_moreButton setTitleColor:TimeLineCellHighlightedColor forState:UIControlStateNormal];
@@ -72,18 +82,18 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
     _timeLabel.font = [UIFont systemFontOfSize:13];
     
     _supportButton = [UIButton new];
-    [_supportButton setImage:[UIImage imageNamed:@"support_nor"] forState:UIControlStateNormal];
+    [_supportButton setImage:[UIImage imageNamed:@"moments_support_nor"] forState:UIControlStateNormal];
     [_supportButton addTarget:self action:@selector(supportClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [_supportButton setImage:[UIImage imageNamed:@"support_cover"] forState:UIControlStateSelected];
+    [_supportButton setImage:[UIImage imageNamed:@"moments_support_sel"] forState:UIControlStateSelected];
     
     _commentButton = [UIButton new];
-    [_commentButton setImage:[UIImage imageNamed:@"comment_nor"] forState:UIControlStateNormal];
+    [_commentButton setImage:[UIImage imageNamed:@"moments_comment_nor"] forState:UIControlStateNormal];
     [_commentButton addTarget:self action:@selector(commentClick:) forControlEvents:UIControlEventTouchUpInside];
     
     _deleteButton = [UIButton new];
     [_deleteButton setImage:[UIImage imageNamed:@"delete_button"] forState:UIControlStateNormal];
     [_deleteButton addTarget:self action:@selector(deleteClick:) forControlEvents:UIControlEventTouchUpInside];
-    NSArray *views = @[_iconView, _nameLable, _contentLabel, _moreButton, _picContainerView, _timeLabel,_supportButton,_commentButton, _commentView,_deleteButton];
+    NSArray *views = @[_iconView, _nameLable, _contentLabel, _moreButton, _picContainerView, _timeLabel,_supportButton,_commentButton, _commentView,_deleteButton, _commentNumLabel, _supportNumLabel];
     
     [self.contentView sd_addSubviews:views];
     
@@ -124,14 +134,23 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
     .heightIs(15);
     [_timeLabel setSingleLineAutoResizeWithMaxWidth:200];
     
+    _commentNumLabel.sd_layout
+    .rightSpaceToView(contentView,margin+10)
+    .centerYEqualToView(_timeLabel).heightIs(15);
+    [_commentNumLabel setSingleLineAutoResizeWithMaxWidth:100];
     
     _commentButton.sd_layout
-    .rightSpaceToView(contentView,margin+5)
-    .centerYEqualToView(_timeLabel).heightIs(15).widthIs(15);
+    .rightSpaceToView(_commentNumLabel,5)
+    .centerYEqualToView(_commentNumLabel).widthIs(20).heightIs(16);
+    
+    _supportNumLabel.sd_layout
+    .rightSpaceToView(_commentButton,margin+8)
+    .centerYEqualToView(_commentNumLabel);
+    [_supportNumLabel setSingleLineAutoResizeWithMaxWidth:100];
     
     _supportButton.sd_layout
-    .rightSpaceToView(_commentButton,margin)
-    .topEqualToView(_commentButton).heightIs(15).widthIs(15);
+    .rightSpaceToView(_supportNumLabel,5)
+    .centerYEqualToView(_commentNumLabel).widthIs(20).heightIs(16);
     
     _commentView.sd_layout
     .leftEqualToView(_contentLabel)
@@ -184,7 +203,8 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
     _picContainerView.sd_layout.topSpaceToView(_moreButton, picContainerTopMargin);
     
     UIView *bottomView;
-    if (!model.bbCommentsList.count ) {
+    
+    if (!model.bbCommentsList.count) {
         bottomView = _timeLabel;
     } else {
         bottomView = _commentView;
@@ -195,7 +215,8 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
     formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     NSDate* date = [formatter dateFromString:model.posttime];
     [_timeLabel setAttributedText:[Utils attributedTimeString:date]];
- 
+    _supportNumLabel.text = [NSString stringWithFormat:@"%ld",model.favnum];
+    _commentNumLabel.text = [NSString stringWithFormat:@"%ld",model.bbCommentsList.count];
     if (model.favstatus == 0) {
         _supportButton.selected = NO;
     }else{
@@ -221,9 +242,14 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
     
 }
 
-- (void)supportClicked:(id)sender{
-    UIButton *button = (UIButton *)sender;
-    button.selected = !button.selected;
+- (void)supportClicked:(UIButton *)sender{
+//    sender.selected = !sender.selected;
+//    if (sender.selected) {
+//        _model.favnum++;
+//    } else {
+//        _model.favnum--;
+//    }
+//    [self setModel:_model];
 }
 
 - (void)deleteClick:(id)sender{

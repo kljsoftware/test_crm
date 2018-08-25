@@ -23,7 +23,7 @@
 {
     self = [super init];
     if (self) {
-        _editingBar = [[EditingBar alloc] initWithModeSwitchButton:hasAModeSwitchButton];
+        _editingBar = [[EditingBar alloc] initWithShowSwitch:hasAModeSwitchButton showPhoto:false];
         _editingBar.editView.delegate = self;
         if (hasAModeSwitchButton) {
             _hasAModeSwitchButton = hasAModeSwitchButton;
@@ -39,7 +39,7 @@
 {
     self = [super init];
     if (self) {
-        _editingBar = [[EditingBar alloc] initWithPhotoButton:hasPhotoButton];
+        _editingBar = [[EditingBar alloc] initWithShowSwitch:false showPhoto:hasPhotoButton];
         _editingBar.editView.delegate = self;
         if (hasPhotoButton) {
             _hasPhotoButton = hasPhotoButton;
@@ -69,13 +69,6 @@
 - (void)setup
 {
     [self addBottomBar];
-//    _emojiPageVC = [[EmojiPageVC alloc] initWithTextView:_editingBar.editView];
-//    [self.view addSubview:_emojiPageVC.view];
-//    _emojiPageVC.view.hidden = YES;
-//    _emojiPageVC.view.translatesAutoresizingMaskIntoConstraints = NO;
-//    NSDictionary *views = @{@"emojiPage": _emojiPageVC.view};
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[emojiPage(216)]|" options:0 metrics:nil views:views]];
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[emojiPage]|" options:0 metrics:nil views:views]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -86,18 +79,11 @@
 - (void)addBottomBar
 {
     _editingBar.translatesAutoresizingMaskIntoConstraints = NO;
-//    [_editingBar.inputViewButton addTarget:self action:@selector(switchInputView) forControlEvents:UIControlEventTouchUpInside];
-    [_editingBar.modeSwitchButton addTarget:self action:@selector(switchMode) forControlEvents:UIControlEventTouchUpInside];
-    [_editingBar.photoButton addTarget:self action:@selector(sendFile) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:_editingBar];
-    
-//    if (((AppDelegate *)[UIApplication sharedApplication].delegate).inNightMode) {
-//        _editingBar.editView.keyboardAppearance = UIKeyboardAppearanceDark;
-//    }
-    
+
     _editingBarYConstraint = [NSLayoutConstraint constraintWithItem:self.view    attribute:NSLayoutAttributeBottom   relatedBy:NSLayoutRelationEqual
-                                                             toItem:_editingBar  attribute:NSLayoutAttributeBottom   multiplier:1.0 constant:0];
+                                                             toItem:_editingBar  attribute:NSLayoutAttributeBottom   multiplier:1.0 constant:KINDICATOR_HEIGHT];
     
     _editingBarHeightConstraint = [NSLayoutConstraint constraintWithItem:_editingBar attribute:NSLayoutAttributeHeight         relatedBy:NSLayoutRelationEqual
                                                                   toItem:nil         attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:[self minimumInputbarHeight]];
@@ -106,24 +92,11 @@
     [self.view addConstraint:_editingBarHeightConstraint];
     
     if (_hasAModeSwitchButton) {
-//        [_operationBar.modeSwitchButton addTarget:self action:@selector(switchMode) forControlEvents:UIControlEventTouchUpInside];
-//        __weak BottomBarViewController *weakSelf = self;
-//        _operationBar.switchMode = ^ {[weakSelf switchMode];};
-//        _operationBar.editComment = ^ {
-//            [weakSelf switchMode];
-//            [weakSelf.editingBar.editView becomeFirstResponder];
-//        };
-//        
-//        _operationBar.translatesAutoresizingMaskIntoConstraints = NO;
-//        [self.view addSubview:_operationBar];
-//        NSDictionary *metrics = @{@"height": @([self minimumInputbarHeight])};
-//        NSDictionary *views = NSDictionaryOfVariableBindings(_operationBar);
-//        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_operationBar(height)]|" options:0 metrics:metrics views:views]];
-//        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[_operationBar]|" options:0 metrics:nil views:views]];
+        
     }
     
     if (_hasPhotoButton) {
-        [_editingBar.photoButton addTarget:self action:@selector(sendFile) forControlEvents:UIControlEventTouchUpInside];
+        
     }
 }
 
@@ -145,15 +118,9 @@
 - (void)switchInputView
 {
     if (_isEmojiPageOnScreen) {
-//        _emojiPageVC.view.hidden = YES;
-//        [_editingBar.editView becomeFirstResponder];
-//        
-//        [_editingBar.inputViewButton setImage:[UIImage imageNamed:@"btn_emoji_normal"] forState:UIControlStateNormal];
-//        [_editingBar.inputViewButton setImage:[UIImage imageNamed:@"btn_emoji_pressed"] forState:UIControlStateHighlighted];
         _isEmojiPageOnScreen = NO;
     } else {
         [_editingBar.editView resignFirstResponder];
-        [_editingBar.inputViewButton setImage:[UIImage imageNamed:@"toolbar-text"] forState:UIControlStateNormal];
         
         _editingBarYConstraint.constant = 216;
         [self setBottomBarHeight];
@@ -192,12 +159,12 @@
 
 - (CGFloat)minimumInputbarHeight
 {
-    return _editingBar.intrinsicContentSize.height;
+    return 50;
 }
 
 - (CGFloat)deltaInputbarHeight
 {
-    return _editingBar.intrinsicContentSize.height - self.textView.font.lineHeight;
+    return [self minimumInputbarHeight] - self.textView.font.lineHeight;
 }
 
 - (CGFloat)barHeightForLines:(NSUInteger)numberOfLines
@@ -209,10 +176,6 @@
     return height;
 }
 
-
-
-
-
 #pragma mark - 调整bar的高度
 
 - (void)keyboardWillShow:(NSNotification *)notification
@@ -222,15 +185,14 @@
     
 //    _emojiPageVC.view.hidden = YES;
     _isEmojiPageOnScreen = NO;
-    [_editingBar.inputViewButton setImage:[UIImage imageNamed:@"btn_emoji_normal"] forState:UIControlStateNormal];
-    [_editingBar.inputViewButton setImage:[UIImage imageNamed:@"btn_emoji_pressed"] forState:UIControlStateHighlighted];
     [self setBottomBarHeight];
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification
 {
-    _editingBarYConstraint.constant = 0;
-    
+    _editingBarYConstraint.constant = KINDICATOR_HEIGHT;
+    _editingBarHeightConstraint.constant = [self minimumInputbarHeight];
+
     [self setBottomBarHeight];
 }
 
@@ -311,7 +273,6 @@
     return YES;
 }
 
-
 #pragma mark - 收起表情面板
 
 - (void)hideEmojiPageView
@@ -320,8 +281,6 @@
 //        _emojiPageVC.view.hidden = YES;
         _isEmojiPageOnScreen = NO;
         
-        [_editingBar.inputViewButton setImage:[UIImage imageNamed:@"btn_emoji_normal"] forState:UIControlStateNormal];
-        [_editingBar.inputViewButton setImage:[UIImage imageNamed:@"btn_emoji_pressed"] forState:UIControlStateHighlighted];
         _editingBarYConstraint.constant = 0;
         [self setBottomBarHeight];
     }
