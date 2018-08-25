@@ -246,9 +246,9 @@
     if (!_hasShowedFistView) {
         [self showFirstImage];
     }
-    
-    _indexLabel.center = CGPointMake(self.bounds.size.width * 0.5, 35);
+    _indexLabel.center = CGPointMake(self.bounds.size.width * 0.5, KSTATUSBAR_HEIGHT+35);
     _saveButton.frame = CGRectMake(30, self.bounds.size.height - 70, 50, 25);
+    _indexLabel.hidden = self.imageCount <= 1;
 }
 
 - (void)show

@@ -125,6 +125,10 @@ static NSString *imagePickerCellIdentifier = @"imagePickerCellIdentifier";
     }
     cell.deleteBlock = ^(NSIndexPath *indexPath) {
         [_photosArray removeObjectAtIndex:indexPath.row];
+        if (_photosArray.count == 0) {
+            self.showDeleteIcon = false;
+            self.currentController.navigationItem.rightBarButtonItem.title = self.rightItemTitle;
+        }
         [_collectionView reloadData];
     };
     return cell;

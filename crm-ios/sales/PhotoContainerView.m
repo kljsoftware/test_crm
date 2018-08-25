@@ -58,10 +58,6 @@
     CGFloat itemW = [self itemWidthForPicPathArray:_picPathStringsArray];
     CGFloat itemH = 0;
     if (_picPathStringsArray.count == 1) {
-        UIImage *image = [UIImage imageNamed:_picPathStringsArray.firstObject];
-        if (image.size.width) {
-            itemH = image.size.height / image.size.width * itemW;
-        }
         itemH = 168;
     } else {
         itemH = itemW;
@@ -73,20 +69,29 @@
         long columnIndex = idx % perRowItemCount;
         long rowIndex = idx / perRowItemCount;
         UIImageView *imageView = [_imageViewsArray objectAtIndex:idx];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = true;
         imageView.hidden = NO;
-        imageView.image = [UIImage imageNamed:obj];
         imageView.frame = CGRectMake(columnIndex * (itemW + margin), rowIndex * (itemH + margin), itemW, itemH);
-        [imageView loadPortrait:obj];
+        [imageView loadPortrait:obj completed:^(UIImage *image) {
+            if (_picPathStringsArray.count == 1) {
+                CGFloat width = image.size.width / image.size.height * itemH;
+                imageView.frame = CGRectMake(columnIndex * (width + margin), rowIndex * (itemH + margin), width, itemH);
+                self.width = width;
+                self.fixedWidth = @(width);
+            }
+        }];
     }];
     
-    CGFloat w = perRowItemCount * itemW + (perRowItemCount - 1) * margin;
+    if (_picPathStringsArray.count > 1) {
+        CGFloat w = perRowItemCount * itemW + (perRowItemCount - 1) * margin;
+        self.width = w;
+        self.fixedWidth = @(w);
+    }
     int columnCount = ceilf(_picPathStringsArray.count * 1.0 / perRowItemCount);
     CGFloat h = columnCount * itemH + (columnCount - 1) * margin;
-    self.width = w;
     self.height = h;
-    
     self.fixedHeight = @(h);
-    self.fixedWidth = @(w);
 }
 
 #pragma mark - private actions

@@ -11,6 +11,7 @@
 @interface UIImageView (Util)
 
 - (void)loadPortrait:(NSString *)portraitURL;
-
+- (void)loadPortrait:(NSString *)portraitURL completed:(void (^)(UIImage *image))completed;
 - (NSString *)rongPortrait:(NSString *)avatar;
+
 @end

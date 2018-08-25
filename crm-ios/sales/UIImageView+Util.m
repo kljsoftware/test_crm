@@ -14,8 +14,11 @@
 
 @implementation UIImageView (Util)
 
-- (void)loadPortrait:(NSString *)portraitURL
-{
+- (void)loadPortrait:(NSString *)portraitURL {
+    [self loadPortrait:portraitURL completed:nil];
+}
+
+- (void)loadPortrait:(NSString *)portraitURL completed:(void (^)(UIImage *image))completed {
     if ([NSStringUtils isEmpty:portraitURL]) {
         portraitURL = @"";
     }
@@ -39,8 +42,11 @@
     NSString *token = [NSString stringWithFormat:@"3zhXb6H7L-Jjr76xSh5-gTdsGJ6wNnPMM-Ni7LBa:%@",sign];
     str = [NSString stringWithFormat:@"%@&token=%@",str,token];
     url = [NSURL URLWithString:str];
-    [self sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"default-portrait"]];
-    
+    [self sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"default-portrait"] options:SDWebImageRetryFailed completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        if (completed) {
+            completed(image);
+        }
+    }];
 }
 
 - (NSString *)hmacsha1:(NSString *)url key:(NSString *)secret{
