@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FMDatabase.h>
 #import "Customer.h"
 @interface CustomerDbUtil : NSObject
 

@@ -9,7 +9,6 @@
 #import "PackageAPI.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <sys/sysctl.h>
-#import <ASIHTTPRequest.h>
 #define ERROR_SERVER @"服务器请求超时，请重试"
 @implementation PackageAPI
 //将小写转换为大写

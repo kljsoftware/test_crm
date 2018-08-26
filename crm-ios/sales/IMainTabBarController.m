@@ -20,7 +20,6 @@
 #import "OrgUserInfoDbUtil.h"
 #import "OrgUserInfo.h"
 #import "PublishNoticeViewController.h"
-#import <BHBPopView.h>
 #import "PublishWorkViewController.h"
 @interface IMainTabBarController () <ReadItemDelegate>
 

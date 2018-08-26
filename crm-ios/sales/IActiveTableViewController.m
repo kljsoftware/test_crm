@@ -10,7 +10,6 @@
 #import "ActiveTableViewCell.h"
 #import "NewsDetailsViewController.h"
 #import "Active.h"
-#import <MJRefresh.h>
 #define kActiveTableCellId @"ActiveTableViewCell"
 @interface IActiveTableViewController ()
 

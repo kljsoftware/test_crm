@@ -12,7 +12,6 @@
 #import "CircleDetailsTableViewController.h"
 #import "CircleDetailsBottomBarViewController.h"
 #import "CircleUnreadTableViewController.h"
-#import <MJRefresh.h>
 #define kMainWidth [UIScreen mainScreen].bounds.size.width
 #define kCircleTableCellId @"CircleTableCell"
 

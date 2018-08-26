@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D3836BBFC1CA80BA446352E /* libPods-sales.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B737477090CDEC04E96A167E /* libPods-sales.a */; };
 		A31E531D212B0C7E005331AB /* BIUPNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A31E531B212B0C7D005331AB /* BIUPNetworkManager.m */; };
 		A325C9B2212EF8F10086176B /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A325C9B1212EF8F10086176B /* MenuView.m */; };
 		A335DD7F2130E3CE00044615 /* WorkChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A335DD7E2130E3CE00044615 /* WorkChooseView.m */; };
@@ -19,6 +18,7 @@
 		A3F6EBD1212B138E009BFD43 /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F6EBCF212B138E009BFD43 /* OrganizationTableViewCell.xib */; };
 		A3F6EBD6212B1927009BFD43 /* OrganizationInviteDefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F6EBD4212B1927009BFD43 /* OrganizationInviteDefaultCell.m */; };
 		A3F6EBD7212B1927009BFD43 /* OrganizationInviteDefaultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F6EBD5212B1927009BFD43 /* OrganizationInviteDefaultCell.xib */; };
+		C0C85E0518F336C94F1D0AF8 /* Pods_sales.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C23DE6AF5C21A28B56F3F288 /* Pods_sales.framework */; };
 		CE2E63A71DE525E200022F7A /* DetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E63A61DE525E200022F7A /* DetailsHeaderView.m */; };
 		CE4E1C1C1EAF2BF80073CB45 /* IMeInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4E1C1B1EAF2BF80073CB45 /* IMeInfoTableViewController.m */; };
 		CE4EBA261DFE861100C7C9AB /* SearchContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4EBA251DFE861100C7C9AB /* SearchContactViewController.m */; };
@@ -264,6 +264,7 @@
 		A3695BCB2129409200E3E0A6 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		A3695BCD212942E700E3E0A6 /* BaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		A38193BE21323E56009D5973 /* sales-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sales-Bridging-Header.h"; sourceTree = "<group>"; };
 		A3F6EBCD212B138E009BFD43 /* OrganizationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizationTableViewCell.h; sourceTree = "<group>"; };
 		A3F6EBCE212B138E009BFD43 /* OrganizationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizationTableViewCell.m; sourceTree = "<group>"; };
 		A3F6EBCF212B138E009BFD43 /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
@@ -272,7 +273,7 @@
 		A3F6EBD4212B1927009BFD43 /* OrganizationInviteDefaultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizationInviteDefaultCell.m; sourceTree = "<group>"; };
 		A3F6EBD5212B1927009BFD43 /* OrganizationInviteDefaultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationInviteDefaultCell.xib; sourceTree = "<group>"; };
 		A6F1E260E0E33E263C971129 /* Pods-sales.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sales.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sales/Pods-sales.debug.xcconfig"; sourceTree = "<group>"; };
-		B737477090CDEC04E96A167E /* libPods-sales.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sales.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C23DE6AF5C21A28B56F3F288 /* Pods_sales.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sales.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2E63A51DE525E200022F7A /* DetailsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsHeaderView.h; sourceTree = "<group>"; };
 		CE2E63A61DE525E200022F7A /* DetailsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsHeaderView.m; sourceTree = "<group>"; };
 		CE4E1C1A1EAF2BF80073CB45 /* IMeInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMeInfoTableViewController.h; sourceTree = "<group>"; };
@@ -719,7 +720,7 @@
 			files = (
 				CE728F171E6D515400437FB2 /* UserNotifications.framework in Frameworks */,
 				CE9478AD1F4143FA0059BFCE /* libUMessage_Sdk_1.5.0a.a in Frameworks */,
-				2D3836BBFC1CA80BA446352E /* libPods-sales.a in Frameworks */,
+				C0C85E0518F336C94F1D0AF8 /* Pods_sales.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,7 +731,7 @@
 			isa = PBXGroup;
 			children = (
 				CE728F161E6D515400437FB2 /* UserNotifications.framework */,
-				B737477090CDEC04E96A167E /* libPods-sales.a */,
+				C23DE6AF5C21A28B56F3F288 /* Pods_sales.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1510,6 +1511,7 @@
 				CEE863731DCB0EFD00695F0F /* LaunchScreen.storyboard */,
 				CEE863761DCB0EFD00695F0F /* Info.plist */,
 				CEE863651DCB0EFC00695F0F /* Supporting Files */,
+				A38193BE21323E56009D5973 /* sales-Bridging-Header.h */,
 			);
 			path = sales;
 			sourceTree = "<group>";
@@ -1983,6 +1985,7 @@
 				CEE8635F1DCB0EFB00695F0F /* Frameworks */,
 				CEE863601DCB0EFB00695F0F /* Resources */,
 				AB56F145BFCC108882276249 /* [CP] Copy Pods Resources */,
+				6633F7ACCBEC83EBAF4A01C7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2007,6 +2010,7 @@
 				TargetAttributes = {
 					CEE863611DCB0EFB00695F0F = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -2067,6 +2071,66 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6633F7ACCBEC83EBAF4A01C7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-sales/Pods-sales-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/ASIHTTPRequest/ASIHTTPRequest.framework",
+				"${BUILT_PRODUCTS_DIR}/BHBPopView/BHBPopView.framework",
+				"${BUILT_PRODUCTS_DIR}/DCPathButton/DCPathButton.framework",
+				"${BUILT_PRODUCTS_DIR}/DKNightVersion/DKNightVersion.framework",
+				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/HappyDNS/HappyDNS.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/JSBadgeView/JSBadgeView.framework",
+				"${BUILT_PRODUCTS_DIR}/LEETheme/LEETheme.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/MLEmojiLabel/MLEmojiLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/MLLabel/MLLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/Qiniu/Qiniu.framework",
+				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SDAutoLayout/SDAutoLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASIHTTPRequest.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BHBPopView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DCPathButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKNightVersion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HappyDNS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSBadgeView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LEETheme.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLEmojiLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Qiniu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDAutoLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sales/Pods-sales-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AB56F145BFCC108882276249 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2074,18 +2138,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-sales/Pods-sales-resources.sh",
-				"${PODS_ROOT}/DCPathButton/DCPathButton/Sounds/bloom.caf",
-				"${PODS_ROOT}/DCPathButton/DCPathButton/Sounds/fold.caf",
-				"${PODS_ROOT}/DCPathButton/DCPathButton/Sounds/selected.caf",
-				"${PODS_ROOT}/DKNightVersion/DKNightVersion/ColorTable/DKColorTable.txt",
-				"${PODS_ROOT}/DateTools/DateTools/DateTools/DateTools.bundle",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/JSBadgeView/JSBadgeView.bundle",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_Expression.plist",
-				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_ExpressionImage.plist",
-				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_Expression.bundle",
-				"${PODS_ROOT}/MLEmojiLabel/Classes/MLEmoji_Expression.bundle/gifexpression.bundle",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj",
@@ -2101,18 +2153,6 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bloom.caf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fold.caf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/selected.caf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DKColorTable.txt",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DateTools.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JSBadgeView.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MLEmoji_Expression.plist",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MLEmoji_ExpressionImage.plist",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MLEmoji_Expression.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gifexpression.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RongCloud.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
@@ -2489,12 +2529,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A6F1E260E0E33E263C971129 /* Pods-sales.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = sales/sales.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: jiang cheng wei (4M67UH93KS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiang cheng wei (4M67UH93KS)";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2517,6 +2560,10 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "sales/sales-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "{SRCROOT}/**";
 			};
 			name = Debug;
 		};
@@ -2524,11 +2571,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 740E17A0E5244D9EB2F89681 /* Pods-sales.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = sales/sales.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiang cheng wei (4M67UH93KS)";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2551,6 +2601,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "sales/sales-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "{SRCROOT}/**";
 			};
 			name = Release;
 		};

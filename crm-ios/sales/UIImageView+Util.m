@@ -9,8 +9,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <CommonCrypto/CommonHMAC.h>
 #import <CommonCrypto/CommonDigest.h>
-#import <QN_GTM_Base64.h>
-#import <QNUrlSafeBase64.h>
+//#import <QN_GTM_Base64.h>
+//#import <QNUrlSafeBase64.h>
 
 @implementation UIImageView (Util)
 

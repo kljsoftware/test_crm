@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FMDatabase.h>
 #import "Contact.h"
 
 @interface ReqFriendDbUtil : NSObject

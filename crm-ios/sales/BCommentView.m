@@ -7,7 +7,6 @@
 //
 
 #import "BCommentView.h"
-#import <LEETheme.h>
 @implementation BCommentView
 
 - (instancetype)initWithFrame:(CGRect)frame

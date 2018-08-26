@@ -11,7 +11,6 @@
 #import "NoticeTableViewCell.h"
 #import "NoticeDetailsViewController.h"
 #import "PaperDetailsViewController.h"
-#import <MJRefresh.h>
 #define kNoticeTableCellId @"NoticeTableViewCell"
 @interface INoticeTableViewController ()
 

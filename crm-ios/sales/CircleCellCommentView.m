@@ -7,7 +7,6 @@
 //
 
 #import "CircleCellCommentView.h"
-#import <LEETheme.h>
 
 @interface CircleCellCommentView () <MLLinkLabelDelegate>
 @end

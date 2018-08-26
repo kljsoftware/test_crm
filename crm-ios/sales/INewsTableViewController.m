@@ -10,7 +10,6 @@
 #import "NewsDetailsViewController.h"
 #import "News.h"
 #import "NewsTableViewCell.h"
-#import <MJRefresh.h>
 @interface INewsTableViewController ()
 
 @property (nonatomic,strong) NSMutableArray *dataModels;

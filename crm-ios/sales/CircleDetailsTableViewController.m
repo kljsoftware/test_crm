@@ -9,8 +9,6 @@
 #import "CircleDetailsTableViewController.h"
 #import "CircleDetailsTableViewCell.h"
 #import "DetailsHeaderView.h"
-#import <MJRefresh.h>
-#import <MBProgressHUD.h>
 
 #define kCircleDetailsTableCellId @"CircleDetailsTableViewCell"
 

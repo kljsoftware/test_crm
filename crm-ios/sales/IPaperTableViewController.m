@@ -10,7 +10,6 @@
 #import "Paper.h"
 #import "PaperTableViewCell.h"
 #import "PaperDetailsViewController.h"
-#import <MJRefresh.h>
 @interface IPaperTableViewController ()
 
 @property (nonatomic,strong) NSMutableArray *dataModels;

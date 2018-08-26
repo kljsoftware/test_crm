@@ -22,7 +22,7 @@
         
         // 这行代是为了解决tableview开启了字母序列索引之后cell会向左缩进一段距离的问题
         self.contentView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self setupView];
     }
     return self;
