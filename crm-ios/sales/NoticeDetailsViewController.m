@@ -26,7 +26,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self setUpView];
 }
 
@@ -83,6 +82,8 @@
     .leftSpaceToView(_contentView, 20)
     .rightSpaceToView(_contentView, 20)
     .autoHeightRatio(0);
+    
+    [self setupUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,11 +97,10 @@
     CGFloat h = _contentLabel.bounds.size.height + 96 + _titleLabel.bounds.size.height;
     _scrollView.contentSize = CGSizeMake(w, h);
 }
-- (void)setNotice:(Notice *)notice{
-    _notice = notice;
-    _titleLabel.text = notice.title;
-    _timeLabel.text = notice.createtime;
-    _contentLabel.text = notice.content;
+- (void)setupUI {
+    _titleLabel.text = self.notice.title;
+    _timeLabel.text = self.notice.createtime;
+    _contentLabel.text = self.notice.content;
 }
 
 @end

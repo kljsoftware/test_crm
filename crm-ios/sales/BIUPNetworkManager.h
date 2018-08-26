@@ -34,14 +34,16 @@ typedef void (^RequestProgress)(NSProgress *progress);
 /**
  网络请求入口
  
- @param method  方法 GET POST
- @param url     二级接口(如果没有测试服务器，直接传完整URL)
- @param params  参数
- @param success 成功回调
- @param failure 失败回调
+ @param method          方法 GET POST
+ @param url             二级接口(如果没有测试服务器，直接传完整URL)
+ @param requestHeader   请求头
+ @param params          参数
+ @param success         成功回调
+ @param failure         失败回调
  */
 - (void)request:(NSString *)method
             URL:(NSString *)url
+  requestHeader:(NSDictionary *)requestHeader
      parameters:(NSDictionary *)params
         success:(RequestSuccess)success
         failure:(RequestFailure)failure;

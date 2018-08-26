@@ -24,7 +24,6 @@
     [super viewDidLoad];
     _p = 0;
     _isRefresh = 0;
-    self.tableView.separatorColor = [UIColor lightGrayColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [self getCommentList];

@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
@@ -25,13 +24,13 @@
 - (void)setModel:(News *)model{
     _model = model;
     _titleLabel.text = model.title;
-    _contentLabel.text = model.content;
     //    _timeLabel.text = model.createtime;
     NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
     formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     NSDate* date = [formatter dateFromString:model.createtime];
     [_timeLabel setAttributedText:[Utils attributedTimeString:date]];
-    [_pictureImageView loadPortrait:@"00"];
+//    [_pictureImageView loadPortrait:@"00"];
+    [_pictureImageView sd_setImageWithURL:[NSURL URLWithString:model.img]];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

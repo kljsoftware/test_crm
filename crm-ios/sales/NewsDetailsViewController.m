@@ -74,10 +74,10 @@
     self.refreshItem = refreshItem;
     
     self.toolbarItems = @[backItem,forwardItem,flexibleItem,refreshItem];
-    backItem.dk_tintColorPicker = DKColorPickerWithKey(TINT);
-    forwardItem.dk_tintColorPicker = DKColorPickerWithKey(TINT);
-    refreshItem.dk_tintColorPicker = DKColorPickerWithKey(TINT);
-    self.navigationController.toolbar.dk_tintColorPicker =  DKColorPickerWithRGB(0xffffff, 0x343434, 0xfafafa);
+//    backItem.dk_tintColorPicker = DKColorPickerWithKey(TINT);
+//    forwardItem.dk_tintColorPicker = DKColorPickerWithKey(TINT);
+//    refreshItem.dk_tintColorPicker = DKColorPickerWithKey(TINT);
+//    self.navigationController.toolbar.dk_tintColorPicker =  DKColorPickerWithRGB(0xffffff, 0x343434, 0xfafafa);
 }
 #pragma mark -UIWebViewDelegate-将要加载Webview
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {

@@ -7,17 +7,18 @@
 //
 
 #import "ReadViewController.h"
-#import "ReadTopChannelContianerView.h"
 #import "INoticeTableViewController.h"
 #import "IBlackboardTableViewController.h"
 #import "INewsTableViewController.h"
 #import "IPaperTableViewController.h"
 #import "IActiveTableViewController.h"
-@interface ReadViewController ()<UIScrollViewDelegate,ReadTopChannelContianerViewDelegate>
+#import "CCSegmentView.h"
 
-@property (nonatomic, strong) NSMutableArray *currentChannelsArray;
-@property (nonatomic, weak) ReadTopChannelContianerView *topContianerView;
-@property (nonatomic, weak) UIScrollView *contentScrollView;
+@interface ReadViewController ()<UIScrollViewDelegate>
+
+@property (nonatomic, strong) NSArray *currentChannelsArray;
+@property (nonatomic, strong) UIScrollView *contentScrollView;
+@property (nonatomic, strong) CCSegmentView *segmentView;
 @property (nonatomic, strong) NSArray *arrayLists;
 
 @end
@@ -29,20 +30,24 @@ static NSString * const collectionViewSectionHeaderID = @"ChannelCollectionHeade
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
-    [self setupTopContianerView];
+    self.edgesForExtendedLayout = UIRectEdgeBottom;
+    [self setupSegmentView];
     [self setupChildController];
     [self setupContentScrollView];
 }
 
-- (void)setupTopContianerView{
-    CGFloat top = CGRectGetMaxY(self.navigationController.navigationBar.frame);
-    ReadTopChannelContianerView *topContianerView = [[ReadTopChannelContianerView alloc] initWithFrame:CGRectMake(0, top, [UIScreen mainScreen].bounds.size.width, 30)];
-    topContianerView.channelNameArray = self.currentChannelsArray;
-    self.topContianerView  = topContianerView;
-    topContianerView.delegate = self;
-    [self.view addSubview:topContianerView];
+- (void)setupSegmentView {
+    CCSegmentView *segmentView = [[CCSegmentView alloc] initWithTitles:self.currentChannelsArray normalColor:[UIColor colorWithHex:0x333333] selectColor:UIColor.blackColor];
+    [self.view addSubview:segmentView];
+    [segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self.view);
+        make.height.mas_equalTo(40);
+    }];
+    segmentView.segmentBlock = ^(NSInteger index) {
+        [self.contentScrollView setContentOffset:CGPointMake(KSCREEN_WIDTH*index, 0) animated:true];
+    };
+    self.segmentView = segmentView;
 }
 
 #pragma mark --private Method--初始化子控制器
@@ -64,9 +69,8 @@ static NSString * const collectionViewSectionHeaderID = @"ChannelCollectionHeade
 }
 #pragma mark --private Method--初始化相信新闻内容的scrollView
 - (void)setupContentScrollView {
-    UIScrollView *contentScrollView = [[UIScrollView alloc] init];
+    UIScrollView *contentScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 40+2, KSCREEN_WIDTH, KSCREEN_HEIGHT-KNAV_HEIGHT-40-KMAINTAB_HEIGHT)];
     self.contentScrollView = contentScrollView;
-    contentScrollView.frame = self.view.bounds;
     contentScrollView.contentSize = CGSizeMake(contentScrollView.frame.size.width* self.currentChannelsArray.count, 0);
     contentScrollView.pagingEnabled = YES;
     contentScrollView.delegate = self;
@@ -80,117 +84,25 @@ static NSString * const collectionViewSectionHeaderID = @"ChannelCollectionHeade
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     if (scrollView == self.contentScrollView) {
         NSInteger index = scrollView.contentOffset.x/self.contentScrollView.frame.size.width;
-        if (index == 0) {
-            NSLog(@"SCROLL -- 0");
-            [_delegate itemChange:10 vc:self];
-            INoticeTableViewController *vc = self.childViewControllers[0];
-            vc.view.frame = CGRectMake(scrollView.contentOffset.x, 0, self.contentScrollView.frame.size.width, self.contentScrollView.frame.size.height);
-            vc.tableView.contentInset = UIEdgeInsetsMake(CGRectGetMaxY(self.navigationController.navigationBar.frame)+self.topContianerView.scrollView.frame.size.height, 0, self.tabBarController.tabBar.frame.size.height, 0);
-            [scrollView addSubview:vc.view];
-            for (int i = 0; i<self.contentScrollView.subviews.count; i++) {
-                NSInteger currentIndex = vc.tableView.frame.origin.x/self.contentScrollView.frame.size.width;
-                if ([self.contentScrollView.subviews[i] isKindOfClass:[UITableView class]]) {
-                    UITableView *theTableView = self.contentScrollView.subviews[i];
-                    NSInteger theIndex = theTableView.frame.origin.x/self.contentScrollView.frame.size.width;
-                    NSInteger gap = theIndex - currentIndex;
-                    if (gap<=2&&gap>=-2) {
-                        continue;
-                    } else {
-                        [theTableView removeFromSuperview];
-                    }
+        [_delegate itemChange:10+index vc:self];
+        INoticeTableViewController *vc = self.childViewControllers[index];
+        vc.view.frame = CGRectMake(scrollView.contentOffset.x, 0, self.contentScrollView.frame.size.width, self.contentScrollView.frame.size.height);
+        [scrollView addSubview:vc.view];
+        for (int i = 0; i<self.contentScrollView.subviews.count; i++) {
+            NSInteger currentIndex = vc.tableView.frame.origin.x/self.contentScrollView.frame.size.width;
+            if ([self.contentScrollView.subviews[i] isKindOfClass:[UITableView class]]) {
+                UITableView *theTableView = self.contentScrollView.subviews[i];
+                NSInteger theIndex = theTableView.frame.origin.x/self.contentScrollView.frame.size.width;
+                NSInteger gap = theIndex - currentIndex;
+                if (gap<=2&&gap>=-2) {
+                    continue;
+                } else {
+                    [theTableView removeFromSuperview];
                 }
-                
-            }
-        }else if(index == 1){
-            NSLog(@"SCROLL -- 1");
-            [_delegate itemChange:11 vc:self];
-            IBlackboardTableViewController *vc = self.childViewControllers[1];
-            vc.view.frame = CGRectMake(scrollView.contentOffset.x, 0, self.contentScrollView.frame.size.width, self.contentScrollView.frame.size.height);
-            vc.tableView.contentInset = UIEdgeInsetsMake(CGRectGetMaxY(self.navigationController.navigationBar.frame)+self.topContianerView.scrollView.frame.size.height, 0, self.tabBarController.tabBar.frame.size.height, 0);
-            [scrollView addSubview:vc.view];
-            for (int i = 0; i<self.contentScrollView.subviews.count; i++) {
-                NSInteger currentIndex = vc.tableView.frame.origin.x/self.contentScrollView.frame.size.width;
-                if ([self.contentScrollView.subviews[i] isKindOfClass:[UITableView class]]) {
-                    UITableView *theTableView = self.contentScrollView.subviews[i];
-                    NSInteger theIndex = theTableView.frame.origin.x/self.contentScrollView.frame.size.width;
-                    NSInteger gap = theIndex - currentIndex;
-                    if (gap<=2&&gap>=-2) {
-                        continue;
-                    } else {
-                        [theTableView removeFromSuperview];
-                    }
-                }
-                
-            }
-        }else if(index == 2){
-            NSLog(@"SCROLL -- 2");
-            [_delegate itemChange:12 vc:self];
-            INewsTableViewController *vc = self.childViewControllers[2];
-            vc.view.frame = CGRectMake(scrollView.contentOffset.x, 0, self.contentScrollView.frame.size.width, self.contentScrollView.frame.size.height);
-            vc.tableView.contentInset = UIEdgeInsetsMake(CGRectGetMaxY(self.navigationController.navigationBar.frame)+self.topContianerView.scrollView.frame.size.height, 0, self.tabBarController.tabBar.frame.size.height, 0);
-            [scrollView addSubview:vc.view];
-            for (int i = 0; i<self.contentScrollView.subviews.count; i++) {
-                NSInteger currentIndex = vc.tableView.frame.origin.x/self.contentScrollView.frame.size.width;
-                if ([self.contentScrollView.subviews[i] isKindOfClass:[UITableView class]]) {
-                    UITableView *theTableView = self.contentScrollView.subviews[i];
-                    NSInteger theIndex = theTableView.frame.origin.x/self.contentScrollView.frame.size.width;
-                    NSInteger gap = theIndex - currentIndex;
-                    if (gap<=2&&gap>=-2) {
-                        continue;
-                    } else {
-                        [theTableView removeFromSuperview];
-                    }
-                }
-                
-            }
-        }else if(index == 3){
-            NSLog(@"SCROLL -- 3");
-            [_delegate itemChange:13 vc:self];
-            IPaperTableViewController *vc = self.childViewControllers[3];
-            vc.view.frame = CGRectMake(scrollView.contentOffset.x, 0, self.contentScrollView.frame.size.width, self.contentScrollView.frame.size.height);
-            vc.tableView.contentInset = UIEdgeInsetsMake(CGRectGetMaxY(self.navigationController.navigationBar.frame)+self.topContianerView.scrollView.frame.size.height, 0, self.tabBarController.tabBar.frame.size.height, 0);
-            [scrollView addSubview:vc.view];
-            for (int i = 0; i<self.contentScrollView.subviews.count; i++) {
-                NSInteger currentIndex = vc.tableView.frame.origin.x/self.contentScrollView.frame.size.width;
-                if ([self.contentScrollView.subviews[i] isKindOfClass:[UITableView class]]) {
-                    UITableView *theTableView = self.contentScrollView.subviews[i];
-                    NSInteger theIndex = theTableView.frame.origin.x/self.contentScrollView.frame.size.width;
-                    NSInteger gap = theIndex - currentIndex;
-                    if (gap<=2&&gap>=-2) {
-                        continue;
-                    } else {
-                        [theTableView removeFromSuperview];
-                    }
-                }
-                
-            }
-        }else if (index == 4){
-            NSLog(@"SCROLL -- 4");
-            [_delegate itemChange:14 vc:self];
-            IActiveTableViewController *vc = self.childViewControllers[4];
-            vc.view.frame = CGRectMake(scrollView.contentOffset.x, 0, self.contentScrollView.frame.size.width, self.contentScrollView.frame.size.height);
-            vc.tableView.contentInset = UIEdgeInsetsMake(CGRectGetMaxY(self.navigationController.navigationBar.frame)+self.topContianerView.scrollView.frame.size.height, 0, self.tabBarController.tabBar.frame.size.height, 0);
-            [scrollView addSubview:vc.view];
-            for (int i = 0; i<self.contentScrollView.subviews.count; i++) {
-                NSInteger currentIndex = vc.tableView.frame.origin.x/self.contentScrollView.frame.size.width;
-                if ([self.contentScrollView.subviews[i] isKindOfClass:[UITableView class]]) {
-                    UITableView *theTableView = self.contentScrollView.subviews[i];
-                    NSInteger theIndex = theTableView.frame.origin.x/self.contentScrollView.frame.size.width;
-                    NSInteger gap = theIndex - currentIndex;
-                    if (gap<=2&&gap>=-2) {
-                        continue;
-                    } else {
-                        [theTableView removeFromSuperview];
-                    }
-                }
-                
             }
         }
-        
     }
 }
-
-
 
 
 #pragma mark --UIScrollViewDelegate-- 滑动的减速动画结束后会调用这个方法
@@ -198,7 +110,7 @@ static NSString * const collectionViewSectionHeaderID = @"ChannelCollectionHeade
     if (scrollView == self.contentScrollView) {
         [self scrollViewDidEndScrollingAnimation:scrollView];
         NSInteger index = scrollView.contentOffset.x/self.contentScrollView.frame.size.width;
-        [self.topContianerView selectChannelButtonWithIndex:index];
+        [self.segmentView setIndex:index];
     }
 }
 
@@ -214,13 +126,12 @@ static NSString * const collectionViewSectionHeaderID = @"ChannelCollectionHeade
 - (void)chooseChannelWithIndex:(NSInteger)index {
     [self.contentScrollView setContentOffset:CGPointMake(self.contentScrollView.frame.size.width * index, 0) animated:YES];
 }
-#pragma mark --private Method--存储更新后的currentChannelsArray到偏好设置中
--(NSMutableArray *)currentChannelsArray {
+
+- (NSArray *)currentChannelsArray {
     if (!_currentChannelsArray) {
-        if (!_currentChannelsArray) {
-            _currentChannelsArray = [NSMutableArray arrayWithObjects:@"公告",@"黑板",@"新闻",@"文章",@"活动", nil];
-        }
+        _currentChannelsArray = @[@"公告",@"黑板",@"新闻",@"文章",@"活动"];
     }
     return _currentChannelsArray;
 }
+
 @end

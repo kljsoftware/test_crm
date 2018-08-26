@@ -103,7 +103,7 @@ static CGFloat kSliderViewWidth = 20;
 - (UIButton *)createChannelButton{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    button.dk_backgroundColorPicker = DKColorPickerWithRGB(0xf0f0f0, 0x949494, 0xfafafa);
+//    button.dk_backgroundColorPicker = DKColorPickerWithRGB(0xf0f0f0, 0x949494, 0xfafafa);
 
     [button setTitleColor:[UIColor colorWithHex:0x469DE5] forState:UIControlStateDisabled];
     [button.titleLabel setFont:[UIFont systemFontOfSize:kTitleLabelNorimalFont]];

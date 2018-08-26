@@ -44,6 +44,8 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
 
 - (void)setup{
     _iconView = [UIImageView new];
+    _iconView.layer.cornerRadius = 20;
+    _iconView.layer.masksToBounds = true;
     
     _nameLable = [UILabel new];
     _nameLable.font = [UIFont systemFontOfSize:14];
@@ -70,10 +72,6 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
     [_moreButton addTarget:self action:@selector(moreButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     _moreButton.titleLabel.font = [UIFont systemFontOfSize:14];
     
-    //    _operationButton = [UIButton new];
-    //    [_operationButton setImage:[UIImage imageNamed:@"AlbumOperateMore"] forState:UIControlStateNormal];
-    //    [_operationButton addTarget:self action:@selector(operationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    
     _picContainerView = [PhotoContainerView new];
     
     _commentView = [CircleCellCommentView new];
@@ -83,9 +81,9 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
     
     _supportButton = [UIButton new];
     [_supportButton setImage:[UIImage imageNamed:@"moments_support_nor"] forState:UIControlStateNormal];
-    [_supportButton addTarget:self action:@selector(supportClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_supportButton setImage:[UIImage imageNamed:@"moments_support_sel"] forState:UIControlStateSelected];
-    
+    [_supportButton addTarget:self action:@selector(supportClicked:) forControlEvents:UIControlEventTouchUpInside];
+
     _commentButton = [UIButton new];
     [_commentButton setImage:[UIImage imageNamed:@"moments_comment_nor"] forState:UIControlStateNormal];
     [_commentButton addTarget:self action:@selector(commentClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -98,7 +96,7 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
     [self.contentView sd_addSubviews:views];
     
     UIView *contentView = self.contentView;
-    CGFloat margin = 10;
+    CGFloat margin = 12;
     
     _iconView.sd_layout
     .leftSpaceToView(contentView, margin)
@@ -123,7 +121,6 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
     .leftEqualToView(_contentLabel)
     .topSpaceToView(_contentLabel, 0)
     .widthIs(30);
-    
     
     _picContainerView.sd_layout
     .leftEqualToView(_contentLabel); // 已经在内部实现宽度和高度自适应所以不需要再设置宽度高度，top值是具体有无图片在setModel方法中设置
@@ -159,7 +156,6 @@ CGFloat maxContentLabelHeight1 = 0; // 根据具体font而定
     
     _deleteButton.sd_layout
     .rightSpaceToView(_supportButton, margin).centerYEqualToView(_supportButton).heightIs(24).widthIs(18);
-    
 }
 
 - (void)awakeFromNib {

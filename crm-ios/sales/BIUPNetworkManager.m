@@ -35,11 +35,10 @@
 }
 
 // MARK: - 公开方法
-- (void)request:(NSString *)method URL:(NSString *)url parameters:(NSDictionary *)params success:(RequestSuccess)success failure:(RequestFailure)failure {
+- (void)request:(NSString *)method URL:(NSString *)url requestHeader:(NSDictionary *)requestHeader parameters:(NSDictionary *)params success:(RequestSuccess)success failure:(RequestFailure)failure {
 
     self.httpManager.requestSerializer.timeoutInterval = 10;
-    [self.httpManager.requestSerializer setValue:[NSString stringWithFormat:@"%lld",[Config getOwnID]] forHTTPHeaderField:@"userId"];
-    [self.httpManager.requestSerializer setValue:[Config getToken] forHTTPHeaderField:@"token"];
+    [self setRequestHeader:requestHeader];
 
     // 请求方式
     if ([method isEqualToString:GET_METHOD]) {
@@ -124,6 +123,13 @@
         [_httpManager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/css", @"text/plain", @"application/javascript", @"application/json", @"application/x-www-form-urlencoded", @"multipart/form-data", nil]];
     }
     return _httpManager;
+}
+
+- (void)setRequestHeader:(NSDictionary *)params {
+    
+    for (NSString *key in params.allKeys) {
+        [self.httpManager.requestSerializer setValue:params[key] forHTTPHeaderField:key];
+    }
 }
 
 @end

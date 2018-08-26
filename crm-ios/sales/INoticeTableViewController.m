@@ -22,10 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.dk_backgroundColorPicker = DKColorPickerWithRGB(0xf0f0f0, 0x000000, 0xfafafa);
+    self.tableView.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.separatorColor = [UIColor lightGrayColor];
-    self.tableView.rowHeight = 63;
+    self.tableView.rowHeight = 60;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self getNoticeList:YES];
@@ -132,20 +131,9 @@
     cell.model = self.dataModels[indexPath.row];
     return cell;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ReadDetails" bundle:nil];
-//    NoticeDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"NoticeDetails"];
-//    vc.hidesBottomBarWhenPushed = YES;
-//    vc.view.backgroundColor = [UIColor whiteColor];
-//    vc.notice = self.dataModels[indexPath.row];
-//    [self.navigationController pushViewController:vc animated:YES];
-    
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NoticeDetailsViewController *vc = [[NoticeDetailsViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     vc.notice = self.dataModels[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }

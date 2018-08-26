@@ -14,6 +14,7 @@
 		A360A200213197CB00CCA194 /* ImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A1FF213197CB00CCA194 /* ImagePickerCell.m */; };
 		A3695BCC2129409200E3E0A6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCB2129409200E3E0A6 /* BaseViewController.m */; };
 		A3695BCF212942E700E3E0A6 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */; };
+		A38193C32132635E009D5973 /* CCSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38193C12132635D009D5973 /* CCSegmentView.m */; };
 		A3F6EBD0212B138E009BFD43 /* OrganizationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F6EBCE212B138E009BFD43 /* OrganizationTableViewCell.m */; };
 		A3F6EBD1212B138E009BFD43 /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F6EBCF212B138E009BFD43 /* OrganizationTableViewCell.xib */; };
 		A3F6EBD6212B1927009BFD43 /* OrganizationInviteDefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F6EBD4212B1927009BFD43 /* OrganizationInviteDefaultCell.m */; };
@@ -264,7 +265,8 @@
 		A3695BCB2129409200E3E0A6 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		A3695BCD212942E700E3E0A6 /* BaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
-		A38193BE21323E56009D5973 /* sales-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sales-Bridging-Header.h"; sourceTree = "<group>"; };
+		A38193C12132635D009D5973 /* CCSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSegmentView.m; sourceTree = "<group>"; };
+		A38193C22132635D009D5973 /* CCSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSegmentView.h; sourceTree = "<group>"; };
 		A3F6EBCD212B138E009BFD43 /* OrganizationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizationTableViewCell.h; sourceTree = "<group>"; };
 		A3F6EBCE212B138E009BFD43 /* OrganizationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizationTableViewCell.m; sourceTree = "<group>"; };
 		A3F6EBCF212B138E009BFD43 /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
@@ -973,9 +975,9 @@
 		CE93EC951E1B7D6B00D26948 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CE78A0541E640B4F008F321B /* ReadView.storyboard */,
 				CE93EC961E1B7E6000D26948 /* ReadViewController.h */,
 				CE93EC971E1B7E6000D26948 /* ReadViewController.m */,
-				CE78A0541E640B4F008F321B /* ReadView.storyboard */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1126,6 +1128,8 @@
 		CE93ED1C1E2DACCA00D26948 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A38193C22132635D009D5973 /* CCSegmentView.h */,
+				A38193C12132635D009D5973 /* CCSegmentView.m */,
 				CE93ED1D1E2DAD1900D26948 /* ReadTopChannelContianerView.h */,
 				CE93ED1E1E2DAD1900D26948 /* ReadTopChannelContianerView.m */,
 			);
@@ -1213,11 +1217,11 @@
 		CE94DE6B1E309FF70049BA71 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				CE94DE751E31FCC10049BA71 /* ReadDetails.storyboard */,
 				CE94DE6F1E30A1630049BA71 /* PaperDetailsViewController.h */,
 				CE94DE701E30A1630049BA71 /* PaperDetailsViewController.m */,
 				CE94DE721E31A94E0049BA71 /* NoticeDetailsViewController.h */,
 				CE94DE731E31A94E0049BA71 /* NoticeDetailsViewController.m */,
-				CE94DE751E31FCC10049BA71 /* ReadDetails.storyboard */,
 				CEA456BF1E529CBA0011356B /* NewsDetailsViewController.h */,
 				CEA456C01E529CBA0011356B /* NewsDetailsViewController.m */,
 				CEA456CE1E52FABF0011356B /* BlackBoardDetailsBottomBarViewController.h */,
@@ -1511,7 +1515,6 @@
 				CEE863731DCB0EFD00695F0F /* LaunchScreen.storyboard */,
 				CEE863761DCB0EFD00695F0F /* Info.plist */,
 				CEE863651DCB0EFC00695F0F /* Supporting Files */,
-				A38193BE21323E56009D5973 /* sales-Bridging-Header.h */,
 			);
 			path = sales;
 			sourceTree = "<group>";
@@ -2082,9 +2085,9 @@
 				"${BUILT_PRODUCTS_DIR}/ASIHTTPRequest/ASIHTTPRequest.framework",
 				"${BUILT_PRODUCTS_DIR}/BHBPopView/BHBPopView.framework",
 				"${BUILT_PRODUCTS_DIR}/DCPathButton/DCPathButton.framework",
-				"${BUILT_PRODUCTS_DIR}/DKNightVersion/DKNightVersion.framework",
 				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/HappyDNS/HappyDNS.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JSBadgeView/JSBadgeView.framework",
@@ -2107,9 +2110,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASIHTTPRequest.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BHBPopView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DCPathButton.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKNightVersion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HappyDNS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSBadgeView.framework",
@@ -2247,6 +2250,7 @@
 				CE9ECB171E9CB02E0053BCA9 /* WorkDetailsTableViewController.m in Sources */,
 				CE546D141E70F54A00DCAC56 /* ReqFriendTableViewController.m in Sources */,
 				CEE863E81DD2CB7E00695F0F /* UIImageView+Util.m in Sources */,
+				A38193C32132635E009D5973 /* CCSegmentView.m in Sources */,
 				CED9D74C1DE81742002FD5D7 /* JFImageCollectionViewController.m in Sources */,
 				CEE864411DE3E63400695F0F /* GrowingTextView.m in Sources */,
 				CE94DE591E2F1BEC0049BA71 /* IBlackboardTableViewController.m in Sources */,
@@ -2529,7 +2533,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A6F1E260E0E33E263C971129 /* Pods-sales.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = sales/sales.entitlements;
@@ -2560,10 +2564,10 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "sales/sales-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				USER_HEADER_SEARCH_PATHS = "{SRCROOT}/**";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -2571,7 +2575,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 740E17A0E5244D9EB2F89681 /* Pods-sales.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = sales/sales.entitlements;
@@ -2601,9 +2605,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "sales/sales-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
-				USER_HEADER_SEARCH_PATHS = "{SRCROOT}/**";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

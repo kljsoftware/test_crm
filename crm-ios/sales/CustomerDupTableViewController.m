@@ -21,7 +21,7 @@
     [super viewDidLoad];
     self.title = @"客户查重";
     
-    self.tableView.dk_backgroundColorPicker = DKColorPickerWithRGB(0xf0f0f0, 0x000000, 0xfafafa);
+    self.tableView.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 

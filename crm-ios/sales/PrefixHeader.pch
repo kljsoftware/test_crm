@@ -19,7 +19,6 @@
 #import <RongIMLib/RongIMLib.h>
 #import <MLLabel/MLLinkLabel.h>
 #import <MessageUI/MessageUI.h>
-#import <DKNightVersion/DKNightVersion.h>
 #import <AFNetworking/AFNetworking.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <Masonry/Masonry.h>
@@ -27,6 +26,7 @@
 #import <BHBPopView/BHBPopView.h>
 #import <LEETheme/LEETheme.h>
 #import <ASIHTTPRequest/ASIHTTPRequest.h>
+#import "FSPagerView-Swift.h"
 
 #import "AppDelegate.h"
 #import "AppMacro.h"
@@ -43,6 +43,5 @@
 #import "BIUPNetworkManager.h"
 #import "FileUtils.h"
 #import "UIImageView+Util.h"
-//#import "FSPagerView-Swift.h"
 
 #endif /* PrefixHeader_pch */

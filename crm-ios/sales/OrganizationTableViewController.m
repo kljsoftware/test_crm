@@ -42,7 +42,8 @@
 - (void)requestData {
     
     NSString* urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL,API_ORGANIZATION_LIST];
-    [NetWorkManager request:POST_METHOD URL:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSDictionary *requestHeader = @{@"userId":[NSString stringWithFormat:@"%lld",[Config getOwnID]], @"token":[Config getToken]};
+    [NetWorkManager request:POST_METHOD URL:urlStr requestHeader:requestHeader parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSArray* data = responseObject[@"data"];
         self.dataArray = [Organizations mj_objectArrayWithKeyValuesArray:data];
