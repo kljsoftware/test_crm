@@ -44,7 +44,7 @@
         NSString *authorString = [NSString stringWithFormat:@"回复：%@ ", comment.uname];
         if ([weakSelf.editingBar.editView.text rangeOfString:authorString].location == NSNotFound) {
             weakSelf.editingBar.editView.placeholder = authorString;
-            _commentid = comment.id;
+            self.commentid = comment.id;
             [weakSelf.editingBar.editView becomeFirstResponder];
         }
     };

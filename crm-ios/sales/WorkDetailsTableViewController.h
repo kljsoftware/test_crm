@@ -13,8 +13,8 @@
 @property (nonatomic, strong) Work *work;
 @property (nonatomic,strong) NSMutableArray *dataModels;
 @property (nonatomic, copy) void (^didWorkCommentSelected)(Comment *comment);
-@property (nonatomic, copy) void (^didScroll)();
-@property (nonatomic, copy) void (^didActivatedInputBar)();
-@property (nonatomic, copy) void (^refreshContent)();
+@property (nonatomic, copy) void (^didScroll)(void);
+@property (nonatomic, copy) void (^didActivatedInputBar)(void);
+@property (nonatomic, copy) void (^refreshContent)(void);
 - (void)reloadCommentList;
 @end

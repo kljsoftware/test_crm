@@ -84,28 +84,28 @@
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id _Nonnull responseObject, NSError *error) {
         if (error) {
             NSLog(@"Error:-->%@", error);
-            _hud.label.text = @"网络错误";
-            [_hud hideAnimated:YES afterDelay:1];
+            self.hud.label.text = @"网络错误";
+            [self.hud hideAnimated:YES afterDelay:1];
         } else {
             NSString *responseString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
             NSLog(@"DATA-->%@", responseString);
             if (responseObject) {
                 NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
                 if ([dictionary[@"result"] intValue] == 1) {
-                    _hud.label.text = @"创建成功";
-                    [_hud hideAnimated:YES afterDelay:1];
+                    self.hud.label.text = @"创建成功";
+                    [self.hud hideAnimated:YES afterDelay:1];
                     if (self.navigationController.viewControllers.count <= 1) {
                         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                     } else {
                         [self.navigationController popViewControllerAnimated:YES];
                     }
                 }else{
-                    _hud.label.text = @"创建失败";
-                    [_hud hideAnimated:YES afterDelay:1];
+                    self.hud.label.text = @"创建失败";
+                    [self.hud hideAnimated:YES afterDelay:1];
                 }
             }else{
-                _hud.label.text = @"创建失败";
-                [_hud hideAnimated:YES afterDelay:1];
+                self.hud.label.text = @"创建失败";
+                [self.hud hideAnimated:YES afterDelay:1];
             }
         }
     }];

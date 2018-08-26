@@ -185,15 +185,15 @@
                     temp = modelArray.mutableCopy;
                     for (OrgUserInfo *model in temp) {
            
-                        NSInteger uid = [_dbUtil selectOrgUserById:model.id].id;
+                        NSInteger uid = [self.dbUtil selectOrgUserById:model.id].id;
                         if (uid == 0) {
-                            [_dbUtil insertOrgUserInfo:model];
+                            [self.dbUtil insertOrgUserInfo:model];
                         }else{
-                            [_dbUtil updateOrgUserInfo:model];
+                            [self.dbUtil updateOrgUserInfo:model];
                         }
                         
                     }
-                    [_preferUtil setInt:LastColleagueListUpdate data:[dictionary[@"updatetime"] longValue]];
+                    [self.preferUtil setInt:LastColleagueListUpdate data:[dictionary[@"updatetime"] longValue]];
                 }else{
                     
                 }
