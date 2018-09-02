@@ -216,14 +216,14 @@
         if (sender == sortBtn) {
             sortLabel.textColor = [UIColor colorWithHex:0x333333];
             siftLabel.textColor = [UIColor lightGrayColor];
-            sortArrow.image = [UIImage imageNamed:@"customer_arrow_down"];
-            siftArrow.image = [UIImage imageNamed:@"customer_arrow_up"];
+            sortArrow.image = [UIImage imageNamed:@"customer_arrow_up"];
+            siftArrow.image = [UIImage imageNamed:@"customer_arrow_down"];
             siftBtn.selected = false;
         } else {
             siftLabel.textColor = [UIColor colorWithHex:0x333333];
             sortLabel.textColor = [UIColor lightGrayColor];
-            siftArrow.image = [UIImage imageNamed:@"customer_arrow_down"];
-            sortArrow.image = [UIImage imageNamed:@"customer_arrow_up"];
+            siftArrow.image = [UIImage imageNamed:@"customer_arrow_up"];
+            sortArrow.image = [UIImage imageNamed:@"customer_arrow_down"];
             sortBtn.selected = false;
         }
         self.lineView.hidden = false;
@@ -265,10 +265,10 @@
         UIImageView *siftArrow = (UIImageView *)[siftBtn viewWithTag:301];
         if (weakSelf.selectBtn == sortBtn) {
             sortLabel.textColor = [UIColor lightGrayColor];
-            sortArrow.image = [UIImage imageNamed:@"customer_arrow_up"];
+            sortArrow.image = [UIImage imageNamed:@"customer_arrow_down"];
         } else {
             siftLabel.textColor = [UIColor lightGrayColor];
-            siftArrow.image = [UIImage imageNamed:@"customer_arrow_up"];
+            siftArrow.image = [UIImage imageNamed:@"customer_arrow_down"];
         }
         weakSelf.lineView.hidden = true;
         if (weakSelf.selectBtn.tag == 100) {
