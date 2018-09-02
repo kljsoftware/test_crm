@@ -116,6 +116,8 @@
         [(UINavigationController *)self.selectedViewController pushViewController:vc animated:YES];
     }else if (i == 0){
         SelectColleaguesTableViewController *vc = [[SelectColleaguesTableViewController alloc] init];
+        vc.navigationItem.title = @"选择好友";
+        vc.type = SelectColleaguesCreate;
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
         [self.selectedViewController presentViewController:nav animated:YES completion:nil];
     }else if(i == 2){

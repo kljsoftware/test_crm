@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ODiscussSettingMemberCell">
+            <rect key="frame" x="0.0" y="0.0" width="65" height="92"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="65" height="92"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2h4-bO-vL2">
+                        <rect key="frame" x="2" y="2" width="61" height="61"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="2h4-bO-vL2" secondAttribute="height" multiplier="1:1" id="3n8-KV-I6e"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXi-DA-Sbk">
+                        <rect key="frame" x="0.0" y="68" width="65" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="2h4-bO-vL2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="BS6-Fg-9du"/>
+                <constraint firstItem="iXi-DA-Sbk" firstAttribute="top" secondItem="2h4-bO-vL2" secondAttribute="bottom" constant="5" id="FOf-UM-GLW"/>
+                <constraint firstItem="2h4-bO-vL2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="UcT-Qw-Seh"/>
+                <constraint firstAttribute="trailing" secondItem="2h4-bO-vL2" secondAttribute="trailing" constant="2" id="b4B-c1-tJV"/>
+                <constraint firstAttribute="trailing" secondItem="iXi-DA-Sbk" secondAttribute="trailing" id="fHm-lg-mJ5"/>
+                <constraint firstItem="iXi-DA-Sbk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="r6s-cK-J2i"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="65" height="92"/>
+            <connections>
+                <outlet property="nameLabel" destination="iXi-DA-Sbk" id="4ni-Ur-BAR"/>
+                <outlet property="portraitImgView" destination="2h4-bO-vL2" id="oS6-5d-Twl"/>
+            </connections>
+            <point key="canvasLocation" x="41.5" y="98"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -36,11 +36,12 @@
     _headerView.backgroundColor = [UIColor whiteColor];
     self.conversationListTableView.tableHeaderView = _headerView;
 
+    WeakSelf;
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"serverno"]];
     [_headerView addSubview:imageView];
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(12);
-        make.centerY.equalTo(_headerView);
+        make.centerY.equalTo(weakSelf.headerView);
         make.width.height.mas_equalTo(44);
     }];
     
@@ -52,7 +53,7 @@
     [_serverLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(imageView.mas_right).offset(12);
         make.width.height.mas_equalTo(48);
-        make.centerY.equalTo(_headerView);
+        make.centerY.equalTo(weakSelf.headerView);
     }];
     
     _unreadLabel = [[UILabel alloc] init];
@@ -61,9 +62,9 @@
     _unreadLabel.font = [UIFont systemFontOfSize:13];
     [_headerView addSubview:_unreadLabel];
     [_unreadLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_serverLabel.mas_right).offset(2);
+        make.left.equalTo(weakSelf.serverLabel.mas_right).offset(2);
         make.width.mas_equalTo(120);
-        make.centerY.equalTo(_headerView);
+        make.centerY.equalTo(weakSelf.headerView);
     }];
 
     UIView *spliteline = [[UIView alloc] initWithFrame:CGRectMake(10, 62.5, 640, 1.0f/[UIScreen mainScreen].scale)];
@@ -189,27 +190,27 @@
         }
         self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",count];
         NSLog(@"0000MAIN---%d",count);
-    }else{
+    } else {
+        WeakSelf;
         dispatch_sync(dispatch_get_main_queue(), ^{
             int unread = [[RCIMClient sharedRCIMClient] getUnreadCount:ConversationType_PRIVATE targetId:@"out_0"];
             if (unread > 0) {
-                _countLabel.hidden = NO;
-                _unreadLabel.hidden = NO;
-                _unreadLabel.text = [NSString stringWithFormat:@"(%d条未读消息)",unread];
+                weakSelf.countLabel.hidden = NO;
+                weakSelf.unreadLabel.hidden = NO;
+                weakSelf.unreadLabel.text = [NSString stringWithFormat:@"(%d条未读消息)",unread];
             }else{
-                _countLabel.hidden = YES;
-                _unreadLabel.hidden = YES;
+                weakSelf.countLabel.hidden = YES;
+                weakSelf.unreadLabel.hidden = YES;
             }
             
-            int count = [[RCIMClient sharedRCIMClient]
-                         getUnreadCount:self.displayConversationTypeArray];
+            int count = [[RCIMClient sharedRCIMClient] getUnreadCount:weakSelf.displayConversationTypeArray];
             count = [[RCIMClient sharedRCIMClient] getTotalUnreadCount];
             count = count - unread;
             if (count <= 0) {
-                self.navigationController.tabBarItem.badgeValue = nil;
+                weakSelf.navigationController.tabBarItem.badgeValue = nil;
                 return ;
             }
-            self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",count];
+            weakSelf.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",count];
             NSLog(@"0000---%d",count);
         });
     }

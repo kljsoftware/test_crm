@@ -27,7 +27,7 @@
 - (void)setupView{
     _iconImageView = [UIImageView new];
     [self.contentView addSubview:_iconImageView];
-    _iconImageView.layer.cornerRadius = 18;
+    _iconImageView.layer.cornerRadius = 20;
     _iconImageView.layer.masksToBounds = true;
     _nameLabel = [UILabel new];
     _nameLabel.textColor = [UIColor colorWithHex:0x333333];
@@ -39,7 +39,7 @@
     
     _iconImageView.sd_layout
     .leftSpaceToView(self.contentView, margin)
-    .widthIs(36)
+    .widthIs(40)
     .heightEqualToWidth()
     .centerYEqualToView(self.contentView);
     

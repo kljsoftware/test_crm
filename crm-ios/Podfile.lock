@@ -48,15 +48,9 @@ PODS:
   - Qiniu (7.2.5):
     - HappyDNS (~> 0.3)
   - Reachability (3.2)
-  - RongCloudIM (2.9.4):
-    - RongCloudIM/IMKit (= 2.9.4)
-    - RongCloudIM/IMLib (= 2.9.4)
-    - RongCloudIM/RedPacket (= 2.9.4)
   - RongCloudIM/IMKit (2.9.4):
     - RongCloudIM/IMLib
   - RongCloudIM/IMLib (2.9.4)
-  - RongCloudIM/RedPacket (2.9.4):
-    - RongCloudIM/IMKit
   - SDAutoLayout (2.2.1)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
@@ -81,7 +75,8 @@ DEPENDENCIES:
   - MLEmojiLabel (~> 1.0.2)
   - MLLabel (~> 1.10.5)
   - Qiniu (~> 7.2.4)
-  - RongCloudIM (~> 2.9.4)
+  - RongCloudIM/IMKit (~> 2.9.4)
+  - RongCloudIM/IMLib (~> 2.9.4)
   - SDAutoLayout (~> 2.2.1)
   - SDWebImage (~> 4.4.2)
 
@@ -136,6 +131,6 @@ SPEC CHECKSUMS:
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 
-PODFILE CHECKSUM: bfddaa665274e4c2326369e56b8a3440a9a4e3e5
+PODFILE CHECKSUM: af08fdaf659d1ea45975059a6f60745bc2a82260
 
 COCOAPODS: 1.5.0

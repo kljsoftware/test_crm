@@ -2,13 +2,20 @@
 //  ODiscussSettingSwitchCell.h
 //  sales
 //
-//  Created by user on 2016/12/27.
-//  Copyright © 2016年 rayootech. All rights reserved.
+//  Created by Sunny on 2018/8/26.
+//  Copyright © 2018年 rayootech. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
+typedef void(^SwitchCellBlock)(NSIndexPath *indexPath, BOOL on);
+
 @interface ODiscussSettingSwitchCell : UITableViewCell
-@property(nonatomic, strong) UISwitch *swich;
-@property(nonatomic, strong) UILabel *label;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *rightSwitch;
+@property (nonatomic, strong) NSIndexPath *indexPath;
+
+@property (nonatomic, copy) SwitchCellBlock block;
+
 @end

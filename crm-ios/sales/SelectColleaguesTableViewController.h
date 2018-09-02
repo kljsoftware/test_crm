@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, SelectColleaguesType) {
+    SelectColleaguesAdd,
+    SelectColleaguesDelete,
+    SelectColleaguesCreate,
+};
+
 @interface SelectColleaguesTableViewController : UITableViewController
 
-@property(nonatomic, strong) NSMutableArray *addDiscussionGroupMembers;
+@property(nonatomic, strong) NSMutableArray *dataArray;
 @property(nonatomic, strong) NSString *discussionId;
+@property (nonatomic, assign) SelectColleaguesType type;
 
 @end

@@ -15,6 +15,13 @@
 		A3695BCC2129409200E3E0A6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCB2129409200E3E0A6 /* BaseViewController.m */; };
 		A3695BCF212942E700E3E0A6 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */; };
 		A38193C32132635E009D5973 /* CCSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38193C12132635D009D5973 /* CCSegmentView.m */; };
+		A38193C72132CC9E009D5973 /* ODiscussSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A38193C52132CC9E009D5973 /* ODiscussSettingCell.m */; };
+		A38193C82132CC9E009D5973 /* ODiscussSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A38193C62132CC9E009D5973 /* ODiscussSettingCell.xib */; };
+		A38193CC2132D00C009D5973 /* ODiscussSettingSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A38193CA2132D00C009D5973 /* ODiscussSettingSwitchCell.m */; };
+		A38193CD2132D00C009D5973 /* ODiscussSettingSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A38193CB2132D00C009D5973 /* ODiscussSettingSwitchCell.xib */; };
+		A38CA2632137CF5D00E33E11 /* ODiscussSettingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38CA2622137CF5D00E33E11 /* ODiscussSettingHeaderView.m */; };
+		A38CA2672137D29200E33E11 /* ODiscussSettingMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A38CA2652137D29200E33E11 /* ODiscussSettingMemberCell.m */; };
+		A38CA2682137D29200E33E11 /* ODiscussSettingMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A38CA2662137D29200E33E11 /* ODiscussSettingMemberCell.xib */; };
 		A3F6EBD0212B138E009BFD43 /* OrganizationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F6EBCE212B138E009BFD43 /* OrganizationTableViewCell.m */; };
 		A3F6EBD1212B138E009BFD43 /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F6EBCF212B138E009BFD43 /* OrganizationTableViewCell.xib */; };
 		A3F6EBD6212B1927009BFD43 /* OrganizationInviteDefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F6EBD4212B1927009BFD43 /* OrganizationInviteDefaultCell.m */; };
@@ -46,8 +53,6 @@
 		CE728E801E67F11800437FB2 /* SelectColleauesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE728E7F1E67F11800437FB2 /* SelectColleauesTableViewCell.m */; };
 		CE728E831E67FEF200437FB2 /* IConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE728E821E67FEF200437FB2 /* IConversationViewController.m */; };
 		CE728E871E67FF6800437FB2 /* IDiscussGroupSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE728E861E67FF6800437FB2 /* IDiscussGroupSettingViewController.m */; };
-		CE728E8A1E680F1200437FB2 /* ISettingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE728E891E680F1200437FB2 /* ISettingBaseViewController.m */; };
-		CE728E8D1E680F8100437FB2 /* IConversationSettingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE728E8C1E680F8100437FB2 /* IConversationSettingBaseViewController.m */; };
 		CE728E901E680FAC00437FB2 /* IConversationSettingTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CE728E8F1E680FAC00437FB2 /* IConversationSettingTableViewHeader.m */; };
 		CE728E931E68108D00437FB2 /* IConversationSettingTableViewHeaderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CE728E921E68108D00437FB2 /* IConversationSettingTableViewHeaderItem.m */; };
 		CE728E961E69117500437FB2 /* FindCustomerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE728E951E69117500437FB2 /* FindCustomerTableViewController.m */; };
@@ -74,13 +79,6 @@
 		CE93EC471E07C0CB00D26948 /* RCDTabBarBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC461E07C0CB00D26948 /* RCDTabBarBtn.m */; };
 		CE93EC4C1E0A692A00D26948 /* OSelectFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC4B1E0A692A00D26948 /* OSelectFriendsViewController.m */; };
 		CE93EC551E0A701D00D26948 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC541E0A701D00D26948 /* FriendTableViewCell.m */; };
-		CE93EC601E12088D00D26948 /* OConversationSettingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC5F1E12088D00D26948 /* OConversationSettingBaseViewController.m */; };
-		CE93EC631E12091700D26948 /* OConversationSettingTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC621E12091700D26948 /* OConversationSettingTableViewHeader.m */; };
-		CE93EC661E120CAD00D26948 /* OConversationSettingTableViewHeaderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC651E120CAD00D26948 /* OConversationSettingTableViewHeaderItem.m */; };
-		CE93EC691E12571800D26948 /* OSettingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC681E12571800D26948 /* OSettingBaseViewController.m */; };
-		CE93EC6F1E125CC800D26948 /* ODiscussGroupSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC6E1E125CC800D26948 /* ODiscussGroupSettingViewController.m */; };
-		CE93EC721E125EAE00D26948 /* ODiscussSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC711E125EAE00D26948 /* ODiscussSettingCell.m */; };
-		CE93EC751E125F3A00D26948 /* ODiscussSettingSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC741E125F3A00D26948 /* ODiscussSettingSwitchCell.m */; };
 		CE93EC781E136AB600D26948 /* OConversationSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC771E136AB600D26948 /* OConversationSettingTableViewCell.m */; };
 		CE93EC7B1E1389A900D26948 /* OConversationSettingClearMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC7A1E1389A900D26948 /* OConversationSettingClearMessageCell.m */; };
 		CE93EC7E1E164BCE00D26948 /* OrganizationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE93EC7D1E164BCE00D26948 /* OrganizationTableViewController.m */; };
@@ -267,6 +265,17 @@
 		A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		A38193C12132635D009D5973 /* CCSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSegmentView.m; sourceTree = "<group>"; };
 		A38193C22132635D009D5973 /* CCSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSegmentView.h; sourceTree = "<group>"; };
+		A38193C42132CC9E009D5973 /* ODiscussSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ODiscussSettingCell.h; sourceTree = "<group>"; };
+		A38193C52132CC9E009D5973 /* ODiscussSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ODiscussSettingCell.m; sourceTree = "<group>"; };
+		A38193C62132CC9E009D5973 /* ODiscussSettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ODiscussSettingCell.xib; sourceTree = "<group>"; };
+		A38193C92132D00C009D5973 /* ODiscussSettingSwitchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ODiscussSettingSwitchCell.h; sourceTree = "<group>"; };
+		A38193CA2132D00C009D5973 /* ODiscussSettingSwitchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ODiscussSettingSwitchCell.m; sourceTree = "<group>"; };
+		A38193CB2132D00C009D5973 /* ODiscussSettingSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ODiscussSettingSwitchCell.xib; sourceTree = "<group>"; };
+		A38CA2612137CF5D00E33E11 /* ODiscussSettingHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ODiscussSettingHeaderView.h; sourceTree = "<group>"; };
+		A38CA2622137CF5D00E33E11 /* ODiscussSettingHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ODiscussSettingHeaderView.m; sourceTree = "<group>"; };
+		A38CA2642137D29200E33E11 /* ODiscussSettingMemberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ODiscussSettingMemberCell.h; sourceTree = "<group>"; };
+		A38CA2652137D29200E33E11 /* ODiscussSettingMemberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ODiscussSettingMemberCell.m; sourceTree = "<group>"; };
+		A38CA2662137D29200E33E11 /* ODiscussSettingMemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ODiscussSettingMemberCell.xib; sourceTree = "<group>"; };
 		A3F6EBCD212B138E009BFD43 /* OrganizationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizationTableViewCell.h; sourceTree = "<group>"; };
 		A3F6EBCE212B138E009BFD43 /* OrganizationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizationTableViewCell.m; sourceTree = "<group>"; };
 		A3F6EBCF212B138E009BFD43 /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
@@ -326,10 +335,6 @@
 		CE728E821E67FEF200437FB2 /* IConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IConversationViewController.m; sourceTree = "<group>"; };
 		CE728E851E67FF6800437FB2 /* IDiscussGroupSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDiscussGroupSettingViewController.h; sourceTree = "<group>"; };
 		CE728E861E67FF6800437FB2 /* IDiscussGroupSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDiscussGroupSettingViewController.m; sourceTree = "<group>"; };
-		CE728E881E680F1200437FB2 /* ISettingBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISettingBaseViewController.h; sourceTree = "<group>"; };
-		CE728E891E680F1200437FB2 /* ISettingBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISettingBaseViewController.m; sourceTree = "<group>"; };
-		CE728E8B1E680F8100437FB2 /* IConversationSettingBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IConversationSettingBaseViewController.h; sourceTree = "<group>"; };
-		CE728E8C1E680F8100437FB2 /* IConversationSettingBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IConversationSettingBaseViewController.m; sourceTree = "<group>"; };
 		CE728E8E1E680FAC00437FB2 /* IConversationSettingTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IConversationSettingTableViewHeader.h; sourceTree = "<group>"; };
 		CE728E8F1E680FAC00437FB2 /* IConversationSettingTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IConversationSettingTableViewHeader.m; sourceTree = "<group>"; };
 		CE728E911E68108D00437FB2 /* IConversationSettingTableViewHeaderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IConversationSettingTableViewHeaderItem.h; sourceTree = "<group>"; };
@@ -380,20 +385,6 @@
 		CE93EC4B1E0A692A00D26948 /* OSelectFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSelectFriendsViewController.m; sourceTree = "<group>"; };
 		CE93EC531E0A701D00D26948 /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
 		CE93EC541E0A701D00D26948 /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
-		CE93EC5E1E12088D00D26948 /* OConversationSettingBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OConversationSettingBaseViewController.h; sourceTree = "<group>"; };
-		CE93EC5F1E12088D00D26948 /* OConversationSettingBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OConversationSettingBaseViewController.m; sourceTree = "<group>"; };
-		CE93EC611E12091700D26948 /* OConversationSettingTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OConversationSettingTableViewHeader.h; sourceTree = "<group>"; };
-		CE93EC621E12091700D26948 /* OConversationSettingTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OConversationSettingTableViewHeader.m; sourceTree = "<group>"; };
-		CE93EC641E120CAD00D26948 /* OConversationSettingTableViewHeaderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OConversationSettingTableViewHeaderItem.h; sourceTree = "<group>"; };
-		CE93EC651E120CAD00D26948 /* OConversationSettingTableViewHeaderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OConversationSettingTableViewHeaderItem.m; sourceTree = "<group>"; };
-		CE93EC671E12571800D26948 /* OSettingBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSettingBaseViewController.h; sourceTree = "<group>"; };
-		CE93EC681E12571800D26948 /* OSettingBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSettingBaseViewController.m; sourceTree = "<group>"; };
-		CE93EC6D1E125CC800D26948 /* ODiscussGroupSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODiscussGroupSettingViewController.h; sourceTree = "<group>"; };
-		CE93EC6E1E125CC800D26948 /* ODiscussGroupSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODiscussGroupSettingViewController.m; sourceTree = "<group>"; };
-		CE93EC701E125EAE00D26948 /* ODiscussSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODiscussSettingCell.h; sourceTree = "<group>"; };
-		CE93EC711E125EAE00D26948 /* ODiscussSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODiscussSettingCell.m; sourceTree = "<group>"; };
-		CE93EC731E125F3A00D26948 /* ODiscussSettingSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODiscussSettingSwitchCell.h; sourceTree = "<group>"; };
-		CE93EC741E125F3A00D26948 /* ODiscussSettingSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODiscussSettingSwitchCell.m; sourceTree = "<group>"; };
 		CE93EC761E136AB600D26948 /* OConversationSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OConversationSettingTableViewCell.h; sourceTree = "<group>"; };
 		CE93EC771E136AB600D26948 /* OConversationSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OConversationSettingTableViewCell.m; sourceTree = "<group>"; };
 		CE93EC791E1389A900D26948 /* OConversationSettingClearMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OConversationSettingClearMessageCell.h; sourceTree = "<group>"; };
@@ -851,18 +842,21 @@
 			children = (
 				CE93EC531E0A701D00D26948 /* FriendTableViewCell.h */,
 				CE93EC541E0A701D00D26948 /* FriendTableViewCell.m */,
-				CE93EC611E12091700D26948 /* OConversationSettingTableViewHeader.h */,
-				CE93EC621E12091700D26948 /* OConversationSettingTableViewHeader.m */,
-				CE93EC641E120CAD00D26948 /* OConversationSettingTableViewHeaderItem.h */,
-				CE93EC651E120CAD00D26948 /* OConversationSettingTableViewHeaderItem.m */,
-				CE93EC701E125EAE00D26948 /* ODiscussSettingCell.h */,
-				CE93EC711E125EAE00D26948 /* ODiscussSettingCell.m */,
-				CE93EC731E125F3A00D26948 /* ODiscussSettingSwitchCell.h */,
-				CE93EC741E125F3A00D26948 /* ODiscussSettingSwitchCell.m */,
+				A38193C42132CC9E009D5973 /* ODiscussSettingCell.h */,
+				A38193C52132CC9E009D5973 /* ODiscussSettingCell.m */,
+				A38193C62132CC9E009D5973 /* ODiscussSettingCell.xib */,
+				A38193C92132D00C009D5973 /* ODiscussSettingSwitchCell.h */,
+				A38193CA2132D00C009D5973 /* ODiscussSettingSwitchCell.m */,
+				A38193CB2132D00C009D5973 /* ODiscussSettingSwitchCell.xib */,
 				CE93EC761E136AB600D26948 /* OConversationSettingTableViewCell.h */,
 				CE93EC771E136AB600D26948 /* OConversationSettingTableViewCell.m */,
 				CE93EC791E1389A900D26948 /* OConversationSettingClearMessageCell.h */,
 				CE93EC7A1E1389A900D26948 /* OConversationSettingClearMessageCell.m */,
+				A38CA2612137CF5D00E33E11 /* ODiscussSettingHeaderView.h */,
+				A38CA2622137CF5D00E33E11 /* ODiscussSettingHeaderView.m */,
+				A38CA2642137D29200E33E11 /* ODiscussSettingMemberCell.h */,
+				A38CA2652137D29200E33E11 /* ODiscussSettingMemberCell.m */,
+				A38CA2662137D29200E33E11 /* ODiscussSettingMemberCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -953,10 +947,6 @@
 				CE728E821E67FEF200437FB2 /* IConversationViewController.m */,
 				CE728E851E67FF6800437FB2 /* IDiscussGroupSettingViewController.h */,
 				CE728E861E67FF6800437FB2 /* IDiscussGroupSettingViewController.m */,
-				CE728E881E680F1200437FB2 /* ISettingBaseViewController.h */,
-				CE728E891E680F1200437FB2 /* ISettingBaseViewController.m */,
-				CE728E8B1E680F8100437FB2 /* IConversationSettingBaseViewController.h */,
-				CE728E8C1E680F8100437FB2 /* IConversationSettingBaseViewController.m */,
 				CEF6CCE11E7A27B10076AA60 /* BillTableViewController.h */,
 				CEF6CCE21E7A27B20076AA60 /* BillTableViewController.m */,
 			);
@@ -1616,12 +1606,6 @@
 				CE6DA4E01DEFFC87005A67A4 /* OConversationViewController.m */,
 				CE93EC4A1E0A692A00D26948 /* OSelectFriendsViewController.h */,
 				CE93EC4B1E0A692A00D26948 /* OSelectFriendsViewController.m */,
-				CE93EC5E1E12088D00D26948 /* OConversationSettingBaseViewController.h */,
-				CE93EC5F1E12088D00D26948 /* OConversationSettingBaseViewController.m */,
-				CE93EC671E12571800D26948 /* OSettingBaseViewController.h */,
-				CE93EC681E12571800D26948 /* OSettingBaseViewController.m */,
-				CE93EC6D1E125CC800D26948 /* ODiscussGroupSettingViewController.h */,
-				CE93EC6E1E125CC800D26948 /* ODiscussGroupSettingViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2013,8 +1997,9 @@
 				TargetAttributes = {
 					CEE863611DCB0EFB00695F0F = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = NAGPV52B3Z;
 						LastSwiftMigration = 0940;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -2048,10 +2033,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE61DC4B1E962ABC00421C7E /* Work.storyboard in Resources */,
+				A38CA2682137D29200E33E11 /* ODiscussSettingMemberCell.xib in Resources */,
 				CEE8641A1DDAF0EC00695F0F /* FontAwesome.ttf in Resources */,
 				CE94DE6A1E2F5B640049BA71 /* PaperTableViewCell.xib in Resources */,
 				CEC97EF91DF1470B0040C356 /* Contact.storyboard in Resources */,
 				CE9ECB4F1EA4B0E00053BCA9 /* IMe.storyboard in Resources */,
+				A38193C82132CC9E009D5973 /* ODiscussSettingCell.xib in Resources */,
 				A3F6EBD1212B138E009BFD43 /* OrganizationTableViewCell.xib in Resources */,
 				CEA456AF1E4AACAE0011356B /* NewsTableViewCell.xib in Resources */,
 				CE9ECB781EA7463E0053BCA9 /* TZImagePickerController.bundle in Resources */,
@@ -2060,6 +2047,7 @@
 				CEE863751DCB0EFD00695F0F /* LaunchScreen.storyboard in Resources */,
 				CEE864241DDD854F00695F0F /* OMeViewController.storyboard in Resources */,
 				CE93ECB31E1C9F1000D26948 /* IMain.storyboard in Resources */,
+				A38193CD2132D00C009D5973 /* ODiscussSettingSwitchCell.xib in Resources */,
 				CE78A0501E601F5D008F321B /* Colleague.storyboard in Resources */,
 				CE78A0551E640B4F008F321B /* ReadView.storyboard in Resources */,
 				CEE8639A1DCB100000695F0F /* Images.xcassets in Resources */,
@@ -2147,12 +2135,6 @@
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCColor.plist",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/JResource.bundle",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/en.lproj",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/zh-Hans.lproj",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/jrmf.cer",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/AlipaySDK/AlipaySDK.bundle",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/WalletResource.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -2162,10 +2144,6 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Emoji.plist",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCColor.plist",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCConfig.plist",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JResource.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/jrmf.cer",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WalletResource.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2202,7 +2180,6 @@
 				CED9D74B1DE81742002FD5D7 /* JFAssetHelper.m in Sources */,
 				CE9ECB841EA85FC80053BCA9 /* SetLeaderTableViewController.m in Sources */,
 				CE7D479D1E83AF35009958A7 /* CustomerDistTableViewController.m in Sources */,
-				CE728E8D1E680F8100437FB2 /* IConversationSettingBaseViewController.m in Sources */,
 				CE9ECB331EA07CF20053BCA9 /* WorkUnreadDetailsTableViewController.m in Sources */,
 				CE93EC471E07C0CB00D26948 /* RCDTabBarBtn.m in Sources */,
 				CE728E931E68108D00437FB2 /* IConversationSettingTableViewHeaderItem.m in Sources */,
@@ -2217,8 +2194,8 @@
 				CEE863FB1DD564CE00695F0F /* CircleTableCell.m in Sources */,
 				CE93ED141E24CE6100D26948 /* ColleagueTableViewCell.m in Sources */,
 				CE728E991E6D37F600437FB2 /* FindCustomerTableViewCell.m in Sources */,
-				CE93EC661E120CAD00D26948 /* OConversationSettingTableViewHeaderItem.m in Sources */,
 				CE93EC831E16516D00D26948 /* Organizations.m in Sources */,
+				A38193CC2132D00C009D5973 /* ODiscussSettingSwitchCell.m in Sources */,
 				CE9ECB761EA7463E0053BCA9 /* TZImageCropManager.m in Sources */,
 				CE6DA4DE1DEEB207005A67A4 /* OConversationListViewController.m in Sources */,
 				CEA456EC1E5594BF0011356B /* CustomerEditViewController.m in Sources */,
@@ -2274,9 +2251,7 @@
 				CEE863DA1DD06F5400695F0F /* Utils.m in Sources */,
 				CE94DE5C1E2F38AE0049BA71 /* INewsTableViewController.m in Sources */,
 				CE61DC511E9780F800421C7E /* WorkChooseColleagueTableViewController.m in Sources */,
-				CE93EC751E125F3A00D26948 /* ODiscussSettingSwitchCell.m in Sources */,
 				CE9ECB1A1E9CB2750053BCA9 /* WorkDetailsHeaderView.m in Sources */,
-				CE93EC691E12571800D26948 /* OSettingBaseViewController.m in Sources */,
 				CE94DE711E30A1630049BA71 /* PaperDetailsViewController.m in Sources */,
 				CEA456C41E52AA6D0011356B /* Active.m in Sources */,
 				CEF6CCE91E7A61F60076AA60 /* OrganizationInviteDealTableViewController.m in Sources */,
@@ -2312,7 +2287,6 @@
 				CE9ECB201E9DCBD50053BCA9 /* WorkStaffTableViewController.m in Sources */,
 				CE78A0531E602282008F321B /* ColleagueDetailsViewController.m in Sources */,
 				CE9ECB431EA46B7D0053BCA9 /* Dept.m in Sources */,
-				CE93EC6F1E125CC800D26948 /* ODiscussGroupSettingViewController.m in Sources */,
 				CE78A0391E5E9167008F321B /* CustomerSocialViewController.m in Sources */,
 				CEE863D71DD06A2400695F0F /* BaseModel.m in Sources */,
 				CE728E961E69117500437FB2 /* FindCustomerTableViewController.m in Sources */,
@@ -2321,12 +2295,13 @@
 				CE61DC401E8CDE8200421C7E /* PasswordViewController.m in Sources */,
 				CEF6CCEF1E7A6F720076AA60 /* FileUtils.m in Sources */,
 				CE93EC891E1B40B300D26948 /* OrganizationViewController.m in Sources */,
+				A38193C72132CC9E009D5973 /* ODiscussSettingCell.m in Sources */,
 				CE546D111E70EF2F00DCAC56 /* ReqFriendDbUtil.m in Sources */,
 				CEA456C11E529CBA0011356B /* NewsDetailsViewController.m in Sources */,
 				CED9D74E1DE81742002FD5D7 /* JFImageManager.m in Sources */,
 				CEA456D61E53E48E0011356B /* BlackBoardDetailsHeaderView.m in Sources */,
 				A360A200213197CB00CCA194 /* ImagePickerCell.m in Sources */,
-				CE93EC721E125EAE00D26948 /* ODiscussSettingCell.m in Sources */,
+				A38CA2632137CF5D00E33E11 /* ODiscussSettingHeaderView.m in Sources */,
 				CE9ECB521EA5AAB00053BCA9 /* CreateSecondViewController.m in Sources */,
 				CEE8636D1DCB0EFC00695F0F /* ViewController.m in Sources */,
 				CE728E901E680FAC00437FB2 /* IConversationSettingTableViewHeader.m in Sources */,
@@ -2334,7 +2309,6 @@
 				CE9ECB791EA7463E0053BCA9 /* TZImagePickerController.m in Sources */,
 				CEE863EF1DD4093800695F0F /* SalesDbUtil.m in Sources */,
 				CEE864361DE2E3A200695F0F /* BottomBarViewController.m in Sources */,
-				CE93EC601E12088D00D26948 /* OConversationSettingBaseViewController.m in Sources */,
 				CEE864051DD5BBC600695F0F /* PhotoContainerView.m in Sources */,
 				CE93EC441E07BF9A00D26948 /* UIColor+RCColor.m in Sources */,
 				CEE864011DD5B47000695F0F /* CircleCellCommentView.m in Sources */,
@@ -2360,7 +2334,7 @@
 				CEC97F021DF553B20040C356 /* ContactDetailsViewController.m in Sources */,
 				CE94DE651E2F4F790049BA71 /* Paper.m in Sources */,
 				CED9D7571DEC1854002FD5D7 /* Url.m in Sources */,
-				CE93EC631E12091700D26948 /* OConversationSettingTableViewHeader.m in Sources */,
+				A38CA2672137D29200E33E11 /* ODiscussSettingMemberCell.m in Sources */,
 				A33F40F5212D83A500BC83F2 /* UIColor+Util.m in Sources */,
 				A31E531D212B0C7E005331AB /* BIUPNetworkManager.m in Sources */,
 				CE61DC431E8CFC5A00421C7E /* ForgetViewController.m in Sources */,
@@ -2370,7 +2344,6 @@
 				CE2E63A71DE525E200022F7A /* DetailsHeaderView.m in Sources */,
 				CE728E7D1E67C6B900437FB2 /* SelectColleaguesTableViewController.m in Sources */,
 				CEC97EFC1DF147590040C356 /* AddContactViewController.m in Sources */,
-				CE728E8A1E680F1200437FB2 /* ISettingBaseViewController.m in Sources */,
 				CEE863F61DD55ECB00695F0F /* Circle.m in Sources */,
 				CEE863EB1DD3107500695F0F /* UIViewLinkTouch.m in Sources */,
 				CED9D74D1DE81742002FD5D7 /* JFImageGroupTableViewController.m in Sources */,
@@ -2489,7 +2462,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2542,7 +2515,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -2553,20 +2526,20 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A6F1E260E0E33E263C971129 /* Pods-sales.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = sales/sales.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: jiang cheng wei (4M67UH93KS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiang cheng wei (4M67UH93KS)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NAGPV52B3Z;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sales/lib/IMKit",
-					"$(PROJECT_DIR)/sales/lib/IMLib",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/sales/PrefixHeader.pch";
 				INFOPLIST_FILE = sales/Info.plist;
@@ -2574,16 +2547,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/sales/lib/IMLib",
-					"$(PROJECT_DIR)/sales/UMessage_Sdk_1.4.0",
-					"$(PROJECT_DIR)/sales/UMessage_Sdk_All_1.5.0a/UMessage_Sdk_1.5.0a",
-					"$(PROJECT_DIR)/sales/UMessage_Sdk_All_1.5.0a/UMessage_Sdk_Demo/UMessage_Sdk_Demo/UMessage_Sdk_1.5.0a",
 					"$(PROJECT_DIR)/sales/UMessage_Sdk_1.5.0a",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.guall.salesconn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "544f3ec0-e6dd-4eef-842d-99f56ac43f37";
+				PROVISIONING_PROFILE_SPECIFIER = sales_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -2596,19 +2565,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 740E17A0E5244D9EB2F89681 /* Pods-sales.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = sales/sales.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiang cheng wei (4M67UH93KS)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NAGPV52B3Z;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sales/lib/IMKit",
-					"$(PROJECT_DIR)/sales/lib/IMLib",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/sales/PrefixHeader.pch";
 				INFOPLIST_FILE = sales/Info.plist;
@@ -2616,16 +2585,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/sales/lib/IMLib",
-					"$(PROJECT_DIR)/sales/UMessage_Sdk_1.4.0",
-					"$(PROJECT_DIR)/sales/UMessage_Sdk_All_1.5.0a/UMessage_Sdk_1.5.0a",
-					"$(PROJECT_DIR)/sales/UMessage_Sdk_All_1.5.0a/UMessage_Sdk_Demo/UMessage_Sdk_Demo/UMessage_Sdk_1.5.0a",
 					"$(PROJECT_DIR)/sales/UMessage_Sdk_1.5.0a",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.guall.salesconn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "544f3ec0-e6dd-4eef-842d-99f56ac43f37";
+				PROVISIONING_PROFILE_SPECIFIER = sales_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;

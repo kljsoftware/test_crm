@@ -6,15 +6,17 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "ISettingBaseViewController.h"
+#import "BaseTableViewController.h"
 
-typedef void (^setDiscussTitle)(NSString *discussTitle);
-@interface IDiscussGroupSettingViewController : ISettingBaseViewController
+typedef void (^SetDiscussTitle)(NSString *discussTitle);
 
-//设置讨论组名称后，回传值
-@property(nonatomic, copy) setDiscussTitle setDiscussTitleCompletion;
+@interface IDiscussGroupSettingViewController : BaseTableViewController
 
-@property(nonatomic, copy) NSString *conversationTitle;
+// 设置讨论组名称后，回传值
+@property(nonatomic, copy) SetDiscussTitle setDiscussTitleCompletion;
+
+@property(nonatomic, copy) NSString *targetId;
+@property(nonatomic, assign) RCConversationType conversationType;
+@property(nonatomic, copy) NSString *discussTitle;
 
 @end

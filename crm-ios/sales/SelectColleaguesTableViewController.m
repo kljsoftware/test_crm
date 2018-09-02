@@ -19,7 +19,6 @@
 @property (nonatomic,strong) NSMutableArray *selectedObjects;
 @property (nonatomic,strong) NSMutableArray *filterObjects;
 @property (nonatomic,strong) NSMutableArray *objectsWithIndex;
-//@property (nonatomic,strong) UISearchDisplayController *searchDisplay;
 @property (nonatomic,strong) UIView *headerView;
 @property (nonatomic,strong) UISearchController *searchController;
 
@@ -29,21 +28,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"选择好友";
     _dbUtil = [[OrgUserInfoDbUtil alloc] init];
     self.selectedObjects = @[].mutableCopy;
     self.filterObjects = @[].mutableCopy;
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消"
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:@selector(cancelButtonClicked)];
+    self.view.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonClicked)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定(0)" style:UIBarButtonItemStylePlain target:self action:@selector(makeDiscussion)];
-    self.tableView.rowHeight = [SelectColleauesTableViewCell fixedHeight];
+    self.tableView.rowHeight = 60;
     self.tableView.sectionIndexColor = [UIColor lightGrayColor];
-    //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    if (self.type == SelectColleaguesDelete) {
+        self.tableView.tag = 2;
+    }
     [self initView];
     [self refresh_tableHeader];
     [self getLocalData];
@@ -132,6 +129,10 @@
                 result = 1;
         }
             break;
+        case 2: {
+            result = 1;
+        }
+            break;
         default:
             break;
     }
@@ -155,25 +156,25 @@
             result = [self.filterObjects count];
         }
             break;
+        case 2:
+        {
+            result = self.dataArray.count;
+        }
+            break;
         default:
             break;
     }
     return result;
-    //    return [self.sectionArray[section] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     
     static NSString *ID = @"Contacts";
     SelectColleauesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
         cell = [[SelectColleauesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-//    NSUInteger section = indexPath.section;
-//    NSUInteger row = indexPath.row;
-//    OrgUserInfo *model = self.sectionArray[section][row];
     OrgUserInfo *model;
     switch (tableView.tag) {
         case 0: {
@@ -182,6 +183,10 @@
             break;
         case 1: {
             model = self.filterObjects[indexPath.row];
+        }
+            break;
+        case 2: {
+            model = self.dataArray[indexPath.row];
         }
             break;
         default:
@@ -194,10 +199,12 @@
             type = true;
         }
     }
-    if (self.addDiscussionGroupMembers != nil) {
-        for (OrgUserInfo *c in self.addDiscussionGroupMembers) {
-            if (c.id == cell.model.id) {
-                type = true;
+    if (self.type != SelectColleaguesDelete) {
+        if (self.dataArray != nil) {
+            for (OrgUserInfo *c in self.dataArray) {
+                if (c.id == cell.model.id) {
+                    type = true;
+                }
             }
         }
     }
@@ -207,7 +214,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (tableView.tag == 1) {
+    if (tableView.tag > 0) {
         return nil;
     }
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
@@ -221,7 +228,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (tableView.tag == 1) {
+    if (tableView.tag > 0) {
         return 0.1;
     }
     return 25;
@@ -229,7 +236,7 @@
 
 
 - (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
-    if (tableView.tag == 1) {
+    if (tableView.tag > 0) {
         return nil;
     }
     return self.sectionTitlesArray;
@@ -247,11 +254,16 @@
             contact = self.filterObjects[indexPath.row];
         }
             break;
+        case 2: {
+            contact = self.dataArray[indexPath.row];
+        }
+            break;
         default:
             break;
     }
-    if (self.addDiscussionGroupMembers != nil) {
-        for (OrgUserInfo *c in self.addDiscussionGroupMembers) {
+    
+    if (self.type == SelectColleaguesAdd && self.dataArray != nil) {
+        for (OrgUserInfo *c in self.dataArray) {
             if (c.id == contact.id) {
                 return;
             }
@@ -266,7 +278,7 @@
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
     }
     
-    if (tableView.tag == 0) {
+    if (tableView.tag == 0 || tableView.tag == 2) {
         [self refresh_done];
         [self refresh_tableHeader];
     }
@@ -290,7 +302,8 @@
         UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(offsetX, 0, CGRectGetHeight(scrollView.frame), CGRectGetHeight(scrollView.frame))];
         image.contentMode = UIViewContentModeScaleAspectFill;
         image.tag = idx;
-        //        [image setCornerRadius:5.0];
+        image.layer.cornerRadius = CGRectGetHeight(scrollView.frame)/2;
+        image.layer.masksToBounds = true;
         [image loadPortrait:orgUserInfo.avatar];
         [scrollView addSubview:image];
         
@@ -318,9 +331,8 @@
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(blank - 2, CGRectGetMaxY(scrollView.frame) + 3, CGRectGetWidth(scrollView.frame) - 2*2, 0.5)];
     line.backgroundColor = [UIColor lightGrayColor];
     [footer addSubview:line];
-    
-    
 }
+
 - (void)refresh_done {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"确定(%ld)",self.selectedObjects.count]
                                                                               style:UIBarButtonItemStylePlain
@@ -338,10 +350,6 @@
     [self.searchController.searchBar becomeFirstResponder];
 }
 - (void)click_done{
-    Boolean type = false;
-    if(self.addDiscussionGroupMembers != nil && self.addDiscussionGroupMembers.count > 0){
-        type = true;
-    }
     if (self.selectedObjects.count <= 0) {
         return;
     }
@@ -355,31 +363,42 @@
         [userIdList addObject:[pre stringByAppendingString:id]];
     }
     NSString *title = [[Config getOrgUser].name stringByAppendingString:@"的群组"];
-    if (type) {
+    
+    if (self.type == SelectColleaguesAdd) {
         [[RCIMClient sharedRCIMClient] addMemberToDiscussion:self.discussionId userIdList:userIdList success:^(RCDiscussion *discussion) {
             NSLog(@"tian jian cheng gong");
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"addDiscussiongroupMember"
-             object:self.selectedObjects];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"addDiscussiongroupMember" object:self.selectedObjects];
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (self.navigationController.viewControllers.count <= 1) {
-                    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-                } else {
-                    [self.navigationController popViewControllerAnimated:YES];
-                }
+                [self dismissViewControllerAnimated:YES completion:nil];
             });
         } error:^(RCErrorCode status) {
-            
+        
         }];
-    }else{
+    
+    } else if (self.type == SelectColleaguesDelete) {
+        __block NSInteger count = 0;
+        for (int i = 0; i < self.selectedObjects.count; i++) {
+            OrgUserInfo *user = self.selectedObjects[i];
+            NSString *userId = [NSString stringWithFormat:@"in_%ld_%ld",[Config getDbID],user.id];
+            [[RCIM sharedRCIM] removeMemberFromDiscussion:self.discussionId userId:userId success:^(RCDiscussion *discussion) {
+                count += 1;
+                if (count == self.selectedObjects.count) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"addDiscussiongroupMember" object:self.selectedObjects];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    });
+                }
+                
+            } error:^(RCErrorCode status) {
+                NSLog(@"踢人失败");
+            }];
+        }
+    
+    } else {
         [[RCIMClient sharedRCIMClient] createDiscussion:title userIdList:userIdList success:^(RCDiscussion *discussion) {
             NSLog(@"--- chuang jian cheng gong");
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (self.navigationController.viewControllers.count <= 1) {
-                    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-                } else {
-                    [self.navigationController popViewControllerAnimated:YES];
-                }
+                [self dismissViewControllerAnimated:YES completion:nil];
             });
         } error:^(RCErrorCode status) {
             

@@ -42,29 +42,21 @@
     return NO;
 }
 
-- (void)discussionSetting{
+- (void)discussionSetting {
     IDiscussGroupSettingViewController *settingVC =
     [[IDiscussGroupSettingViewController alloc] init];
     settingVC.conversationType = self.conversationType;
     settingVC.targetId = self.targetId;
-    settingVC.conversationTitle = self.title;
+    settingVC.discussTitle = self.title;
     //设置讨论组标题时，改变当前聊天界面的标题
     settingVC.setDiscussTitleCompletion = ^(NSString *discussTitle) {
-        self.title = discussTitle;
+        [[RCIMClient sharedRCIMClient] setDiscussionName:self.targetId name:discussTitle success:^{
+            self.title = discussTitle;
+        } error:nil];
     };
-    //清除聊天记录之后reload data
-    __weak IConversationViewController *weakSelf = self;
-    settingVC.clearHistoryCompletion = ^(BOOL isSuccess) {
-        if (isSuccess) {
-            [weakSelf.conversationDataRepository removeAllObjects];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.conversationMessageCollectionView reloadData];
-            });
-        }
-    };
-    
     [self.navigationController pushViewController:settingVC animated:YES];
 }
+
 - (void)pluginBoardView:(RCPluginBoardView *)pluginBoardView
      clickedItemWithTag:(NSInteger)tag {
     switch (tag) {
