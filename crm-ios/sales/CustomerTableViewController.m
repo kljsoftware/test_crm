@@ -144,7 +144,6 @@
     
     NSArray *titles = @[@"排序",@"筛选"];
     NSArray *leftIcons = @[@"customer_sort",@"customer_sift"];
-    
     for (int i = 0; i < 2; i++) {
         
         // 按钮
@@ -178,8 +177,8 @@
             make.centerY.equalTo(btn);
         }];
         
-        // 右侧箭头
-        UIImageView *rightIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"common_right_arrow"]];
+        // 右侧上下箭头
+        UIImageView *rightIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"customer_arrow_down"]];
         rightIcon.tag = i + 300;
         [btn addSubview:rightIcon];
         [rightIcon mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -210,15 +209,21 @@
     UIButton *siftBtn = (UIButton *)[self.headerView viewWithTag:101];
     UILabel *sortLabel = (UILabel *)[sortBtn viewWithTag:200];
     UILabel *siftLabel = (UILabel *)[siftBtn viewWithTag:201];
+    UIImageView *sortArrow = (UIImageView *)[sortBtn viewWithTag:300];
+    UIImageView *siftArrow = (UIImageView *)[siftBtn viewWithTag:301];
 
     if (sender.selected) {
         if (sender == sortBtn) {
             sortLabel.textColor = [UIColor colorWithHex:0x333333];
             siftLabel.textColor = [UIColor lightGrayColor];
+            sortArrow.image = [UIImage imageNamed:@"customer_arrow_down"];
+            siftArrow.image = [UIImage imageNamed:@"customer_arrow_up"];
             siftBtn.selected = false;
         } else {
             siftLabel.textColor = [UIColor colorWithHex:0x333333];
             sortLabel.textColor = [UIColor lightGrayColor];
+            siftArrow.image = [UIImage imageNamed:@"customer_arrow_down"];
+            sortArrow.image = [UIImage imageNamed:@"customer_arrow_up"];
             sortBtn.selected = false;
         }
         self.lineView.hidden = false;
@@ -248,27 +253,32 @@
     _menuView = nil;
     
     NSArray *menuItems = self.selectBtn.tag == 100 ? @[@"按名称排序",@"按时间排序"] : @[@"全部客户",@"我的客户",@"我参与的客户",@"我的下级客户"];
+    WeakSelf;
     _menuView = [[MenuView alloc] initWithMenuItems:menuItems currentSelectIndex:self.selectBtn.tag == 100 ? self.sortIndex : self.siftIndex selectIndexs:^(NSInteger selectIndex) {
         
-        self.selectBtn.selected = false;
-        UIButton *sortBtn = (UIButton *)[self.headerView viewWithTag:100];
-        UIButton *siftBtn = (UIButton *)[self.headerView viewWithTag:101];
+        weakSelf.selectBtn.selected = false;
+        UIButton *sortBtn = (UIButton *)[weakSelf.headerView viewWithTag:100];
+        UIButton *siftBtn = (UIButton *)[weakSelf.headerView viewWithTag:101];
         UILabel *sortLabel = (UILabel *)[sortBtn viewWithTag:200];
         UILabel *siftLabel = (UILabel *)[siftBtn viewWithTag:201];
-        if (self.selectBtn == sortBtn) {
+        UIImageView *sortArrow = (UIImageView *)[sortBtn viewWithTag:300];
+        UIImageView *siftArrow = (UIImageView *)[siftBtn viewWithTag:301];
+        if (weakSelf.selectBtn == sortBtn) {
             sortLabel.textColor = [UIColor lightGrayColor];
+            sortArrow.image = [UIImage imageNamed:@"customer_arrow_up"];
         } else {
             siftLabel.textColor = [UIColor lightGrayColor];
+            siftArrow.image = [UIImage imageNamed:@"customer_arrow_up"];
         }
-        self.lineView.hidden = true;
-        if (self.selectBtn.tag == 100) {
-            self.sortIndex = selectIndex;
-            self.sorttype = selectIndex;
+        weakSelf.lineView.hidden = true;
+        if (weakSelf.selectBtn.tag == 100) {
+            weakSelf.sortIndex = selectIndex;
+            weakSelf.sorttype = selectIndex;
         } else {
-            self.siftIndex = selectIndex;
-            self.type = [NSString stringWithFormat:@"%ld",selectIndex];
+            weakSelf.siftIndex = selectIndex;
+            weakSelf.type = [NSString stringWithFormat:@"%ld",selectIndex];
         }
-        [self getLocalData:_type];
+        [weakSelf getLocalData:weakSelf.type];
     }];
     [KeyWindow addSubview:_menuView];
     [_menuView mas_makeConstraints:^(MASConstraintMaker *make) {
