@@ -6,9 +6,9 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "Customer.h"
-@interface CustomerSocialViewController : UIViewController
+@interface CustomerSocialViewController : BaseViewController
 
 @property (nonatomic,strong) Customer *customer;
 

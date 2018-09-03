@@ -35,6 +35,7 @@
     _dbUtil = [[CustomerDbUtil alloc] init];
     _preferUtil = [PreferUtil new];
     [_preferUtil initIN];
+    [self setupData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,17 +105,16 @@
     [dataTask resume];
 }
 
-- (void)setMap:(NSMutableDictionary *)map{
-    _map = map;
-    _nameField.text = [map valueForKey:@"name"];
-    _companyField.text = [map valueForKey:@"company"];
-    _titleField.text = [map valueForKey:@"jobtitle"];
-    _deptField.text = [map valueForKey:@"department"];
-    _mobileField.text = [map valueForKey:@"tel_mobile"];
-    _telField.text = [map valueForKey:@"tel_main"];
-    _mailField.text = [map valueForKey:@"email"];
-    _addressField.text = [map valueForKey:@"address"];
-    _websiteField.text = [map valueForKey:@"web"];
+- (void)setupData {
+    _nameField.text = [self.map valueForKey:@"name"];
+    _companyField.text = [self.map valueForKey:@"company"];
+    _titleField.text = [self.map valueForKey:@"jobtitle"];
+    _deptField.text = [self.map valueForKey:@"department"];
+    _mobileField.text = [self.map valueForKey:@"tel_mobile"];
+    _telField.text = [self.map valueForKey:@"tel_main"];
+    _mailField.text = [self.map valueForKey:@"email"];
+    _addressField.text = [self.map valueForKey:@"address"];
+    _websiteField.text = [self.map valueForKey:@"web"];
     _remarkField.text = @"";
 }
 

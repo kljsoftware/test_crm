@@ -31,13 +31,14 @@
     _dbUtil = [[CustomerDbUtil alloc] init];
     self.title = @"客户编辑";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonClicked)];
+    [self setupData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-- (void)setCustomer:(Customer *)customer{
-    _customer = customer;
+
+- (void)setupData {
     if ([NSStringUtils isEmpty:_customer.name])
         _nameField.text = @"";
     else

@@ -30,10 +30,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setDept:(Dept *)dept{
-    _dept = dept;
-}
-
 - (void)finishButtonClick{
     NSString *name = _nameText.text;
     _hud = [Utils createHUD];

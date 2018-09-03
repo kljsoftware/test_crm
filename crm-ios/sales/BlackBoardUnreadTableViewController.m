@@ -54,7 +54,6 @@
     BlackBoardUnreadDetailsTableViewController *vc = [[BlackBoardUnreadDetailsTableViewController alloc] init];
     vc.comment = self.dataModels[indexPath.row];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {

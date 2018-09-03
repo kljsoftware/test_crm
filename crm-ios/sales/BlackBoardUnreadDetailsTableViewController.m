@@ -23,6 +23,7 @@
     self.title = @"消息详情";
     _preferUtil = [PreferUtil new];
     [_preferUtil initIN];
+    [self setCommentData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,10 +31,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setComment:(Comment *)comment{
-    _comment = comment;
+- (void)setCommentData {
     NSString *ids = [NSString new];
-    NSArray *inters = comment.commentsidlist;
+    NSArray *inters = self.comment.commentsidlist;
     int count = (int)inters.count;
     for (int i = count-1 ; i > 0; i--) {
         NSNumber *t = inters[i];

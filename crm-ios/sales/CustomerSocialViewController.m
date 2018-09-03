@@ -31,6 +31,7 @@
     [super viewDidLoad];
     self.title = @"社交账号";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonClicked)];
+    [self getSocialData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,10 +79,6 @@
     }
 }
 
-- (void)setCustomer:(Customer *)customer{
-    _customer = customer;
-    [self getSocialData];
-}
 - (void)getSocialData{
     _hud = [Utils createHUD];
     NSString *userId = [NSString stringWithFormat:@"%ld",[Config getOrgUserID]];;

@@ -59,7 +59,6 @@
     WorkUnreadDetailsTableViewController *vc = [[WorkUnreadDetailsTableViewController alloc] init];
     vc.work = self.dataModels[indexPath.row];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (NSMutableArray *)dataModels {

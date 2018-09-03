@@ -112,7 +112,6 @@
         _headerView.backgroundColor = [UIColor whiteColor];
         ReqFriendTableViewController *vc = [[ReqFriendTableViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

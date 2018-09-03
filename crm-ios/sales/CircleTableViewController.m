@@ -241,7 +241,6 @@
 //    UIViewController *vc = [CircleDetailsTableViewController new];
     CircleDetailsBottomBarViewController *vc = [[CircleDetailsBottomBarViewController alloc] initWithCircleID:self.dataModels[indexPath.row]];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (CGFloat)cellContentViewWith
@@ -329,7 +328,6 @@
         _headerView.backgroundColor = [UIColor whiteColor];
         CircleUnreadTableViewController *unreadVC = [[CircleUnreadTableViewController alloc] init];
         unreadVC.hidesBottomBarWhenPushed = YES;
-        unreadVC.view.backgroundColor = [UIColor whiteColor];
         [self.navigationController pushViewController:unreadVC animated:YES];
     }
 }

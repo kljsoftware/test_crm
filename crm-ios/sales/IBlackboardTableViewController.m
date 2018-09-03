@@ -272,7 +272,6 @@
     //    UIViewController *vc = [CircleDetailsTableViewController new];
     BlackBoardDetailsBottomBarViewController *vc = [[BlackBoardDetailsBottomBarViewController alloc] initWithBlackBoardID:self.dataModels[indexPath.row]];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -347,7 +346,6 @@
         _headerView.backgroundColor = [UIColor whiteColor];
         BlackBoardUnreadTableViewController *unreadVC = [[BlackBoardUnreadTableViewController alloc] init];
         unreadVC.hidesBottomBarWhenPushed = YES;
-        unreadVC.view.backgroundColor = [UIColor whiteColor];
         [self.navigationController pushViewController:unreadVC animated:YES];
     }
 }

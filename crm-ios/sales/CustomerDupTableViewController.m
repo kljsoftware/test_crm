@@ -21,17 +21,13 @@
     [super viewDidLoad];
     self.title = @"客户查重";
     
-    self.tableView.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self getCustomerDup];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)setCustomer:(Customer *)customer{
-    _customer = customer;
-    [self getCustomerDup];
 }
 
 - (void)getCustomerDup{

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "Customer.h"
 
 @protocol CustomerEditDelegate <NSObject>
@@ -15,7 +15,7 @@
 
 @end
 
-@interface CustomerEditViewController : UIViewController
+@interface CustomerEditViewController : BaseViewController
 
 @property (nonatomic,strong) Customer *customer;
 

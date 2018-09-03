@@ -6,9 +6,9 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 #import "Customer.h"
-@interface CustomerDupTableViewController : UITableViewController
+@interface CustomerDupTableViewController : BaseTableViewController
 
 @property (nonatomic,strong) Customer *customer;
 

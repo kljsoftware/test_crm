@@ -23,6 +23,7 @@
     self.title = @"消息详情";
     _preferUtil = [PreferUtil new];
     [_preferUtil initOUT];
+    [self setCommentData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,10 +32,9 @@
 
 #pragma mark - Table view data source
 
-- (void)setComment:(Comment *)comment{
-    _comment = comment;
+- (void)setCommentData {
     NSString *ids = [NSString new];
-    NSArray *inters = comment.integerList;
+    NSArray *inters = self.comment.integerList;
     int count = (int)inters.count;
     for (int i = count-1 ; i > 0; i--) {
         NSNumber *t = inters[i];

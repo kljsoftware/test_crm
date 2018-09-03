@@ -32,17 +32,13 @@
     [super viewDidLoad];
     self.title = @"社交账号";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonClicked)];
-    
+    [self getEvaluationData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void)setCustomer:(Customer *)customer{
-    _customer = customer;
-    [self getEvaluationData];
-}
 - (void)setupData:(Evaluation *)evaluation{
     _positionField.text = evaluation.position;
     _keyField.text = evaluation.key;

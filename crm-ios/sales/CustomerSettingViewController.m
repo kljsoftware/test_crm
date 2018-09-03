@@ -27,15 +27,11 @@
     [super viewDidLoad];
     self.title = @"设置";
     _historyLabel.text = @"   ";
+    [self getSettingData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)setCustomer:(Customer *)customer{
-    _customer = customer;
-    [self getSettingData];
 }
 
 - (void)setupData:(CustomerSetting *)setting{

@@ -123,7 +123,6 @@ static NSString * const kPaperTableViewCellId = @"PaperTableViewCell";
 {
     PaperDetailsViewController *vc = [[PaperDetailsViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     Paper *paper = self.dataModels[indexPath.row];
     vc.url = paper.contenturl;
     [self.navigationController pushViewController:vc animated:YES];

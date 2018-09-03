@@ -13,6 +13,4 @@
 
 @property (nonatomic,strong) Customer *model;
 
-+ (CGFloat)fixedHeight;
-
 @end

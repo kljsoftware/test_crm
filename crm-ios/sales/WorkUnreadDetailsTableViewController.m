@@ -23,6 +23,7 @@
     _preferUtil = [PreferUtil new];
     [_preferUtil initIN];
     self.tableView.tableFooterView = [[UIView alloc] init];
+    [self setWorkData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,10 +31,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setWork:(Work *)work{
-    _work = work;
+- (void)setWorkData {
     NSString *ids = [NSString new];
-    NSArray *inters = work.workCommentsIds;
+    NSArray *inters = self.work.workCommentsIds;
     int count = (int)inters.count;
     for (int i = count-1 ; i > 0; i--) {
         NSNumber *t = inters[i];

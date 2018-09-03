@@ -152,7 +152,6 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Customer" bundle:nil];
     CustomerEditViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CustomerEdit"];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     vc.customer = _customer;
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
@@ -170,7 +169,6 @@
         
         CustomerDeepViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CustomerDeep"];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
         vc.customer = _customer;
         [self.navigationController pushViewController:vc animated:YES];
     }

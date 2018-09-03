@@ -50,6 +50,7 @@
     [super viewDidLoad];
     self.title = @"深度管理";
     [self setupView];
+    [self setupData];
 }
 
 - (void)setupView{
@@ -152,10 +153,6 @@
     gesturRecognizer6.minimumPressDuration = 0;
     [_settingView addGestureRecognizer:gesturRecognizer6];
 }
-- (void)setCustomer:(Customer *)customer{
-    _customer = customer;
-    [self setupData];
-}
 
 - (void)setupData{
     if ([NSStringUtils isEmpty:_customer.name]) {
@@ -193,7 +190,6 @@
         
         CustomerInfoViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CustomerInfo"];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
         vc.customer = _customer;
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -208,7 +204,6 @@
         
         CustomerSocialViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CustomerSocial"];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
         vc.customer = _customer;
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -223,7 +218,6 @@
         
         CustomerEvaluationViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CustomerEvaluation"];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
         vc.customer = _customer;
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -256,7 +250,6 @@
         
         CustomerSettingViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CustomerSetting"];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
         vc.customer = _customer;
         [self.navigationController pushViewController:vc animated:YES];
     }

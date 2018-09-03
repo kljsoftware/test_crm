@@ -127,7 +127,6 @@
 {
     NewsDetailsViewController *vc = [[NewsDetailsViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     Active *paper = self.dataModels[indexPath.row];
     vc.url = paper.content_url;
     [self.navigationController pushViewController:vc animated:YES];

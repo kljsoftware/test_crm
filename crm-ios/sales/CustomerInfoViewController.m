@@ -32,16 +32,12 @@
     self.title = @"个人信息";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonClicked)];
     [_sexBtn addTarget:self action:@selector(sexChange) forControlEvents:UIControlEventTouchUpInside];
+    [self setupData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
-}
-
-- (void)setCustomer:(Customer *)customer{
-    _customer = customer;
-    [self setupData];
 }
 
 - (void)setupData{

@@ -177,7 +177,6 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Customer" bundle:nil];
         EnteringCustomerViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"EnteringCustomer"];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
         vc.map = [xml getMap];
         [self.navigationController pushViewController:vc animated:YES];
     }

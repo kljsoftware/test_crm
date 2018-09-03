@@ -28,10 +28,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)setTel:(NSString *)tel{
-    _tel = tel;
-}
-
 - (IBAction)registerUser{
     NSString *name = _nameField.text;
     NSString *pwd = _passwordField.text;

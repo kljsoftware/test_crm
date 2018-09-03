@@ -342,7 +342,6 @@
 - (void)workColleagueDidClick:(Work *)work{
     WorkStaffTableViewController *vc = [[WorkStaffTableViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     vc.work = work;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -390,7 +389,6 @@
         _headerView.backgroundColor = [UIColor whiteColor];
         WorkUnreadTableViewController *unreadVC = [[WorkUnreadTableViewController alloc] init];
         unreadVC.hidesBottomBarWhenPushed = YES;
-        unreadVC.view.backgroundColor = [UIColor whiteColor];
         [self.navigationController pushViewController:unreadVC animated:YES];
     }
 }

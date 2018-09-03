@@ -119,7 +119,6 @@
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                     PasswordViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"Password"];
                     vc.hidesBottomBarWhenPushed = YES;
-                    vc.view.backgroundColor = [UIColor whiteColor];
                     vc.tel = tel;
                     [self.navigationController pushViewController:vc animated:YES];
                 }else{

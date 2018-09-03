@@ -33,15 +33,11 @@
     }
     self.tableView.rowHeight = 60;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self getDeptList];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)setDept:(Dept *)dept{
-    _dept = dept;
-    [self getDeptList];
 }
 
 - (void)getDeptList{

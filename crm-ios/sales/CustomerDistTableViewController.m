@@ -27,7 +27,7 @@
     _dbUtil = [[OrgUserInfoDbUtil alloc] init];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(selectFinishBtn)];
     
-    self.tableView.rowHeight = [SelectColleauesTableViewCell fixedHeight];
+    self.tableView.rowHeight = 60;
     self.tableView.sectionIndexColor = [UIColor lightGrayColor];
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -161,10 +161,6 @@
         [self.selectedArray addObject:info];
     }
     
-}
-
-- (void)setCustomer:(Customer *)customer{
-    _customer = customer;
 }
 
 - (void)selectFinishBtn{

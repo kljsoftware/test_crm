@@ -110,7 +110,6 @@
 {
     SecondDeptTableViewController *vc = [[SecondDeptTableViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     vc.dept = self.dataModels[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }

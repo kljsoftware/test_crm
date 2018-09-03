@@ -27,29 +27,25 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
-    _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainWidth, 50)];
-    _searchField = [[UITextField alloc] initWithFrame:CGRectMake(5, 5, kMainWidth - 60, 30)];
-    _searchField.borderStyle = UITextBorderStyleRoundedRect;
-    _cancelButton = [[UIButton alloc] init];
-    [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
-    [_cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_cancelButton addTarget:self action:@selector(cancelSearch) forControlEvents:UIControlEventTouchUpInside];
-    _cancelButton.titleLabel.font = [UIFont systemFontOfSize:14];
-    [_headerView addSubview:_cancelButton];
-    [_headerView addSubview:_searchField];
-    
-    _searchField.sd_layout
-    .centerYEqualToView(_headerView);
-    _cancelButton.sd_layout
-    .centerYEqualToView(_headerView).leftSpaceToView(_searchField,5).heightIs(40).widthIs(50);
-    
+    _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainWidth, 60)];
+    _searchField = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, kMainWidth - 40, 40)];
+    _searchField.backgroundColor = UIColor.whiteColor;
+    _searchField.borderStyle = UITextBorderStyleNone;
+    _searchField.placeholder = @"搜索联系人";
     _searchField.delegate = self;
     _searchField.returnKeyType = UIReturnKeySearch;
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    UIImageView *searchIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"common_search"]];
+    searchIcon.frame = CGRectMake((40-17)/2, (40-17)/2, 17, 17);
+    [leftView addSubview:searchIcon];
+    _searchField.leftViewMode = UITextFieldViewModeAlways;
+    _searchField.leftView = leftView;
+    [_headerView addSubview:_searchField];
     self.tableView.tableHeaderView = _headerView;
-    self.tableView.rowHeight = [FindCustomerTableViewCell fixedHeight];
+    self.tableView.rowHeight = 60;
     self.tableView.sectionIndexColor = [UIColor lightGrayColor];
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,12 +53,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(self.dataModels.count == 0){
+    return 10;
+    if(self.dataModels.count == 0) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    }else{
+    } else {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     }
-    
     return self.dataModels.count;
 }
 
@@ -75,15 +71,12 @@
     cell.model = self.dataModels[indexPath.row];
     return cell;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Customer" bundle:nil];
     CreaterCustomerDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CreaterCustomerDetails"];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     vc.customer = self.dataModels[indexPath.row];
-    //    vc.contact = self.sectionArray[indexPath.section][indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

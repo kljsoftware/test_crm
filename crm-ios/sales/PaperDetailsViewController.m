@@ -20,7 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    _hud = [Utils createHUD];
+    _hud.label.text = @"正在加载";
+    [self setupWebView];
+    [self setupToolBars];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,13 +42,6 @@
     [super viewWillDisappear:animated];
 //    [SVProgressHUD dismiss];
     self.navigationController.toolbarHidden = YES;
-}
-- (void)setUrl:(NSString *)url{
-    _url = url;
-    _hud = [Utils createHUD];
-    _hud.label.text = @"正在加载";
-    [self setupWebView];
-    [self setupToolBars];
 }
 
 #pragma mark --private Method--初始化webView

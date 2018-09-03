@@ -6,8 +6,8 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-@interface BlackBoardUnreadDetailsTableViewController : UITableViewController
+#import "BaseTableViewController.h"
+@interface BlackBoardUnreadDetailsTableViewController : BaseTableViewController
 
 @property (nonatomic,strong) Comment *comment;
 

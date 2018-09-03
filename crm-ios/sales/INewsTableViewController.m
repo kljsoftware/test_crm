@@ -85,7 +85,6 @@ static NSString * const kNewsTableViewCellId = @"NewsTableViewCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NewsDetailsViewController *vc = [[NewsDetailsViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
-    vc.view.backgroundColor = [UIColor whiteColor];
     News *paper = self.dataModels[indexPath.row];
     vc.url = paper.source;
     [self.navigationController pushViewController:vc animated:YES];

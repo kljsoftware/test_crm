@@ -25,17 +25,12 @@
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _staffDb = [[WorkStaffDbUtil alloc] init];
-    
+    [self getLocalData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)setWork:(Work *)work{
-    _work = work;
-    [self getLocalData];
 }
 
 - (void)getLocalData{

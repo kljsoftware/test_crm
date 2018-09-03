@@ -6,9 +6,9 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface NewsDetailsViewController : UIViewController
+@interface NewsDetailsViewController : BaseViewController
 
 @property (nonatomic,copy) NSString *url;
 

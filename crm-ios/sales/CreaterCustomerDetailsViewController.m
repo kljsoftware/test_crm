@@ -62,6 +62,7 @@
     [super viewDidLoad];
     self.title = @"客户详情";
     [self initView];
+    [self setUpData];
 }
 
 - (void)initView{
@@ -220,10 +221,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)setCustomer:(Customer *)customer{
-    _customer = customer;
-    [self setUpData];
-}
 - (void)setUpData{
     if ([NSStringUtils isEmpty:_customer.name])
         _nameLabel.text = @"";
@@ -287,7 +284,6 @@
         
         CustomerDeepViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CustomerDeep"];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
         vc.customer = _customer;
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -299,7 +295,6 @@
     }else if(rec.state == UIGestureRecognizerStateEnded){
         CustomerDupTableViewController *vc = [[CustomerDupTableViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
         vc.customer = _customer;
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -312,7 +307,6 @@
         
         CustomerTransferTableViewController *vc = [[CustomerTransferTableViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
         vc.customer = _customer;
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -377,9 +371,9 @@
     }else if(rec.state == UIGestureRecognizerStateEnded){
         CustomerDistTableViewController *vc = [[CustomerDistTableViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.view.backgroundColor = [UIColor whiteColor];
         vc.customer = _customer;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
 @end
