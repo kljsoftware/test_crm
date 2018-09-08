@@ -24,6 +24,19 @@
     return HUD;
 }
 
++ (void)showHUD:(NSString *)text {
+    
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:window];
+    HUD.mode = MBProgressHUDModeText;
+    HUD.detailsLabel.font = [UIFont boldSystemFontOfSize:16];
+    [window addSubview:HUD];
+    [HUD showAnimated:YES];
+    HUD.removeFromSuperViewOnHide = YES;
+    HUD.label.text = text;
+    [HUD hideAnimated:YES afterDelay:1];
+}
+
 + (NSAttributedString *)attributedTimeString:(NSDate *)date
 {
     //    NSString *rawString = [NSString stringWithFormat:@"%@ %@", [NSString fontAwesomeIconStringForEnum:FAClockO], [date timeAgoSinceNow]];

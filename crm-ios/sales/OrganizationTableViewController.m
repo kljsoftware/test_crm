@@ -43,14 +43,17 @@
     
     NSString* urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL,API_ORGANIZATION_LIST];
     NSDictionary *requestHeader = @{@"userId":[NSString stringWithFormat:@"%lld",[Config getOwnID]], @"token":[Config getToken]};
+    WeakSelf;
     [NetWorkManager request:POST_METHOD URL:urlStr requestHeader:requestHeader parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSArray* data = responseObject[@"data"];
-        self.dataArray = [Organizations mj_objectArrayWithKeyValuesArray:data];
-        [self.tableView reloadData];
+        weakSelf.dataArray = [Organizations mj_objectArrayWithKeyValuesArray:data];
+        [weakSelf.tableView reloadData];
 
     } failure:^(NSURLSessionDataTask *task, BIUPError *error) {
-        
+        weakSelf.hud = [Utils createHUD];
+        weakSelf.hud.label.text = error.message;
+        [weakSelf.hud hideAnimated:YES afterDelay:1];
     }];
 
 }

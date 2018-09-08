@@ -20,7 +20,6 @@
 @property (nonatomic,weak) IBOutlet MLLinkLabel *registerLabel;
 @property (nonatomic,weak) IBOutlet MLLinkLabel *forgetLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *remPwdSwitch;
-@property (nonatomic, strong) MBProgressHUD *hud;
 @end
 
 @implementation LoginViewController
@@ -62,9 +61,6 @@
 - (IBAction)login {
     [self hidenKeyboard];
     
-    _hud = [Utils createHUD];
-    _hud.label.text = @"正在登录";
-    _hud.userInteractionEnabled = NO;
     NSString *deviceinfo = @"";
     NSString *uuid = [[UIDevice currentDevice].identifierForVendor UUIDString];
     NSString *deviceVersion = [[UIDevice currentDevice] systemVersion];

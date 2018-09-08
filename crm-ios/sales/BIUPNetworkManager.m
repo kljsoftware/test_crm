@@ -45,13 +45,13 @@
         
         [self P_GETWithURL:url parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
             
-            NSInteger code = [responseObject[@"code"] integerValue];
-            if (code == 0) {
+            NSInteger result = [responseObject[@"result"] integerValue];
+            if (result == 1) {
                 success ? success(task, responseObject) : nil;
             } else {
                 BIUPError *errorInfo = [[BIUPError alloc] init];
                 errorInfo.message = responseObject[@"msg"];
-                errorInfo.code = code;
+                errorInfo.code = result;
                 failure ? failure(task, errorInfo) : nil;
                 NSLog(@"error: %@",errorInfo.message);
             }
@@ -66,13 +66,13 @@
         
         [self P_POSTWithURL:url parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
             
-            NSInteger code = [responseObject[@"code"] integerValue];
-            if (code == 0) {
+            NSInteger result = [responseObject[@"result"] integerValue];
+            if (result == 0) {
                 success ? success(task, responseObject) : nil;
             } else {
                 BIUPError *errorInfo = [[BIUPError alloc] init];
                 errorInfo.message = responseObject[@"msg"];
-                errorInfo.code = code;
+                errorInfo.code = result;
                 failure ? failure(task, errorInfo) : nil;
                 NSLog(@"error: %@",errorInfo.message);
             }

@@ -11,6 +11,7 @@
 @interface Utils : NSObject
 
 + (MBProgressHUD *)createHUD;
++ (void)showHUD:(NSString *)text;
 + (NSAttributedString *)attributedTimeString:(NSDate *)date;
 
 @end

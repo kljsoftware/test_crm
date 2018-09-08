@@ -17,7 +17,6 @@
 @property (nonatomic,weak) IBOutlet UIButton             *verityButton;
 @property (nonatomic,weak) IBOutlet UIButton             *sureButton;
 @property (nonatomic,assign) NSInteger                   count;
-@property (nonatomic,strong) MBProgressHUD               *hud;
 
 @end
 
@@ -39,56 +38,32 @@
         return;
     }
     _count = 120;
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    
     NSString* urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL,API_PUSH_IDENTIFYCODE];
-    
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:@{@"mobile":mobile,@"action":@"forgetpwd"}                                                                                    error:nil];
-    
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id _Nonnull responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error:-->%@", error);
-        } else {
-            NSString *responseString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-            NSLog(@"DATA UNREAD-->%@", responseString);
-            if (responseObject) {
-                NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-                if ([dictionary[@"result"] intValue] == 1) {
-                    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                        _verityButton.enabled = NO;
-                        while (_count >= 0) {
-                            [NSThread sleepForTimeInterval:1];
-                            _count --;
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                _verityButton.titleLabel.text = [NSString stringWithFormat:@"剩余%ld秒",_count];
-                                [_verityButton setTitle:[NSString stringWithFormat:@"剩余%ld秒",_count] forState:UIControlStateNormal];
-                            });
-                            if (_count == 0) {
-                                _verityButton.enabled = YES;
-                                dispatch_async(dispatch_get_main_queue(), ^{
-                                    _verityButton.titleLabel.text = @"获取验证码";
-                                    [_verityButton setTitle:@"获取验证码" forState:UIControlStateNormal];
-                                });
-                                break;
-                            }
-                        }
+    WeakSelf;
+    [NetWorkManager request:POST_METHOD URL:urlStr requestHeader:nil parameters:@{@"mobile":mobile,@"action":@"forgetpwd"} success:^(NSURLSessionDataTask *task, id responseObject) {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            weakSelf.verityButton.enabled = NO;
+            while (weakSelf.count >= 0) {
+                [NSThread sleepForTimeInterval:1];
+                weakSelf.count --;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    weakSelf.verityButton.titleLabel.text = [NSString stringWithFormat:@"剩余%ld秒",weakSelf.count];
+                    [weakSelf.verityButton setTitle:[NSString stringWithFormat:@"剩余%ld秒",weakSelf.count] forState:UIControlStateNormal];
+                });
+                if (weakSelf.count == 0) {
+                    weakSelf.verityButton.enabled = YES;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        weakSelf.verityButton.titleLabel.text = @"获取验证码";
+                        [weakSelf.verityButton setTitle:@"获取验证码" forState:UIControlStateNormal];
                     });
-                }else if([dictionary[@"result"] intValue] == 111){
-                    _hud = [Utils createHUD];
-                    _hud.label.text = @"请先注册";
-                    [_hud hideAnimated:YES afterDelay:1];
+                    break;
                 }
-                
-            }else{
-                
             }
-        }
+        });
+        
+    } failure:^(NSURLSessionDataTask *task, BIUPError *error) {
+        [Utils showHUD:error.message];
     }];
-    
-    [dataTask resume];
 }
 
 - (IBAction)sure{
@@ -109,50 +84,24 @@
         return;
     }
     if (![pwd isEqualToString:pwdsure]) {
-        _hud = [Utils createHUD];
-        _hud.label.text = @"两次密码不一致";
-        [_hud hideAnimated:YES afterDelay:1];
+        [Utils showHUD:@"两次密码不一致"];
         return;
     }
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    
     NSString* urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL,API_FORGETPWD];
-    
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:@{@"mobile":mobile,@"newPwd":pwd,@"identifyCode":verity}                                                                                    error:nil];
-    
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id _Nonnull responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error:-->%@", error);
+    WeakSelf;
+    [NetWorkManager request:POST_METHOD URL:urlStr requestHeader:nil parameters:@{@"mobile":mobile,@"newPwd":pwd,@"identifyCode":verity} success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        [Utils showHUD:@"修改成功"];
+        if (weakSelf.navigationController.viewControllers.count <= 1) {
+            [weakSelf.navigationController dismissViewControllerAnimated:YES completion:nil];
         } else {
-            NSString *responseString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-            NSLog(@"DATA-->%@", responseString);
-            if (responseObject) {
-                NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-                if ([dictionary[@"result"] intValue] == 1) {
-                    _hud = [Utils createHUD];
-                    _hud.label.text = @"修改成功";
-                    [_hud hideAnimated:YES afterDelay:1];
-                    if (self.navigationController.viewControllers.count <= 1) {
-                        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-                    } else {
-                        [self.navigationController popViewControllerAnimated:YES];
-                    }
-                }else{
-                    _hud = [Utils createHUD];
-                    _hud.label.text = @"修改失败";
-                    [_hud hideAnimated:YES afterDelay:1];
-                }
-                
-            }else{
-                
-            }
+            [weakSelf.navigationController popViewControllerAnimated:YES];
         }
+        
+    } failure:^(NSURLSessionDataTask *task, BIUPError *error) {
+        [Utils showHUD:error.message];
     }];
-    
-    [dataTask resume];
 }
+
 @end
