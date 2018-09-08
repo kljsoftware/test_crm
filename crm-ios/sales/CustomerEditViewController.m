@@ -100,6 +100,10 @@
         [Utils showHUD:@"邮箱格式不正确"];
         return;
     }
+    if (![Utils urlIsUsable:_webField.text]) {
+        [Utils showHUD:@"网址格式不正确"];
+        return;
+    }
     _customer.name = _nameField.text;
     _customer.title = _titleField.text;
     _customer.department = _deptField.text;

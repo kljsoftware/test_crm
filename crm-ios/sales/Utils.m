@@ -18,15 +18,19 @@
     return [predicate evaluateWithObject:mobile];
 }
 
-// 判断是否是手机号码
+// 判断是否是邮箱
 + (BOOL)emailIsUsable:(NSString *)email {
     NSString *format = @"^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", format];
     return [predicate evaluateWithObject:email];
 }
 
-
-
+// 判断是否是网址
++ (BOOL)urlIsUsable:(NSString *)url {
+    NSString *format = @"\\bhttps?://[a-zA-Z0-9\\-.]+(?::(\\d+))?(?:(?:/[a-zA-Z0-9\\-._?,'+\\&%$=~*!():@\\\\]*)+)?";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", format];
+    return [predicate evaluateWithObject:url];
+}
 
 + (MBProgressHUD *)createHUD
 {

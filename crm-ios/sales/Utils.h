@@ -12,6 +12,7 @@
 
 + (BOOL)mobileIsUsable:(NSString *)mobile;
 + (BOOL)emailIsUsable:(NSString *)email;
++ (BOOL)urlIsUsable:(NSString *)url;
 + (MBProgressHUD *)createHUD;
 + (void)showHUD:(NSString *)text;
 + (NSAttributedString *)attributedTimeString:(NSDate *)date;
