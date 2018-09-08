@@ -11,6 +11,23 @@
 
 @implementation Utils
 
+// 判断是否是手机号码
++ (BOOL)mobileIsUsable:(NSString *)mobile {
+    NSString *format = @"^((13[0-9])|(14[0-9])|(15[0-9])|(17[0-9])|(18[0-9]))\\d{8}$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", format];
+    return [predicate evaluateWithObject:mobile];
+}
+
+// 判断是否是手机号码
++ (BOOL)emailIsUsable:(NSString *)email {
+    NSString *format = @"^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", format];
+    return [predicate evaluateWithObject:email];
+}
+
+
+
+
 + (MBProgressHUD *)createHUD
 {
     UIWindow *window = [[UIApplication sharedApplication].windows lastObject];

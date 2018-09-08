@@ -10,6 +10,8 @@
 
 @interface Utils : NSObject
 
++ (BOOL)mobileIsUsable:(NSString *)mobile;
++ (BOOL)emailIsUsable:(NSString *)email;
 + (MBProgressHUD *)createHUD;
 + (void)showHUD:(NSString *)text;
 + (NSAttributedString *)attributedTimeString:(NSDate *)date;

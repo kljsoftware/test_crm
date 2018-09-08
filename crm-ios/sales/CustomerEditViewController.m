@@ -92,6 +92,14 @@
     }
 }
 - (void)saveButtonClicked{
+    if (![Utils mobileIsUsable:_mobileField.text]) {
+        [Utils showHUD:@"手机号格式不正确"];
+        return;
+    }
+    if (![Utils emailIsUsable:_emailField.text]) {
+        [Utils showHUD:@"邮箱格式不正确"];
+        return;
+    }
     _customer.name = _nameField.text;
     _customer.title = _titleField.text;
     _customer.department = _deptField.text;

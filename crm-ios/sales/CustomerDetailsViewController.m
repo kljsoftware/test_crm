@@ -159,6 +159,7 @@
 
 - (void)customerEdit:(Customer *)customer{
     [self setCustomer:customer];
+    [self setUpData];
 }
 
 - (void)deepCustomer:(UITapGestureRecognizer *)rec{
