@@ -53,7 +53,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
     if(self.dataModels.count == 0) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     } else {

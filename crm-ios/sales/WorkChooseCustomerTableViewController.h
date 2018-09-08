@@ -6,14 +6,14 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 @protocol WorkChooseCustomerCellDelegate <NSObject>
 
 -(void) finialCustomerId:(NSString *)customerid;
 
 @end
 
-@interface WorkChooseCustomerTableViewController : UITableViewController
+@interface WorkChooseCustomerTableViewController : BaseTableViewController
 
 @property (nonatomic,assign) id <WorkChooseCustomerCellDelegate> delegate;
 

@@ -643,6 +643,7 @@
                         <outlet property="mobileField" destination="BCw-fD-sTJ" id="Kdi-tN-H5H"/>
                         <outlet property="pwdField" destination="MRa-i6-GXk" id="TYm-fP-eWH"/>
                         <outlet property="pwdsureField" destination="QbL-gQ-ZUR" id="KWb-12-ahU"/>
+                        <outlet property="sureButton" destination="QTv-kU-cqK" id="kyg-qe-r22"/>
                         <outlet property="verityButton" destination="Ps8-TR-RIJ" id="rp7-HB-ICm"/>
                         <outlet property="verityField" destination="hML-KG-KWv" id="k2s-8v-Kut"/>
                     </connections>

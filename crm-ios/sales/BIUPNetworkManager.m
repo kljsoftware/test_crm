@@ -67,7 +67,7 @@
         [self P_POSTWithURL:url parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
             
             NSInteger result = [responseObject[@"result"] integerValue];
-            if (result == 0) {
+            if (result == 1) {
                 success ? success(task, responseObject) : nil;
             } else {
                 BIUPError *errorInfo = [[BIUPError alloc] init];

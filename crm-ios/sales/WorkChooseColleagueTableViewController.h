@@ -6,7 +6,7 @@
 //  Copyright © 2017年 rayootech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
 @protocol WorkChooseColleaguesCellDelegate <NSObject>
 
@@ -14,7 +14,7 @@
 
 @end
 
-@interface WorkChooseColleagueTableViewController : UITableViewController
+@interface WorkChooseColleagueTableViewController : BaseTableViewController
 
 @property (nonatomic,assign) id <WorkChooseColleaguesCellDelegate> delegate;
 

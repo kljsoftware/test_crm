@@ -51,9 +51,7 @@
         [weakSelf.tableView reloadData];
 
     } failure:^(NSURLSessionDataTask *task, BIUPError *error) {
-        weakSelf.hud = [Utils createHUD];
-        weakSelf.hud.label.text = error.message;
-        [weakSelf.hud hideAnimated:YES afterDelay:1];
+        [Utils showHUD:error.message];
     }];
 
 }
