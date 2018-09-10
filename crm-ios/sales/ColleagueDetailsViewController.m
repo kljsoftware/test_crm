@@ -28,8 +28,13 @@
     [super viewDidLoad];
     self.title = @"同事详情";
     
-    _sessionBtn.layer.cornerRadius = 5;
-    _sessionBtn.layer.masksToBounds = true;
+    if (self.uneditable) {
+        self.tableView.tableFooterView = nil;
+        
+    } else {
+        _sessionBtn.layer.cornerRadius = 5;
+        _sessionBtn.layer.masksToBounds = true;
+    }
     
     [self setupData];
 }

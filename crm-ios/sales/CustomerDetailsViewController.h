@@ -11,5 +11,6 @@
 @interface CustomerDetailsViewController : BaseViewController
 
 @property (nonatomic,strong) Customer *customer;
+@property (nonatomic, assign) BOOL uneditable;
 
 @end

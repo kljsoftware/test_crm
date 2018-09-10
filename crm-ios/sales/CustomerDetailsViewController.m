@@ -43,8 +43,10 @@
     [super viewDidLoad];
     _dbUtil = [[CustomerDbUtil alloc] init];
     self.title = @"客户详情";
+    if (!self.uneditable) {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editButtonClicked)];
-    [self initView];
+        [self initView];
+    }
     [self setUpData];
 }
 

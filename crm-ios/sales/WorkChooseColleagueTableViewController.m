@@ -168,17 +168,10 @@
 
 - (void)sureButtonClick{
     if (self.selectedObjects.count <= 0) {
+        [Utils showHUD:@"请至少选择一个同事"];
         return;
     }
-    NSString *ids = @"";
-    for (int i = 0; i < self.selectedObjects.count - 1; i++) {
-        OrgUserInfo *info = self.selectedObjects[i];
-        ids = [ids stringByAppendingString:[NSString stringWithFormat:@"%ld",info.id]];
-        ids = [ids stringByAppendingString:@","];
-    }
-    OrgUserInfo *user = self.selectedObjects[self.selectedObjects.count - 1];
-    ids = [ids stringByAppendingString:[NSString stringWithFormat:@"%ld",user.id]];
-    [_delegate finialColleaguesIds:ids];
+    [_delegate workChooseColleagues:self.selectedObjects];
     if (self.navigationController.viewControllers.count <= 1) {
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     } else {

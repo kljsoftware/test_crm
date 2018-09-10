@@ -8,10 +8,10 @@
 
 #import "WorkPublishView.h"
 
-#define LAND_EDGE       30.0
+#define LAND_EDGE       40.0
 #define LAND_SPACE      (KSCREEN_WIDTH - 3*ITEM_WIDTH - 2*LAND_EDGE)/2
 #define PORT_SPACE      20.0
-#define ITEM_WIDTH      60.0
+#define ITEM_WIDTH      50.0
 #define ITEM_HEIGHT     (ITEM_WIDTH + 18.0 + 4.0)
 #define CANCEL_HEIGHT   49.0
 

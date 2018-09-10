@@ -13,6 +13,8 @@
 #import "WorkChooseColleagueTableViewController.h"
 #import "Url.h"
 #import <CoreLocation/CoreLocation.h>
+#import "CustomerDetailsViewController.h"
+#import "ColleagueDetailsViewController.h"
 
 #define kScreenWidth        [[UIScreen mainScreen] bounds].size.width
 #define kScreenHeight       [[UIScreen mainScreen] bounds].size.height
@@ -37,24 +39,24 @@
 @property (nonatomic,strong) UIButton           *dateBtn;
 @property (nonatomic,strong) UIView             *dateLine;
 
+@property (nonatomic,strong) UIView         *customerView;
+@property (nonatomic,strong) UILabel        *customerLabel;
+@property (nonatomic,strong) UIView         *customerHeaderView;
+
+@property (nonatomic,strong) UIView         *colleagueView;
+@property (nonatomic,strong) UILabel        *colleagueLabel;
+@property (nonatomic,strong) UIView         *colleagueHeaderView;
+
 @property (nonatomic,weak) IBOutlet UIView             *bottomBarView;
 @property (nonatomic,weak) IBOutlet NSLayoutConstraint *bottomBarYConstraint;
 @property (nonatomic,strong) NSLayoutConstraint *bottomBarHeightConstraint;
 @property (nonatomic,strong) NSLayoutConstraint *bottomBarWidthConstraint;
 
-@property (nonatomic,strong) UIView             *customerView;
-@property (nonatomic,strong) UIImageView        *customerImage;
-@property (nonatomic,strong) UIView             *colleagueView;
-@property (nonatomic,strong) UIImageView        *colleageImage;
-@property (nonatomic,strong) UIView             *locationView;
-@property (nonatomic,strong) UIImageView        *locationImage;
-@property (nonatomic,strong) UIView             *bottomDateView;
-@property (nonatomic,strong) UIImageView        *dateImage;
-
 @property (nonatomic,strong) UIAlertController  *dateAlert;
 @property (nonatomic,strong) UIDatePicker       *datePicker;
 
-@property (nonatomic,strong) NSString           *customerid;
+@property (nonatomic,strong) Customer           *customer;
+@property (nonatomic, strong) NSArray           *colleagues;
 @property (nonatomic,strong) NSString           *stafflist;
 @property (nonatomic,strong) CLLocationManager  *locationManager;
 @property (nonatomic,strong) NSString           *currentCity;
@@ -132,11 +134,10 @@
     _dateView = [[UIView alloc] init];
     [self.view addSubview:_dateView];
     _dateView.sd_layout.topSpaceToView(_signLine,0).heightIs(40).widthIs(640);
-    
+
     _dateLabel = [UILabel new];
     _dateLabel.text = @"日期:";
     _dateLabel.textColor = [UIColor blackColor];
-    
     [_dateView addSubview:_dateLabel];
     _dateLabel.sd_layout.centerYEqualToView(_dateView).leftSpaceToView(_dateView,20).widthIs(40).heightIs(20);
     
@@ -157,6 +158,44 @@
     _dateLine.sd_layout.topSpaceToView(_dateView,0).heightIs(1).widthIs(640);
     _dateLine.backgroundColor = [UIColor lightGrayColor];
     
+    _customerView = [[UIView alloc] init];
+    [self.view addSubview:_customerView];
+    _customerView.sd_layout.topSpaceToView(_dateLine,0).heightIs(40).widthIs(640);
+    
+    _customerLabel = [UILabel new];
+    _customerLabel.text = @"顾客:";
+    _customerLabel.textColor = [UIColor blackColor];
+    [_customerView addSubview:_customerLabel];
+    _customerLabel.sd_layout.centerYEqualToView(_customerView).leftSpaceToView(_customerView,20).widthIs(40).heightIs(20);
+    
+    _customerHeaderView = [UIView new];
+    [_customerView addSubview:_customerHeaderView];
+    _customerHeaderView.sd_layout.centerYEqualToView(_customerView).leftSpaceToView(_customerLabel,20).rightSpaceToView(_customerView, 20).heightIs(20);
+
+    UIView *lineView1 = [UIView new];
+    lineView1.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:lineView1];
+    lineView1.sd_layout.topSpaceToView(_customerView,0).heightIs(1).widthIs(640);
+    
+    _colleagueView = [[UIView alloc] init];
+    [self.view addSubview:_colleagueView];
+    _colleagueView.sd_layout.topSpaceToView(lineView1,0).heightIs(40).widthIs(640);
+    
+    _colleagueLabel = [UILabel new];
+    _colleagueLabel.text = @"同事:";
+    _colleagueLabel.textColor = [UIColor blackColor];
+    [_colleagueView addSubview:_colleagueLabel];
+    _colleagueLabel.sd_layout.centerYEqualToView(_colleagueView).leftSpaceToView(_colleagueView,20).widthIs(40).heightIs(20);
+    
+    _colleagueHeaderView = [UIView new];
+    [_colleagueView addSubview:_colleagueHeaderView];
+    _colleagueHeaderView.sd_layout.centerYEqualToView(_colleagueView).leftSpaceToView(_colleagueLabel,20).rightSpaceToView(_colleagueView, 20).heightIs(20);
+    
+    UIView *lineView2 = [UIView new];
+    lineView2.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:lineView2];
+    lineView2.sd_layout.topSpaceToView(_colleagueView,0).heightIs(1).widthIs(640);
+    
     [self addBottomBar];
 }
 
@@ -171,50 +210,50 @@
 
 - (void)addBottomBar{
     [self.view bringSubviewToFront:_bottomBarView];
-    _customerView = [[UIView alloc] init];
-    [_bottomBarView addSubview:_customerView];
-    _customerView.sd_layout.leftSpaceToView(_bottomBarView,0).heightIs(40).widthIs(kScreenWidth / 4);
-    _customerImage = [UIImageView new];
-    _customerImage.image = [UIImage imageNamed:@"work_customer"];
-    [_customerView addSubview:_customerImage];
-    _customerImage.sd_layout.centerXEqualToView(_customerView).centerYEqualToView(_customerView).widthIs(25).heightEqualToWidth();
+    UIView *view1 = [[UIView alloc] init];
+    [_bottomBarView addSubview:view1];
+    view1.sd_layout.leftSpaceToView(_bottomBarView,0).heightIs(40).widthIs(kScreenWidth / 4);
+    UIImageView *imgView1 = [UIImageView new];
+    imgView1.image = [UIImage imageNamed:@"work_customer"];
+    [view1 addSubview:imgView1];
+    imgView1.sd_layout.centerXEqualToView(view1).centerYEqualToView(view1).widthIs(25).heightEqualToWidth();
     UILongPressGestureRecognizer *gesturRecognizer1=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(customerClick:)];
     gesturRecognizer1.minimumPressDuration = 0;
-    [_customerView addGestureRecognizer:gesturRecognizer1];
+    [view1 addGestureRecognizer:gesturRecognizer1];
     
-    _colleagueView = [[UIView alloc] init];
-    [_bottomBarView addSubview:_colleagueView];
-    _colleagueView.sd_layout.leftSpaceToView(_customerView,0).heightIs(40).widthIs(kScreenWidth / 4);
-    _colleageImage = [UIImageView new];
-    _colleageImage.image = [UIImage imageNamed:@"work_colleague"];
-    [_colleagueView addSubview:_colleageImage];
-    _colleageImage.sd_layout.centerXEqualToView(_colleagueView).centerYEqualToView(_colleagueView).widthIs(25).heightEqualToWidth();
+    UIView *view2 = [[UIView alloc] init];
+    [_bottomBarView addSubview:view2];
+    view2.sd_layout.leftSpaceToView(view1,0).heightIs(40).widthIs(kScreenWidth / 4);
+    UIImageView *imgView2 = [UIImageView new];
+    imgView2.image = [UIImage imageNamed:@"work_colleague"];
+    [view2 addSubview:imgView2];
+    imgView2.sd_layout.centerXEqualToView(view2).centerYEqualToView(view2).widthIs(25).heightEqualToWidth();
     UILongPressGestureRecognizer *gesturRecognizer2=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(colleagueClick:)];
     gesturRecognizer2.minimumPressDuration = 0;
-    [_colleagueView addGestureRecognizer:gesturRecognizer2];
+    [view2 addGestureRecognizer:gesturRecognizer2];
     
-    _locationView = [[UIView alloc] init];
-    [_bottomBarView addSubview:_locationView];
-    _locationView.sd_layout.leftSpaceToView(_colleagueView,0).heightIs(40).widthIs(kScreenWidth / 4);
-    _locationImage = [UIImageView new];
-    _locationImage.image = [UIImage imageNamed:@"work_location"];
-    [_locationView addSubview:_locationImage];
-    _locationImage.sd_layout.centerXEqualToView(_locationView).centerYEqualToView(_locationView).widthIs(25).heightEqualToWidth();
+    UIView *view3 = [[UIView alloc] init];
+    [_bottomBarView addSubview:view3];
+    view3.sd_layout.leftSpaceToView(view2,0).heightIs(40).widthIs(kScreenWidth / 4);
+    UIImageView *imgView3 = [UIImageView new];
+    imgView3.image = [UIImage imageNamed:@"work_location"];
+    [view3 addSubview:imgView3];
+    imgView3.sd_layout.centerXEqualToView(view3).centerYEqualToView(view3).widthIs(25).heightEqualToWidth();
     UILongPressGestureRecognizer *gesturRecognizer3=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(locationClick:)];
     gesturRecognizer3.minimumPressDuration = 0;
-    [_locationView addGestureRecognizer:gesturRecognizer3];
+    [view3 addGestureRecognizer:gesturRecognizer3];
     
-    _bottomDateView = [[UIView alloc] init];
-    [_bottomBarView addSubview:_bottomDateView];
-    _bottomDateView.sd_layout.leftSpaceToView(_locationView,0).heightIs(40).widthIs(kScreenWidth / 4);
-    _dateImage = [UIImageView new];
-    _dateImage.image = [UIImage imageNamed:@"work_date"];
-    [_bottomDateView addSubview:_dateImage];
-    _dateImage.sd_layout.centerXEqualToView(_bottomDateView).centerYEqualToView(_bottomDateView).widthIs(25).heightEqualToWidth();
+    UIView *view4 = [[UIView alloc] init];
+    [_bottomBarView addSubview:view4];
+    view4.sd_layout.leftSpaceToView(view3,0).heightIs(40).widthIs(kScreenWidth / 4);
+    UIImageView *imgView4 = [UIImageView new];
+    imgView4.image = [UIImage imageNamed:@"work_date"];
+    [view4 addSubview:imgView4];
+    imgView4.sd_layout.centerXEqualToView(view4).centerYEqualToView(view4).widthIs(25).heightEqualToWidth();
     
     UILongPressGestureRecognizer *gesturRecognizer=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(dateClick:)];
     gesturRecognizer.minimumPressDuration = 0;
-    [_bottomDateView addGestureRecognizer:gesturRecognizer];
+    [view4 addGestureRecognizer:gesturRecognizer];
 }
 
 #pragma mark - 调整bar的高度
@@ -292,8 +331,30 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
-- (void)finialCustomerId:(NSString *)customerid{
-    _customerid = customerid;
+- (void)workChooseCustomer:(Customer *)customer {
+    self.customer = customer;
+    
+    for (UIView *view in self.customerHeaderView.subviews) {
+        [view removeFromSuperview];
+    }
+    
+    UIImageView *customerImgView = [[UIImageView alloc] init];
+    customerImgView.userInteractionEnabled = true;
+    [customerImgView loadPortrait:customer.avatar];
+    customerImgView.layer.cornerRadius = 18;
+    customerImgView.layer.masksToBounds = true;
+    [_customerHeaderView addSubview:customerImgView];
+    customerImgView.sd_layout.centerYEqualToView(_customerHeaderView).leftEqualToView(_customerHeaderView).widthIs(36).heightIs(36);
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(customerTap:)];
+    [customerImgView addGestureRecognizer:tap];
+}
+
+- (void)customerTap:(UITapGestureRecognizer *)tap {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Customer" bundle:nil];
+    CustomerDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CustomerDetails"];
+    vc.uneditable = true;
+    vc.customer = self.customer;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)locationClick:(UITapGestureRecognizer *)rec{
@@ -314,9 +375,38 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
-- (void)finialColleaguesIds:(NSString *)colleagueids{
-    NSLog(@"ids is %@",colleagueids);
-    _stafflist = colleagueids;
+
+- (void)workChooseColleagues:(NSArray *)colleagues {
+    
+    for (UIView *view in self.colleagueHeaderView.subviews) {
+        [view removeFromSuperview];
+    }
+    
+    NSMutableArray *ids = [[NSMutableArray alloc] init];
+    for (OrgUserInfo *info in colleagues) {
+        [ids addObject:[NSString stringWithFormat:@"%ld",info.id]];
+        
+        UIImageView *colleagueImgView = [[UIImageView alloc] init];
+        colleagueImgView.tag = ids.count;
+        colleagueImgView.userInteractionEnabled = true;
+        [colleagueImgView loadPortrait:info.avatar];
+        colleagueImgView.layer.cornerRadius = 18;
+        colleagueImgView.layer.masksToBounds = true;
+        [_colleagueHeaderView addSubview:colleagueImgView];
+        colleagueImgView.sd_layout.centerYEqualToView(_colleagueHeaderView).leftSpaceToView(_colleagueHeaderView, (ids.count-1)*40).widthIs(36).heightIs(36);
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(colleagueTap:)];
+        [colleagueImgView addGestureRecognizer:tap];
+    }
+    self.stafflist = [ids componentsJoinedByString:@","];
+    self.colleagues = colleagues;
+}
+
+- (void)colleagueTap:(UITapGestureRecognizer *)tap {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Colleague" bundle:nil];
+    ColleagueDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ColleagueDetails"];
+    vc.uneditable = true;
+    vc.orgUserInfo = self.colleagues[tap.view.tag-1];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)locationCity{
@@ -363,19 +453,17 @@
 }
 - (void)sendItemClicked:(UIBarButtonItem *)item {
     if ([item.title isEqualToString:@"发送"]) {
-        _HUD = [Utils createHUD];
         NSString *comStr = self.contentView.text;
         comStr = [comStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if (comStr.length <= 0) {
-            _HUD.label.text = @"工作内容不能为空";
-            [_HUD hideAnimated:YES afterDelay:1];
+            [Utils showHUD:@"工作内容不能为空"];
             return;
         }
-        if ([NSStringUtils isEmpty:_customerid]) {
-            _HUD.label.text = @"请选择一个客户";
-            [_HUD hideAnimated:YES afterDelay:1];
+        if (!self.customer) {
+            [Utils showHUD:@"请选择一个客户"];
             return;
         }
+        _HUD = [Utils createHUD];
         _HUD.label.text = @"工作发送中";
         NSArray<UIImage *> *datas = [_pickerView getPhotos];
         if (datas != nil && datas.count > 0) {
@@ -473,7 +561,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     
     NSString* urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL,API_WORK_PUBLISH];
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:@{@"content":_contentView.text,@"picurl":picurl,@"worktime":_dateBtn.titleLabel.text,@"lal":@"20,116",@"address":_localBtn.titleLabel.text,@"cid":_customerid,@"stafflist":_stafflist,@"worktype":[NSString stringWithFormat:@"%ld",_worktype]}                                                                                    error:nil];
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:@{@"content":_contentView.text,@"picurl":picurl,@"worktime":_dateBtn.titleLabel.text,@"lal":@"20,116",@"address":_localBtn.titleLabel.text,@"cid":[NSString stringWithFormat:@"%ld",_customer.id],@"stafflist":_stafflist,@"worktype":[NSString stringWithFormat:@"%ld",_worktype]}                                                                                    error:nil];
     [request addValue:userId forHTTPHeaderField:@"userId"];
     [request addValue:token forHTTPHeaderField:@"token"];
     [request addValue:dbid forHTTPHeaderField:@"dbid"];

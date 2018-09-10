@@ -12,5 +12,7 @@
 @interface ColleagueDetailsViewController : BaseTableViewController
 
 @property (nonatomic,strong) OrgUserInfo *orgUserInfo;
+@property (nonatomic, assign) BOOL uneditable;
+
 
 @end

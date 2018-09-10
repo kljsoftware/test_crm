@@ -10,7 +10,7 @@
 
 @protocol WorkChooseColleaguesCellDelegate <NSObject>
 
--(void) finialColleaguesIds:(NSString *)customerids;
+- (void)workChooseColleagues:(NSArray *)colleagues;
 
 @end
 

@@ -158,7 +158,7 @@
     if(_currentIndex == nil)
         return;
     Customer *customer = self.sectionArray[_currentIndex.section][_currentIndex.row];
-    [_delegate finialCustomerId:[NSString stringWithFormat:@"%ld",customer.id]];
+    [_delegate workChooseCustomer:customer];
     if (self.navigationController.viewControllers.count <= 1) {
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     } else {

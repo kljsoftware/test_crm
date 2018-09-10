@@ -9,7 +9,7 @@
 #import "BaseTableViewController.h"
 @protocol WorkChooseCustomerCellDelegate <NSObject>
 
--(void) finialCustomerId:(NSString *)customerid;
+- (void)workChooseCustomer:(Customer *)customer;
 
 @end
 
