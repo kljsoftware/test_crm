@@ -77,7 +77,7 @@
         }
     
     } else if ([indexPath section] == 2) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"退出" message:@"确定要退出移动互联吗？" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"退出" message:@"确定要退出Panda Link吗？" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [tableView deselectRowAtIndexPath:indexPath animated:NO];
             [Config setOwnID:0];

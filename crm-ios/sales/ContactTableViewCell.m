@@ -43,7 +43,7 @@
     [self.contentView addSubview:_nameLabel];
     
     _chatButton = [UIButton new];
-    [_chatButton setTitle:@"移动互联" forState:UIControlStateNormal];
+    [_chatButton setTitle:@"Panda Link" forState:UIControlStateNormal];
     _chatButton.backgroundColor = [UIColor clearColor];
     [_chatButton setTitleColor:TimeLineCellHighlightedColor forState:UIControlStateNormal];
     [_chatButton addTarget:self action:@selector(chatToContact) forControlEvents:UIControlEventTouchUpInside];

@@ -78,7 +78,7 @@
 - (void)showMessageView{
     if ([MFMessageComposeViewController canSendText]) {
         MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
-        controller.body = @"您好，欢迎使用移动互联，您可以在App Store中搜索 移动互联，下载安装";
+        controller.body = @"您好，欢迎使用Panda Link，您可以在App Store中搜索 Panda Link，下载安装";
         controller.messageComposeDelegate = self;
         [self presentViewController:controller animated:YES completion:nil];
     }else{
@@ -104,8 +104,8 @@
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
         controller.mailComposeDelegate = self;
-        [controller setSubject:@"欢迎使用移动互联"];
-        [controller setMessageBody:@"您好，欢迎使用移动互联，您可以在App Store中搜索 移动互联，下载安装" isHTML:NO];
+        [controller setSubject:@"欢迎使用Panda Link"];
+        [controller setMessageBody:@"您好，欢迎使用Panda Link，您可以在App Store中搜索 Panda Link，下载安装" isHTML:NO];
         [self presentViewController:controller animated:YES completion:nil];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"该设备不支持邮件功能" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
