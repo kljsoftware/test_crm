@@ -17,7 +17,6 @@
 #import "OrgUserInfoDbUtil.h"
 #import "OrgInvite.h"
 
-
 @interface AppDelegate () <UNUserNotificationCenterDelegate>
 @property (nonatomic,strong) SalesDbUtil *dbUtil;
 @property (nonatomic,strong) OrgUserInfoDbUtil * orgDbUtil;
@@ -219,14 +218,22 @@
         self.window.rootViewController = nav;
     }
 }
-- (void)showWindow:(NSString *)windowType{
+- (void)showWindow:(NSString *)windowType showOrgList:(BOOL)showOrgList {
     if ([windowType isEqualToString:@"organization"]) {
         IMainTabBarController *vc = [[IMainTabBarController alloc]init];
         self.window.rootViewController = vc;
-    }else if([windowType isEqualToString:@"omain"]){
+        
+    }else if([windowType isEqualToString:@"omain"]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        OMainTabBarController *vc = [storyboard instantiateViewControllerWithIdentifier:@"OMainIdentifier"];
-        self.window.rootViewController = vc;
+        OMainTabBarController *tabBar = [storyboard instantiateViewControllerWithIdentifier:@"OMainIdentifier"];
+        self.window.rootViewController = tabBar;
+        if (showOrgList) {
+            tabBar.selectedIndex = 3;
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"kShowOrgListNoti" object:nil];
+            });
+        }
     }
 }
 

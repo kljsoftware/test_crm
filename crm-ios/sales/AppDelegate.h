@@ -12,6 +12,6 @@
 @property (strong, nonatomic) UIWindow *window;
 
 - (void)showWindowLogin:(NSString *)windowType;
-- (void)showWindow:(NSString *)windowType;
+- (void)showWindow:(NSString *)windowType showOrgList:(BOOL)showOrgList;
 @end
 

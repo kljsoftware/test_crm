@@ -37,6 +37,10 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)searchClicked:(UIButton *)sender {
+    [self searchContact];
+}
+
 - (void) searchContact {
     _hud = [Utils createHUD];
     NSString *number = _searchText.text;

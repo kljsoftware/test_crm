@@ -133,11 +133,11 @@
 }
 
 - (IBAction)quitTeamClicked:(UIButton *)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"退出" message:@"确定要退出该组织吗？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定要退出该组织吗？" message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[RCIMClient sharedRCIMClient] logout];
         [NSThread sleepForTimeInterval:0.5];
-        [(AppDelegate *)[UIApplication sharedApplication].delegate showWindow:@"omain"];
+        [(AppDelegate *)[UIApplication sharedApplication].delegate showWindow:@"omain" showOrgList:true];
     }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];

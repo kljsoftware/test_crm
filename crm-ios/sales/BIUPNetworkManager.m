@@ -49,8 +49,64 @@
             if (result == 1) {
                 success ? success(task, responseObject) : nil;
             } else {
+                NSString *urlStr = task.response.URL.absoluteString;
+                NSString *message = responseObject[@"msg"];
+                if ([urlStr containsString:API_PUSH_IDENTIFYCODE] || [urlStr containsString:API_REGISTER] || [urlStr containsString:API_FORGETPWD]) {
+                    switch (result) {
+                        case 0:
+                            message = @"失败";
+                            break;
+                        case 2:
+                            message = @"验证码校验失败";
+                            break;
+                        case 3:
+                            message = @"验证码失效";
+                            break;
+                        case 101:
+                            message = @"手机号码不能为空";
+                            break;
+                        case 102:
+                            message = @"手机号码的格式不正确";
+                            break;
+                        case 1021:
+                            message = @"手机号码已经注册过了";
+                            break;
+                        case 103:
+                            message = @"密码不能为空";
+                            break;
+                        case 104:
+                            message = @"密码长度不能小于6位";
+                            break;
+                        case 105:
+                            message = @"原始密码不正确";
+                            break;
+                        case 106:
+                            message = @"新密码不能为空";
+                            break;
+                        case 107:
+                            message = @"新密码长度不能小于6位";
+                            break;
+                        case 108:
+                            message = @"手机验证码不能为空";
+                            break;
+                        case 109:
+                            message = @"手机验证码发送超时";
+                            break;
+                        case 110:
+                            message = @"验证码发送超过上限";
+                            break;
+                        case 111:
+                            message = @"该用户不存在";
+                            break;
+                        case 112:
+                            message = @"姓名不能为空";
+                            break;
+                        default:
+                            break;
+                    }
+                }
                 BIUPError *errorInfo = [[BIUPError alloc] init];
-                errorInfo.message = responseObject[@"msg"];
+                errorInfo.message = message;
                 errorInfo.code = result;
                 failure ? failure(task, errorInfo) : nil;
                 NSLog(@"error: %@",errorInfo.message);
@@ -70,8 +126,64 @@
             if (result == 1) {
                 success ? success(task, responseObject) : nil;
             } else {
+                NSString *urlStr = task.response.URL.absoluteString;
+                NSString *message = responseObject[@"msg"];
+                if ([urlStr containsString:API_PUSH_IDENTIFYCODE] || [urlStr containsString:API_REGISTER] || [urlStr containsString:API_FORGETPWD]) {
+                    switch (result) {
+                        case 0:
+                            message = @"失败";
+                            break;
+                        case 2:
+                            message = @"验证码校验失败";
+                            break;
+                        case 3:
+                            message = @"验证码失效";
+                            break;
+                        case 101:
+                            message = @"手机号码不能为空";
+                            break;
+                        case 102:
+                            message = @"手机号码的格式不正确";
+                            break;
+                        case 1021:
+                            message = @"手机号码已经注册过了";
+                            break;
+                        case 103:
+                            message = @"密码不能为空";
+                            break;
+                        case 104:
+                            message = @"密码长度不能小于6位";
+                            break;
+                        case 105:
+                            message = @"原始密码不正确";
+                            break;
+                        case 106:
+                            message = @"新密码不能为空";
+                            break;
+                        case 107:
+                            message = @"新密码长度不能小于6位";
+                            break;
+                        case 108:
+                            message = @"手机验证码不能为空";
+                            break;
+                        case 109:
+                            message = @"手机验证码发送超时";
+                            break;
+                        case 110:
+                            message = @"验证码发送超过上限";
+                            break;
+                        case 111:
+                            message = @"该用户不存在";
+                            break;
+                        case 112:
+                            message = @"姓名不能为空";
+                            break;
+                        default:
+                            break;
+                    }
+                }
                 BIUPError *errorInfo = [[BIUPError alloc] init];
-                errorInfo.message = responseObject[@"msg"];
+                errorInfo.message = message;
                 errorInfo.code = result;
                 failure ? failure(task, errorInfo) : nil;
                 NSLog(@"error: %@",errorInfo.message);

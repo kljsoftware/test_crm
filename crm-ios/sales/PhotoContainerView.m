@@ -74,11 +74,13 @@
         imageView.hidden = NO;
         imageView.frame = CGRectMake(columnIndex * (itemW + margin), rowIndex * (itemH + margin), itemW, itemH);
         [imageView loadPortrait:obj completed:^(UIImage *image) {
-            if (_picPathStringsArray.count == 1) {
-                CGFloat width = image.size.width / image.size.height * itemH;
-                imageView.frame = CGRectMake(columnIndex * (width + margin), rowIndex * (itemH + margin), width, itemH);
-                self.width = width;
-                self.fixedWidth = @(width);
+            if (image) {
+                if (_picPathStringsArray.count == 1) {
+                    CGFloat width = image.size.width / image.size.height * itemH;
+                    imageView.frame = CGRectMake(columnIndex * (width + margin), rowIndex * (itemH + margin), width, itemH);
+                    self.width = width;
+                    self.fixedWidth = @(width);
+                }
             }
         }];
     }];

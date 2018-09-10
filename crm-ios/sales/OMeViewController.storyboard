@@ -839,22 +839,30 @@
                                             <constraint firstItem="qIs-1v-1DL" firstAttribute="centerY" secondItem="JHa-8a-KPU" secondAttribute="centerY" id="bzQ-w5-2jg"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_search" translatesAutoresizingMaskIntoConstraints="NO" id="YyU-vO-V1B">
-                                        <rect key="frame" x="20" y="56.666666666666671" width="17" height="17"/>
-                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWF-Qr-C1f">
+                                        <rect key="frame" x="10" y="45" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="VR8-Aw-xfa"/>
+                                            <constraint firstAttribute="width" constant="40" id="vRk-oz-Caz"/>
+                                        </constraints>
+                                        <state key="normal" image="common_search"/>
+                                        <connections>
+                                            <action selector="searchClicked:" destination="1q6-dD-yA5" eventType="touchUpInside" id="Ruv-l4-oED"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="rtU-Dv-W0H" firstAttribute="leading" secondItem="fi0-vo-xM9" secondAttribute="leading" id="95v-6h-FuH"/>
-                                    <constraint firstItem="YyU-vO-V1B" firstAttribute="centerY" secondItem="kjy-zD-UiH" secondAttribute="centerY" id="9ek-iH-kxg"/>
                                     <constraint firstItem="rtU-Dv-W0H" firstAttribute="top" secondItem="kjy-zD-UiH" secondAttribute="bottom" constant="10" id="A35-Zo-1DV"/>
+                                    <constraint firstItem="AWF-Qr-C1f" firstAttribute="leading" secondItem="fi0-vo-xM9" secondAttribute="leading" constant="10" id="ETo-BM-OHU"/>
                                     <constraint firstAttribute="trailing" secondItem="rtU-Dv-W0H" secondAttribute="trailing" id="JlA-qR-2i0"/>
+                                    <constraint firstItem="AWF-Qr-C1f" firstAttribute="centerY" secondItem="kjy-zD-UiH" secondAttribute="centerY" id="MKG-uQ-x4t"/>
                                     <constraint firstAttribute="bottom" secondItem="rtU-Dv-W0H" secondAttribute="bottom" id="OWr-Js-0jg"/>
                                     <constraint firstItem="kjy-zD-UiH" firstAttribute="leading" secondItem="fi0-vo-xM9" secondAttribute="leading" id="UB9-cz-4FV"/>
                                     <constraint firstAttribute="trailing" secondItem="kjy-zD-UiH" secondAttribute="trailing" id="a68-1I-oCn"/>
                                     <constraint firstItem="f6A-Ah-C8I" firstAttribute="top" secondItem="fi0-vo-xM9" secondAttribute="top" id="cEK-rL-1X8"/>
                                     <constraint firstItem="f6A-Ah-C8I" firstAttribute="leading" secondItem="fi0-vo-xM9" secondAttribute="leading" constant="20" id="g2l-kG-dMC"/>
-                                    <constraint firstItem="YyU-vO-V1B" firstAttribute="leading" secondItem="f6A-Ah-C8I" secondAttribute="leading" id="m0G-Wv-Xwc"/>
                                     <constraint firstItem="kjy-zD-UiH" firstAttribute="top" secondItem="f6A-Ah-C8I" secondAttribute="bottom" id="yCY-kr-fPy"/>
                                 </constraints>
                             </view>

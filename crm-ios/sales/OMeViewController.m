@@ -31,11 +31,19 @@
     [self setUpView];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(updateUserInfo) name:@"updateUserInfo" object:nil];
+    [center addObserver:self selector:@selector(showOrgList) name:@"kShowOrgListNoti" object:nil];
 }
 
 - (void)updateUserInfo{
     [self setUpView];
 }
+
+- (void)showOrgList {
+    OrganizationTableViewController *vc = [[OrganizationTableViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:true];
+}
+
 - (void)supportClicked:(id)sender{
     UIButton *button = (UIButton *)sender;
     button.selected = !button.selected;
@@ -71,9 +79,7 @@
             [self.navigationController pushViewController:vc animated:YES];
             
         } else if ([indexPath row] == 1) {
-            OrganizationTableViewController *vc = [[OrganizationTableViewController alloc] init];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
+            [self showOrgList];
         }
     
     } else if ([indexPath section] == 2) {

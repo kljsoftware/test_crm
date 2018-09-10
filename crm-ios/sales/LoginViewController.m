@@ -97,7 +97,7 @@
                     [[NSUserDefaults standardUserDefaults] setObject:self.remPwdSwitch.on ? self.accountField.text : @"" forKey:@"phoneNumber"];
                     [[NSUserDefaults standardUserDefaults] setObject:self.remPwdSwitch.on ? self.passwordField.text : @"" forKey:@"password"];
                     [Config saveProfile:user];
-                    [(AppDelegate *)[UIApplication sharedApplication].delegate showWindow:@"omain"];
+                    [(AppDelegate *)[UIApplication sharedApplication].delegate showWindow:@"omain" showOrgList:false];
                 }else{
                     _hud.mode = MBProgressHUDModeCustomView;
                     _hud.label.text = @"用户名或密码错误";

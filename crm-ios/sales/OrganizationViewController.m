@@ -90,7 +90,7 @@
                     [_hud hideAnimated:YES afterDelay:1];
                     [[RCIMClient sharedRCIMClient] logout];
                     [NSThread sleepForTimeInterval:0.5];
-                    [(AppDelegate *)[UIApplication sharedApplication].delegate showWindow:@"organization"];
+                    [(AppDelegate *)[UIApplication sharedApplication].delegate showWindow:@"organization" showOrgList:false];
                 }else{
                     _hud.label.text = @"进入失败";
                 }
