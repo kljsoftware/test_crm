@@ -25,7 +25,7 @@
     self.title = @"选择客户";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(finalButtonClicked)];
     _dbUtil = [[CustomerDbUtil alloc] init];
-    self.tableView.rowHeight = [CustomerTableViewCell fixedHeight];
+    self.tableView.rowHeight = 60;
     self.tableView.sectionIndexColor = [UIColor lightGrayColor];
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];

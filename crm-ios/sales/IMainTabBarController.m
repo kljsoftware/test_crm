@@ -21,6 +21,7 @@
 #import "OrgUserInfo.h"
 #import "PublishNoticeViewController.h"
 #import "PublishWorkViewController.h"
+#import "WorkPublishView.h"
 @interface IMainTabBarController () <ReadItemDelegate>
 
 {
@@ -121,31 +122,28 @@
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
         [self.selectedViewController presentViewController:nav animated:YES completion:nil];
     }else if(i == 2){
-        [BHBPopView showToView:self.view andImages:@[@"image.bundle/work_meeting",@"image.bundle/work_eat",@"image.bundle/work_message",@"image.bundle/work_text",@"image.bundle/work_contract",@"image.bundle/work_activity"] andTitles:@[@"会议面谈",@"餐饮娱乐",@"通信",@"撰写文本",@"签订合同",@"市场活动"] andSelectBlock:^(BHBItem *item) {
-            if (item != nil) {
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Work" bundle:nil];
-                PublishWorkViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"PublishWork"];
-                if ([item.title isEqualToString:@"会议面谈"]) {
-                    vc.worktype = 1;
-                }else if([item.title isEqualToString:@"餐饮娱乐"]){
-                    vc.worktype = 2;
-                }else if([item.title isEqualToString:@"通信"]){
-                    vc.worktype = 3;
-                }else if([item.title isEqualToString:@"撰写文本"]){
-                    vc.worktype = 4;
-                }else if([item.title isEqualToString:@"签订合同"]){
-                    vc.worktype = 5;
-                }else{
-                    vc.worktype = 6;
-                }
-                
-                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-                [self.selectedViewController presentViewController:nav animated:YES completion:nil];
-            }
+        PublishItem *item1 = [[PublishItem alloc] initWithTitle:@"会议面谈" normalIcon:@"work_meeting_nor" disableIcon:@"work_meeting_dis" enabled:true];
+        PublishItem *item2 = [[PublishItem alloc] initWithTitle:@"餐饮娱乐" normalIcon:@"work_eat_nor" disableIcon:@"work_eat_dis" enabled:false];
+        PublishItem *item3 = [[PublishItem alloc] initWithTitle:@"通信" normalIcon:@"work_message_nor" disableIcon:@"work_message_dis" enabled:false];
+        PublishItem *item4 = [[PublishItem alloc] initWithTitle:@"撰写文本" normalIcon:@"work_text_nor" disableIcon:@"work_text_dis" enabled:false];
+        PublishItem *item5 = [[PublishItem alloc] initWithTitle:@"签订合同" normalIcon:@"work_contract_nor" disableIcon:@"work_contract_dis" enabled:false];
+        PublishItem *item6 = [[PublishItem alloc] initWithTitle:@"市场活动" normalIcon:@"work_activity_nor" disableIcon:@"work_activity_dis" enabled:false];
+        NSArray *items = @[item1,item2,item3,item4,item5,item6];
+        WorkPublishView *publishView = [[WorkPublishView alloc] initWithItem:items selectIndex:^(NSInteger selectIndex) {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Work" bundle:nil];
+            PublishWorkViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"PublishWork"];
+            vc.worktype = selectIndex+1;
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self.selectedViewController presentViewController:nav animated:YES completion:nil];
         }];
+        [KeyWindow addSubview:publishView];
+        [publishView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(KeyWindow);
+        }];
+        [publishView show];
     }
-    
-}	
+}
+
 - (void)connoectRC{
     NSString *rotoken = [Config getOrgToken];
     [[RCIM sharedRCIM] connectWithToken:rotoken success:^(NSString *userId){

@@ -29,12 +29,12 @@
 
 @property (nonatomic,strong) UIView             *signView;
 @property (nonatomic,strong) UILabel            *signLabel;
-@property (nonatomic,strong) UILabel            *localLabel;
+@property (nonatomic,strong) UIButton           *localBtn;
 @property (nonatomic,strong) UIView             *signLine;
 
 @property (nonatomic,strong) UIView             *dateView;
 @property (nonatomic,strong) UILabel            *dateLabel;
-@property (nonatomic,strong) UILabel            *dateLabel2;
+@property (nonatomic,strong) UIButton           *dateBtn;
 @property (nonatomic,strong) UIView             *dateLine;
 
 @property (nonatomic,weak) IBOutlet UIView             *bottomBarView;
@@ -66,10 +66,7 @@
     [super viewDidLoad];
     self.title = @"工作发布";
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消"
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:@selector(cancelButtonClicked)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonClicked)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(sendItemClicked:)];
     _contentView.delegate = self;
     [self setUpView];
@@ -118,12 +115,14 @@
     [_signView addSubview:_signLabel];
     _signLabel.sd_layout.centerYEqualToView(_signView).leftSpaceToView(_signView,20).widthIs(40).heightIs(20);
     
-    _localLabel = [UILabel new];
-    _localLabel.text = @"未定位";
-    _signLabel.textColor = [UIColor blackColor];
-    [_signView addSubview:_localLabel];
+    _localBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _localBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [_localBtn setTitle:@"未定位" forState:UIControlStateNormal];
+    [_localBtn setTitleColor:[UIColor colorWithHex:0x333333] forState:UIControlStateNormal];
+    [_localBtn addTarget:self action:@selector(locationCity) forControlEvents:UIControlEventTouchUpInside];
+    [_signView addSubview:_localBtn];
     
-    _localLabel.sd_layout.centerYEqualToView(_signView).leftSpaceToView(_signLabel,20).widthIs(200).heightIs(20);
+    _localBtn.sd_layout.centerYEqualToView(_signView).leftSpaceToView(_signLabel,20).widthIs(200).heightIs(20);
     
     _signLine = [UIView new];
     [self.view addSubview:_signLine];
@@ -135,21 +134,23 @@
     _dateView.sd_layout.topSpaceToView(_signLine,0).heightIs(40).widthIs(640);
     
     _dateLabel = [UILabel new];
-    _dateLabel.text = @"日期";
+    _dateLabel.text = @"日期:";
     _dateLabel.textColor = [UIColor blackColor];
     
     [_dateView addSubview:_dateLabel];
     _dateLabel.sd_layout.centerYEqualToView(_dateView).leftSpaceToView(_dateView,20).widthIs(40).heightIs(20);
     
-    _dateLabel2 = [UILabel new];
+    _dateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _dateBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     NSDate *d = [NSDate new];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
-    _dateLabel2.text = [formatter stringFromDate:d];
-    _dateLabel2.textColor = [UIColor blackColor];
-    [_dateView addSubview:_dateLabel2];
+    [_dateBtn setTitle:[formatter stringFromDate:d] forState:UIControlStateNormal];
+    [_dateBtn setTitleColor:[UIColor colorWithHex:0x333333] forState:UIControlStateNormal];
+    [_dateBtn addTarget:self action:@selector(dateClicked) forControlEvents:UIControlEventTouchUpInside];
+    [_dateView addSubview:_dateBtn];
     
-    _dateLabel2.sd_layout.centerYEqualToView(_dateView).leftSpaceToView(_dateLabel,20).widthIs(200).heightIs(20);
+    _dateBtn.sd_layout.centerYEqualToView(_dateView).leftSpaceToView(_dateLabel,20).widthIs(200).heightIs(20);
     
     _dateLine = [UIView new];
     [self.view addSubview:_dateLine];
@@ -256,25 +257,29 @@
     if (rec.state == UIGestureRecognizerStateBegan) {
         
     }else if(rec.state == UIGestureRecognizerStateEnded){
-        if (!_dateAlert) {
-            _dateAlert = [UIAlertController alertControllerWithTitle:@"" message:@"\n\n\n\n\n\n\n\n\n\n" preferredStyle:UIAlertControllerStyleActionSheet];
-            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                NSDate *date = _datePicker.date;
-                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                [formatter setDateFormat:@"yyyy-MM-dd"];
-                NSLog(@"%@",[formatter stringFromDate:date]);
-                _dateLabel2.text = [formatter stringFromDate:date];
-            }];
-            _datePicker = [[UIDatePicker alloc] init];
-            _datePicker.datePickerMode = UIDatePickerModeDate;
-            [_dateAlert.view addSubview:_datePicker];
-            _datePicker.sd_layout.centerXEqualToView(_dateAlert.view);
-            [_dateAlert addAction:cancel];
-        }
-        [self presentViewController:_dateAlert animated:YES completion:^{
-
-        }];
+        [self dateClicked];
     }
+}
+
+- (void)dateClicked {
+    if (!_dateAlert) {
+        _dateAlert = [UIAlertController alertControllerWithTitle:@"" message:@"\n\n\n\n\n\n\n\n\n\n" preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            NSDate *date = self.datePicker.date;
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy-MM-dd"];
+            NSLog(@"%@",[formatter stringFromDate:date]);
+            [self.dateBtn setTitle:[formatter stringFromDate:date] forState:UIControlStateNormal];
+        }];
+        _datePicker = [[UIDatePicker alloc] init];
+        _datePicker.datePickerMode = UIDatePickerModeDate;
+        [_dateAlert.view addSubview:_datePicker];
+        _datePicker.sd_layout.centerXEqualToView(_dateAlert.view);
+        [_dateAlert addAction:cancel];
+    }
+    [self presentViewController:_dateAlert animated:YES completion:^{
+        
+    }];
 }
 
 - (void)customerClick:(UITapGestureRecognizer *)rec{
@@ -345,14 +350,14 @@
     [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (placemarks.count > 0) {
             CLPlacemark *plackMark = placemarks[0];
-            _currentCity = plackMark.name;
-            if (!_currentCity) {
-                _currentCity = @"未定位";
+            self.currentCity = plackMark.name;
+            if (!self.currentCity) {
+                self.currentCity = @"未定位";
             }else{
-                _currentCity = [NSString stringWithFormat:@"%@·%@·%@",plackMark.locality,plackMark.subLocality,plackMark.name];
+                self.currentCity = [NSString stringWithFormat:@"%@·%@·%@",plackMark.locality,plackMark.subLocality,plackMark.name];
             }
             
-            _localLabel.text = _currentCity;
+            [self.localBtn setTitle:self.currentCity forState:UIControlStateNormal];
         }
     }];
 }
@@ -399,8 +404,8 @@
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id _Nonnull responseObject, NSError *error) {
         if (error) {
-            _HUD.label.text = @"发送失败";
-            [_HUD hideAnimated:YES afterDelay:1];
+            self.HUD.label.text = @"发送失败";
+            [self.HUD hideAnimated:YES afterDelay:1];
         } else {
             
             if (responseObject) {
@@ -409,12 +414,12 @@
                     [self upload:dictionary[@"uptoken"] ];
                     
                 }else{
-                    _HUD.label.text = @"发送失败";
-                    [_HUD hideAnimated:YES afterDelay:1];
+                    self.HUD.label.text = @"发送失败";
+                    [self.HUD hideAnimated:YES afterDelay:1];
                 }
             }else{
-                _HUD.label.text = @"发送失败";
-                [_HUD hideAnimated:YES afterDelay:1];
+                self.HUD.label.text = @"发送失败";
+                [self.HUD hideAnimated:YES afterDelay:1];
             }
         }
         
@@ -439,16 +444,16 @@
             NSLog(@"info ===== %@", info);
             int status = [info statusCode];
             if (status != 200) {
-                _HUD.label.text = @"发送失败";
-                [_HUD hideAnimated:YES afterDelay:1];
+                self.HUD.label.text = @"发送失败";
+                [self.HUD hideAnimated:YES afterDelay:1];
                 return ;
             }
             NSLog(@"resp ===== %@", resp);
             Url *url = [Url new];
             url.url = resp[@"key"];
-            _count++;
+            self.count++;
             [list addObject:url];
-            if (_count == datas.count) {
+            if (self.count == datas.count) {
                 NSArray *a = [Url mj_keyValuesArrayWithObjectArray:list];
                 NSString *json = [a mj_JSONString];
                 [self publishWork:json];
@@ -468,7 +473,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     
     NSString* urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL,API_WORK_PUBLISH];
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:@{@"content":_contentView.text,@"picurl":picurl,@"worktime":_dateLabel2.text,@"lal":@"20,116",@"address":_localLabel.text,@"cid":_customerid,@"stafflist":_stafflist,@"worktype":[NSString stringWithFormat:@"%ld",_worktype]}                                                                                    error:nil];
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:@{@"content":_contentView.text,@"picurl":picurl,@"worktime":_dateBtn.titleLabel.text,@"lal":@"20,116",@"address":_localBtn.titleLabel.text,@"cid":_customerid,@"stafflist":_stafflist,@"worktype":[NSString stringWithFormat:@"%ld",_worktype]}                                                                                    error:nil];
     [request addValue:userId forHTTPHeaderField:@"userId"];
     [request addValue:token forHTTPHeaderField:@"token"];
     [request addValue:dbid forHTTPHeaderField:@"dbid"];
@@ -476,23 +481,23 @@
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id _Nonnull responseObject, NSError *error) {
         if (error) {
             NSLog(@"Error:-->%@", error);
-            _HUD.label.text = @"发送失败";
+            self.HUD.label.text = @"发送失败";
         } else {
             NSString *responseString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
             NSLog(@"DATA-->%@", responseString);
             if (responseObject) {
                 NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
                 if ([dictionary[@"result"] intValue] == 1) {
-                    _HUD.label.text = @"发送成功";
+                    self.HUD.label.text = @"发送成功";
                     [self cancelButtonClicked];
                 }else{
-                    _HUD.label.text = @"发送失败";
+                    self.HUD.label.text = @"发送失败";
                 }
             }else{
-                _HUD.label.text = @"发送失败";
+                self.HUD.label.text = @"发送失败";
             }
         }
-        [_HUD hideAnimated:YES afterDelay:1];
+        [self.HUD hideAnimated:YES afterDelay:1];
     }];
     [dataTask resume];
 }

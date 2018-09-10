@@ -25,10 +25,9 @@
     self.title = @"选择同事";
     _dbUtil = [[OrgUserInfoDbUtil alloc] init];
     self.selectedObjects = @[].mutableCopy;
-    self.view.backgroundColor = [UIColor whiteColor];
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定(0)" style:UIBarButtonItemStylePlain target:self action:@selector(sureButtonClick)];
-    self.tableView.rowHeight = [SelectColleauesTableViewCell fixedHeight];
+    self.tableView.rowHeight = 60;
     self.tableView.sectionIndexColor = [UIColor lightGrayColor];
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];

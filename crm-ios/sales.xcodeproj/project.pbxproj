@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30AD8772146180200F2252A /* WorkPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = A30AD8762146180200F2252A /* WorkPublishView.m */; };
 		A31E531D212B0C7E005331AB /* BIUPNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A31E531B212B0C7D005331AB /* BIUPNetworkManager.m */; };
 		A325C9B2212EF8F10086176B /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A325C9B1212EF8F10086176B /* MenuView.m */; };
 		A335DD7F2130E3CE00044615 /* WorkChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A335DD7E2130E3CE00044615 /* WorkChooseView.m */; };
@@ -248,6 +249,8 @@
 
 /* Begin PBXFileReference section */
 		740E17A0E5244D9EB2F89681 /* Pods-sales.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sales.release.xcconfig"; path = "Pods/Target Support Files/Pods-sales/Pods-sales.release.xcconfig"; sourceTree = "<group>"; };
+		A30AD8752146180100F2252A /* WorkPublishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkPublishView.h; sourceTree = "<group>"; };
+		A30AD8762146180200F2252A /* WorkPublishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkPublishView.m; sourceTree = "<group>"; };
 		A31E531B212B0C7D005331AB /* BIUPNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIUPNetworkManager.m; sourceTree = "<group>"; };
 		A31E531C212B0C7E005331AB /* BIUPNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIUPNetworkManager.h; sourceTree = "<group>"; };
 		A325C9B0212EF8F10086176B /* MenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
@@ -804,6 +807,8 @@
 				CE9ECB2F1EA0765A0053BCA9 /* WorkUnreadTableViewCell.m */,
 				A335DD7D2130E3CE00044615 /* WorkChooseView.h */,
 				A335DD7E2130E3CE00044615 /* WorkChooseView.m */,
+				A30AD8752146180100F2252A /* WorkPublishView.h */,
+				A30AD8762146180200F2252A /* WorkPublishView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2307,6 +2312,7 @@
 				CE728E901E680FAC00437FB2 /* IConversationSettingTableViewHeader.m in Sources */,
 				CEA456AE1E4AACAE0011356B /* NewsTableViewCell.m in Sources */,
 				CE9ECB791EA7463E0053BCA9 /* TZImagePickerController.m in Sources */,
+				A30AD8772146180200F2252A /* WorkPublishView.m in Sources */,
 				CEE863EF1DD4093800695F0F /* SalesDbUtil.m in Sources */,
 				CEE864361DE2E3A200695F0F /* BottomBarViewController.m in Sources */,
 				CEE864051DD5BBC600695F0F /* PhotoContainerView.m in Sources */,

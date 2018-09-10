@@ -118,7 +118,7 @@
         
         // 线条
         UIView *lineView = [[UIView alloc] init];
-        lineView.backgroundColor = [UIColor colorWithHex:0x333333];
+        lineView.backgroundColor = [UIColor lightGrayColor];
         [_bgView addSubview:lineView];
         [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.bgView);
