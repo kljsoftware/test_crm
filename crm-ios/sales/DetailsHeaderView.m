@@ -215,7 +215,7 @@ CGFloat maxContentLabelHeights = 0; // 根据具体font而定
     //    }
 //    UIButton *button = (UIButton *)sender;
 //    button.selected = !button.selected;
-    NSLog(@"data-->666");
+    
     NSString *userId = [NSString stringWithFormat:@"%lld",[Config getOwnID]];;
     NSString *token = [Config getToken];
     
@@ -250,12 +250,7 @@ CGFloat maxContentLabelHeights = 0; // 根据具体font而定
                         _supportButton.selected = NO;
                         _favnumLabel.text = [NSString stringWithFormat:@"%ld",_model.favnum];
                     }
-                }else{
-                    
                 }
-                
-            }else{
-                
             }
         }
     }];

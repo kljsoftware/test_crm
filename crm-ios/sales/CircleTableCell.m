@@ -249,13 +249,45 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
 }
 
 - (void)supportClicked:(UIButton *)sender{
-//    sender.selected = !sender.selected;
-//    if (sender.selected) {
-//        _model.favnum++;
-//    } else {
-//        _model.favnum--;
-//    }
-//    [self setModel:_model];
+    NSString *userId = [NSString stringWithFormat:@"%lld",[Config getOwnID]];;
+    NSString *token = [Config getToken];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    
+    NSString* urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL,API_CIRCLE_FAV];
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:@{@"commentid":@"-1",@"postid":[NSString stringWithFormat:@"%ld",_model.id]}                                                                                    error:nil];
+    [request addValue:userId forHTTPHeaderField:@"userId"];
+    [request addValue:token forHTTPHeaderField:@"token"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id _Nonnull responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error:-->%@", error);
+        } else {
+            NSString *responseString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+            NSLog(@"DATA UNREAD-->%@", responseString);
+            if (responseObject) {
+                NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+                if ([dictionary[@"result"] intValue] == 1) {
+                    if (_model.favstatus == 0) {
+                        _model.favstatus = 1;
+                        _model.favnum++;
+                        _supportButton.selected = YES;
+                        _supportNumLabel.text = [NSString stringWithFormat:@"%ld",_model.favnum];
+                    }else{
+                        _model.favstatus = 0;
+                        _model.favnum--;
+                        _supportButton.selected = NO;
+                        _supportNumLabel.text = [NSString stringWithFormat:@"%ld",_model.favnum];
+                    }
+                }
+            }
+        }
+    }];
+    [dataTask resume];
 }
 
 - (void)deleteClick:(id)sender{
