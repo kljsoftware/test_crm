@@ -839,7 +839,7 @@
                                             <constraint firstItem="qIs-1v-1DL" firstAttribute="centerY" secondItem="JHa-8a-KPU" secondAttribute="centerY" id="bzQ-w5-2jg"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWF-Qr-C1f">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWF-Qr-C1f">
                                         <rect key="frame" x="10" y="45" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="VR8-Aw-xfa"/>

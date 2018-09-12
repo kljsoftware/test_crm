@@ -28,7 +28,7 @@
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)registerUser{
+- (IBAction)registerUser {
     NSString *name = _nameField.text;
     NSString *pwd = _passwordField.text;
     NSString *pwdsure = _sureField.text;
@@ -70,7 +70,10 @@
                     _hud.label.text = @"注册成功";
                     [_hud hideAnimated:YES afterDelay:1];
                     [Config setOwnID:0];
-                    [(AppDelegate *)[UIApplication sharedApplication].delegate showWindowLogin:@"logout"];
+                    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"password"];
+                    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"mobile"];
+                    [self.navigationController popToRootViewControllerAnimated:true];
+                    
                 }else{
                     _hud = [Utils createHUD];
                     _hud.label.text = @"注册失败";

@@ -31,10 +31,24 @@
     _avatarImage.layer.masksToBounds = true;
     _searchText.leftViewMode = UITextFieldViewModeAlways;
     _searchText.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 57, 40)];
+    _searchText.inputAccessoryView = [self createToolbar];
+}
+
+- (UIToolbar *)createToolbar {
+    
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_SIZE.width, 44)];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(textFieldDone)];
+    toolBar.items = @[space, done];
+    return toolBar;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)textFieldDone {
+    [self.searchText resignFirstResponder];
 }
 
 - (IBAction)searchClicked:(UIButton *)sender {

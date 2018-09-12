@@ -211,7 +211,7 @@
     return completion(user);
 }
 
-- (void)showWindowLogin:(NSString *)windowType{
+- (void)showWindowLogin:(NSString *)windowType {
     if ([windowType isEqualToString:@"logout"]) {
         LoginViewController *loginVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"LoginIdentifier"];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
