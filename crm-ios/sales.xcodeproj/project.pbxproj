@@ -15,6 +15,7 @@
 		A360A200213197CB00CCA194 /* ImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A1FF213197CB00CCA194 /* ImagePickerCell.m */; };
 		A3695BCC2129409200E3E0A6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCB2129409200E3E0A6 /* BaseViewController.m */; };
 		A3695BCF212942E700E3E0A6 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */; };
+		A370C74C2175C0AE005C8E47 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A370C74B2175C0AE005C8E47 /* WebViewController.m */; };
 		A38193C32132635E009D5973 /* CCSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38193C12132635D009D5973 /* CCSegmentView.m */; };
 		A38193C72132CC9E009D5973 /* ODiscussSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A38193C52132CC9E009D5973 /* ODiscussSettingCell.m */; };
 		A38193C82132CC9E009D5973 /* ODiscussSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A38193C62132CC9E009D5973 /* ODiscussSettingCell.xib */; };
@@ -266,6 +267,8 @@
 		A3695BCB2129409200E3E0A6 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		A3695BCD212942E700E3E0A6 /* BaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		A3695BCE212942E700E3E0A6 /* BaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		A370C74A2175C0AE005C8E47 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		A370C74B2175C0AE005C8E47 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		A38193C12132635D009D5973 /* CCSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSegmentView.m; sourceTree = "<group>"; };
 		A38193C22132635D009D5973 /* CCSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSegmentView.h; sourceTree = "<group>"; };
 		A38193C42132CC9E009D5973 /* ODiscussSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ODiscussSettingCell.h; sourceTree = "<group>"; };
@@ -1020,6 +1023,8 @@
 				CE93ECA11E1B7F0300D26948 /* CustomerTableViewController.m */,
 				CEA456E51E5537990011356B /* CustomerDetailsViewController.h */,
 				CEA456E61E5537990011356B /* CustomerDetailsViewController.m */,
+				A370C74A2175C0AE005C8E47 /* WebViewController.h */,
+				A370C74B2175C0AE005C8E47 /* WebViewController.m */,
 				CEA456EA1E5594BF0011356B /* CustomerEditViewController.h */,
 				CEA456EB1E5594BF0011356B /* CustomerEditViewController.m */,
 				CEA456ED1E5ACA460011356B /* AddCustomerViewController.h */,
@@ -2311,6 +2316,7 @@
 				CEE8636D1DCB0EFC00695F0F /* ViewController.m in Sources */,
 				CE728E901E680FAC00437FB2 /* IConversationSettingTableViewHeader.m in Sources */,
 				CEA456AE1E4AACAE0011356B /* NewsTableViewCell.m in Sources */,
+				A370C74C2175C0AE005C8E47 /* WebViewController.m in Sources */,
 				CE9ECB791EA7463E0053BCA9 /* TZImagePickerController.m in Sources */,
 				A30AD8772146180200F2252A /* WorkPublishView.m in Sources */,
 				CEE863EF1DD4093800695F0F /* SalesDbUtil.m in Sources */,

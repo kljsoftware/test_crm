@@ -60,4 +60,6 @@
 
 @property (nonatomic,assign) NSInteger updatetime;
 
+@property (nonatomic,strong) NSString *jumpWebUrl;
+
 @end

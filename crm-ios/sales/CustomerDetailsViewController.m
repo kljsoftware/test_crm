@@ -9,6 +9,7 @@
 #import "CustomerDetailsViewController.h"
 #import "CustomerEditViewController.h"
 #import "CustomerDeepViewController.h"
+#import "WebViewController.h"
 
 @interface CustomerDetailsViewController () <CustomerEditDelegate>
 
@@ -44,7 +45,7 @@
     _dbUtil = [[CustomerDbUtil alloc] init];
     self.title = @"客户详情";
     if (!self.uneditable) {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editButtonClicked)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editButtonClicked)];
         [self initView];
     }
     [self setUpData];
@@ -54,27 +55,39 @@
 //    _deepView = [[UIView alloc] initWithFrame:CGRectMake(0, 356, 450, 41)];
     _deepView = [[UIView alloc] init];
     [_bottomView addSubview:_deepView];
-    
-    UILongPressGestureRecognizer *gesturRecognizer=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(deepCustomer:)];
-    gesturRecognizer.minimumPressDuration = 0;
-    [_deepView addGestureRecognizer:gesturRecognizer];
-    
     _deepView.sd_layout
-    .topSpaceToView(_remarkLabel,16).heightIs(41).widthIs(450);
+    .topSpaceToView(_remarkLabel,16).heightIs(80).widthIs(KSCREEN_WIDTH);
     
-    _deepLabel = [UILabel new];
-    _deepLabel.text = @"客户深度管理";
-    _deepLabel.font = [UIFont systemFontOfSize:15];
-    [_deepView addSubview:_deepLabel];
-    _deepLabel.sd_layout
-    .topSpaceToView(_deepView,10).leftSpaceToView(_deepView,20).widthIs(120).heightIs(20);
+    UIButton *deepBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [deepBtn setTitle:@"客户深度管理" forState:UIControlStateNormal];
+    [deepBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    deepBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    deepBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [deepBtn addTarget:self action:@selector(deepCustomer:) forControlEvents:UIControlEventTouchUpInside];
+    [_deepView addSubview:deepBtn];
+    deepBtn.sd_layout
+    .topSpaceToView(_deepView,0).leftSpaceToView(_deepView,20).widthIs(KSCREEN_WIDTH-40).heightIs(40);
     
-//    _deepLine = [[UIView alloc] initWithFrame:CGRectMake(0, 397, 450, 1)];
+    UIButton *userportBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [userportBtn setTitle:@"用户画像" forState:UIControlStateNormal];
+    [userportBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    userportBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    userportBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [userportBtn addTarget:self action:@selector(userPortClicked) forControlEvents:UIControlEventTouchUpInside];
+    [_deepView addSubview:userportBtn];
+    userportBtn.sd_layout
+    .topSpaceToView(deepBtn,0).leftSpaceToView(_deepView,20).widthIs(KSCREEN_WIDTH-40).heightIs(40);
+    
     _deepLine = [[UIView alloc] init];
     _deepLine.backgroundColor = [UIColor lineColor];
     [_deepView addSubview:_deepLine];
     _deepLine.sd_layout
-    .topSpaceToView(_deepView,40).heightIs(1).widthIs(450);
+    .topSpaceToView(_deepView,40).heightIs(1).widthIs(KSCREEN_WIDTH);
+    UIView *userPortline = [[UIView alloc] init];
+    userPortline.backgroundColor = [UIColor lineColor];
+    [_deepView addSubview:userPortline];
+    userPortline.sd_layout
+    .topSpaceToView(_deepView,79).heightIs(1).widthIs(KSCREEN_WIDTH);
     
     _deleteButton = [UIButton new];
     [_deleteButton setTitle:@"删除" forState:UIControlStateNormal];
@@ -159,22 +172,25 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)userPortClicked {
+    WebViewController *webVC = [[WebViewController alloc] init];
+    webVC.url = self.customer.jumpWebUrl;
+    [self.navigationController pushViewController:webVC animated:true];
+}
+
 - (void)customerEdit:(Customer *)customer{
     [self setCustomer:customer];
     [self setUpData];
 }
 
-- (void)deepCustomer:(UITapGestureRecognizer *)rec{
-    if (rec.state == UIGestureRecognizerStateBegan) {
-        
-    }else if(rec.state == UIGestureRecognizerStateEnded){
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Customer" bundle:nil];
-        
-        CustomerDeepViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CustomerDeep"];
-        vc.hidesBottomBarWhenPushed = YES;
-        vc.customer = _customer;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+- (void)deepCustomer:(UIButton *)sender {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Customer" bundle:nil];
+    
+    CustomerDeepViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CustomerDeep"];
+    vc.hidesBottomBarWhenPushed = YES;
+    vc.customer = _customer;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)deleteAlert{
